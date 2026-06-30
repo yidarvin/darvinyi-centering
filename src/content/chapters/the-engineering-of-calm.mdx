@@ -1,0 +1,217 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { Caution } from '@/components/chapters/the-settled-body/Caution';
+import { CognitiveModelFigure } from '@/components/chapters/the-engineering-of-calm/CognitiveModelFigure';
+import { DefusionDistanceFigure } from '@/components/chapters/the-engineering-of-calm/DefusionDistanceFigure';
+import { WiseMindFigure } from '@/components/chapters/the-engineering-of-calm/WiseMindFigure';
+import { MbsrPracticeSetFigure } from '@/components/chapters/the-engineering-of-calm/MbsrPracticeSetFigure';
+import { ThoughtDistancer } from '@/components/chapters/the-engineering-of-calm/ThoughtDistancer';
+
+export const reflection = {
+  path: '~/centering/10.1',
+  prompt: 'Pick a thought that has been pushing you around lately. Write it out as it actually sounds in your head. Then write it again, starting with "I am having the thought that…". What changes in the second version, and what does not?',
+};
+
+export const sources = [
+  { text: 'Aaron T. Beck, Cognitive Therapy and the Emotional Disorders (International Universities Press, 1976). The founding text of cognitive therapy: the cognitive model, automatic thoughts, "distancing," and the systematic errors in thinking. In copyright, so paraphrased here, never quoted at length.', url: 'https://archive.org/details/cognitivetherapy0000beck' },
+  { text: 'Beck Institute, "The Cognitive Model" and "History of CBT." On Aaron Beck (1921–2021), the situation-to-automatic-thought-to-response model, and the dating of cognitive therapy to the 1960s and 1970s.', url: 'https://beckinstitute.org/cognitive-model/' },
+  { text: 'Albert Ellis Institute, on Rational Emotive Behavior Therapy and the ABC model. Ellis (1913–2007) formalized the mediating belief a few years before Beck and traced it openly to the Stoics, especially Epictetus.', url: 'https://albertellis.org/rebt-cbt-therapy/' },
+  { text: 'Epictetus, Enchiridion, section 5 (public-domain translation). "Men are disturbed not by things, but by the views which they take of things." The Stoic root that Ellis credited and the cognitive model rediscovered. See also the Stoicism chapter.', url: 'https://classics.mit.edu/Epictetus/epicench.html' },
+  { text: 'David D. Burns, Feeling Good: The New Mood Therapy (William Morrow, 1980). Beck spotted the pattern of distorted thinking; Burns, his student, expanded it into the now-standard list of ten cognitive distortions and put it in front of millions. In copyright, paraphrased.', url: 'https://en.wikipedia.org/wiki/Feeling_Good:_The_New_Mood_Therapy' },
+  { text: 'Steven C. Hayes, Kirk D. Strosahl, and Kelly G. Wilson, Acceptance and Commitment Therapy: The Process and Practice of Mindful Change, 2nd ed. (Guilford Press, 2012). The six core processes, psychological flexibility, and the chessboard and sky metaphors for self-as-context.', url: 'https://www.guilford.com/books/Acceptance-and-Commitment-Therapy/Hayes-Strosahl-Wilson/9781609189624' },
+  { text: 'Association for Contextual Behavioral Science, "The Six Core Processes of ACT." The official definitions of defusion, acceptance, present-moment contact, self-as-context, values, and committed action, and of psychological flexibility as the goal.', url: 'https://contextualscience.org/the_six_core_processes_of_act' },
+  { text: 'Marsha M. Linehan, DBT Skills Training Manual, 2nd ed. (Guilford Press, 2015). The acceptance-and-change dialectic, the three states of mind (reasonable, emotion, wise), and the distress-tolerance skills including radical acceptance, TIPP, and STOP. Paraphrased.', url: 'https://www.guilford.com/books/DBT-Skills-Training-Manual/Marsha-Linehan/9781462516995' },
+  { text: 'Benedict Carey, "Expert on Mental Illness Reveals Her Own Fight," The New York Times, June 23, 2011. Linehan’s public disclosure, at sixty-eight, of her own teenage hospitalization, self-harm, and suicidality, and how radical acceptance figured in her recovery.', url: 'https://www.nytimes.com/2011/06/23/health/23lives.html' },
+  { text: 'Jon Kabat-Zinn, Wherever You Go, There You Are: Mindfulness Meditation in Everyday Life (Hyperion, 1994). The canonical definition: mindfulness is "paying attention in a particular way: on purpose, in the present moment, and nonjudgmentally."', url: 'https://www.mindful.org/jon-kabat-zinn-defining-mindfulness/' },
+  { text: 'Jon Kabat-Zinn, Full Catastrophe Living, rev. ed. (Bantam, 2013; orig. 1990), and the MBSR Collaborative history of the program. On the founding of the Stress Reduction Clinic at the University of Massachusetts Medical School in 1979, the eight-week course, the body scan, mindful yoga, and the raisin exercise.', url: 'https://mbsrcollaborative.com/history-of-mbsr/' },
+  { text: 'Zindel Segal, J. Mark G. Williams, and John D. Teasdale, Mindfulness-Based Cognitive Therapy for Depression, 2nd ed. (Guilford Press, 2013), and Teasdale et al., Journal of Consulting and Clinical Psychology (2000). MBCT as MBSR joined to cognitive therapy, "decentering" as its mechanism, and the relapse benefit specific to those with three or more prior episodes.', url: 'https://pubmed.ncbi.nlm.nih.gov/10965637/' },
+  { text: 'Madhav Goyal et al., "Meditation Programs for Psychological Stress and Well-being: A Systematic Review and Meta-analysis," JAMA Internal Medicine 174, no. 3 (2014): 357–368. The sober anchor: moderate evidence and modest effect sizes (around 0.3) for anxiety, depression, and pain, and no evidence that meditation beat active controls like exercise or other therapies.', url: 'https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1809754' },
+  { text: 'Simon B. Goldberg et al., "The Empirical Status of Mindfulness-Based Interventions: A Systematic Review of 44 Meta-Analyses," Perspectives on Psychological Science 17, no. 1 (2022): 108–130. Effects shrink and lose significance against active controls; roughly a quarter of tested effects show signs of inflation; harms are under-reported.', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8364929/' },
+  { text: 'Bruce E. Wampold et al., "A meta-analysis of outcome studies comparing bona fide psychotherapies: Empirically, ‘all must have prizes,’" Psychological Bulletin 122, no. 3 (1997): 203–215. The empirical basis of the "Dodo bird verdict" and the common-factors reading of why different therapies land in roughly the same place.', url: 'https://psycnet.apa.org/record/1997-43269-001' },
+  { text: 'Tom J. Johnsen and Oddgeir Friborg, "The effects of cognitive behavioral therapy as an anti-depressive treatment is falling: A meta-analysis," Psychological Bulletin 141, no. 4 (2015): 747–768, with the rebuttal by Björn Ljótsson et al., Psychological Bulletin 143, no. 3 (2017): 321–325. The contested claim that CBT’s effect on depression has declined over time, and the re-analysis arguing the decline is largely a pre-1995 artifact.', url: 'https://pubmed.ncbi.nlm.nih.gov/25961373/' },
+  { text: 'J. G. L. A-Tjak et al., "The efficacy of Acceptance and Commitment Therapy," Psychotherapy and Psychosomatics 84, no. 1 (2015): 30–36. ACT’s mean effect around 0.42 versus controls, but a small and non-significant edge (around 0.16) over established cognitive-behavioral treatments: rough parity, not superiority.', url: 'https://pubmed.ncbi.nlm.nih.gov/25193001/' },
+];
+
+The thought arrives at 2:40 in the afternoon, in the gap between two meetings. *They are going to find out you have no idea what you are doing.* It does not feel like a thought. It feels like a dispatch from the front, a piece of news about the world that happens to have landed inside your head. Your chest tightens. You open the document you were proud of an hour ago, and now it looks thin. You start rehearsing the moment of being found out, the exact phrasing of it. By the time the next meeting starts the afternoon is gone, and nothing actually happened. A sentence happened.
+
+Every tradition in this book has met that sentence and said, in its own words, that the trouble is not the sentence but the grip. The Stoics put it flatly two thousand years ago: you are disturbed not by things but by your [judgments about them](/tranquility-by-judgment). The Buddhists drew the [second arrow](/calm-abiding), the suffering you add to the pain. What the last hundred years did was take that old observation off the page, write it down as steps anyone could follow, hand it to people in ordinary distress, and then do the thing the older traditions never could. Measure whether it worked.
+
+This chapter is about four of those methods. Cognitive behavioral therapy (CBT). Acceptance and commitment therapy (ACT). Dialectical behavior therapy (DBT). And mindfulness-based stress reduction (MBSR). They are usually introduced as treatments for named disorders, and they are that. But take off the clinical frame and what is left is a set of trainable tools for producing calm on purpose. Same destination as the cushion and the Stoa, reached from the engineering end of the same road. And because this is a book that cares about getting things right, one promise up front: the effects of these methods are real, and they are modest. We will say so plainly when we get there, and that honesty is the whole bridge into [the next chapter on what actually works](/what-actually-works).
+
+<RouteTags routes={['letting-go', 'presence', 'perspective']} />
+
+<SectionMarker>a thought is not a fact</SectionMarker>
+
+Start with the insight all four methods share, the one Aaron Beck built a discipline on in the 1960s. Beck was a psychiatrist trained in psychoanalysis, and while listening to depressed patients he noticed something the theory of the day had no place for: a fast, quiet stream of thoughts running underneath the talking, thoughts the patient barely registered and never questioned. He called them automatic thoughts. And he saw that these thoughts, more than the events that triggered them, were what set the mood.
+
+That is the cognitive model, and it is almost embarrassingly simple to state. An event does not cause a feeling directly. In between sits a thought, an instant interpretation, and the feeling follows from the thought. Change the thought and the feeling changes, even when the event is identical. Albert Ellis, working a few years earlier, had drawn the same picture and called it ABC: an activating event, a belief, and only then the emotional consequence. Ellis was open about where he got it. He pointed straight back to Epictetus and the Stoics. The clinic had rediscovered the Stoa, and this time it brought a method.
+
+<CognitiveModelFigure />
+
+Look at what the model relocates. The event is fixed. The feeling and the actions that pour out of the feeling are downstream, hard to grab once they are moving. The one place with any give is the middle box, the thought. That is the leverage point, and every method in this chapter is, at bottom, a different way of working that middle box. CBT checks the thought against the evidence. ACT loosens your grip on it. DBT balances it against the feeling it is fighting. MBSR widens the field until the thought is just one small thing passing through. Four tools, one hinge.
+
+The first move, the one that makes all the others possible, Beck called distancing. Later writers called it decentering. The slogan is the cleanest version: a thought is not a fact. *They are going to find out* is not a report from the world. It is a sentence your mind produced, and like any sentence it can be true, false, or, most often, a little of both and wildly overstated. The instant you can see a thought as a thought instead of looking through it at a supposed reality, you have room to do something other than obey it.
+
+<SectionMarker>spotting the distortion</SectionMarker>
+
+Once you can hold a thought at enough distance to inspect it, a strange thing shows up. The thoughts that wind us tightest tend to be wrong in the same handful of ways, over and over. Beck catalogued these systematic errors. His student David Burns expanded the list and, in a 1980 book that sold in the millions, gave them the names most people now know.
+
+The list is worth carrying around in your head, because naming the move a thought is making takes most of its power.
+
+- **All-or-nothing thinking.** One flaw and the whole thing is a failure. There is no middle, only triumph or disaster.
+- **Overgeneralizing.** A single bad event becomes a pattern. One missed reply means "I always get this wrong."
+- **Mind reading.** You are certain you know what someone else is thinking, usually that it is about you, and usually that it is bad.
+- **Fortune telling.** You predict the worst and then treat the prediction as a fact already in the bank.
+- **Catastrophizing.** You take the size of a setback and inflate it until it fills the sky.
+- **Emotional reasoning.** "I feel like a fraud, therefore I am one." The feeling is taken as proof.
+- **Labeling.** A mistake stops being something you did and becomes something you are. Not "I missed it" but "I am a screwup."
+- **Should statements.** Rigid musts aimed at yourself or the world, with a payload of guilt when reality does not comply.
+- **Mental filter.** A day with nine good moments and one bad one gets filed entirely under the bad one.
+- **Personalizing.** You take the blame for things that were never yours to control.
+
+The working tool built on this is the thought record. You write down the situation, the automatic thought, and the feeling, with its intensity. Then you do the slow part: you gather the actual evidence for and against the thought, you name any distortions you can spot in it, and you compose a more accurate line to put in its place. This is called cognitive restructuring, and the most common misunderstanding about it is worth killing now. It is not positive thinking. The goal is not a cheerier thought. It is a truer one. Sometimes the evidence confirms the worry, and the honest conclusion is that the thing really is a problem, which is itself useful, because now you can act on a real problem instead of thrashing inside a vague dread. Realism, not sunshine.
+
+<SectionMarker>or just unhook from it</SectionMarker>
+
+CBT argues with the thought. It asks, is this true? A generation later, Steven Hayes and his colleagues built a method that asks a different question, and sometimes a better one: does it matter whether it is true? This is acceptance and commitment therapy, and its signature move is called cognitive defusion.
+
+Fusion is what is happening at 2:40 when the thought feels like the world. You and the thought are pressed flat together, no daylight between you, so its content reads as plain reality and you act on it without ever deciding to. Defusion pulls the two apart. And here is the part that makes it different from CBT: defusion does not touch the content of the thought at all. It does not check the evidence or build a better sentence. It changes your relationship to the words so they carry less weight, and then it leaves them exactly as they are.
+
+<DefusionDistanceFigure />
+
+The techniques are small and a little odd, and that is the point, because they work by experience rather than argument. The plainest is a verbal frame. Instead of *I am a fraud*, you say to yourself, *I am having the thought that I am a fraud.* Nothing about the claim has changed. But you have inserted an observer, and the sentence has quietly moved from being the floor you stand on to being an object you are looking at. A second technique is almost a party trick: take a charged word and repeat it out loud, fast, for thirty seconds. *Fraud, fraud, fraud, fraud.* It dissolves into a noise your mouth is making, which is what it was the whole time. A third is gentler: when the anxious mind offers its hundredth warning, you say, sincerely, *thank you, mind.* It is trying to protect you. You can acknowledge the effort without taking the order. A fourth, for sitting practice, is to picture each thought set on a leaf on a stream and watch it drift off, not pushed away, just allowed to pass.
+
+Underneath the techniques is ACT's deepest idea, and it is the one that ties this clinical method back to the oldest contemplative traditions in the book. Hayes calls it self-as-context, or more simply the observing self. There is the stream of your thoughts and feelings and roles, always changing, and there is the awareness that all of it passes through, which does not change. Two images carry it. You are the sky, not the weather. Storms move through the sky, sometimes violent ones, and the sky is never harmed and never becomes the storm. Or: you are the board, not the chess pieces. The black and white pieces can fight to exhaustion, and the board holds them all without winning or losing. If that observing self sounds familiar, it should. It is the [witness of the Gita and the yoga tradition](/stilling-the-mind), the awareness behind the churn in [Buddhist practice](/calm-abiding), and the calm [Self at the center](/the-calm-at-the-center) that the next chapter is built on. Four traditions, four vocabularies, the same quiet watcher behind the noise.
+
+<SectionMarker>try it: the thought-distancer</SectionMarker>
+
+Reading about defusion does almost nothing. The shift is felt, not understood, so the tool below is built to let you feel it on a real thought. Pick one of the sticky thoughts or type your own. Name the distortion it is making. Then wrap it in a defusion frame and watch the same words step back to arm's length. Write the truer line if there is one. And at the bottom, a separate dial from DBT, which the next section explains: the wise-mind locator, for finding the point between acting on a feeling and arguing it away.
+
+<ThoughtDistancer />
+
+<SectionMarker>wise mind</SectionMarker>
+
+The dial at the bottom of that widget comes from the hardest corner of this field. Dialectical behavior therapy was built by Marsha Linehan in the late 1970s for people standard therapy had mostly given up on: chronically suicidal patients, many later diagnosed with borderline personality disorder. Linehan tried straight CBT on them, all change and correction, and it failed. Pushing people in that much pain to think differently landed as one more person telling them they were the problem. So she added the opposite. Alongside change, she put acceptance, the radical stance that you are doing the best you can in this moment exactly as it is. Neither half alone worked. The synthesis did. She named it for that tension: dialectical, the holding of two opposites at once.
+
+The most portable idea to come out of DBT is her map of three states of mind. Reasonable mind is cool and logical, all facts and plans. Emotion mind is hot, where the feeling runs the show and decides what is true. Most bad moments are one of these two running unchecked. Emotion mind acts straight off the feeling and regrets it. Reasonable mind talks the feeling out of existence, and the feeling, unheard, simply waits and returns. Wise mind is the overlap, the place where the feeling is fully felt and the facts are fully kept and the next move comes from both at once.
+
+<WiseMindFigure />
+
+Wise mind is not reason winning. That is the misreading to avoid. It is not "calm down and be logical." It is the integration, and Linehan describes it as something closer to a settled, intuitive knowing than to a conclusion you reason your way to. She insists everyone has access to it, even people who have never once felt it.
+
+Out of the acceptance side of DBT comes a skill that is one of the most useful single phrases in this entire book: radical acceptance. It means accepting reality completely, all the way down, when reality is what it is and cannot be changed. And Linehan is emphatic about what it is not. It is not approval. It is not agreement. It is not giving up, and it is not resignation. You can radically accept a situation and fight to change it in the same breath. The reason to accept it is mechanical, not moral. Fighting a reality that has already happened does not move the reality. It only adds a second layer of suffering on top of the first. This is exactly the Buddhist [two arrows](/calm-abiding) in clinical dress, which is no accident. Linehan trained in Zen, and radical acceptance is her translation of that practice into language a hospital could use. Pain is the first arrow and often unavoidable. The resistance is the second arrow, and the second one is optional.
+
+DBT also keeps a set of tools for the hot moment itself, when you are too flooded to think at all. Their logic is to go through the body rather than the mind, the same brake [the chapter on the settled body](/the-settled-body) describes. One, called TIPP, uses cold water on the face and a long slow exhale to pull arousal down within a minute. Another, STOP, is a behavioral brake: stop, take a step back, observe what is actually happening, then proceed. These are for getting through the next five minutes without making things worse. They are not the deeper work, and they are not meant to be.
+
+One more thing about Linehan, because it matters. In 2011, at sixty-eight, after a career as the world authority on treating suicidal patients, she told a New York Times reporter something she had hidden her whole professional life. As a teenager she had been one of those patients. Hospitalized, in seclusion, burning and cutting herself, certain she was in hell. The method she built was not handed down from a comfortable height. It was reverse-engineered by someone who had needed it to survive and had to invent it because nothing else existed. She said she went public to give the people she treated some evidence that the way out is real.
+
+A necessary honest note. DBT's strong, replicated evidence is specifically for reducing self-harm and suicidal behavior in borderline personality disorder. It was the first therapy shown in trials to help that population at all, and that is a genuine achievement. The full treatment is a demanding clinical program, with individual therapy, group skills training, phone coaching, and a team behind the therapist. Learning wise mind or radical acceptance from a page is not "doing DBT," and these skills are not a substitute for care when distress is severe. What travels well, and what this chapter borrows, are the ideas themselves. They are good tools for an ordinary hard day.
+
+<SectionMarker>the body remembers</SectionMarker>
+
+The fourth method comes at calm from the opposite end. Where CBT, ACT, and DBT all work on your relationship to thought, mindfulness-based stress reduction barely talks about thinking at all. It trains attention, and it starts in the body.
+
+In 1979, Jon Kabat-Zinn, a molecular biologist with a long meditation practice, started a clinic at the University of Massachusetts Medical School. His patients were people medicine had run out of answers for: chronic pain, illness, the grinding stress that comes with both. He took the meditation he knew, which came out of Buddhist Zen and Vipassana practice, and he did something quietly radical. He stripped the religious frame off it. No doctrine, no devotion, nothing a patient of any belief or none would have to swallow. What was left he taught as a plain human skill, in a structured eight-week course, in a hospital. He gave the skill the cleanest definition anyone has managed.
+
+> Mindfulness is paying attention in a particular way: on purpose, in the present moment, and nonjudgmentally.
+
+The course is built from a few core practices, and the first one is the body scan. You lie down and move your attention slowly through the body, region by region, just noticing whatever sensation is there, or is not, without trying to fix or change a thing. It sounds like nothing. It trains the exact muscle every tradition in this book is after: attention that can rest on what is actually here, and return without complaint when it wanders. From there the course adds sitting meditation on the breath, gentle mindful movement, and a famous first exercise where you eat a single raisin as if you had never seen one, slowly enough to notice it is a small marvel. The point of the raisin is to show you, in one minute, the gap between living on autopilot and actually being present for your own life.
+
+<MbsrPracticeSetFigure />
+
+Two honest footnotes, because this is the most oversold practice of the four. The first is the McMindfulness critique, and it is fair. When you pull mindfulness out of the ethical tradition that held it and sell it as a productivity tool, you can end up with a technique for helping people tolerate conditions that should be changed instead of endured. A calmer worker in a crushing job is not always a victory. The practice is real; the uses it gets put to are not always honest. The second footnote: there is a descendant called mindfulness-based cognitive therapy, built by Segal, Williams, and Teasdale, that bolts MBSR onto CBT to prevent depression from coming back. Its proposed engine is the same move we started with, decentering, learning to see a dark thought as a passing mental event rather than the truth. The road loops back on itself. The newest method's core skill is Beck's oldest one.
+
+<SectionMarker>how well does it actually work</SectionMarker>
+
+Here is the promise from the opening, paid in full. These methods work. The effects are real and they replicate. They are also modest, and the gap between "real" and "miraculous" is where a lot of harm hides.
+
+The soberest anchor is a 2014 review in JAMA Internal Medicine, led by Madhav Goyal, that pooled the better meditation trials, the ones with proper comparison groups. It found moderate evidence that mindfulness programs improve anxiety, depression, and pain, with effect sizes clustering around 0.3. In plain terms, 0.3 is a small-to-moderate effect, the kind that is genuine and worth having at the scale of a population but is a long way from transformation. And the review found something that should stay in mind whenever a practice is sold to you. There was no good evidence that meditation worked better than other active things you might do instead, like exercise, or another kind of therapy.
+
+That last point names the deepest problem in the whole field, the active-control problem. A method looks powerful when you compare it to a waiting list, because the people getting it expected help, got attention, and reported hopefully. The honest test is against something else credible that also takes time and effort and belief. Measured that way, the effects of nearly everything in this chapter shrink, and sometimes stop being statistically detectable at all. A 2022 review of forty-four meta-analyses of mindfulness found exactly this pattern, and noted that about a quarter of the tested effects showed signs of being inflated, and that harms, which are real for a minority of practitioners, are barely studied.
+
+It gets more humbling. Compare the major therapies head to head and they tend to land in roughly the same place, a finding old enough to have a nickname, the Dodo bird verdict, from the Dodo in Alice in Wonderland who declares that everybody has won and all must have prizes. One reading is that the shared ingredients, a warm relationship, a believable rationale, the expectation of getting better, carry much of the benefit, and the specific technique carries less than its brand suggests. Even CBT, the most studied of all, has had a public fight about whether its measured effect on depression has been quietly shrinking across the decades. The argument is unresolved. But the very fact that it is a live argument tells you the effects were never as large or as settled as the confident books implied.
+
+None of this is a reason to skip the practice. It is a reason to hold it correctly. On the current evidence these are among the better-validated ways to deliberately build calm, their benefits are real, and overselling them does its own damage. It sets you up for disappointment, it crowds out an honest reckoning with the limits, and it papers over the small group for whom these practices go wrong. The grown-up stance is to use the tools, expect a real but moderate return, and keep the receipts. [The next chapter](/what-actually-works) grades all of it, route by route.
+
+<SectionMarker>one thought, all the way through</SectionMarker>
+
+Take the 2:40 thought and run it through the whole kit, not as rival methods but as one toolbox, because in practice that is how they are used.
+
+*They are going to find out you have no idea what you are doing.*
+
+Start where Beck starts. Catch it as a thought, not a verdict. Then name the moves it is making, and there are several. It is mind reading, because you have decided what a room full of people will conclude. It is fortune telling, because you have booked the catastrophe in advance. It is labeling, because "no idea what you are doing" turns one wobble into a whole identity. Naming them does not refute the thought, but it shrinks it, the way turning the lights on shrinks the shape in the corner.
+
+Now try the CBT line: what is actually true here, evidence included? Probably something like, *I know parts of this well and parts not at all, which is normal, and I have handled meetings on shakier ground than this.* If the honest answer were instead "I am genuinely unprepared," that is useful too, because now you can prepare, which beats marinating in dread.
+
+Suppose the truer line does not fully land, which often happens when the feeling is strong. Switch to the ACT move. Stop arguing and just unhook. *I am having the thought that they will find out.* You are the sky; this is weather. The thought can sit there, unrefuted, and lose its grip anyway.
+
+The anxiety is in your body now regardless, so reach for DBT. Radically accept it: the fear is here, you did not invite it, fighting it will only add the second arrow. Drop into wise mind. Not emotion mind, which would cancel the meeting. Not reasonable mind, which would lecture you that the fear is illogical while it keeps right on humming. The overlap: the fear is real and the meeting is doable, so the next move is to take three slow breaths and walk in.
+
+Which is the MBSR close. Out of the future you were rehearsing and into the present, where the only thing actually happening is a breath, a chair, a room. Attention on purpose, here, without judgment.
+
+Notice what none of that did. It did not delete the thought. It did not make you not care about the meeting, which would be the [numbness this book keeps refusing](/calm-is-not-numbness), not the [calm it is after](/what-calm-is). You still want it to go well. You will still feel it if it does not. What you set down was the second layer, the part you were adding. That is the engineering of calm in one sentence. Not silence in the head, but a little space between you and the noise, opened on purpose, with tools you can name.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="the-engineering-of-calm"
+  id="thought-record"
+  n="01"
+  title="One thought record"
+  input="text"
+  placeholder="the situation… · the automatic thought, word for word… · the feeling, 0 to 100… · the distortions it makes… · the truer, more accurate line…"
+>
+  Catch one thought today that pushed your mood around, and run Beck's record on it. Write the situation,
+  then the exact automatic thought, then the feeling and how strong it was. Now do the slow part: name the
+  distortions you can spot in it, weigh the real evidence for and against, and compose a more accurate line
+  to stand in its place. Aim for true, not cheerful. Re-rate the feeling when you are done.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-engineering-of-calm"
+  id="defusion"
+  n="02"
+  title="One defusion move"
+  input="text"
+  placeholder="the sticky thought… · the same thought after 'I am having the thought that…' · what shifted, even slightly…"
+>
+  Take a thought that has been gripping you, one that arguing with has not loosened. Do not argue with it
+  this time. Instead, wrap it: say to yourself, "I am having the thought that…" and then the thought,
+  unchanged. Or repeat the most charged word in it out loud, fast, for thirty seconds, until it turns back
+  into a sound. Write down what shifted. The aim is not to feel better about the thought. It is to stand a
+  little further from it.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-engineering-of-calm"
+  id="radical-acceptance"
+  n="03"
+  title="One line of radical acceptance"
+  input="text"
+  placeholder="the reality I keep fighting… · the radical-acceptance line for it… · what I can still do about it, if anything…"
+>
+  Find one thing in your life that is already true and will not be changed by your refusing it: a loss, a
+  delay, a fact about another person, something already done. Write one plain line of radical acceptance
+  for it. "This is how it is right now." Remember what the line is not. It is not approval, and it is not
+  giving up. If there is something you can still do about it, name that too. Acceptance of the reality and
+  action on it can live in the same sentence.
+</ExerciseCard>
+
+<Caution title="about the body scan">
+  For most people a body scan is settling, but for a few, turning attention inward can stir up anxiety,
+  restlessness, or difficult memories, especially with a history of trauma. If that happens, open your
+  eyes, let the attention rest somewhere neutral and outward, and stop. This is a practice, not a test, and
+  it is not a substitute for care when distress is severe.
+</Caution>
+
+<ExerciseCard
+  chapterSlug="the-engineering-of-calm"
+  id="body-scan"
+  n="04"
+  title="A short body scan"
+  input="timer"
+  seconds={600}
+>
+  Lie down or sit, and move your attention slowly through the body, starting at the feet and traveling up. At each region, just notice whatever sensation is there, or the absence of one. You are not trying to relax, fix, or change anything. When the mind wanders, and it will, note where it went and bring the attention back to where you were. Ten minutes is plenty to start. There is no goal to reach, only the attention itself.
+</ExerciseCard>
