@@ -1,0 +1,198 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { Caution } from '@/components/chapters/the-settled-body/Caution';
+import { FluctuationsSettlingFigure } from '@/components/chapters/stilling-the-mind/FluctuationsSettlingFigure';
+import { EightLimbsStaircaseFigure } from '@/components/chapters/stilling-the-mind/EightLimbsStaircaseFigure';
+import { GitaStoaParallelFigure } from '@/components/chapters/stilling-the-mind/GitaStoaParallelFigure';
+import { NadiShodhanaPacer } from '@/components/chapters/stilling-the-mind/NadiShodhanaPacer';
+import { EightLimbsExplorer } from '@/components/chapters/stilling-the-mind/EightLimbsExplorer';
+
+export const reflection = {
+  path: '~/centering/09.1',
+  prompt: 'Name one thing you are doing right now mostly for what it will get you. What would change in how you do it, and how you feel doing it, if you gave the action everything and let the result go?',
+};
+
+export const sources = [
+  { text: 'Patañjali, Yoga Sutras, trans. James Haughton Woods, The Yoga-System of Patañjali (Harvard Oriental Series, 1914). Public domain, and the most literal of the standard translations (the source of older renderings like "mind-stuff" and "restriction"). Sutras cited here: 1.2, 1.3, 1.4, 1.6, 1.7–1.11, 1.12, 2.29, 2.30, 2.32, 2.46, 2.49, 3.1–3.4. Internet Archive.', url: 'https://archive.org/details/yogasystemofpata00wooduoft' },
+  { text: 'Swami Vivekananda, Raja Yoga (1896). Public domain. Looser and more interpretive than Woods, but it is the book that carried Patañjali west and gave us the now-common name "raja yoga" and the lake-and-waves image of the settling mind.', url: 'https://en.wikisource.org/wiki/Raja_Yoga' },
+  { text: 'The Bhagavad Gita, trans. Sir Edwin Arnold, The Song Celestial (1885). Public domain. Every verbatim Gita quotation in this chapter is Arnold’s verse. Verses drawn on: 2.47, 2.48, 2.50, 2.54–2.72 (the sthitaprajña), 2.58, 2.71, 3.27, and ch.13 (the witness). Project Gutenberg.', url: 'https://www.gutenberg.org/ebooks/2388' },
+  { text: '“The Yoga Sutras of Patanjali,” Internet Encyclopedia of Philosophy. On the dating (the text does not postdate the fifth century CE; the scholarly center of gravity sits in the early centuries CE), Patañjali as systematizer rather than founder, Sāṃkhya as the metaphysical frame, Īśvara as a special self rather than a creator god, āsana as a “seat,” and modern postural yoga as a recent development.', url: 'https://iep.utm.edu/yoga/' },
+  { text: '“Bhagavad Gita,” Internet Encyclopedia of Philosophy. On karma yoga, niṣkāma karma (desireless action), the offering of the fruits, svadharma, the guṇas, the witnessing self, mokṣa, and the integration of the three yogas (karma, jñāna, bhakti).', url: 'https://iep.utm.edu/bhagavad-gita/' },
+  { text: 'Edwin Bryant, The Yoga Sūtras of Patañjali: A New Edition, Translation, and Commentary (North Point Press, 2009). The standard modern scholarly translation. The reading used here, that the eight limbs are mutually supporting rather than a strict sequence, follows Bryant. In copyright, so paraphrased, never quoted at length.', url: 'https://archive.org/details/yogastrasofpataj0000pata_g3p0' },
+  { text: 'Mark Singleton, Yoga Body: The Origins of Modern Posture Practice (Oxford University Press, 2010). The history behind the claim that the athletic, posture-based yoga most of us picture is largely a late-nineteenth and twentieth-century creation, not the practice Patañjali described.', url: 'https://en.wikipedia.org/wiki/Yoga_Body' },
+  { text: '“Indian philosophy: The Yoga-sutras,” Encyclopaedia Britannica. On Yoga as Seśvara-Sāṃkhya, “Sāṃkhya with God,” and Īśvara as the twenty-sixth principle, a special self rather than a Western-style creator.', url: 'https://www.britannica.com/topic/Indian-philosophy/The-Yoga-sutras' },
+  { text: '“Ashtanga (eight limbs of yoga),” Wikipedia. A compilation of the standard glosses for the eight limbs and their sub-lists, drawing on Bryant, Taimni, Hariharānanda Āraṇya, and Hartranft.', url: 'https://en.wikipedia.org/wiki/Ashtanga_(eight_limbs_of_yoga)' },
+  { text: 'Epictetus, Enchiridion, section 1, Internet Classics Archive (trans. Elizabeth Carter, public domain). “Some things are in our power, and others are not.” The Stoic dichotomy set beside the Gita in this chapter.', url: 'https://classics.mit.edu/Epictetus/epicench.html' },
+  { text: 'Margaret Graver and others, “Epictetus,” Stanford Encyclopedia of Philosophy. On prohairesis (the faculty of choice) as the active rational center, and the scholarly caution that “up to us” is narrower than the everyday word “control.”', url: 'https://plato.stanford.edu/entries/epictetus/' },
+  { text: 'S. Laborde et al., “Effects of voluntary slow breathing on heart rate and heart rate variability: a systematic review and meta-analysis,” Neuroscience & Biobehavioral Reviews (2022). The comparatively well-supported finding behind the slow, exhale-weighted breath: it shifts the autonomic balance toward the parasympathetic. The science is detailed in Chapter 2.', url: 'https://www.sciencedirect.com/science/article/abs/pii/S0149763422002007' },
+  { text: 'Meta-analysis of alternate-nostril breathing and blood pressure (PubMed, 2024). The weaker, technique-specific evidence: small trials, high heterogeneity, and limited blinding. Cited here to keep the claim for nāḍī śodhana honest and modest.', url: 'https://pubmed.ncbi.nlm.nih.gov/39008954/' },
+  { text: 'Eric O. Scott, “Stoic Echoes in the Upanishads,” Modern Stoicism. A careful argument that the resemblance between the Indian and Stoic traditions is independent convergence, not borrowing, with a warning against the popular move that flattens the two into one idea.', url: 'https://modernstoicism.com/stoic-echoes-in-the-upanishads-by-eric-o-scott/' },
+];
+
+It is late and you are trying to sleep. The body is still. The mind is not. A conversation from the afternoon replays, and then rewrites itself with the sharper line you wish you had said. A worry about next week arrives, spins off three more, and they begin to braid together. You are not so much thinking these thoughts as being dragged behind them. The harder you try to stop, the louder the water gets.
+
+Almost two thousand years ago someone gave that churning a name, named its opposite, and laid out a road from one to the other. The someone is known as Patañjali, and the road is yoga.
+
+Not the yoga of the bright studio. The mat and the postures are a real practice and a surprisingly recent one, largely a creation of the last hundred and fifty years. The yoga Patañjali wrote about is older and almost entirely interior. He defined it in the second line of his text, in four words, and that definition is why this chapter belongs in this book at all.
+
+> yogaś citta-vṛtti-nirodhaḥ<br />Yoga is the stilling of the fluctuations of the mind.
+
+That is, more or less, this whole book in a single line. Pull the three load-bearing words apart. *Citta* is the mind, taken broadly: the intellect, the ego, the part that processes what the senses bring in. *Vṛtti* is a turning, a ripple, any movement that passes across that mind. *Nirodha* is a settling, a quieting, a stilling. Not the destruction of the mind. The calming of its churn. Yoga, before it was ever a shape the body makes, was the project of taking the agitated surface in the opening scene and letting it go still.
+
+<RouteTags routes={['the-body', 'letting-go', 'presence']} />
+
+<SectionMarker>the turnings of the mind</SectionMarker>
+
+Patañjali counts five kinds of ripple, and the surprising thing about his list is how ordinary it is. Named in the sixth aphorism and defined one by one just after, the fluctuations are: right knowledge, error, imagination, sleep, and memory. Notice that he does not single out anxiety, or anger, or any of the states you might expect a calm tradition to target. Even accurate perception is a ripple. Even memory. Anything that moves across the mind disturbs the surface, the way any pebble, thrown in love or in spite, still makes rings. The point is not that thinking is bad. The point is that a mind in constant motion cannot see clearly, for the same reason a wind-chopped pond cannot hold a reflection.
+
+<FluctuationsSettlingFigure />
+
+That is the image the tradition returns to, and it is worth sitting with because the next two lines turn on it. When the fluctuations still, Patañjali says, "the seer abides in its own nature." When they do not, "it takes the same form as the fluctuations." Read those slowly. There is a seer, and there is the weather of thought moving across it, and the two are not the same. The mind, in this system, is part of nature. It is the pond. The seer is the awareness behind the pond, the thing that is looking. When the surface churns, that awareness loses itself in the churn and becomes the worry, becomes the replayed argument, becomes whatever is moving through. You stop being the one who has a thought and become the thought. When the surface stills, awareness rests as itself again, and you are returned to the quiet watcher you actually are. That still watcher is the calm center this whole book keeps circling. Yoga is one of the oldest, most careful sets of instructions for getting back to it.
+
+<SectionMarker>what this yoga is, and is not</SectionMarker>
+
+A few honest notes before we go further, because this tradition is easy to romanticize and easy to misread.
+
+The dating is genuinely uncertain. The *Yoga Sutras* are usually placed somewhere in the early centuries of the common era, with the most careful recent work pointing to around 400 CE, though serious estimates run several centuries either way. "Patañjali" is best understood as a compiler who gathered and ordered an existing meditative tradition, not a lone inventor. So treat the precise figure lightly. The method is what survived, and the method is testable on your own afternoon.
+
+Philosophically, this yoga is the practical wing of an older system called Sāṃkhya, which splits reality in two: *puruṣa*, pure watching awareness, and *prakṛti*, nature, which includes not just rocks and bodies but the mind itself. That is the move that lets Patañjali say the seer and the fluctuations are different things. The system does include a kind of god, *Īśvara*, but as a special, untouched self to focus on, not a creator who runs the world. You do not have to buy the metaphysics to use the practice, and this chapter will not ask you to. Take the engineering and leave the cosmology if you like. The instructions work either way.
+
+And the posture point, since it is where most confusion lives. In Patañjali's eight-part path, posture is a single part. He spends about three lines on it, and his entire definition is that the seat should be "steady and comfortable." The word for posture, *āsana*, literally means "seat," and in context it means a stable way to sit so the body can be forgotten and the mind watched. The vast, athletic vocabulary of modern postures came many centuries later, much of it within living memory. None of that is a knock on a good yoga class. It is just a reminder that when Patañjali says yoga, he means the stilling of the mind, and the body is in service of that, not the other way around.
+
+<SectionMarker>two wings: practice and letting go</SectionMarker>
+
+So how do you still the water. Patañjali gives the answer early, and it is a pair, not a single move: *abhyāsa* and *vairāgya*. Practice and non-attachment. The grammar of the line is worth knowing, because he uses a form that means the two act together, as one instrument. Neither works alone.
+
+*Abhyāsa* is practice in the plain sense: steady, repeated, patient effort, kept up over a long time. It is the doing side, the showing up, the reps. *Vairāgya* is its opposite number, the letting go: loosening the grip of craving, releasing your claim on how things turn out. It is the undoing side, the open hand.
+
+Hold one without the other and the whole thing tips over. All practice and no release becomes another grim striving, another thing to win at, which is just the churning surface wearing a calmer mask. All release and no practice becomes drift, a soft excuse to do nothing and call it peace. The two are wings. A bird needs both. You will see this exact pairing run through the rest of the chapter, and through the rest of the book: the disciplined effort that the body and breath ask for, married to the open hand that the mind asks for. Practice is one of the seven routes in this book, the body. Letting go is another. Patañjali bolted them together at the start.
+
+<SectionMarker>the eight limbs</SectionMarker>
+
+The most famous part of Patañjali's text is his map of the road, the eight limbs, *aṣṭāṅga*, literally "eight limbs" the way an arm or a leg is a limb. They are usually drawn climbing from the outer life inward, and that is a useful picture as long as you hold it loosely. The word is "limb," not "rung." Patañjali lists them in order, but he does not say you must perfect one before touching the next. They lean on each other and grow together, the way the parts of a body do, and most people work several at once.
+
+<EightLimbsStaircaseFigure />
+
+The climb starts outside you, with how you behave. The first two limbs are the ethical ground: *yama*, five restraints toward the world (not harming, not lying, not stealing, not overindulging, not grasping), and *niyama*, five observances turned inward. It is easy to skip past this as throat-clearing before the real meditation, and that is a mistake. A mind at war with its own conduct does not settle. You cannot lie all day and then sit down and find a clear surface, because the lie is still rippling. Notice too what sits in the middle of the second list: *santoṣa*, contentment, the same "enough" that the [Epicureans](/enough-and-no-fear) built a whole philosophy on. The calm traditions keep rediscovering each other.
+
+The middle three limbs are the body and the senses, the bridge from the outer world to the inner one. *Āsana*, the steady seat. *Prāṇāyāma*, the regulated breath, which gets its own section below. And *pratyāhāra*, the withdrawal of the senses, where attention stops being yanked outward by every sound and itch and turns to face inward instead. The pull of the world goes quiet, not because you have blocked your ears, but because the mind has turned around.
+
+The last three limbs are the inner core, and Patañjali treats them as a single deepening movement he calls *saṃyama*: concentration, meditation, and absorption, applied together to one object. *Dhāraṇā* is concentration, binding attention to a single point and returning it each time it wanders. If that sounds familiar, it should: it is the same rep the [attention trainer](/the-quiet-mind) drilled and the same one [calm-abiding](/calm-abiding) is built on, the one move every contemplative tradition turns out to share. *Dhyāna* is what concentration becomes when the returning is no longer needed and attention simply flows toward the object unbroken. And *samādhi* is absorption so complete that the sense of a separate watcher drops away and only the object remains. That is the far end of the road, the place where the fluctuations have finally stilled and, in Patañjali's words from the opening, the seer rests in its own nature.
+
+Open each limb and read what it holds.
+
+<EightLimbsExplorer />
+
+<SectionMarker>the breath, taken in hand</SectionMarker>
+
+The fourth limb deserves its own stop, because it is the one place where this ancient interior practice and the modern science of calm shake hands directly. *Prāṇāyāma*. *Prāṇa* is the breath, the life-force carried on it; *āyāma* is its extension or restraint. Patañjali's definition is general: once the seat is steady, you regulate the movement of the in-breath and the out-breath. He does not prescribe a particular technique. He points at the breath as the one autonomic process you can take the wheel of, and through it, reach the nervous system that rides underneath.
+
+Why the breath works on calm at the level of the body, the longer exhale and the vagal brake, is the subject of [The Settled Body](/the-settled-body), and there is no need to repeat it here. The short version is that a slow, exhale-weighted breath shifts the body toward its rest-and-recover side, and that is one of the better-supported findings in this entire field. What this chapter adds is the inner map the yogis drew over the top of it.
+
+In that map, the breath runs along subtle channels called *nāḍī*. Two of them matter for what follows: *iḍā*, associated with the left nostril and a cooling, settling quality, and *piṅgalā*, on the right, warming and activating. The practice of alternating between them, breathing in through one nostril and out through the other, is *nāḍī śodhana*, "channel cleaning," meant to balance the two and clear the central channel between. Treat that as a traditional inner map rather than a physiology claim. One honest footnote, since this chapter is in a book that cares about getting things right: alternate-nostril breathing is not in Patañjali. It belongs to the later haṭha-yoga texts, written more than a thousand years after the *Sutras*. It is a wonderful, calming practice with a long pedigree. It is just a different and later layer than the one we have been reading.
+
+The pacer below walks you through one version, kept gentle. Breathe in through the left, switch, breathe out through the right, in through the right, switch, out through the left. That is one round. The "extended exhale" setting makes the out-breath longer than the in-breath, which is where the brake lives.
+
+<Caution>
+  Keep the breath smooth and quiet, never strained. If you feel lightheaded or dizzy, stop and let it return to normal on its own. This is a calming practice, not a feat. The evidence for slow, exhale-weighted breathing is good; the evidence for the alternate-nostril technique in particular is thinner, resting on small studies. Do it because it feels settling, not because of a strong health claim.
+</Caution>
+
+<NadiShodhanaPacer />
+
+<SectionMarker>the Gita: do the work, drop the fruit</SectionMarker>
+
+There is a second text the word yoga lives in, and it is one of the most beloved books ever written. The *Bhagavad Gita*, the "Song of the Lord," sits inside the great Indian epic the *Mahābhārata*. The scene is a battlefield. A warrior named Arjuna, looking across at an army full of his own cousins and teachers, is overcome and lays down his bow, unable to fight. His charioteer, who is the god Krishna in disguise, spends the rest of the poem answering him. Out of that answer comes a second meaning of yoga, less about stilling the mind on a cushion and more about how to act in a life you cannot control.
+
+Its most quoted line is the heart of it:
+
+> Let right deeds be / Thy motive, not the fruit which comes from them.
+
+You have a right to your action, Krishna tells Arjuna, and no right at all to its fruits. Do the thing in front of you, do it well and completely, and release your grip on how it turns out, because the outcome was never in your hands to begin with. The Sanskrit name for this is *niṣkāma karma*, action without craving for the result. And here is the part most people drop when they quote it: the verse has a second half that bars the opposite mistake just as firmly. Do not let the fruit be your motive, "nor let your attachment be to inaction." This is not a license to check out. You do not get to shrug and stop trying. You are asked to pour yourself fully into the work and let go of the reward, both at once, which is far harder and far more alive than either giving up or grinding for the prize.
+
+A few verses on, Krishna gives this a name that should ring through this whole book. Acting this way, "equable in good or evil," he says, is itself yoga. The word is *samatva*, evenness, equanimity, a mind that stays level whether the result is success or failure. The same steadiness Patañjali aimed at by stilling the water, the Gita reaches by changing your relationship to outcomes. And lest "let go of the result" curdle into not caring about quality, the Gita adds that yoga is "skill in action." The skill is not technical polish. It is the equanimity itself, carried into the doing, so that you work with full care and no clutching.
+
+<GitaStoaParallelFigure />
+
+If that move sounds familiar from earlier in the book, it should. It is, almost beat for beat, the [Stoic dichotomy of control](/tranquility-by-judgment): sort the world into what is yours (your effort, your conduct) and what is not (the outcome, the verdict, other people), pour yourself into the first, and let go of the second. Two traditions, a continent and centuries apart, with no record of ever touching, arrived at the same practical instruction and the same payoff of a steady mind. That convergence is the real subject of [Part III](/one-calm-many-doors), and it is striking precisely because it is independent.
+
+It is worth being careful here, because this is exactly the place where popular writing tends to mash the two into one. The instruction matches. The worlds do not. The Stoic releases the outcome by reason, judging that only virtue is truly good and the rest is not up to him. The Gita releases it by devotion, handing the fruits of action over to the divine as a kind of offering, inside a frame of duty, rebirth, and liberation that the Stoics would not have recognized. Even their still centers differ. The Stoic's inner sovereign, the ruling mind, is an active chooser that judges and assents. The Gita's witness does not act at all. In its account, nature's qualities do all the doing, and the self, "deluded by the I-maker," only imagines it is the one acting. The cure is to step back into the role of the watcher, what the later tradition would call the *sākṣin*, the seer who looks on and is not the doer. Same calm on the surface. Opposite stories about who is in charge underneath. Hold both, and you understand the traditions better than the slogans that blend them.
+
+That witness, by the way, is the same figure you will meet again as the observing self in the modern therapies and as the calm Self at the center of [Internal Family Systems](/the-calm-at-the-center). The road keeps arriving at a quiet watcher behind the noise.
+
+<SectionMarker>the thing you send out</SectionMarker>
+
+Take one real situation, the kind that wrings people out, and run it through karma yoga start to finish.
+
+You have sent something into the world and now you wait. A job application for the role you actually want. A manuscript to the editor. An audition, a pitch, the message to the person you hope says yes. The thing is gone from your hands and the verdict belongs entirely to someone else. So you refresh the inbox. You replay what you sent and find the flaw you cannot now fix. You rehearse both futures, the yes and the no, a hundred times each. None of it moves the decision a millimeter, and all of it costs you the days you are actually living.
+
+Start by sorting, the way both the Gita and the Stoa would have you sort. What was yours here. The work itself: writing the thing as well as you could, sending it, doing your full part. That is done, and you did it. What was never yours: the answer. It lives in another person's head, on a timeline you do not set, weighed against things you cannot see. It was outside your bin from the first moment, the way the [dichotomy of control](/tranquility-by-judgment) draws it.
+
+Now the karma-yoga move, which has two halves and needs both. First, *skill in action*: while it was yours to do, you gave it everything, with care and without clutching. You did not phone it in to protect yourself from caring, and you did not pour yourself in to buy a guaranteed result. You did it well because doing it well was the part that belonged to you. Second, *release the fruit*: now that it is out of your hands, you actually let the verdict go, instead of carrying it around half-finished, refreshing and rehearsing. The waiting does not need your supervision. The decision will arrive on its own, supervised or not.
+
+Watch for the specific story that makes this hard. It is the one Krishna names: *I am the doer, and my whole worth rides on this yes*. That is the I-maker talking, fusing your entire self to a single outcome. Step back from it to the watcher. There is the wanting, and there is the one who notices the wanting. You can want the yes, badly, and still not be the wanting. That small gap is where the calm lives.
+
+And be clear about what this is not. It is not pretending you do not care, and it is not deadening the want so the no will not hurt. That would be the numbness this book keeps warning against, not the equanimity it is after. You still want it. You will still feel the no if it comes. What you have set down is the second layer, the [self-inflicted suffering](/calm-abiding) of fighting the wait, of needing the outcome to be settled before you will let yourself live. You gave the action everything. The fruit was never yours. Even in success and failure, as the Gita has it, you stay level, and you get your days back from the waiting.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="stilling-the-mind"
+  id="nadi-shodhana"
+  n="01"
+  title="One round of alternate-nostril breathing"
+  input="timer"
+  seconds={300}
+>
+  Sit comfortably with a steady seat, the way the third limb asks. Rest your right thumb beside your right
+  nostril and your ring finger beside the left. Close the right, breathe in slowly through the left. Close
+  the left, release the right, breathe out through the right. Breathe in through the right. Close it,
+  release the left, breathe out through the left. That is one round. Keep it smooth, let the out-breath be
+  a touch longer than the in-breath, and stop at once if you feel lightheaded. Five minutes is plenty. Use
+  the pacer above if you want the rhythm kept for you.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="stilling-the-mind"
+  id="neglected-limb"
+  n="02"
+  title="Find the limb you neglect"
+  input="text"
+  placeholder="the limb I skip… · what skipping it costs my calm… · one small way to tend it this week…"
+>
+  Open the eight-limbs explorer and read down the list honestly. Most of us pour effort into one or two
+  limbs and quietly skip the rest. Maybe you sit to meditate but your conduct toward people is a mess, so
+  the surface never really clears. Maybe you have the ethics but never actually practice stilling the mind.
+  Name the limb you neglect, name what its absence costs the others, and pick one small, concrete way to
+  tend it this week.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="stilling-the-mind"
+  id="action-release-result"
+  n="03"
+  title="Do the action, release the result"
+  input="text"
+  placeholder="the task… · how I gave the action my full care… · the result I am letting go of… · what the letting-go felt like…"
+>
+  Pick one task this week where you tend to clutch at the outcome: a piece of work, a hard conversation, a
+  thing you are sending out. Run it as karma yoga. Give the action your full care while it is yours to do,
+  the skill-in-action half. Then, the moment it leaves your hands, genuinely set the verdict down instead
+  of refreshing and rehearsing, the release-the-fruit half. Note both: how it felt to do the work without
+  clutching, and how it felt to let the result go.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="stilling-the-mind"
+  id="catch-a-ripple"
+  n="04"
+  title="Catch one ripple"
+  input="text"
+  placeholder="the fluctuation I caught… · which of the five it was… · what happened when I noticed it instead of becoming it…"
+>
+  Once today, when the mind is churning, stop and look at the water instead of being dragged by it. What
+  kind of ripple is this? A memory replaying uninvited? An imagined future built of words? A flat-out
+  misreading of what happened? Name it as one of Patañjali's five fluctuations. You are practicing the very
+  first move of the whole system: stepping back from the seer that has become the thought, to the seer that
+  is simply watching it pass.
+</ExerciseCard>
