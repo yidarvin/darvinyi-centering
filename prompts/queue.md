@@ -12,7 +12,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 05 | Ch 5 — Epicureanism: Enough, and No Fear | `prompts/ch05-enough-and-no-fear.md` | DONE |
 | 06 | Ch 6 — Buddhism: Calm Abiding | `prompts/ch06-calm-abiding.md` | DONE |
 | 07 | Ch 7 — Zen: The Ordinary Mind | `prompts/ch07-the-ordinary-mind.md` | DONE |
-| 08 | Ch 8 — Taoism: The Watercourse Way | `prompts/ch08-the-watercourse-way.md` | PENDING |
+| 08 | Ch 8 — Taoism: The Watercourse Way | `prompts/ch08-the-watercourse-way.md` | DONE |
 | 09 | Ch 9 — Yoga and the Stilling of the Mind | `prompts/ch09-stilling-the-mind.md` | PENDING |
 | 10 | Ch 10 — The Engineering of Calm | `prompts/ch10-the-engineering-of-calm.md` | PENDING |
 | 11 | Ch 11 — Internal Family Systems: The Calm at the Center | `prompts/ch11-the-calm-at-the-center.md` | PENDING |
