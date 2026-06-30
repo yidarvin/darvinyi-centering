@@ -1,0 +1,171 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { TwoBranchesFigure } from '@/components/chapters/the-settled-body/TwoBranchesFigure';
+import { BreathVagusFigure } from '@/components/chapters/the-settled-body/BreathVagusFigure';
+import { HrvFigure } from '@/components/chapters/the-settled-body/HrvFigure';
+import { RelaxationLoopFigure } from '@/components/chapters/the-settled-body/RelaxationLoopFigure';
+import { BreathingPacer } from '@/components/chapters/the-settled-body/BreathingPacer';
+import { Caution } from '@/components/chapters/the-settled-body/Caution';
+
+export const reflection = {
+  path: '~/centering/02.1',
+  prompt: 'Where in your body do you first feel yourself winding up? And what is the longest, easiest exhale you can take right now, without forcing it?',
+};
+
+export const sources = [
+  { text: 'Russo, M. A., Santarelli, D. M., & O’Rourke, D. (2017). The physiological effects of slow breathing in the healthy human. Breathe, 13(4), 298–309.', url: 'https://doi.org/10.1183/20734735.009817' },
+  { text: 'Lehrer, P. M., & Gevirtz, R. (2014). Heart rate variability biofeedback: How and why does it work? Frontiers in Psychology, 5, 756.', url: 'https://doi.org/10.3389/fpsyg.2014.00756' },
+  { text: 'Shaffer, F., & Meehan, Z. M. (2020). A practical guide to resonance frequency assessment for heart rate variability biofeedback. Frontiers in Neuroscience, 14, 570400.', url: 'https://doi.org/10.3389/fnins.2020.570400' },
+  { text: 'Steffen, P. R., Austin, T., DeBarros, A., & Brown, T. (2017). The impact of resonance frequency breathing on measures of heart rate variability, blood pressure, and mood. Frontiers in Public Health, 5, 222.', url: 'https://doi.org/10.3389/fpubh.2017.00222' },
+  { text: 'Laborde, S., et al. (2021). Slow-paced breathing: Influence of inhalation/exhalation ratio and of respiratory pauses on cardiac vagal activity. Sustainability, 13(14), 7775.', url: 'https://doi.org/10.3390/su13147775' },
+  { text: 'Zaccaro, A., et al. (2018). How breath-control can change your life: A systematic review on psycho-physiological correlates of slow breathing. Frontiers in Human Neuroscience, 12, 353.', url: 'https://doi.org/10.3389/fnhum.2018.00353' },
+  { text: 'Laborde, S., Mosley, E., & Thayer, J. F. (2017). Heart rate variability and cardiac vagal tone in psychophysiological research. Frontiers in Psychology, 8, 213.', url: 'https://doi.org/10.3389/fpsyg.2017.00213' },
+  { text: 'Shaffer, F., & Ginsberg, J. P. (2017). An overview of heart rate variability metrics and norms. Frontiers in Public Health, 5, 258.', url: 'https://doi.org/10.3389/fpubh.2017.00258' },
+  { text: 'Fincham, G. W., Strauss, C., Montero-Marin, J., & Cavanagh, K. (2023). Effect of breathwork on stress and mental health: A meta-analysis of randomised-controlled trials. Scientific Reports, 13, 432.', url: 'https://doi.org/10.1038/s41598-022-27247-y' },
+  { text: 'Goessl, V. C., Curtiss, J. E., & Hofmann, S. G. (2017). The effect of heart rate variability biofeedback training on stress and anxiety: A meta-analysis. Psychological Medicine, 47(15), 2578–2586.', url: 'https://doi.org/10.1017/S0033291717001003' },
+  { text: 'Wallace, R. K., Benson, H., & Wilson, A. F. (1971). A wakeful hypometabolic physiologic state. American Journal of Physiology, 221(3), 795–799.', url: 'https://doi.org/10.1152/ajplegacy.1971.221.3.795' },
+  { text: 'Benson, H., Beary, J. F., & Carol, M. P. (1974). The relaxation response. Psychiatry, 37(1), 37–46.', url: 'https://doi.org/10.1080/00332747.1974.11023785' },
+  { text: 'Weil, A. (2010). The 4-7-8 (Relaxing Breath) exercise. Arizona Center for Integrative Medicine (patient handout).', url: 'https://nursing.rutgers.edu/wp-content/uploads/2020/07/Dr.-Weil-4-7-8-Breathing-Exercise.pdf' },
+  { text: 'Yasuma, F., & Hayano, J. (2004). Respiratory sinus arrhythmia: Why does the heartbeat synchronize with respiratory rhythm? Chest, 125(2), 683–690.', url: 'https://doi.org/10.1378/chest.125.2.683' },
+  { text: 'Meuret, A. E., & Ritz, T. (2010). Hyperventilation in panic disorder and asthma: Empirical evidence and clinical strategies. International Journal of Psychophysiology, 78(1), 68–79.', url: 'https://doi.org/10.1016/j.ijpsycho.2010.05.006' },
+  { text: 'Irish, L. A., Kline, C. E., Gunn, H. E., Buysse, D. J., & Hall, M. H. (2015). The role of sleep hygiene in promoting public health: A review of empirical evidence. Sleep Medicine Reviews, 22, 23–36.', url: 'https://doi.org/10.1016/j.smrv.2014.10.001' },
+];
+
+A car cuts in front of you on the highway. Before you have a thought, your body has already moved: hands tight on the wheel, breath caught, a spike of heat up the chest. The danger is gone in a second. Then, a few seconds later, something you did not decide to do happens on its own. You let out a long, slow breath. Your shoulders drop. The heat drains off.
+
+That sigh is not nothing. It is the body changing gears, lifting an accelerator it had floored and easing onto a brake. You did not learn it or choose it. The wiring did it for you, the way it has done for every mammal for a very long time.
+
+This chapter is about that brake, and about the fact that you can reach it on purpose. The [last chapter](/what-calm-is) argued that real calm keeps you inside your life rather than lifting you out of it. That still holds. Alongside it is a more physical fact: calm is also a setting of the nervous system, and that setting has controls. The controls are real, and the most reachable is in front of you right now, moving in and out about twelve times a minute. The body has a brake. The rest of this is how to use it.
+
+<SectionMarker>the two controls</SectionMarker>
+
+Your inner organs answer to two sets of nerves that want opposite things. One is the sympathetic branch, the accelerator. It is the gas in fight-or-flight: it speeds the heart, opens the airways, widens the pupils, and tells digestion to wait. It works mostly through a messenger called noradrenaline, and it is built for mobilizing fast. The other is the parasympathetic branch, the brake. It is the rest-and-digest side: it slows the heart, lets the airways settle, shrinks the pupils, and turns digestion back on. Its messenger is acetylcholine. The two run to the same organs and pull in opposite directions, and your state at any moment is mostly a question of the balance between them.
+
+<TwoBranchesFigure />
+
+Two details matter for everything that follows. The first is that the brake is never fully off. Left to its own pacemaker, with no nerves attached, the heart settles around a hundred beats a minute. Yours is slower than that right now, somewhere in the sixties or seventies, because the brake is on, holding it down. Calm at rest is not the absence of activity. It is the quiet, steady pressure of a brake that stays applied.
+
+The second is which cable carries that brake to the heart. It is the vagus nerve, the long wandering nerve that runs from the brainstem down into the chest and belly. The amount of braking it supplies is often called vagal tone, and it is fast. Acetylcholine is cleared within a fraction of a second, so the vagus can ease off for a single heartbeat and clamp back down on the next. The accelerator, by comparison, is slow to spin up and slow to fade. You may have heard the vagus described in more elaborate, layered terms. The careful version is simpler and not in dispute: one nerve, carrying the brake, fast, mostly to the heart.
+
+<SectionMarker>the brake runs on the breath</SectionMarker>
+
+Here is the part that turns physiology into a practice. The brake is wired to the breath.
+
+If you sit quietly and find your pulse, then breathe slowly and pay attention, you can feel it. The heart speeds up a little as you breathe in and slows down as you breathe out. This is not a glitch. It has a name, respiratory sinus arrhythmia, and it happens because the brainstem briefly lifts the vagal brake on each inhale and reapplies it on each exhale. Inhale, the brake eases, the heart quickens. Exhale, the brake returns, the heart slows.
+
+<BreathVagusFigure />
+
+Read that again, because it is the whole lever: the exhale is when the brake comes on. And the breath is the one part of this system you can run by hand. You cannot will your heart to slow or order your gut to digest. You can change your breathing any time you like, which means you have a manual override on the one function that gates the brake. A long, slow exhale is simply more time spent with the brake engaged.
+
+You can even tilt the ratio. When researchers had people breathe slowly and made the out-breath longer than the in-breath, a standard marker of vagal activity went up, more than with an even ratio; adding little pauses on top did not help much further. The active ingredient is the exhale. Not breathing harder, not breathing more. Breathing out for longer.
+
+<SectionMarker>the heart's wave</SectionMarker>
+
+That speeding-and-slowing on the breath is also something you can measure. The beat-to-beat changes in heart rate, taken together, are called heart-rate variability, and a wearable on your wrist is probably estimating yours right now. In the range we care about, a bigger swing tends to mean more vagal influence on the heart. A heart that flexes with the breath is a heart with the brake well within reach.
+
+<HrvFigure />
+
+Two honest cautions, because this number gets oversold. First, it is noisy. Your heart-rate variability shifts with your posture, your last coffee, how you slept, whether you are getting sick, and which device is doing the measuring. A single reading tells you almost nothing. Only your own trend, taken under steady conditions over weeks, carries a usable signal. Second, higher is not a moral score. At the level of large populations, lower variability tracks with worse health down the line, but that is a statement about thousands of people, not a verdict on your Tuesday. The fastest way to ruin the tool is to turn it into one more number to be anxious about. Watch your trend, gently, and mostly forget it.
+
+<SectionMarker>the resonance</SectionMarker>
+
+There is a breathing rate where the heart's wave grows as large as it can get. For most adults it sits near six breaths a minute, roughly a tenth of a hertz.
+
+The reason is a second loop in the body, the baroreflex, which senses blood pressure and corrects it. That loop has a built-in delay of about five seconds, so it naturally swings on a cycle of around ten seconds, which is six breaths a minute. Breathe at that pace and your breathing-driven rhythm lines up with the pressure loop's own rhythm. They reinforce each other instead of fighting, and the heart-rate wave can swell to several times its resting size, often within half a minute. The word for two rhythms feeding each other like this is resonance, and it is why slow breathing near six a minute does so much with so little.
+
+The exact best rate is personal. It runs from about four and a half to six and a half breaths a minute, and you do not need to find yours to the decimal. Six is a fine target. Five and a half is a common one, and the gentlest place to begin. The pacer below runs three patterns at and around that rate. Use it for a few breaths now.
+
+<Caution>
+This is education, not medical advice, and breathing slowly is low-risk for most people. Still: do not force the breath, and do not breathe big and hard (over-breathing causes the lightheadedness, not under-breathing). If you feel dizzy, tingly, faint, or more anxious, stop and let your breathing return to normal on its own. Sit or lie down, never while driving or in water. If you are pregnant, or you have a heart, lung, or seizure condition, faint easily, or get panicky when you focus on your breath, keep it gentle and brief and check with a clinician before doing more.
+</Caution>
+
+<BreathingPacer />
+
+The three patterns are not equally gentle. Coherent breathing is the soft default: equal in and out, no holds, right in the resonance zone. Box breathing adds a hold on every side, which makes it steadying but more effortful, and it carries a slight charge from its origins in tactical and military training. The 4-7-8 leans hardest on the brake by making the exhale twice the inhale, with a long hold between. Be honest about that one: the specific pattern has thin direct evidence, and its long hold is the most likely to make a beginner lightheaded. What it borrows from, slow and exhale-weighted breathing, is on firmer ground. Try each. The one that settles you fastest is the one to keep.
+
+<SectionMarker>the loop you are turning</SectionMarker>
+
+In the nineteen-seventies a Harvard cardiologist named Herbert Benson gave this its plainest description. He called it the relaxation response, the body's own counterpart to fight-or-flight, and he showed it could be brought on deliberately with almost nothing: a simple anchor to rest the mind on, a repeated word or the breath, held with a passive attitude that lets distraction come and go. Measured in the lab, the response is real. Oxygen consumption drops by around fifteen percent, breathing and heart rate ease, the body shifts into a quieter, restorative gear while the person stays awake.
+
+What makes it more than a one-time trick is that it runs as a loop. A long exhale pulls the brake. The body quiets. The next breath comes a little slower and deeper without any effort. That deeper exhale pulls the brake again. Each turn makes the next turn easier.
+
+<RelaxationLoopFigure />
+
+The reason this is worth knowing is that the loop also runs the other way. A quick, shallow breath feeds alarm, alarm speeds the breath, and a body can spiral up into panic on its own momentum. The wiring does not care which direction it turns. When you lengthen an exhale on purpose, you are not forcing calm onto a system that wants something else. You are reaching into a feedback loop that is always running and giving it a push toward the settled end.
+
+The same downshift happens every night. As you fall asleep, the brake rises and the accelerator fades, and parasympathetic activity climbs to its peak in deep sleep. This is why a fixed wind-down helps: thirty to sixty minutes of lower light, lower stimulation, and the same few calming steps in the same order gives the body a reliable way down instead of asking it to brake from full speed at the pillow. Keep the claim honest, though. A bedtime routine is a good habit, not a cure. If sleeplessness is persistent, the evidence points to a specific therapy for insomnia and a clinician, not to a better playlist.
+
+<SectionMarker>what this actually buys you</SectionMarker>
+
+Be precise about the size of the effect, because the field around breathing is loud with overclaims.
+
+Within a single session, the physiology is not really in question. Slow breathing raises heart-rate variability, engages the baroreflex, and lowers arousal, reliably, in study after study, often within a minute. The bigger and more durable claims are softer. Pooled across controlled trials, breathing practices produce small-to-medium reductions in stress, anxiety, and low mood, the kind of effect that is genuine and worth having, and a long way from a cure. Blood-pressure effects are modest and inconsistent across studies. Some of the benefit is expectancy, the lift you get from doing something deliberate for yourself. None of that is a knock. It is just the right size for the thing: a dependable way to feel calmer in the moment, and, with steady practice, a gentle nudge to where your body tends to sit. It moves a dial. It does not flip a switch.
+
+And it is worth saying plainly how this connects to the last chapter. The settled body is the engaged kind of calm, the kind that keeps you in your life rather than lifting you out of it. A long exhale quiets the body while you stay in the room. You can pace a slow breath and still feel the fear the whole time. The breath does not erase the feeling. It gives you steadier ground to feel it from. The brake is a way in, not a way out. The book's [final chapter](/calm-is-not-numbness) comes back to that line, where the difference between settling and shutting down carries the most weight.
+
+<SectionMarker>one bad night, all the way through</SectionMarker>
+
+It is two in the morning and you are wide awake. Some worry got its hooks in an hour ago and your mind has the entire catastrophe cued up and ready to replay. Notice what your body is doing underneath the thoughts. The chest is tight, the heart is going, and the breath has climbed up high and gone quick without your ever deciding it should. The accelerator is on. The fast breathing is feeding it, and it is feeding the fast breathing.
+
+You already know you cannot argue yourself to sleep. The thoughts are not the kind that answer to reason at two in the morning. But you can reach the one control that works by hand. So you stop trying to win the argument and you go to the breath instead. A hand on the belly, to feel it move. Then you make the out-breath longer than the in-breath: in for about four, out for about six, easy, no straining, no big gulps of air, which would only make you lightheaded.
+
+The first few breaths do almost nothing, and that is normal. By the second minute the exhale is starting to tell. The brake comes on a little more firmly with each out-breath, the heart loses its edge, the wave under everything smooths out. The loop, which was turning the wrong way, starts turning the other. The worry has not been solved and the thoughts are still in the room. The difference is that you are no longer being chased by your own body while you have them. From there, sleep is at least possible again. That is the whole move: not silencing the mind, but settling the body the mind is riding on.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="the-settled-body"
+  id="three-patterns"
+  n="01"
+  title="Find your pattern"
+  input="text"
+  placeholder="coherent: … · box: … · 4-7-8: … · fastest to settle me: …"
+>
+  Run each of the three patterns in the pacer for about a minute: coherent, box, then 4-7-8. After
+  each one, notice your body honestly. Slower heart? Looser shoulders? Or more effort and a little
+  air-hunger? Write a word or two for each, and name the one that settled you fastest. That is your
+  default for a hard moment. There is no correct answer, only the one your body votes for.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-settled-body"
+  id="fixed-wind-down"
+  n="02"
+  title="A fixed wind-down, one week"
+  input="text"
+  placeholder="time it starts… · the 3 or 4 steps, same order, every night…"
+>
+  Pick a time, thirty to sixty minutes before bed, and three or four calming steps to do in the same
+  order every night: lights down, screen away, a warm shower, ten slow breaths, whatever fits you.
+  Write the routine here, then run it for a week without grading the sleep that follows. You are not
+  trying to force sleep. You are giving the body the same off-ramp at the same time until it learns
+  the road. Note what changes, if anything, by the seventh night.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-settled-body"
+  id="posture-breath-check"
+  n="03"
+  title="The posture-and-breath check"
+  input="text"
+  placeholder="where the breath sits now… · what changed when the belly moved…"
+>
+  Sit upright but unstiff, and put one hand on your chest and one on your belly. Breathe normally for
+  a few breaths and notice which hand moves. If it is mostly the chest, your breathing is shallow and
+  high, the shape of mild alarm. Now let the next breath drop lower, so the belly hand rises first and
+  the chest stays quiet. That is diaphragmatic breathing, the slow and efficient mode. Write down what
+  you felt shift. This is a check you can run a dozen times a day, anywhere, with no one the wiser.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-settled-body"
+  id="one-long-exhale"
+  n="04"
+  title="One long exhale, in the wild"
+  input="checkbox"
+>
+  The whole chapter in its smallest form. The next time you feel yourself wind up (a buzzing phone, a
+  hard email, a closing elevator), do not fix anything. Just make one exhale slow and long, longer
+  than the breath in. One brake tap, in a live moment. Mark this done once you have actually used it
+  somewhere real, not in a quiet practice but in the middle of the day going sideways.
+</ExerciseCard>
