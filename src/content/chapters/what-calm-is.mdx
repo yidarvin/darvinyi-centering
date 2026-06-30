@@ -1,0 +1,166 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { CalmMapFigure } from '@/components/chapters/what-calm-is/CalmMapFigure';
+import { EquanimitySuppressionFigure } from '@/components/chapters/what-calm-is/EquanimitySuppressionFigure';
+import { SetPointFigure } from '@/components/chapters/what-calm-is/SetPointFigure';
+import { CalmQuadrant } from '@/components/chapters/what-calm-is/CalmQuadrant';
+
+export const reflection = {
+  path: '~/centering/01.1',
+  prompt: 'Think of the calmest you have felt this week. Were you settled and still there, or settled and gone? Be honest about which.',
+};
+
+export const sources = [
+  { text: 'Russell, J. A. (1980). A circumplex model of affect. Journal of Personality and Social Psychology, 39(6), 1161–1178.', url: 'https://doi.org/10.1037/h0077714' },
+  { text: 'Posner, J., Russell, J. A., & Peterson, B. S. (2005). The circumplex model of affect: An integrative approach to affective neuroscience, cognitive development, and psychopathology. Development and Psychopathology, 17(3), 715–734.', url: 'https://doi.org/10.1017/S0954579405050340' },
+  { text: 'Watson, D., & Tellegen, A. (1985). Toward a consensual structure of mood. Psychological Bulletin, 98(2), 219–235.', url: 'https://doi.org/10.1037/0033-2909.98.2.219' },
+  { text: 'Gross, J. J. (1998). The emerging field of emotion regulation: An integrative review. Review of General Psychology, 2(3), 271–299.', url: 'https://doi.org/10.1037/1089-2680.2.3.271' },
+  { text: 'Gross, J. J. (1998). Antecedent- and response-focused emotion regulation: Divergent consequences for experience, expression, and physiology. Journal of Personality and Social Psychology, 74(1), 224–237.', url: 'https://doi.org/10.1037/0022-3514.74.1.224' },
+  { text: 'Gross, J. J., & Levenson, R. W. (1993). Emotional suppression: Physiology, self-report, and expressive behavior. Journal of Personality and Social Psychology, 64(6), 970–986.', url: 'https://pubmed.ncbi.nlm.nih.gov/8326473/' },
+  { text: 'Richards, J. M., & Gross, J. J. (2000). Emotion regulation and memory: The cognitive costs of keeping one’s cool. Journal of Personality and Social Psychology, 79(3), 410–424.', url: 'https://pubmed.ncbi.nlm.nih.gov/10981843/' },
+  { text: 'Butler, E. A., Egloff, B., Wilhelm, F. H., Smith, N. C., Erickson, E. A., & Gross, J. J. (2003). The social consequences of expressive suppression. Emotion, 3(1), 48–67.', url: 'https://doi.org/10.1037/1528-3542.3.1.48' },
+  { text: 'Gross, J. J., & John, O. P. (2003). Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being. Journal of Personality and Social Psychology, 85(2), 348–362.', url: 'https://pubmed.ncbi.nlm.nih.gov/12916575/' },
+  { text: 'Soto, J. A., Perez, C. R., Kim, Y.-H., Lee, E. A., & Minnick, M. R. (2011). Is expressive suppression always associated with poorer psychological functioning? A cross-cultural comparison. Emotion, 11(6), 1450–1455.', url: 'https://pubmed.ncbi.nlm.nih.gov/21707152/' },
+  { text: 'Desbordes, G., Gard, T., Hoge, E. A., Hölzel, B. K., Kerr, C., Lazar, S. W., Olendzki, A., & Vago, D. R. (2015). Moving beyond mindfulness: Defining equanimity as an outcome measure in meditation and contemplative research. Mindfulness, 6(2), 356–372.', url: 'https://doi.org/10.1007/s12671-013-0269-8' },
+  { text: 'Bishop, S. R., Lau, M., Shapiro, S., et al. (2004). Mindfulness: A proposed operational definition. Clinical Psychology: Science and Practice, 11(3), 230–241.', url: 'https://doi.org/10.1093/clipsy.bph077' },
+  { text: 'Lindsay, E. K., Young, S., Smyth, J. M., Brown, K. W., & Creswell, J. D. (2018). Acceptance lowers stress reactivity: Dismantling mindfulness training in a randomized controlled trial. Psychoneuroendocrinology, 87, 63–73.', url: 'https://doi.org/10.1016/j.psyneuen.2017.09.015' },
+  { text: 'Lykken, D., & Tellegen, A. (1996). Happiness is a stochastic phenomenon. Psychological Science, 7(3), 186–189.', url: 'https://doi.org/10.1111/j.1467-9280.1996.tb00355.x' },
+  { text: 'Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. American Psychologist, 61(4), 305–314.', url: 'https://doi.org/10.1037/0003-066X.61.4.305' },
+];
+
+Picture a Sunday night. You have finally stopped. The dishes are done, the last message is answered, the lights are low. Someone asks how you are doing and you hear yourself say, without thinking, "calm."
+
+Sit with that for a second, because the word is hiding something. There is a version of that evening where you are genuinely at ease. The week's troubles have not gone anywhere, the hard conversation is still coming on Tuesday, and none of it has you by the throat. You can feel the couch under you, the quiet, the person in the next room. Another version looks identical from across the room and is nothing like it on the inside. In that one you are not at ease. You are just done. Too tired to feel the week, scrolling without seeing, a little numb. The body has gone still because you have left the building.
+
+Both of those get called calm. They are not the same state, and telling them apart is the work of this whole book.
+
+The claim this book rests on is plain. Calm is not the absence of trouble, and it is not numbness. The kind worth training is a settled body and an unclouded mind that keep you inside your own life rather than lifting you out of it. It is closer to a clear morning than to a power-off. And it is a skill, which means the rest of these pages have something to teach.
+
+<SectionMarker>two kinds of quiet</SectionMarker>
+
+We use one word, calm, for two states that have almost nothing in common except how they look in a photograph. One is a nervous system that has settled while you stay present. The other is a nervous system that has gone quiet because you checked out. From the outside both are still and low-energy. The face is relaxed, the shoulders are down, the breathing is slow.
+
+The difference is not in the body. It is in whether you are still there. In the first, the quiet is full: you are in the room, in contact, able to meet whatever shows up. In the second, the quiet is empty: you have stepped back from your own experience, and what looks like stillness is really just absence. The empty kind can pass for the real thing for years. It can even feel like relief, which is exactly what makes it so easy to mistake.
+
+So before we can train calm, we need a way to see which one we are in. We need a map.
+
+<SectionMarker>the calm map</SectionMarker>
+
+To put a feeling on a map you need axes, and psychology has a well-worn pair. In 1980 James Russell laid out what he called a circumplex model of affect: the idea that most feelings can be located with just two dimensions, arranged in a circle. One dimension is arousal, how activated your body is, running from drowsy at the bottom to wired at the top. The other is valence, how pleasant or unpleasant the feeling is. On Russell's map, calm sits in the low-arousal, pleasant corner, near relaxed and serene. Anxiety sits up high and to the unpleasant side, near tense and alarmed. The model is old, heavily tested, and still the common language for talking about affect, though it is not the only one. Watson and Tellegen later argued the same cloud of feelings is better described by two rotated axes, positive and negative activation, and researchers still argue over which framing fits the data best.
+
+Russell's two axes are a good starting point. For our exact question they have a blind spot. Valence, pleasant against unpleasant, does not cleanly separate the two Sunday nights. Serene feels good and flat feels blank, so pleasantness gets you part of the way. But checking out can feel like relief, and relief is pleasant, so the numb evening can read as mildly good while you are nowhere near present. Pleasantness is also not the thing you can train. You cannot decide to find a hard week pleasant.
+
+So we keep Russell's arousal axis, which is real and which the next chapter shows you how to move, and we swap the other one. In place of pleasant against unpleasant we use engaged against disengaged: whether you are in contact with your actual experience, or pulled out of it. This is a deliberate adaptation, not Russell's model. Engagement is not one of his dimensions. It tracks something closer to approach versus withdrawal, a motivational distinction, rather than a second validated axis of feeling. We borrow it because it does the real work for calm: it is the line between settling and shutting down.
+
+<CalmMapFigure />
+
+Read the map by its halves first. The left side is checked out, pulled out of the present. The right side is engaged, in contact with it. The bottom is a settled body, low arousal. The top is an activated one. That gives four states.
+
+Down in the bottom right is **equanimity**, low arousal and fully engaged. Settled and still here. This is the calm the book is pointing at, and it is the only square that deserves the name without an asterisk. Directly to its left, sharing the same quiet body, is **sedation**: settled but checked out. Numb, flat, going through the motions. This is the counterfeit that fools us, because it has the same low arousal as the real thing. The only difference between the two is the axis we just added. Same still body, and the single question that separates them is whether you are still in your life.
+
+Up top, the high-arousal row holds the other two. On the left is **agitation**: activated and disengaged. Anxiety lives here, and so does panic. The alarm is loud and your attention has left the room for some rehearsed disaster. On the right is **flow**: just as activated, but fully engaged. Absorbed in the work or the game or the conversation, energy high and friction gone. Flow is not calm exactly, but it is a cousin worth knowing, because it proves that high arousal is not the enemy. Being yanked out of the present is.
+
+Notice the shape of the trouble. Both counterfeits, the numb one and the anxious one, sit on the left. What they share is not their energy level, which is opposite, but their disengagement. And notice the bottom row again, because the rest of this chapter turns on it. Equanimity and numbness are next-door neighbors. Same settled nervous system, told apart by one thing only.
+
+<SectionMarker>place yourself on it</SectionMarker>
+
+Maps are easier to trust once you are standing on one. Think of a state you were in recently, this morning maybe, or during some small ordinary moment yesterday. Put it on the map below. Move up for an activated body and down for a settled one, right if you were in contact with the moment and left if you had checked out. Then name it and pin it, and try a few more. The point is to feel how two states can sit on the same low row and be worlds apart.
+
+<CalmQuadrant />
+
+If you pinned a state in the bottom left and it surprised you, that is the chapter doing its job. A lot of what we file under calm lives there.
+
+<SectionMarker>what suppression actually does</SectionMarker>
+
+If equanimity and numbness are neighbors, you would think the way to get calm is to push a feeling down until the body goes quiet. Quiet the signal, quiet the state. It is the most natural move in the world, and it is the wrong one. Pushing a feeling down does not take you to the bottom right of the map. It takes you to the bottom left.
+
+The clearest evidence comes from James Gross, who has spent a career taking emotion regulation apart. In his model, you can step in at many points along the life of a feeling. You can change the situation, or where you put your attention, or how you read what is happening. Two strategies sit at opposite ends of that timeline and make a clean comparison. One is reappraisal, changing how you interpret a situation before the feeling fully forms. The other is expressive suppression, clamping down on the outward signs of a feeling that has already arrived. Holding the face still. Swallowing it.
+
+In the lab the two could not behave more differently. Reappraisal lowers the felt negative emotion and costs the body almost nothing. Suppression does the opposite of what you would hope. It hides the expression, yes, but the feeling underneath does not shrink, and the body pays for the effort with a jump in sympathetic activation, the stress branch of the nervous system leaning harder on the heart and the skin. Suppress during something sad and you do not feel less sad. Suppress during something funny and you feel less amused, because the clamp dulls the good feelings too. There is a memory cost on top of that: people who spend an event suppressing remember it worse afterward, since the self-monitoring eats the attention that would have done the remembering. And the cost leaks outward. In face-to-face conversation, a person who suppresses builds less rapport, and their partner's blood pressure rises. The held-in feeling becomes a wall the other person can feel. Make it a way of living rather than a one-off and the pattern holds: people who lean on suppression as a habit report lower mood and thinner relationships than people who lean on reappraisal. One honest qualifier. These costs are clearest in Western studies. In cultures where holding feelings in is the social norm, the same clamp seems to cost less.
+
+<EquanimitySuppressionFigure />
+
+So suppression buys a calm face at the price of a louder interior, a higher body load, and a thinner connection to the people around you. That is the bottom left of the map, dressed up to look like the bottom right.
+
+Equanimity is the other path, and it is easy to confuse with the very thing it is not. In the contemplative-science literature, Desbordes and colleagues define equanimity as an even-minded relationship to whatever arises, pleasant or unpleasant, and they go out of their way to rule out the lookalikes. It is not suppression, and it is not indifference. As they put it, a missing emotional response where one is normally expected is usually a sign of something wrong, and "mere indifference is very distinct from equanimity." Their proposed signature for it is not a flat line. It is a quicker recovery. A loud noise still makes you jump, but with equanimity the jump is not followed by a long tail of anxiety, and you return to baseline faster. The feeling is fully felt. It just moves through.
+
+That is the difference the figure is drawing. Suppression keeps the lid on and the load up, and the feeling persists underneath. Meeting the feeling without resistance lets the wave crest and fall while you stay in the room for it. One leaves you checked out and tense. The other leaves you settled and still present. This is the line the whole book is built on, and the [final chapter](/calm-is-not-numbness) comes back to it to sort real calm from its counterfeits one more time, with higher stakes.
+
+<SectionMarker>a set point, not a sentence</SectionMarker>
+
+One obvious objection hangs over all of this. Some people are just calm, and some people are not, and no amount of mapping changes which one you were born as. Something real sits in that. Temperament is partly heritable. Twin studies find a substantial genetic contribution to how happy and how reactive we tend to be, and one famous paper went so far as to suggest that trying to raise your baseline well-being might be as futile as trying to be taller.
+
+That last claim turned out to be too strong, and even its own author later walked it back. The picture that replaced it is more useful. You do inherit a range, a kind of factory setting for how easily you light up and how fast you come down. But the point you actually operate at, the place you keep returning to, is not nailed to the floor of that range. It moves. Reviewing decades of data, Diener and colleagues showed that set points can and do shift, that people differ in where theirs sits, and that life events and, importantly, sustained practice can move it. Calm is a set point, not a sentence.
+
+<SetPointFigure />
+
+This is the difference between a trait and a skill, and calm has some of both. Reappraisal, attention, and acceptance can all be trained, and in controlled trials, learning to meet experience without clamping down measurably lowers the body's stress reactivity. Be honest about the size of it: no one becomes serene by Friday. The effects are real, but they are modest and uneven, and they ask for repetition. The direction is clear, though, and it runs opposite to fixed. The range is the hand you were dealt. Where you play it is trained.
+
+<SectionMarker>one situation, all the way through</SectionMarker>
+
+Take a real moment and walk it across the map, because the frame is only worth anything if it survives contact with an ordinary bad evening.
+
+It is 11pm and an email lands from your boss. Two lines, no warmth: "We need to talk tomorrow. My office, 9am." That is the event, and nothing about it is up to you. What happens next is.
+
+First comes the spike. Your chest tightens, your mind starts writing the worst version of tomorrow, and within seconds you are not in your kitchen anymore, you are in a meeting that has not happened, getting fired in a dozen different ways. On the map you have shot to the top and slid left. That is agitation, high arousal and gone from the present. This part is not a failure. The jump is automatic, the way a loud noise makes you flinch.
+
+Now the fork. One road is to make the feeling stop by any means available. Pour a drink, open a different app, go flat, tell yourself it is probably nothing and stop feeling it. The arousal does come down. But you have come down on the left side, into the bottom-left numb, and the worry has not been met, only buried, so it will be there at 3am and again at 8:45. You bought quiet by leaving.
+
+The other road keeps the engagement and lets the arousal settle on its own. You notice the spike and name it: this is fear, and it is loud, and it is mostly about a meeting I am inventing. You feel it without acting on it. You do not argue the feeling away and you do not feed it. You might put one true sentence to it, that you do not actually know what tomorrow holds, and let your attention come back to the kitchen, the glass in your hand, the late quiet. The fear crests and starts to fall, the way fear does when nothing fights it. A few minutes later you are still a little keyed up and basically back in your life, able to sleep, able to walk in at 9am steady. On the map you have moved down and stayed right. That is the whole move this book teaches, shown once: not down and left into numbness, but down and right into equanimity.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="what-calm-is"
+  id="sort-your-calms"
+  n="01"
+  title="Sort three of your calms"
+  input="text"
+  placeholder="1) … settled or numb? · 2) … · 3) …"
+>
+  Name three different moments you would have called calm. A quiet evening, a long drive, the hour
+  after a hard thing passed, whatever comes. For each one, ask the only question that matters here:
+  were you settled and still in your life, or settled because you had left it? Settled or numb. Write
+  the verdict next to each. No wrong answers, only honest ones.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="what-calm-is"
+  id="catch-engaged-calm"
+  n="02"
+  title="Catch one engaged calm this week"
+  input="text"
+  placeholder="The moment, and what made it possible…"
+>
+  Sometime this week you will land, for a minute, in the bottom right of the map: a settled body and
+  a present mind at the same time. It is easy to miss because nothing dramatic happens. When you
+  notice one, stop and mark it. Where were you, what were you doing, and what made it possible? You
+  are collecting evidence that the real thing is already in your week, so you know what to aim for.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="what-calm-is"
+  id="name-the-counterfeit"
+  n="03"
+  title="Name a counterfeit"
+  input="text"
+  placeholder="What I called calm, and what I did not want to feel…"
+>
+  Think of a time you reached for the numb kind without admitting it: the third hour of scrolling, the
+  drink that was really an off switch, the busyness that kept a feeling at arm's length. You are not in
+  trouble for it. Just name it, and name the feeling it was keeping out. Seeing the counterfeit clearly
+  is most of how you stop confusing it for the real thing.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="what-calm-is"
+  id="two-questions"
+  n="04"
+  title="The two questions"
+  input="checkbox"
+>
+  The practice, in its smallest form: the next time you feel calm, run two questions. Am I settled?
+  And am I still here? Settled and here is the real thing. Settled and gone is the counterfeit. That is
+  the whole instrument, and you carry it everywhere. Mark this done once you have actually tried it on
+  a live moment.
+</ExerciseCard>
