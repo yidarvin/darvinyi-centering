@@ -28,7 +28,7 @@ function Node({ cx, cy, w = 92, label, col, fill, strong }: NodeProps) {
         strokeWidth={strong ? 1.8 : 1.3}
         strokeOpacity={strong ? 1 : 0.7}
       />
-      <text x={cx} y={cy + 4} textAnchor="middle" fontFamily={monoFamily} fontSize={11} fontWeight={strong ? 600 : 500} fill={col}>
+      <text x={cx} y={cy + 4} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fontWeight={strong ? 600 : 500} fill={col}>
         {label}
       </text>
     </g>
@@ -50,7 +50,7 @@ export function ImpressionAssentFigure() {
       max={540}
     >
       <svg
-        viewBox="0 0 490 236"
+        viewBox="0 0 500 236"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
         aria-label="A left-to-right chain: an event leads to an impression that 'this is bad', which arrives on its own as a first movement. The impression reaches assent, the one step that is up to you, where judgment enters. From assent the path forks two ways: withhold assent and reach equanimity, or grant assent and reach disturbance."
@@ -76,25 +76,25 @@ export function ImpressionAssentFigure() {
         <path d="M 372 140 C 392 152, 404 168, 410 178" fill="none" stroke={c.coral} strokeWidth={1.5} markerEnd="url(#ia-coral)" />
 
         {/* captions */}
-        <text x={200} y={101} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+        <text x={200} y={101} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
           phantasia
         </text>
-        <text x={326} y={101} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.teal}>
+        <text x={326} y={101} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.teal}>
           sunkatathesis
         </text>
-        <text x={70} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+        <text x={70} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
           something happens
         </text>
-        <text x={200} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+        <text x={200} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
           &ldquo;this is bad&rdquo;
         </text>
-        <text x={326} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.teal}>
+        <text x={326} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.teal}>
           judgment enters
         </text>
-        <text x={448} y={48} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.teal}>
+        <text x={448} y={48} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.teal}>
           withhold
         </text>
-        <text x={448} y={222} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.coral}>
+        <text x={448} y={222} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.coral}>
           assent given
         </text>
 

@@ -7,10 +7,11 @@ const CY = 150;
 
 /**
  * fig_04.3a: control, influence, concern. A modern three-ring refinement of the
- * dichotomy. The center (control) is Epictetus: what is up to you. The middle
- * (influence) and the three names are Stephen Covey's 1989 model, not ancient
- * text. The Stoic version of that middle ground is the reserve clause: act fully,
- * fate permitting. The lesson either way is to spend your effort at the center.
+ * dichotomy. The center (control) is Epictetus: what is up to you. The two outer
+ * rings, concern and influence, are Stephen Covey's 1989 model; the innermost
+ * 'control' ring was added by later popularizers, not ancient text. The Stoic
+ * version of that middle ground is the reserve clause: act fully, fate permitting.
+ * The lesson either way is to spend your effort at the center.
  */
 export function ControlInfluenceConcernFigure() {
   return (
