@@ -1,0 +1,229 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { RouteSituationMatrixFigure } from '@/components/chapters/building-your-practice/RouteSituationMatrixFigure';
+import { MinimumDoseFigure } from '@/components/chapters/building-your-practice/MinimumDoseFigure';
+import { TemplateFigure } from '@/components/chapters/building-your-practice/TemplateFigure';
+import { ToolkitBuilder } from '@/components/chapters/building-your-practice/ToolkitBuilder';
+
+export const reflection = {
+  path: '~/centering/16.1',
+  prompt:
+    'If you could keep only one practice, which one, and why that one? Name the smallest version of it you would still count as a win, and the exact moment tomorrow you will hang it on.',
+};
+
+export const sources = [
+  {
+    text: 'Peter M. Gollwitzer and Paschal Sheeran, "Implementation Intentions and Goal Achievement: A Meta-Analysis of Effects and Processes," Advances in Experimental Social Psychology 38 (2006): 69-119. The backbone of the chapter. Across 94 independent tests, forming a specific if-then plan had a medium-to-large effect on whether people actually followed through (d = 0.65), stronger for not getting derailed (d = 0.77) than for getting started (d = 0.61). An average across many tasks, not a promise for any one person, and it amplifies a goal you already hold rather than manufacturing one.',
+    url: 'https://cancercontrol.cancer.gov/sites/default/files/2020-06/goal_intent_attain.pdf',
+  },
+  {
+    text: 'Peter M. Gollwitzer, "Implementation Intentions: Strong Effects of Simple Plans," American Psychologist 54, no. 7 (1999): 493-503. The original statement: an implementation intention links an anticipated cue to a response ("Whenever situation x arises, I will initiate response y"), which makes the cue easier to notice and the response more automatic. Gollwitzer calls it passing the control of one\'s behavior on to the environment.',
+    url: 'https://kops.uni-konstanz.de/bitstreams/14cc2a36-5f01-4dc1-b9ca-f2d0ca0c8930/download',
+  },
+  {
+    text: 'Paschal Sheeran, Oscar Listrom, and Peter M. Gollwitzer, "The When and How of Planning: Meta-Analysis of the Scope and Components of Implementation Intentions in 642 Tests" (2024). The effect held up in a much larger, more recent aggregation, which is the kind of replication that should raise your confidence a notch.',
+    url: 'https://kops.uni-konstanz.de/entities/publication/the-when-and-how-of-planning',
+  },
+  {
+    text: 'Phillippa Lally, Cornelia H. M. van Jaarsveld, Henry W. W. Potts, and Jane Wardle, "How are habits formed: Modelling habit formation in the real world," European Journal of Social Psychology 40, no. 6 (2010): 998-1009. Ninety-six people set out to form an everyday habit in a fixed context. Among those who reached automaticity, the median time was 66 days, with the range running from 18 to 254. Missing a single day did not meaningfully derail the process. The honest antidote to "21 days," which is a misread of a 1960 plastic-surgery book.',
+    url: 'https://onlinelibrary.wiley.com/doi/10.1002/ejsp.674',
+  },
+  {
+    text: 'Gaby Judah, Benjamin Gardner, and Robert Aunger, "Forming a flossing habit: An exploratory study of the psychological determinants of habit formation," British Journal of Health Psychology 18, no. 2 (2013): 338-353. People who flossed after brushing, hanging the new habit on an established routine, formed stronger habits and flossed more at eight months than those who flossed before. Small and exploratory, but direct support for anchoring to a cue you already have.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/22989272/',
+  },
+  {
+    text: 'B. J. Fogg, Tiny Habits: The Small Changes That Change Everything (Houghton Mifflin Harcourt, 2019), and the Fogg Behavior Model (behaviormodel.org). Behavior happens when motivation, ability, and a prompt arrive together; since motivation is the unreliable one, shrink the behavior and attach it to a reliable prompt. A practitioner framework, well grounded but not a controlled finding; the "start tiny" and "anchor to a routine" core is the part with real evidence behind it.',
+    url: 'https://behaviormodel.org/',
+  },
+  {
+    text: 'James Clear, Atomic Habits (Avery, 2018). The habit-stacking formula ("After [current habit], I will [new habit]") and the two-minute rule (scale a new habit down until starting takes under two minutes) are the popular packaging of the same anchoring and start-small moves. Useful heuristics; the exact two-minute threshold is a rule of thumb, not a measured constant.',
+    url: 'https://jamesclear.com/atomic-habits',
+  },
+  {
+    text: 'Melis Yilmaz Balban et al., "Brief structured respiration practices enhance mood and reduce physiological arousal," Cell Reports Medicine 4, no. 1 (2023): 100895. In 111 adults, five minutes a day of structured breathing for a month improved mood and lowered resting arousal, with the exhale-focused "cyclic sighing" outperforming mindfulness meditation. The best single piece of evidence that a tiny daily dose can do real work.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/36630953/',
+  },
+  {
+    text: 'Tom Bowles, Will Davies, and Nicholas T. Van Dam, "Dose-response effects of reported meditation practice on mental health and wellbeing," Applied Psychology: Health and Well-Being (2025). In about 1,050 people, practice frequency mattered roughly 2.5 times as much as session length, and meaningful change took more daily minutes than beginners are usually sold. Read alongside Fincham (2023), a two-week trial that found no difference between ten and thirty minutes, the honest verdict is that the right dose is genuinely unsettled, so start where you will keep going.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12336962/',
+  },
+  {
+    text: 'Falko F. Sniehotta, Urte Scholz, and Ralf Schwarzer, "Action plans and coping plans for physical exercise: A longitudinal intervention study in cardiac rehabilitation," British Journal of Health Psychology 11, no. 1 (2006): 23-37. Among 211 heart patients, only the group that made both an action plan (when and where) and a coping plan (what to do when an obstacle hits) was still exercising more two months on. Evidence that the hard-day plan, not the good-day plan, is what carries a practice.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/16480553/',
+  },
+  {
+    text: 'Mary E. Larimer, Rebekka S. Palmer, and G. Alan Marlatt, "Relapse Prevention: An Overview of Marlatt\'s Cognitive-Behavioral Model," Alcohol Research & Health 23, no. 2 (1999): 151-160, with Jennifer E. Irvin et al., "Efficacy of relapse prevention: A meta-analytic review," Journal of Consulting and Clinical Psychology 67, no. 4 (1999): 563-570. The high-risk-situation vocabulary (negative emotional states most of all) and the abstinence violation effect, the guilt spiral that turns one slip into a collapse. The technique is borrowed for everyday practice; relapse prevention\'s own clinical effect is real but modest (overall r = 0.14), reducing the severity of slips more than preventing them.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6760427/',
+  },
+  {
+    text: 'Marsha M. Linehan, DBT Skills Training Manual, 2nd ed. (Guilford, 2015). The "Cope Ahead" skill: name a likely hard situation, decide your response in advance, and rehearse it in imagination while calm, so the move is ready before the moment arrives. Borrow the technique, not the clinical claim.',
+    url: 'https://www.guilford.com/books/DBT-Skills-Training-Manual/Marsha-Linehan/9781462516995',
+  },
+  {
+    text: 'Benjamin Harkin et al., "Does monitoring goal progress promote goal attainment? A meta-analysis of the experimental evidence," Psychological Bulletin 142, no. 2 (2016): 198-229. Across 138 studies and nearly 20,000 people, prompting people to track their progress reliably helped them reach the goal (d = 0.40), with larger effects when the progress was physically recorded or made visible to someone. Modest, replicated, and the reason the review is part of the practice.',
+    url: 'https://eprints.whiterose.ac.uk/id/eprint/87431/',
+  },
+  {
+    text: 'Hengchen Dai, Katherine L. Milkman, and Jason Riis, "The Fresh Start Effect: Temporal Landmarks Motivate Aspirational Behavior," Management Science 60, no. 10 (2014): 2563-2582. Aspirational behavior jumps after a temporal landmark: searches for "diet" rose 14.4 percent at the start of a new week. A reason to start your trial, and book your review, on a Monday or the first of the month, while being honest that the push starts a habit, it does not sustain one.',
+    url: 'https://faculty.wharton.upenn.edu/wp-content/uploads/2014/06/Dai_Fresh_Start_2014_Mgmt_Sci.pdf',
+  },
+  {
+    text: 'James Bennett-Levy et al., eds., Oxford Guide to Behavioural Experiments in Cognitive Therapy (Oxford University Press, 2004). The behavioral-experiment frame: state a prediction, run a bounded test, then review what actually happened against what you expected. A standard clinical practice that turns a two-week trial into learning rather than a pass-or-fail vow.',
+    url: 'https://www.psychologytools.com/resource/behavioral-experiment',
+  },
+];
+
+By now you have met more methods than one person should try to run at once. A Stoic sorting of worries, a Buddhist noting of the feeling, a long exhale, a view from above, a quiet sit, a phone-free walk, a word repeated into stillness. Fifteen chapters of real routes to calm. And here is the ordinary, slightly deflating truth about all of it: on a hard Tuesday you will reach for none of them.
+
+That is not a failure of knowledge. You know plenty. You could pass the test. The gap is the oldest one there is, between knowing a thing and doing it, and no further reading closes it. A practice is not what you understand. It is what you do, on the days you least feel like it, often enough that it stops being a decision.
+
+So this chapter subtracts. The work now is not to add a sixteenth technique. It is to take everything you have met and throw most of it away, on purpose, keeping only the few routes that fit you and the few practices you will actually repeat. You do not need all of it. Almost nobody who is genuinely calm is running a large program. They have two or three small things they return to, fitted so closely to their day that skipping them would feel strange. That is the whole target. The rest of this chapter is how to build it.
+
+<RouteTags routes={['letting-go', 'presence', 'the-body', 'perspective', 'enough', 'connection', 'meaning']} label="the menu, to choose from" />
+
+There are four moves, and they are the spine of everything below. Choose the few routes that fit you. Anchor each practice to something you already do. Shrink it until it is too small to skip. And decide, in advance, what you will do on the bad day. Choose, anchor, shrink, defend. None of it is mysterious, and all of it is the difference between a practice and a good intention.
+
+<SectionMarker>different troubles, different doors</SectionMarker>
+
+Start with fit, because the most common reason a practice fails is that it was never yours to begin with. You read that breathing is good, or that gratitude is good, and you tried to install it the way you would a software update, and it did not take, and you concluded the problem was you. The problem was the match. A racing mind at 2am and a wave of envy at someone else's good news are not the same trouble, and they do not open with the same key.
+
+The seven routes are not a checklist to complete. They are a set of doors, and most of your life walks through three or four of them. Look at the moments that actually undo you and notice which routes meet them.
+
+<RouteSituationMatrixFigure />
+
+Read the figure for its shape, not its detail. No row is full. A racing night is met by the body, by presence, by letting go, and it has nothing to do with connection or meaning, which would be the wrong tools reached for at the wrong time. Grief is the reverse: the body and a clever reframe do little, and what carries it is connection, meaning, and the slow letting go of what cannot be fixed. The acute, spiky moments, a sharp word, a 2am loop, are handled almost entirely by the fast routes, the body and presence and a change of view. The heavy, structural troubles ask for the slower ones.
+
+This is good news, because it means you can stop trying to be good at all seven. Find the two or three columns that light up for your most common troubles, and build there. A person whose hard edge is a tense, overloaded workday needs the body and a way to drop the forcing, and can leave the lovingkindness practice for someone whose hard edge is loneliness. Pick the doors that open onto your actual life.
+
+<SectionMarker>from wanting to be calmer to doing it</SectionMarker>
+
+Now the move that does the most work, and the one with the best evidence behind it in this entire chapter. There is a wide difference between deciding to be calmer and arranging to actually do the thing, and a single technique closes most of it.
+
+The psychologist Peter Gollwitzer drew the line in 1999. A goal intention names what you want: "I am going to meditate more." It sets the destination and nothing else, and it is famously weak, because the moment never announces itself and you never quite get around to it. An implementation intention names the when and where and how, in a specific form: "If situation X arises, then I will do Y." If I sit down at my desk in the morning, then I will take three slow breaths before I open anything. If my jaw tightens in a meeting, then I will unclench and breathe out long. You pick the cue in advance, and you decide the response in advance, and you tie them together.
+
+It sounds almost too small to matter. It is not. Pooling 94 separate tests, Gollwitzer and Sheeran found that people who formed a specific if-then plan were substantially more likely to follow through than people who held the same goal without one, an effect of medium-to-large size. A more recent aggregation of 642 tests broadly confirmed it, while showing the size depends on how the plan is written and how much you actually want the goal. Two cautions keep it honest. The number is an average across many tasks, not a guarantee for your particular Tuesday, and it works by amplifying a goal you already hold, not by manufacturing motivation you lack. If you do not actually want the practice, no plan will save it. But if you do, the plan is the bridge.
+
+Why does naming the cue help so much? Two reasons, and they are worth understanding because they tell you how to write a good plan. First, committing to a specific situation makes that situation jump out at you. The kettle clicking off, the car door closing, the first tightening in your chest: you have told your attention what to watch for, so you catch the moment instead of sailing past it. Second, the response stops needing a decision. You are not standing there at the kettle deliberating whether to breathe. The cue fires and the action follows, with less of the friction that conscious effort always charges. Gollwitzer called this passing the control of your behavior on to the environment. You stop relying on willpower, which is fickle and tired exactly when you need it, and you let the world's reliable cues do the triggering.
+
+This is the same instinct behind the popular advice to stack habits. B. J. Fogg's model says a behavior happens only when motivation, ability, and a prompt land at the same moment, and since motivation is the one that comes and goes, you build on the other two: make the thing easy, and give it a dependable prompt. His recipe and James Clear's are the same sentence in different fonts: after I do something I already do without thinking, I will do the new small thing. The existing routine is the cue. There is even a clean little study of it, where people told to floss right after brushing, hanging the new habit on the old one, were still flossing more eight months later than people who tried to floss first. Anchor the practice to a rock you already stand on, and you no longer have to remember it. The rock remembers for you.
+
+<SectionMarker>make it absurdly small</SectionMarker>
+
+The third move is the one people resist hardest, because it feels like settling. Make the practice smaller than you think it should be. Then smaller again.
+
+The phrase from training and pharmacology is the minimum effective dose: the smallest input that still produces the effect, with everything past it being waste. Water boils at 100 degrees, and a hotter stove does not boil it more. You hunt for that floor for a practical reason. The size of a practice and the odds you keep it up pull in opposite directions, and what you actually get is the two multiplied together.
+
+<MinimumDoseFigure />
+
+Sit with that figure, because it quietly overturns how most people plan. The benefit of a single session rises fast and then flattens: the first few slow breaths buy most of the calm a long session would, and the twentieth minute adds little the second did not. Meanwhile the odds you sustain it fall as the daily ask grows. A thirty-minute sit is better per session and far easier to abandon, and a plan you abandon delivers zero. Multiply the curve that flattens by the curve that falls and the product peaks early, at a small, sustainable dose, well to the left of the most you could heroically do. The best practice is not the strongest one. It is the strongest one you will still be doing in March.
+
+The evidence points the same way from several directions. When researchers tracked everyday habit formation, the thing that built automatic behavior was repetition in a steady context, and missing a single day did not set the process back. When they compared people meditating, how often someone practiced mattered more than how long each sit ran, by a wide margin. And the cleanest demonstration that small is enough comes from a trial where five minutes a day of structured breathing, for a month, measurably lifted mood and lowered arousal, with the longest-exhale version doing the most. Be honest about the limits here, because this field oversells: the exact effective dose for something like meditation is genuinely unsettled, with a large observational study pointing one way and a tight two-week trial finding no difference between ten minutes and thirty. The defensible reading is not "do more" and not "dose does not matter." It is that we cannot tell you your dose, so you should start at the size you will actually repeat, and let consistency, the thing that reliably matters, do its slow work.
+
+There is a gift hidden in the same research, and it is the antidote to the perfectionism that kills more practices than any other cause. A missed day is not a broken streak. It barely dents the curve. The all-or-nothing voice that says you blew it on Thursday so the week is ruined is not describing how habits actually form. They form across misses. Plan to miss, forgive the miss, and show up Friday.
+
+<SectionMarker>a rhythm, not a regimen</SectionMarker>
+
+Put the pieces into a shape you can see. Not a strict schedule, which breaks the first time life does not cooperate, but a loose rhythm with a few fixed points.
+
+<TemplateFigure />
+
+The shape is the lesson. Most of a real practice is small, and most of it is daily. One anchor you almost never skip, sized so small that "too tired" is not an excuse. A longer sit on the days there is room for one, offered rather than demanded. A reset always on call for the hard moment, which is not scheduled because trouble is not scheduled. And one weekly review, a single honest look to keep the whole thing pointed at something real. Put those together and you have a complete practice, small enough to fit on an index card. It is far more than most calm people are actually running, and it is enough.
+
+<SectionMarker>plan for the bad day now</SectionMarker>
+
+This is where most practices quietly die, and where almost no one plans. A practice is easy to keep on a good day. The bad day is the test: tired and frayed and behind, the exact day the practice would help most and the exact day you will skip it. Build for that day in advance, while it is calm, because you cannot design well from inside the storm.
+
+The behavior science draws a sharp and useful line. An action plan says when and where you will practice. A coping plan says what you will do when an obstacle hits. In a study of heart patients trying to keep up their exercise, the people who made only an action plan faded, and the people who also made a coping plan, who had decided in advance what to do when the obstacle arrived, were still going two months later. The plan for the hard day, not the plan for the easy one, is what carried them.
+
+The clinical literature on relapse gives you the vocabulary to do this for yourself. The moments that undo a practice are high-risk situations, and the most common ones are not dramatic events but plain bad feelings: tired, anxious, lonely, bored, angry. Name your own. Then there is the trap that turns a slip into a collapse, what the researchers call the abstinence violation effect: you miss two days, you read the miss as proof that you are the kind of person who cannot keep anything, and that verdict, not the missed days, is what ends the practice. The counter is decided in advance and held firmly. A slip is one event. It is data, not a verdict. You begin again on the next ordinary day, without the ceremony of starting over.
+
+Clinicians have a name for the move itself, and it is exactly right: cope ahead. Pick a hard situation you can see coming, decide now which one or two small things you will reach for, and rehearse it in your head while you are calm, so that the response is already loaded before the moment arrives. A skill practiced only in good weather is not available in the storm. That is what the hard-day card is for: a tiny, pre-decided plan you wrote when you could think clearly, so that on the day you cannot, there is nothing to figure out. You just do the next thing on the card.
+
+<SectionMarker>try it: the toolkit builder</SectionMarker>
+
+Everything above becomes one small act of assembly. Pick the routes that fit your actual troubles. Choose a few practices, fewer than you want to. Anchor each one to a cue, the if-then move, so it has somewhere to live. Then build the hard-day card: the two or three moves you will reach for when it is bad, and the first thing you will do before anything else. It saves as you go, and you can print it or copy it and put it where you will see it.
+
+<ToolkitBuilder />
+
+Keep it smaller than feels right. If you have chosen more than four practices, you are building the plan you will admire, not the one you will keep. Take one out. The reader who walks away with three anchored practices and a hard-day card has built something that will still be standing in a month, which is worth more than the elaborate program that is gone by the weekend.
+
+<SectionMarker>one practice, built</SectionMarker>
+
+Walk it through once on a real shape. Call her Nadia. Her trouble is not exotic: a mind that will not stop circling at night, and a workday that ratchets her tighter by the hour until she snaps at someone she loves by dinner. On the matrix, her moments light up three columns. The body, for the tightening. Letting go, for the worries she keeps re-gripping. Presence, for the spin. So those are her doors, and she leaves the other four alone without guilt.
+
+She chooses three practices, and stops herself at three. A few slow breaths with a long exhale, because it works in a minute and she can do it anywhere. Naming what is not up to her, because most of her 2am loop is rehearsing things she cannot control. And a five-minute breath-anchor sit, for the days there is room. Then she anchors each one, which is the step she has skipped every other time she tried this. After she sits down at her desk, before she opens email, three slow breaths. When a worry starts looping, she names the part of it that is not hers to carry. After she closes the laptop for the day, the five-minute sit. The cues are things she already does, so there is nothing new to remember.
+
+Then the part she has never done. She builds the hard-day card before the hard day. Her high-risk moment is the late afternoon, tired and behind, when the snapping happens. Her go-to moves: the long exhale, dropping the second arrow, and a quick zoom-out to remember the day is not the year. Her first line, written while calm: when it is bad, I will name it, breathe out slow, and not decide anything for ten minutes. None of this is new material. It is the same routes from earlier chapters, chosen for fit, shrunk to a size she will keep, anchored to her real day, and defended against the afternoon she knows is coming. That is a practice. The knowing was never the hard part.
+
+<SectionMarker>run it as an experiment</SectionMarker>
+
+One last reframe, and it takes the pressure off the whole thing. Do not commit to this practice forever. Commit to two weeks of it, as an experiment, with a date to look at the results.
+
+A trial beats a vow for a plain reason: a vow can only be kept or broken, while an experiment can only succeed or teach. You decide what you will do, you predict what a modest win would look like, you run it for a bounded stretch, and then you review what actually happened against what you expected. A fortnight that "failed" still hands you information: this anchor did not hold, that practice never fit, the morning works and the evening does not. Nothing is wasted, and there is no failing grade to dread.
+
+Three small things make the trial stick, and each one has evidence under it. Track it, simply, somewhere you can see. The plain act of monitoring your own progress reliably nudges you toward the goal, more so when you record it where it is visible, and a tick on a card or a note in a calendar is enough. Start on a landmark. People reach for fresh starts right after a new week or a new month begins, so let a Monday or a first-of-the-month carry the launch, while remembering the push gets you started and does not keep you going. And book the review now, on the calendar, two weeks out, with three questions waiting: Did I actually do it, most days? Did anything shift, honestly? What one thing will I change for the next two weeks? Then you adjust, and you run it again. That loop, run a few times, is how a practice quietly becomes yours.
+
+That is the build. The next chapter, [designing for calm](/designing-for-calm), takes the same idea outward, into your rooms and your hours and your attention, so that the environment around you does some of the work instead of fighting you. And keep one honest line in view, the one [the final chapter](/calm-is-not-numbness) returns to: a practice is a tool for living more fully, not a way to manage feelings out of sight. If what you are carrying is heavier than a practice can hold, that is not a failure of your plan, and the last chapter says plainly where to turn.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="building-your-practice"
+  id="one-page-practice"
+  n="01"
+  title="Write your one-page practice"
+  input="text"
+  placeholder="my routes… · practice 1 (after I ___) · practice 2 (after I ___) · practice 3 (when ___) · my minimum dose for each…"
+>
+  Use the builder above, then write the whole thing in your own words, small enough to fit on one card. Name
+  the two or three routes that fit your real troubles. For each practice, write the cue it is anchored to in
+  the if-then form: "after I [routine], I will [practice]," or "when [the hard moment], I will [practice]." And
+  write the minimum dose, the smallest version you would still count. If your card has more than four
+  practices on it, cross one off now.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="building-your-practice"
+  id="hard-day-plan"
+  n="02"
+  title="Make the plan for the bad day"
+  input="text"
+  placeholder="my highest-risk moment (tired? anxious? lonely? bored?)… · when it hits, I will… · and I decide now that a slip is one event, not a verdict…"
+>
+  Name your own high-risk moment, the plain bad feeling that most reliably ends a practice for you: tired,
+  anxious, lonely, bored, behind. Write the one or two small moves you will reach for when it arrives, decided
+  now while you are calm. Then write the sentence that defuses the trap: a missed day is one event, not proof
+  of anything, and you begin again on the next ordinary day. Read it back. This is the part everyone skips,
+  and the part that keeps the practice alive.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="building-your-practice"
+  id="two-week-trial"
+  n="03"
+  title="Commit to a two-week trial"
+  input="text"
+  placeholder="start date (a Monday or the 1st?)… · what I will do daily… · what a modest, honest win would look like in two weeks…"
+>
+  Pick a start date, and let it land on a landmark if you can, a Monday or the first of the month, when a fresh
+  start comes a little easier. Write what you will do each day, kept small. Then predict the result before you
+  run it: what would a real but modest win look like in two weeks? Not a transformed life. Slept a little
+  easier, snapped a little less, came back to center one time you would have spun out. Naming the modest win in
+  advance is what keeps you from quitting because it was not a miracle.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="building-your-practice"
+  id="schedule-review"
+  n="04"
+  title="Schedule the review"
+  input="text"
+  placeholder="review date (two weeks out)… · Q1: did I actually do it, most days? · Q2: did anything shift, honestly? · Q3: what one thing will I change?…"
+>
+  Put a date on the calendar now, two weeks from your start, with an actual reminder. Write the three questions
+  you will answer when it comes: Did I actually do it, most days? Did anything shift, honestly, including the
+  awkward possibility that it did not? What one thing will I change for the next two weeks? A practice without
+  a review drifts. The review is what turns two weeks into a habit, and a habit into something that is yours.
+</ExerciseCard>
