@@ -4,7 +4,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 
 | # | item | file | status |
 |----|------|------|--------|
-| 00 | scaffold and site shell | `prompts/00-scaffold.md` | PENDING |
+| 00 | scaffold and site shell | `prompts/00-scaffold.md` | DONE |
 | 01 | Ch 1 — What Calm Is, and Isn't | `prompts/ch01-what-calm-is.md` | PENDING |
 | 02 | Ch 2 — The Settled Body | `prompts/ch02-the-settled-body.md` | PENDING |
 | 03 | Ch 3 — The Quiet Mind | `prompts/ch03-the-quiet-mind.md` | PENDING |
