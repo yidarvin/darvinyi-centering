@@ -1,0 +1,194 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { TwoBinsFigure } from '@/components/chapters/tranquility-by-judgment/TwoBinsFigure';
+import { ImpressionAssentFigure } from '@/components/chapters/tranquility-by-judgment/ImpressionAssentFigure';
+import { ControlInfluenceConcernFigure } from '@/components/chapters/tranquility-by-judgment/ControlInfluenceConcernFigure';
+import { ViewFromAboveFigure } from '@/components/chapters/tranquility-by-judgment/ViewFromAboveFigure';
+import { DichotomySorter } from '@/components/chapters/tranquility-by-judgment/DichotomySorter';
+
+export const reflection = {
+  path: '~/centering/04.1',
+  prompt: 'Name one worry you have been gripping. Which bin is it in, really? And what is the one piece of it that is actually up to you?',
+};
+
+export const sources = [
+  { text: 'Epictetus. Enchiridion, trans. George Long (1888). Standard Ebooks.', url: 'https://standardebooks.org/ebooks/epictetus/short-works/george-long/text/the-enchiridion' },
+  { text: 'Epictetus. The Enchiridion, trans. Elizabeth Carter (1758). Project Gutenberg.', url: 'https://www.gutenberg.org/files/45109/45109-h/45109-h.htm' },
+  { text: 'Epictetus. Encheiridion, trans. W. A. Oldfather, Loeb Classical Library (1928).', url: 'https://people.ucsc.edu/~jbowin/Ancient/encheiridion.pdf' },
+  { text: 'Epictetus. Discourses, Book 3 (incl. 3.2, the three topoi), trans. George Long. Standard Ebooks.', url: 'https://standardebooks.org/ebooks/epictetus/discourses/george-long/text/book-3' },
+  { text: 'Seneca. Of Anger (De Ira), Book II, trans. Aubrey Stewart (1900). Wikisource.', url: 'https://en.wikisource.org/wiki/Of_Anger/Book_II' },
+  { text: 'Seneca. Of Peace of Mind (De Tranquillitate Animi), trans. Aubrey Stewart (1900). Wikisource.', url: 'https://en.wikisource.org/wiki/Of_Peace_of_Mind' },
+  { text: 'Seneca. Moral Letters to Lucilius, Letter 13 (On Groundless Fears), trans. R. M. Gummere. Wikisource.', url: 'https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13' },
+  { text: 'Seneca. Moral Letters to Lucilius, Letter 91 (On the Burning of Lyons), trans. R. M. Gummere. Wikisource.', url: 'https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_91' },
+  { text: 'Aulus Gellius. Attic Nights 19.1 (the Stoic in the storm), trans. J. C. Rolfe, Loeb (1927).', url: 'https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Gellius/19*.html' },
+  { text: 'Marcus Aurelius. Meditations (7.48, 8.48, 9.30), trans. George Long. MIT Internet Classics Archive.', url: 'http://classics.mit.edu/Antoninus/meditations.html' },
+  { text: 'Cicero. Tusculan Disputations (Books 3–4, on the passions), trans. J. E. King, Loeb.', url: 'https://www.loebclassics.com/view/marcus_tullius_cicero-tusculan_disputations/1927/pb_LCL141.225.xml' },
+  { text: 'Diogenes Laertius. Lives of the Eminent Philosophers 7.110–116 (the passions and eupatheiai), trans. C. D. Yonge.', url: 'https://www.attalus.org/old/diogenes7c.html' },
+  { text: 'Pierre Hadot. The Inner Citadel: The Meditations of Marcus Aurelius (Harvard University Press, 1998).', url: 'https://www.hup.harvard.edu/books/9780674007079' },
+  { text: 'Margaret Graver. Stoicism and Emotion (University of Chicago Press, 2007).', url: 'https://press.uchicago.edu/ucp/books/book/chicago/S/bo5485145.html' },
+  { text: 'William B. Irvine. A Guide to the Good Life: The Ancient Art of Stoic Joy (Oxford University Press, 2009). Reviewed in Bryn Mawr Classical Review.', url: 'https://bmcr.brynmawr.edu/2009/2009.09.28/' },
+  { text: "Michael Tremblay. What Many People Misunderstand about the Stoic Dichotomy of Control. Modern Stoicism.", url: 'https://modernstoicism.com/what-many-people-misunderstand-about-the-stoic-dichotomy-of-control-by-michael-tremblay/' },
+  { text: 'Stephen R. Covey. The 7 Habits of Highly Effective People (1989): Habit 1 and the circles of concern and influence.', url: 'https://en.wikipedia.org/wiki/The_7_Habits_of_Highly_Effective_People' },
+];
+
+You sent the message two hours ago. Nothing since. You have reread your last line a dozen times, run three versions of what the silence means, and felt your chest tighten on each pass. Nothing in the world has changed in those two hours. The only thing happening is happening inside you: a verdict, handed down again and again, that this silence is bad and that you are required to do something about it.
+
+Almost two thousand years ago a man who had been born a slave built an entire philosophy on noticing exactly that. His name was Epictetus, he taught in a small school in what is now Greece, and he left no books of his own. What survives is a student's notes, including a short handbook called the Enchiridion, the word for something you keep close at hand, like a tool or a weapon. It opens with one distinction he thought was worth building a life on. The trouble, he would say, is not the silence. It is the verdict you keep delivering about it.
+
+This is the first of the traditions, and it is the engineer's entrance to all of them. The Stoics were not after a blank, unbothered mind. They were after a settled one, settled by getting clear about a single question: what here is actually mine to move.
+
+<RouteTags routes={['letting-go', 'perspective']} />
+
+<SectionMarker>the two bins</SectionMarker>
+
+Sort the world into two bins, Epictetus says. The things that are up to you, and the things that are not.
+
+The list of what is genuinely up to you turns out to be far shorter than it feels. Not your body, which gets sick and old on its own schedule. Not your property, which can burn. Not your reputation, which lives in other people's heads. Not the outcome of anything that has to pass through someone else. What remains, when you have moved all of that into the second bin, is interior and almost embarrassingly small: your judgments, your impulses, your desires and aversions. In Epictetus' own list the things in your power are opinion, impulse, desire, and aversion, "and, in a word, whatever are our own acts." Everything else, "in a word, whatever are not our own acts," goes in the other bin.
+
+<TwoBinsFigure />
+
+A caution about a word, because the popular name for this idea can mislead. People call it the dichotomy of control, and that is a useful label, but Epictetus never wrote control. His phrase is *ta eph' hēmin*, which means what is up to us, or what depends on us. The difference is not pedantry. You do not, in fact, fully control even your own judgments. Habit, exhaustion, an old wound, a spike of panic that arrives uninvited: any of these can swamp a judgment before you get a vote. What Epictetus is claiming is narrower and more honest than total control. Your inner acts are the one region where you have any real say at all, and where, with practice, your say grows. That is why it is the place to spend your effort. It is the only place effort can land.
+
+Anxiety, in this frame, is a particular kind of mistake. It is the friction of gripping the second bin as if it were the first. You are trying, with your whole body, to control the contents of someone else's mind, or the weather on Saturday, or a decision already made in a room you were not in. The grip cannot work, because the thing was never yours to hold. The relief the Stoics offer is not that you stop caring. It is that you put the weight down, because you finally see you were never able to lift it.
+
+<SectionMarker>not the event, the judgment</SectionMarker>
+
+Here is the engine underneath the sorting, stated in the line the whole tradition turns on.
+
+> Men are disturbed not by the things which happen, but by the opinions about the things: for example, death is nothing terrible, for if it were, it would have seemed so to Socrates; for the opinion about death, that it is terrible, is the terrible thing.
+>
+> <cite>Epictetus, Enchiridion 5 (trans. George Long)</cite>
+
+Read it slowly, because it is stronger than the bumper-sticker version. He is not saying events are pleasant, or that nothing bad ever happens. He is making a structural claim about where disturbance is manufactured. Between the event and your suffering sits a step, a judgment that this is bad and that you must react. The event does not contain that judgment. You supply it. And because you supply it, it is in the first bin, the one you have some say over.
+
+The Stoics had worked out the mechanics in detail, and they map almost exactly onto what later chapters will call the gap between a feeling and the story you tell about it. An event throws up an impression, in Greek a *phantasia*, the raw appearance of a thing: the unanswered message looks like rejection. That impression arrives on its own, uninvited. Then comes the one move that is actually yours: assent, *sunkatathesis*, the inner nod that says yes, it is as it appears, and acts on it. Give your assent to "this is rejection and it is unbearable" and a full passion follows, the racing heart, the spiral. Withhold it, hold the impression at arm's length and look at whether it is even true, and the passion has nothing to stand on.
+
+<ImpressionAssentFigure />
+
+Epictetus gave his students a line to say to a harsh impression, before assenting to it: "You are but an appearance, and not absolutely the thing you appear to be." It is a small, almost physical practice. The phone buzzes, the dread arrives, and instead of reacting to the dread as if it were already the truth, you pause in the gap and check. The silence is an appearance. The story that it means contempt is something you are about to add. The whole of Stoic calm lives in that pause before the nod.
+
+<SectionMarker>the first movement</SectionMarker>
+
+There is an honest seam here, and the Stoics were the first to name it, which is one reason they are trustworthy guides and not salesmen.
+
+The jolt itself is not up to you. Before any judgment, the body moves on its own: the stab of fear when the phone lights up, the flush of anger, the catch in the breath, tears that start before you have decided anything. The Stoics called these first movements, and they were careful to say that a first movement is not yet a passion, because you have not assented to anything. Seneca lays out the stages of anger this way. The first feeling is involuntary, "a preparation for a passion." The second adds a flicker of agreement: it is my duty to be angry, because I was wronged. The third is the passion proper, already off the leash, "beyond our control, because it overrides reason."
+
+There is a story the Stoics liked to tell on themselves about this. A ship runs into a violent storm, and the passengers watch a famous Stoic philosopher on board turn pale and grip the rail, exactly as frightened-looking as everyone else. When the sea calms, someone needles him: where was all that famous tranquility. He answers, in effect, that the turning pale was not up to him. The mind of even a wise person is struck and goes white for a moment when a wave like that hits. What the wise person does not do is the next thing, the assent. He does not add the judgment that he is doomed, or cry out, or fold. The pallor was a first movement, predicted and forgiven. The composure was in what came after it.
+
+This matters because it answers the most common objection before it lands. Stoicism is not asking you to feel nothing when the wave hits. It would call that impossible and a little inhuman. It is asking you to notice that there is a gap between the jolt and the judgment, and that you live in the gap. The jolt belongs to the body. The story belongs to you. Buddhism, the clinical methods in [the engineering chapter](/the-engineering-of-calm), and the parts work in [Internal Family Systems](/the-calm-at-the-center) all pick up the thread at precisely this seam, where the Stoics set the parcel down.
+
+<SectionMarker>what tranquility is, and is not</SectionMarker>
+
+The Stoics had a name for the settled state they were after, and it is the most mistranslated word in the whole school. *Apatheia*. It looks like apathy, and it is very nearly the opposite.
+
+Apatheia is freedom from the destructive passions, not freedom from feeling. The Stoics counted four of those passions, four ways the mind lurches at a false judgment about good and evil: craving, fear, the grasping kind of pleasure, and distress. To be free of those is not to go numb. The proof is in what the Stoics said the wise person keeps. They named a second set of feelings, the *eupatheiai*, the good feelings, that survive the training. Joy, a clear-eyed gladness. Caution, a reasoned wariness that is the healthy cousin of fear. And a kind of rational wishing, wanting the good without clutching at it.
+
+Here is the precise version, because the line "calm is not numbness" runs the length of this book and deserves the actual evidence rather than a slogan. Three of the four passions have a healthy counterpart the wise person is meant to keep. Fear has caution. Grasping pleasure has joy. Craving has rational wishing. Only one of the four, distress, has no good twin at all, because for the Stoic sage nothing outside the self counts as a genuine evil to be crushed by. So the target was never a flat, affectless calm. It was a life with the gladness and the care left fully in, and only the corrosive reactivity burned off. That is the engaged calm the [first chapter](/what-calm-is) promised and the [last chapter](/calm-is-not-numbness) defends.
+
+One more word, since this book keeps three calm-words in play. Seneca, writing in Latin, reached back to the old Greek atomist Democritus and borrowed his term for this condition, *euthymia*, good spirits, and rendered it *tranquillitas*, tranquility. He made it the title of an entire essay. It is the word this chapter takes for its own.
+
+<SectionMarker>sort your own life</SectionMarker>
+
+Reading about the two bins is easy. Sorting your actual life into them is the work, and it is harder than it looks, because so many things feel like they are up to you when they are not. Below are eight items pulled from an ordinary anxious afternoon. Put each one in the bin where it truly belongs, then check your sort against the Stoics.
+
+<DichotomySorter />
+
+Notice the one item that does not fit cleanly. The first jolt of fear when the phone buzzes is not up to you, so the Stoics put it in the second bin, but it carries a special tag, because it is the hinge of the whole system. The jolt is a first movement. The story you wrap around it is yours. Almost everything that landed in the up-to-me bin is a movement of your own mind: a judgment, an effort, a response, the meaning you assign. Everything external fell to the other side. Worry is mostly the activity of running the other side on a loop, authoring outcomes that were never yours to write.
+
+<SectionMarker>act, and hold the rest in reserve</SectionMarker>
+
+The obvious objection to all this sorting is that it sounds like giving up. If the outcome is not up to me, why try at all. The Stoic answer is the opposite of resignation, and it has a specific shape: act with everything you have, and hold the outcome loosely. Prepare completely for the interview. Then release the verdict, because the verdict was always in the second bin.
+
+They had a name for the loose grip, the reserve clause. You commit to an action and you add a silent condition: I will do this, fate permitting. Seneca states it almost as a shrug. "I will set sail," he writes, "unless anything happens to prevent me." You row hard, and you do not promise yourself the wind.
+
+A modern picture makes this concrete, with one honest note about where it comes from. Stephen Covey drew two circles: a wide circle of concern, holding everything you care about, and inside it a smaller circle of influence, the part you can actually affect. Later teachers added an innermost circle, control, the part that is fully yours. The version below has all three.
+
+<ControlInfluenceConcernFigure />
+
+The center is Epictetus, exactly: your judgments and your chosen actions. The middle ring, influence, is the honest thing the bare two-bin version can sound like it is missing, the large territory where you have a real effect but not the final say. The Stoic name for working that ring well is the reserve clause. Pour yourself into the part you influence, and let the result, which lives in the outer ring with the weather and the past, be what it will be. The relief is not in caring less. It is in aiming your care where it can do something.
+
+<SectionMarker>rehearse the loss</SectionMarker>
+
+The Stoics had a practice that sounds grim and turns out to be steadying: rehearsing, on purpose and in advance, the things you fear losing. The later name for it is *premeditatio malorum*, the premeditation of future ills. You sit, calmly, and picture the loss. The job gone. The plan fallen through. A person you love, one day, not there. Not to torment yourself, but to take the ambush out of it, and to notice, while you are calm, what in the feared scene is actually up to you.
+
+After a fire destroyed the city of Lyon in a single night, Seneca wrote to a friend that we should "consider, not what is wont to happen, but what can happen." The point is to widen what your mind has already met, so that when something hard arrives it arrives as a visitor you have seen before, not a stranger who knocks you flat.
+
+This needs a clear line drawn next to it, because it can look exactly like the worry it is meant to cure. Worry is the same disaster on an endless loop, with no exit and no acceptance, and Seneca knew that failure mode too. "We suffer more often in imagination than in reality," he wrote, in a different letter, about exactly that. The difference between the practice and the affliction is the ending. Premeditation ends in acceptance and a clear view of what you would actually do. Worry ends nowhere, and starts again. One honest caution: for some people, rehearsing loss feeds the fear instead of draining it. The Stoic intent is preparation that settles into calm, not a clinical guarantee, and if the rehearsal only winds you up, that is real information about you, not a failure of nerve. Stop, and use a gentler door.
+
+<SectionMarker>the view from above</SectionMarker>
+
+The last practice is a change of altitude. When a trouble has swollen to fill your whole sky, the Stoics would deliberately rise above it in imagination, up and up, until human affairs were small again and in proportion. Marcus Aurelius, writing privately to himself as emperor, kept returning to it. "Look down from above," he tells himself, "on the countless herds of men and their countless solemnities," the marriages and lawsuits and markets and funerals, the whole churning anthill seen from a height.
+
+<ViewFromAboveFigure />
+
+Be precise about what this does and does not do. It is a change of proportion, not a denial. The trouble keeps its real size; your grief is still your grief. What changes is the frame around it, and a frame can shrink a thing that had grown larger than it deserved. The unanswered message, seen from the edge of your own life, then the city, then the span of everyone who has ever waited on a reply, settles back to about the size it actually is. The modern name for the exercise, the view from above, is the scholar Pierre Hadot's. The practice itself runs back through Marcus to Cicero, who imagined an empire seen from among the stars and found it small as a single point.
+
+<SectionMarker>one silence, all the way through</SectionMarker>
+
+Return to the unanswered message, and run it through the method, start to finish.
+
+First, the impression. Stripped of story, the fact is small: two hours, no reply. The dread that arrived with it, the certainty of contempt, is a *phantasia*, an appearance, and it came on its own. That is the first movement, and it is not your fault and not yet your verdict. You meet it with the line: you are an appearance, not yet the thing you claim to be.
+
+Then the sort. What here is up to you. Not the other person's mind, their mood, their reasons, the timing of their reply, the eventual outcome. All of that is the second bin, however badly your body wants it to be the first. What is up to you is narrow and real: whether you send a clear, kind follow-up or let it sit, and what you make this silence mean while you wait. You pour your effort into the part you hold. You write one honest line, or you decide the next move is theirs, and you act on that with reserve, fate permitting, the verdict released.
+
+And if the dread still has its hooks in, you change altitude. You picture, calmly, the worst honest version, the friendship cooled, and you find that even there you would survive and know what to do, which drains the ambush out of it. Then you pull the camera back, past your desk, past the day, until the whole thing is the ordinary size of one person waiting on one reply, which is all it ever was. None of this makes you not care. You still want the warmth of an answer. You are simply no longer being dragged behind your own verdict while you wait. That is tranquility, in the Stoic sense. Not the silence fixed, but the judgment governed.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="tranquility-by-judgment"
+  id="control-audit"
+  n="01"
+  title="A control audit on one worry"
+  input="text"
+  placeholder="the worry… · up to me… · not up to me… · the one action that is actually mine…"
+>
+  Write down one worry you are carrying right now, in a sentence. Then split it down the middle. List
+  the parts that are genuinely up to you, your judgments, your effort, your next chosen action, and the
+  parts that are not, the other person, the outcome, the timing, the past. Most worries are ninety
+  percent in the second column. Find the one thing in the first column that you could actually do, and
+  name it. That, and only that, is where the worry has somewhere to go.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="tranquility-by-judgment"
+  id="premeditation"
+  n="02"
+  title="Premeditation, once"
+  input="text"
+  placeholder="what I fear losing… · the calm worst case… · what would actually be up to me there…"
+>
+  Pick one thing you are quietly afraid to lose. For two minutes, calmly, picture it gone, and notice
+  what is still standing and what you would actually do next. The aim is to take the ambush out of the
+  fear, not to dwell in it. Write the scene and the one thing in it that would still be up to you. If
+  the rehearsal winds you up rather than settling you, stop. That is useful to know, and a sign to use
+  a gentler practice instead.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="tranquility-by-judgment"
+  id="evening-review"
+  n="03"
+  title="The evening review"
+  input="text"
+  placeholder="what was up to me today… · did I tend it… · what I will do differently tomorrow…"
+>
+  The Stoics closed the day by reviewing it, not to scold themselves but to take stock. Tonight, ask
+  three plain questions. What today was actually up to me. Did I tend it, or did I spend the day
+  gripping the other bin. And what is one thing I would do differently tomorrow. Keep it short and
+  honest. Done most nights for a week, this is the whole philosophy in miniature, run as a habit.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="tranquility-by-judgment"
+  id="test-an-impression"
+  n="04"
+  title="Test one impression in the wild"
+  input="checkbox"
+>
+  Once today, catch a harsh impression as it arrives, the flash of "this is a disaster," the certainty
+  that someone meant it cruelly, and before you assent to it, say to it, silently, that it is only an
+  appearance and not yet the thing it claims to be. Then check whether it is even true. Mark this done
+  once you have actually paused in that gap, in a live moment, and withheld the nod even once.
+</ExerciseCard>
