@@ -18,7 +18,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 11 | Ch 11 — Internal Family Systems: The Calm at the Center | `prompts/ch11-the-calm-at-the-center.md` | DONE |
 | 12 | Ch 12 — Stillness and Surrender: The Contemplative Religions | `prompts/ch12-stillness-and-surrender.md` | DONE |
 | 13 | Ch 13 — Nature and Simplicity: The Transcendentalists | `prompts/ch13-nature-and-simplicity.md` | DONE |
-| 14 | Ch 14 — One Calm, Many Doors | `prompts/ch14-one-calm-many-doors.md` | PENDING |
+| 14 | Ch 14 — One Calm, Many Doors | `prompts/ch14-one-calm-many-doors.md` | DONE |
 | 15 | Ch 15 — What Actually Works | `prompts/ch15-what-actually-works.md` | PENDING |
 | 16 | Ch 16 — Building Your Practice | `prompts/ch16-building-your-practice.md` | PENDING |
 | 17 | Ch 17 — Designing for Calm | `prompts/ch17-designing-for-calm.md` | PENDING |
