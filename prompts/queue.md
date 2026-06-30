@@ -9,7 +9,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 02 | Ch 2 — The Settled Body | `prompts/ch02-the-settled-body.md` | DONE |
 | 03 | Ch 3 — The Quiet Mind | `prompts/ch03-the-quiet-mind.md` | DONE |
 | 04 | Ch 4 — Stoicism: Tranquility by Judgment | `prompts/ch04-tranquility-by-judgment.md` | DONE |
-| 05 | Ch 5 — Epicureanism: Enough, and No Fear | `prompts/ch05-enough-and-no-fear.md` | PENDING |
+| 05 | Ch 5 — Epicureanism: Enough, and No Fear | `prompts/ch05-enough-and-no-fear.md` | DONE |
 | 06 | Ch 6 — Buddhism: Calm Abiding | `prompts/ch06-calm-abiding.md` | PENDING |
 | 07 | Ch 7 — Zen: The Ordinary Mind | `prompts/ch07-the-ordinary-mind.md` | PENDING |
 | 08 | Ch 8 — Taoism: The Watercourse Way | `prompts/ch08-the-watercourse-way.md` | PENDING |
