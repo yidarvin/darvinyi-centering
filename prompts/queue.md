@@ -1,0 +1,25 @@
+# Run Queue — Centering
+
+Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the first PENDING item. Update the status cell after each run. See `CLAUDE.md` for the workflow and the trigger phrases.
+
+| # | item | file | status |
+|----|------|------|--------|
+| 00 | scaffold and site shell | `prompts/00-scaffold.md` | PENDING |
+| 01 | Ch 1 — What Calm Is, and Isn't | `prompts/ch01-what-calm-is.md` | PENDING |
+| 02 | Ch 2 — The Settled Body | `prompts/ch02-the-settled-body.md` | PENDING |
+| 03 | Ch 3 — The Quiet Mind | `prompts/ch03-the-quiet-mind.md` | PENDING |
+| 04 | Ch 4 — Stoicism: Tranquility by Judgment | `prompts/ch04-tranquility-by-judgment.md` | PENDING |
+| 05 | Ch 5 — Epicureanism: Enough, and No Fear | `prompts/ch05-enough-and-no-fear.md` | PENDING |
+| 06 | Ch 6 — Buddhism: Calm Abiding | `prompts/ch06-calm-abiding.md` | PENDING |
+| 07 | Ch 7 — Zen: The Ordinary Mind | `prompts/ch07-the-ordinary-mind.md` | PENDING |
+| 08 | Ch 8 — Taoism: The Watercourse Way | `prompts/ch08-the-watercourse-way.md` | PENDING |
+| 09 | Ch 9 — Yoga and the Stilling of the Mind | `prompts/ch09-stilling-the-mind.md` | PENDING |
+| 10 | Ch 10 — The Engineering of Calm | `prompts/ch10-the-engineering-of-calm.md` | PENDING |
+| 11 | Ch 11 — Internal Family Systems: The Calm at the Center | `prompts/ch11-the-calm-at-the-center.md` | PENDING |
+| 12 | Ch 12 — Stillness and Surrender: The Contemplative Religions | `prompts/ch12-stillness-and-surrender.md` | PENDING |
+| 13 | Ch 13 — Nature and Simplicity: The Transcendentalists | `prompts/ch13-nature-and-simplicity.md` | PENDING |
+| 14 | Ch 14 — One Calm, Many Doors | `prompts/ch14-one-calm-many-doors.md` | PENDING |
+| 15 | Ch 15 — What Actually Works | `prompts/ch15-what-actually-works.md` | PENDING |
+| 16 | Ch 16 — Building Your Practice | `prompts/ch16-building-your-practice.md` | PENDING |
+| 17 | Ch 17 — Designing for Calm | `prompts/ch17-designing-for-calm.md` | PENDING |
+| 18 | Ch 18 — Calm Is Not Numbness | `prompts/ch18-calm-is-not-numbness.md` | PENDING |
