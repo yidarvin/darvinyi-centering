@@ -16,7 +16,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 09 | Ch 9 — Yoga and the Stilling of the Mind | `prompts/ch09-stilling-the-mind.md` | DONE |
 | 10 | Ch 10 — The Engineering of Calm | `prompts/ch10-the-engineering-of-calm.md` | DONE |
 | 11 | Ch 11 — Internal Family Systems: The Calm at the Center | `prompts/ch11-the-calm-at-the-center.md` | DONE |
-| 12 | Ch 12 — Stillness and Surrender: The Contemplative Religions | `prompts/ch12-stillness-and-surrender.md` | PENDING |
+| 12 | Ch 12 — Stillness and Surrender: The Contemplative Religions | `prompts/ch12-stillness-and-surrender.md` | DONE |
 | 13 | Ch 13 — Nature and Simplicity: The Transcendentalists | `prompts/ch13-nature-and-simplicity.md` | PENDING |
 | 14 | Ch 14 — One Calm, Many Doors | `prompts/ch14-one-calm-many-doors.md` | PENDING |
 | 15 | Ch 15 — What Actually Works | `prompts/ch15-what-actually-works.md` | PENDING |
