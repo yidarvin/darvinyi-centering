@@ -1,0 +1,190 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { TwoArrowsFigure } from '@/components/chapters/calm-abiding/TwoArrowsFigure';
+import { ResistanceMultiplierFigure } from '@/components/chapters/calm-abiding/ResistanceMultiplierFigure';
+import { SettlingStagesFigure } from '@/components/chapters/calm-abiding/SettlingStagesFigure';
+import { FlowingWaterFigure } from '@/components/chapters/calm-abiding/FlowingWaterFigure';
+import { TwoArrowsWidget } from '@/components/chapters/calm-abiding/TwoArrowsWidget';
+import { NotingTimer } from '@/components/chapters/calm-abiding/NotingTimer';
+import { MettaPractice } from '@/components/chapters/calm-abiding/MettaPractice';
+
+export const reflection = {
+  path: '~/centering/06.1',
+  prompt: 'Think of a pain you are carrying right now. Which part of it is the first arrow, the thing that simply happened? And which part is the second, the one you have kept firing at yourself?',
+};
+
+export const sources = [
+  { text: 'Sallatha Sutta: The Arrow (SN 36.6), trans. Thanissaro Bhikkhu. Access to Insight. (The two arrows: the painful feeling, and the mental reaction added on top.)', url: 'https://www.accesstoinsight.org/tipitaka/sn/sn36/sn36.006.than.html' },
+  { text: 'Sallatha Sutta (SN 36.6), trans. Bhikkhu Sujato, titled "An Arrow." SuttaCentral. (Public-domain CC0 translation: "they feel two feelings, physical and mental.")', url: 'https://suttacentral.net/sn36.6/en/sujato' },
+  { text: 'Ānāpānasati Sutta: Mindfulness of Breathing (MN 118), trans. Thanissaro Bhikkhu. Access to Insight. (The breath as anchor, in sixteen steps and four tetrads.)', url: 'https://www.accesstoinsight.org/tipitaka/mn/mn.118.than.html' },
+  { text: 'Yuganaddha Sutta: In Tandem (AN 4.170), trans. Thanissaro Bhikkhu. dhammatalks.org. (Serenity and insight yoked together, "yuganaddha.")', url: 'https://www.dhammatalks.org/suttas/AN/AN4_170.html' },
+  { text: 'Saṅgārava Sutta (SN 46.55), trans. Bhikkhu Sujato. SuttaCentral. (The five hindrances as five states of water: dyed, boiling, algae-choked, wind-churned, muddy and dark.)', url: 'https://suttacentral.net/sn46.55/en/sujato' },
+  { text: 'Sāmaññaphala Sutta (DN 2), trans. Thanissaro Bhikkhu. Access to Insight. (The standard formula for the four jhānas and the factors that fall away.)', url: 'https://www.accesstoinsight.org/tipitaka/dn/dn.02.0.than.html' },
+  { text: 'Satipaṭṭhāna Sutta: Frames of Reference (MN 10), trans. Thanissaro Bhikkhu. Access to Insight. (The four foundations of mindfulness, the canonical ground of noting practice.)', url: 'https://www.accesstoinsight.org/tipitaka/mn/mn.010.than.html' },
+  { text: 'Dhammapada 277–279, trans. Thanissaro Bhikkhu. Access to Insight. (The three marks: all fabrications inconstant, all fabrications stressful, all phenomena not-self. Note the shift from saṅkhārā to dhammā in the third.)', url: 'https://www.accesstoinsight.org/tipitaka/kn/dhp/dhp.20.than.html' },
+  { text: 'Anatta-lakkhaṇa Sutta: The Not-Self Characteristic (SN 22.59), trans. Ñāṇamoli Thera. Access to Insight. (Not-self argued aggregate by aggregate, not as a flat metaphysical denial of self.)', url: 'https://www.accesstoinsight.org/tipitaka/sn/sn22/sn22.059.nymo.html' },
+  { text: 'Phena Sutta: Foam (SN 22.95), trans. Thanissaro Bhikkhu. Access to Insight. (Form like a lump of foam, feeling like a bubble, perception like a mirage: the imagery of impermanence.)', url: 'https://www.accesstoinsight.org/tipitaka/sn/sn22/sn22.095.than.html' },
+  { text: 'Ānanda Sutta: To Ānanda, on Self, Not-Self, and the Unanswered (SN 44.10), trans. Thanissaro Bhikkhu. Access to Insight. (The Buddha’s silence to Vacchagotta: neither "there is a self" nor "there is no self.")', url: 'https://www.accesstoinsight.org/tipitaka/sn/sn44/sn44.010.than.html' },
+  { text: 'Saḷāyatanavibhaṅga Sutta (MN 137), trans. Thanissaro Bhikkhu. dhammatalks.org. (Household equanimity versus the equanimity of renunciation: the canonical seed of "equanimity is not indifference.")', url: 'https://www.dhammatalks.org/suttas/MN/MN137.html' },
+  { text: 'Karaṇīya Metta Sutta: Good Will (Sn 1.8), trans. Thanissaro Bhikkhu. Access to Insight. (The discourse on lovingkindness, with the mother-and-only-child simile.)', url: 'https://www.accesstoinsight.org/tipitaka/kn/snp/snp.1.08.than.html' },
+  { text: 'Nyanaponika Thera. The Four Sublime States: Contemplations on Love, Compassion, Sympathetic Joy and Equanimity (BPS Wheel 6). Access to Insight. (Equanimity "not due to an emotional emptiness, but to a fullness.")', url: 'https://www.accesstoinsight.org/lib/authors/nyanaponika/wheel006.html' },
+  { text: 'Gil Fronsdal. "Equanimity." Insight Meditation Center, 2004. (Mature equanimity as warmth and radiance, the ground of wisdom and the protector of compassion, not "dry neutrality or cool aloofness.")', url: 'https://www.insightmeditationcenter.org/books-articles/equanimity/' },
+  { text: 'Mahasi Sayadaw. Practical Insight Meditation. Access to Insight. (The twentieth-century Burmese noting method, grounded in but not lifted from the Satipaṭṭhāna Sutta.)', url: 'https://www.accesstoinsight.org/lib/authors/mahasi/practical.html' },
+  { text: 'Bhikkhu Bodhi, trans. The Connected Discourses of the Buddha (Saṁyutta Nikāya), Wisdom Publications, 2000. (The scholarly standard for the suttas drawn on here, including SN 36.6, titled "The Dart.")' },
+  { text: 'Bhikkhu Anālayo. Satipaṭṭhāna: The Direct Path to Realization. Windhorse, 2003. (Careful scholarship on mindfulness, the establishments of awareness, and equanimity.)' },
+  { text: 'Shinzen Young. "A Pain Processing Algorithm" / Natural Pain Relief. (The modern formula "Suffering = Pain × Resistance," a teaching device, not a canonical text.)', url: 'https://www.shinzen.org/wp-content/uploads/2016/08/painprocessingalg.pdf' },
+  { text: 'Mark Siderits. "Buddha." Stanford Encyclopedia of Philosophy. (On dukkha as existential unsatisfactoriness rather than mere pain, and the not-self analysis.)', url: 'https://plato.stanford.edu/entries/buddha/' },
+];
+
+A pain wakes you at three in the morning. Your lower back, or a headache, or the dull throb of an old injury that has decided tonight is the night. That is the feeling, and it is real. Then, within seconds, the mind arrives to help. *This again. It is going to wreck tomorrow. Why does this keep happening. What if it is something serious.* Ten minutes later the ache in your back has been joined by a second thing, larger and louder than the first: a churning apparatus of dread and resistance and self-pity built on top of it. You came into the night with one problem. You now have two.
+
+That gap, between the thing that happened and the storm you built on it, is the most carefully studied territory in this book. The contemplative traditions of India spent more than two thousand years mapping the inside of a single mind, and Buddhism mapped it most thoroughly of all: the way attention moves, the way feeling turns into reaction, the stages a mind passes through as it settles, the precise mechanics of how suffering is manufactured and how it can be set down. What follows is a tour of that map. Not the whole of it, which would take a lifetime, but the part this book is built around: how to feel the first arrow fully and stop firing the second.
+
+<RouteTags routes={['presence', 'letting-go', 'connection']} />
+
+<SectionMarker>the second arrow</SectionMarker>
+
+The Buddha put the whole problem into a single image, and it is worth meeting in his own framing before any modern gloss. In a short discourse called the Sallatha Sutta, the Dart, he asks what is different between an ordinary untrained person and a person who has done the work. Both, he says, feel pleasant, painful, and neutral feelings. Awakening does not buy you out of pain. The trained person still stubs a toe, still grieves, still gets sick and old. The difference is what happens next.
+
+When the untrained person is touched by a painful feeling, the Buddha says, they "sorrow, grieve, and lament, beat the breast, become distraught." So they feel two pains, one in the body and one in the mind. It is as if a man were struck by an arrow and then, right afterward, struck by a second arrow, so that he feels the pain of two. The trained person, touched by the same painful feeling, does not pile on the sorrow and the resistance. They feel the bodily pain and no more. One arrow, not two.
+
+<TwoArrowsFigure />
+
+Read the figure closely, because the precise anatomy matters. The first arrow is the raw painful feeling itself, what the texts call *vedanā*, the felt tone that every experience carries. It arrives uninvited and you do not get a vote on it. The second arrow is the reaction: not just "thinking about" the pain, but the whole machinery of aversion, the lament, the *this should not be happening*, and the frantic search for an exit, usually into some pleasure that will make it stop. That machinery is what you add. And here is the part people skip: the trained person is not numb. They feel the first arrow at full strength. What they have given up is the second one, the self-inflicted wound, the war on the feeling that does all the extra damage.
+
+You may have met this idea in its popular form, "pain is inevitable, suffering is optional." It is a fair summary of the second arrow, but it is not the Buddha's line. It comes out of the twentieth-century recovery movement and was made famous by a Japanese novelist writing about long-distance running. Worth knowing, so you do not go looking for it in a sutta. The genuine teaching is older and more precise: the pain is one thing, the resistance to the pain is another, and only the second is yours to lay down.
+
+<SectionMarker>pain times resistance</SectionMarker>
+
+A modern meditation teacher, Shinzen Young, compressed the second arrow into an equation that is useful as long as you remember it is a teaching device and not scripture. Suffering equals pain times resistance. Pain is the raw sensation. Resistance is how hard you push against it. Multiply them. When resistance is high, even a small pain becomes large suffering. When resistance drops toward zero, the suffering collapses, and what is left is the bare sensation, fully felt, with no war around it.
+
+<ResistanceMultiplierFigure />
+
+The figure makes the lever visible. The pain line does not move. You cannot decree a headache away, just as the Stoics in [the chapter on judgment](/tranquility-by-judgment) admitted the first jolt of fear is not up to you. What you can work is the multiplier. And the multiplier is not a feeling you white-knuckle down to zero. It drops on its own when you stop treating the pain as an emergency to be solved and start letting it be what it already is: a sensation, present, changing, not actually the catastrophe the second arrow keeps insisting it is.
+
+The widget below lets you feel the lever in your hand. Pick a familiar hurt, then move the one thing you can actually move.
+
+<TwoArrowsWidget />
+
+Notice, as you drag, that nothing you do touches the coral bar. That is the honest part of this teaching, the part that keeps it from being denial. The pain is real and it stays. What you are working is everything stacked above it, and there is usually a great deal stacked above it. Most of what kept you awake at three in the morning was never the pain. It was the second arrow, fired again and again, all night.
+
+<SectionMarker>calm abiding</SectionMarker>
+
+So how do you actually lower resistance, when "just stop resisting" is about as useful as "just relax"? You train. The chapter's title names the method. *Samatha*, calm abiding, is the cultivation of a mind that can rest, steady and unhurried, on one thing. Its partner is *vipassanā*, insight, the clear seeing of how experience actually behaves. The tradition calls them two wings of one bird. Calm without insight is a pleasant rest that changes nothing; insight without calm is a jittery cleverness that cannot hold still long enough to see. Yoked together, the word the texts use is *yuganaddha*, they carry you.
+
+The anchor for calm abiding, then and now, is usually the breath. Resting attention on the breath is the same move you trained in [the chapter on the quiet mind](/the-quiet-mind): the mind wanders, you notice, you come back, and the coming back is the rep. It is also the same breath that pulls the brake in [the settled body](/the-settled-body). Buddhism did not discover the breath. It mapped, in extraordinary detail, what happens to a mind that stays with it.
+
+What happens is that the mind settles in stages, the way a glass of stirred-up water clears when you stop stirring and wait. The classical map names the silt first. Five hindrances cloud the mind, and an old discourse likens each to a different ruined bowl of water: desire is water shot through with dye, ill will is water boiling, dullness is water choked with algae, restlessness is water whipped by wind, and doubt is water left muddy in the dark. In none of them can you see your own face. As attention steadies on the breath, the silt sinks. The water clears. Concentration deepens through a series of states the tradition calls the *jhānas*, each one shedding a coarser ingredient until what remains is a bright, still equanimity.
+
+<SettlingStagesFigure />
+
+Two honesties about that ladder. First, the rung marked access concentration is a refinement from the later commentaries, not a stage the Buddha named in the discourses, so it sits there dashed. Second, this is the early Buddhist map, the Theravāda one. The Tibetan tradition draws its own famous version, nine stages of calm abiding pictured as a monk taming an elephant down a winding path, and it is a different map of the same territory, not a translation of this one. Treat them as two careful surveys of one landscape, not as a single road.
+
+You do not need the deep end of that ladder to get the benefit. Most of the work happens on the lowest rungs, in the simple, repeated act of noticing where the mind has gone and naming it. That naming has a name. In the twentieth century the Burmese teacher Mahasi Sayadaw taught a method of *noting*: when something pulls you off the breath, you give it a soft, one-word label, *thinking*, *hearing*, *wanting*, and let it go. The label is not analysis. It is a way of stepping half a pace back, so that instead of being the worry you are the one watching the worry arise and pass. It is a modern technique, built on the ancient foundations of mindfulness rather than copied from them, and it is one of the most direct ways in.
+
+<NotingTimer />
+
+<SectionMarker>three marks</SectionMarker>
+
+Noting does something quieter than calming you down. Over time it shows you what experience is actually made of, and the tradition is unusually specific about what you find. Three characteristics mark everything that arises and passes, the *tilakkhana*.
+
+The first is *anicca*, impermanence. Nothing conditioned stays. Not the pain, not the pleasure, not the mood you are sure will last forever. Watch any sensation closely and you catch it flickering, arising and dissolving, never the solid block it pretended to be. The discourses reach for water to say it: form is like a lump of foam on a river, feeling like a bubble, perception like a mirage, the whole of experience floating past and coming apart in your hands.
+
+<FlowingWaterFigure />
+
+A small caution, since the image invites it. "You cannot step in the same river twice" is a fine line, but it is Heraclitus, a Greek, not the Buddha. The flowing-water feeling of impermanence is genuinely Buddhist; that particular sentence is not. The point underneath is practical, not poetic: if the feeling you are bracing against is already leaving on its own, the bracing is wasted effort. You are gripping water.
+
+The second mark is *dukkha*, usually translated "suffering," which undersells it. Dukkha is closer to unsatisfactoriness, the way conditioned things cannot finally hold the weight we put on them. Even pleasure has it, because pleasure ends, and some of its sweetness is always the low hum of knowing it will. This is not a gloomy verdict on life. It is a precise observation about where we keep looking for a stability that the changing world is not built to give.
+
+The third mark is the hardest and the most misread. *Anatta*, not-self. It is tempting to flatten this into "there is no you," but that is not what the careful texts say, and the Buddha specifically refused to say it. When a wanderer asked him point-blank whether there is a self, and then whether there is no self, he stayed silent both times, and later explained that either flat answer misleads. What he taught instead is a method: look at each piece of what you call "me," the body, the feelings, the perceptions, the impulses, the awareness, and ask whether any of it is reliably under your command, whether any of it stays. None of it does. So none of it is worth clamping onto as *this is mine, this is what I am*. Not-self is less a metaphysical announcement than an invitation to stop building your identity out of things that were always going to flow away. Loosen that grip and a great deal of the second arrow has nothing left to hold.
+
+<SectionMarker>the trained heart</SectionMarker>
+
+All of this is pointed at one quality, and it is the quality this whole book is circling. *Upekkhā*, equanimity. It is the still water at the top of the ladder, the fourth of the deep states of concentration, and one of the four boundless attitudes the tradition prizes most. And it is the single idea most easily mistaken for its opposite, so the tradition guards it carefully.
+
+Equanimity is not indifference. It is not the cool detachment of someone who has stopped caring, and it is not the flatness of a person gone numb. The old commentaries were precise about this. They warned of a "near enemy," a counterfeit that looks like the real thing from a distance: the bland unconcern of someone who simply is not engaged, who shrugs because nothing reaches them. That is the household indifference that ignores both virtue and harm, and it is the false coin equanimity is constantly confused with. Real equanimity is rooted in wisdom, in having actually seen how feeling and impermanence and not-self work, and that root is exactly what separates it from cold detachment. As one modern teacher in the tradition put it, equanimity is steady "not due to an emotional emptiness, but to a fullness." Another calls mature equanimity a warmth and a radiance, the ground that wisdom grows in and the thing that protects love from burning out.
+
+This is the spine of the book, stated in the oldest vocabulary it has. The Buddha himself drew the line, separating a "household" equanimity, which is really just the dullness of a jaded mind, from the equanimity of release, which is alert, awake, and engaged. A settled nervous system is not a checked-out one. The trained person who feels one arrow and not two is not feeling less. They are feeling the first arrow more cleanly than the rest of us, because their attention is not swallowed by the second. Equanimity is what lets you stay in the room with a hard thing without being run by it. [The Stoics](/tranquility-by-judgment) reached the same place by a different road, governing the judgment instead of training the attention, which is the first hint of a pattern this book will keep meeting.
+
+<SectionMarker>the boundless heart</SectionMarker>
+
+There is one more move, and it corrects a misunderstanding that the words "calm" and "detachment" tend to breed. The path is not a retreat into a private bubble. Equanimity is only one of four boundless states, and the most famous of the other three is *mettā*, lovingkindness: a deliberate, cultivated, unconditional good will, widened until it leaves no one out.
+
+The discourse on it, the Karaṇīya Metta Sutta, ends with an image that is not detached in the least. As a mother would protect her only child with her life, it says, so should you cultivate a boundless heart toward all beings. The point of the simile is not sentimental feeling. It is the *limitlessness* of the care, the refusal to draw a circle and keep some beings outside it. This is the connection route that ran through [the Garden of the Epicureans](/enough-and-no-fear), now made into a formal practice: calm is rarely a solo achievement, and a heart trained only in stillness and not in warmth has missed half the path.
+
+The practice itself is concrete and gradual. The classical manual has you start where good will comes easily, with yourself, then widen the circle in steps: someone you respect, someone you love, someone you feel neutral about, someone you find difficult, and finally all beings without exception, until the walls between those categories quietly come down. The phrases people repeat today, *may you be safe, may you be happy, may you be healthy, may you live with ease*, are a modern formula in the spirit of the sutta rather than lines from it. Use them as a current to ride, not a script to perform.
+
+<MettaPractice />
+
+<SectionMarker>one pain, all the way through</SectionMarker>
+
+Take a real situation and run it through the whole chapter, the way you would actually use this on a hard evening.
+
+It is Friday, late, and a message lands from your boss. Two lines, curt, critical, about something you thought you had handled well. The first arrow strikes on contact: a hot drop in the stomach, a flush of shame, the body reacting before any thought forms. That is *vedanā*, the painful feeling, and it is not optional. You felt it. Good. Pretending you did not would be its own kind of second arrow.
+
+Then the machinery starts. *They think I am careless. This is going to follow me. I always do this. Maybe I am not good at this job.* Each sentence is a fresh arrow, fired by you, into the same wound. By the third one your weekend is gone, ruined in advance by a two-line message you have now read eleven times. On the figure from earlier, you have slid resistance most of the way to the right, and the suffering bar is towering over the small pain that started it.
+
+So you do the trained thing, which is smaller than it sounds. You put attention on the breath, three slow exhales, and you let the body settle a notch. You note what is actually here: *stinging. thinking. wanting it to be Monday so I can fix it.* Naming each one puts that half-pace of space between you and it, and in that space you notice the first true thing: the hot feeling in your stomach has already changed twice while you watched it. It is not a block. It is water. *Anicca.* It is going somewhere.
+
+From that small clearing, equanimity is available, and it is not the same as not caring. You still care about the work. You will still answer the message, probably better than you would have at full panic. But you are no longer being dragged by the second arrow, so you can see the situation at its real size: a colleague was terse on a Friday, which is a thing that happens, and the story about your whole worth was an arrow you were firing, not a fact the message contained. You might even, before you put the phone down, turn one of the metta phrases toward yourself, who is tired and stung, and one toward the boss, who was probably just tired too. The pain was real. The suffering was mostly manufactured. You have stopped manufacturing it. That is the entire skill, and it is trainable, one breath and one noted arrow at a time.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="calm-abiding"
+  id="breath-anchor"
+  n="01"
+  title="A ten-minute breath-anchor sit"
+  input="timer"
+  seconds={600}
+>
+  Sit comfortably, eyes closed or lowered. Rest your attention on the breath, wherever you feel it most
+  plainly, the nostrils or the belly. Do not control it, just feel it. When you notice the mind has
+  wandered, and you will, gently bring it back. The return is the practice, not the staying. This is
+  plain calm abiding, the ground everything else in the chapter is built on. Run the timer once and let
+  it be exactly as scattered or as still as it is.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="calm-abiding"
+  id="second-arrow"
+  n="02"
+  title="Catch one second arrow a day"
+  input="text"
+  placeholder="what happened (the first arrow)… · what I added (the second)… · what was left when I saw the difference…"
+>
+  Once a day, catch yourself in the act. Something stings, and then the mind starts piling on. Pause long
+  enough to separate the two: here is the thing that actually happened, the first arrow, and here is
+  everything I have been stacking on top, the second. You do not have to make the second arrow stop. Just
+  see it clearly as something you are adding, not something the event contains. Write down one instance.
+  Seeing the seam is most of the work.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="calm-abiding"
+  id="name-the-water"
+  n="03"
+  title="Name today’s hindrance"
+  input="text"
+  placeholder="which water was the mind today… · dyed (desire) · boiling (ill will) · algae (dullness) · wind (restlessness) · muddy (doubt)…"
+>
+  The five hindrances each have a water. Once today, when the mind feels unclear, ask which bowl it is:
+  water tinted with wanting, water boiling with irritation, water choked with dullness, water whipped by
+  restlessness, or water left muddy with doubt. You are not trying to fix it. Naming the kind of cloudiness
+  is already a step out of it, because the one who can name the water is not the water.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="calm-abiding"
+  id="metta"
+  n="04"
+  title="A short lovingkindness round"
+  input="checkbox"
+>
+  Take three or four minutes with the practice above, or on your own. Start with yourself, *may I be safe,
+  be happy, be healthy, live with ease*, and let the warmth widen by steps: someone you love, someone you
+  barely know, someone you find hard, and out toward everyone. If it feels mechanical at first, that is
+  normal. You are not faking a feeling, you are pointing the heart in a direction. Mark this done once you
+  have made one honest pass.
+</ExerciseCard>
