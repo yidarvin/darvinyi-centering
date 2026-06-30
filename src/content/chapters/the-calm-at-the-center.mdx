@@ -1,0 +1,195 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { Caution } from '@/components/chapters/the-settled-body/Caution';
+import { ProtectiveSystemFigure } from '@/components/chapters/the-calm-at-the-center/ProtectiveSystemFigure';
+import { ProactiveReactiveFigure } from '@/components/chapters/the-calm-at-the-center/ProactiveReactiveFigure';
+import { QualitiesOfSelfFigure } from '@/components/chapters/the-calm-at-the-center/QualitiesOfSelfFigure';
+import { OffCenterLoopFigure } from '@/components/chapters/the-calm-at-the-center/OffCenterLoopFigure';
+import { PartsMapper } from '@/components/chapters/the-calm-at-the-center/PartsMapper';
+
+export const reflection = {
+  path: '~/centering/11.1',
+  prompt: 'Think of the part of you that has been loudest this week, the one whose voice felt like plain fact rather than one opinion among several. If you could turn toward it with a little curiosity instead of obeying it or arguing with it, what might it be afraid would happen if it stopped doing its job?',
+};
+
+export const sources = [
+  { text: 'Richard C. Schwartz and Martha Sweezy, Internal Family Systems Therapy, 2nd ed. (Guilford Press, 2019; first edition 1995). The foundational clinical text: parts, the manager and firefighter and exile roles, burdens, the Self, and Self-leadership. In copyright, so paraphrased here, never quoted at length.', url: 'https://www.guilford.com/books/Internal-Family-Systems-Therapy/Schwartz-Sweezy/9781462541461' },
+  { text: 'Richard C. Schwartz, No Bad Parts: Healing Trauma and Restoring Wholeness with the Internal Family Systems Model (Sounds True, 2021). Schwartz writing IFS for a general reader: natural multiplicity against the "mono-mind," the claim that no part is bad and every part has a protective intent, burdens that attach "like a virus," and a Self that trauma can bury but not break. The short quoted phrase here, "there are no bad parts," is the book’s title.', url: 'https://www.soundstrue.com/products/no-bad-parts-1' },
+  { text: 'IFS Institute, "The Internal Family Systems Model Outline." The official reference for the model’s terminology: the definitions of parts, managers, firefighters, exiles, burdens ("energies that are not inherent in the function of the part"), the Self as a "different level of entity than the parts," and the principle that the Self can and should lead the system.', url: 'https://ifs-institute.com/resources/articles/internal-family-systems-model-outline' },
+  { text: 'Richard C. Schwartz, "Evolution of the Internal Family Systems Model," IFS Institute. Schwartz’s own account of how the model grew out of family-systems therapy in the 1980s, and his list of the eight qualities of Self-leadership: calmness, curiosity, clarity, compassion, confidence, creativity, courage, and connectedness.', url: 'https://ifs-institute.com/resources/articles/evolution-internal-family-systems-model-dr-richard-schwartz-ph-d' },
+  { text: 'Jack Engler and Paul R. Fulton, "Self and No-Self in Psychotherapy," in Wisdom and Compassion in Psychotherapy. On the resonance, and the real difference, between the IFS Self and the Buddhist no-self and witnessing consciousness. The basis for treating this chapter as a bridge to the contemplative traditions rather than an equation with them.', url: 'https://static1.squarespace.com/static/5c03ced75ffd204418037b7a/t/5c3ff1077924e82bb9992a66/1547694343486/Self+and+No-Self+WCP+copy.pdf' },
+  { text: 'Nancy A. Shadick et al., "A Randomized Controlled Trial of an Internal Family Systems-based Psychotherapeutic Intervention on Outcomes in Rheumatoid Arthritis: A Proof-of-Concept Study," The Journal of Rheumatology 40, no. 11 (2013): 1831–1841. The only published RCT of IFS (79 patients). The honest detail: it did not improve its objective, rheumatologist-rated primary outcome (disease activity); its gains were on self-reported secondary measures, several of which did not last, in a design where the IFS group got far more attention than the control.', url: 'https://www.jrheum.org/content/40/11/1831' },
+  { text: 'Hilary B. Hodgdon, Frank G. Anderson, Elizabeth Southwell, Wendy Hrubec, and Richard Schwartz, "Internal Family Systems (IFS) Therapy for Posttraumatic Stress Disorder (PTSD) among Survivors of Multiple Childhood Trauma: A Pilot Effectiveness Study," Journal of Aggression, Maltreatment & Trauma 31, no. 1 (2022): 22–43. The source of the often-quoted figure that 92% of participants no longer met criteria for PTSD. It was an uncontrolled pilot of seventeen people with no comparison group, so it generates a hypothesis rather than confirming one.', url: 'https://www.tandfonline.com/doi/full/10.1080/10926771.2021.2013375' },
+  { text: 'Mary E. Buys, "Exploring the evidence for Internal Family Systems therapy: a scoping review of current research, gaps, and future directions," Clinical Psychologist (2025). An independent review that found 27 IFS studies, only two of them randomized controlled trials and seventeen of them case studies. It calls IFS promising for chronic pain, depression, and PTSD, and concludes that large, rigorous trials are still needed.', url: 'https://www.tandfonline.com/doi/full/10.1080/13284207.2025.2533127' },
+  { text: 'Lenny Bernstein and Lena H. Sun reporting, and contemporaneous coverage, on SAMHSA freezing the National Registry of Evidence-Based Programs and Practices (NREPP) in January 2018. IFS had been listed on NREPP in 2015 on the strength of the single 2013 trial; the registry was developer-nominated, widely criticized as a low bar, and then defunded. "Formerly listed on a now-defunct federal registry, on the basis of one study" is the accurate reading.', url: 'https://en.wikipedia.org/wiki/SAMHSA_National_Registry_of_Evidence-Based_Programs_and_Practices_(NREPP)' },
+];
+
+Sunday, a little after nine. Nothing is wrong. The week ahead is ordinary. But there is a voice running anyway, low and quick, the way it tends to on a Sunday night. *You never answered that email. They will think you are flaky. You should get out ahead of Monday. You should not have said yes to Thursday.* You know this voice. You might even call it yourself. "I'm anxious," you would say if someone asked, the way you would say "I'm tired" or "I'm cold." A plain fact about the one person you are.
+
+Internal Family Systems starts by doubting the last part of that. Not the anxiety. The one person. [The Stoics handed you a single ruling faculty](/tranquility-by-judgment) to govern. IFS hands you a crowd, and it says the Sunday-night voice is not you. It is one of the crowd, doing a job, very loudly, while the rest of you listens as though it were the news.
+
+This is the hinge of the book. Behind us are [the clinical methods that work on the thought](/the-engineering-of-calm): check it, unhook from it, balance it. Ahead are [the contemplative traditions that learn to surrender it](/stillness-and-surrender). IFS sits exactly between them. It is a therapy that ends up somewhere that looks a great deal like meditation, not at a quieter mind but at a calm center underneath the noise, present the whole time, that you can learn to lead from. The book is named for that center. This is the chapter where we go looking for it.
+
+<RouteTags routes={['letting-go', 'connection', 'presence']} />
+
+<SectionMarker>you are a crowd</SectionMarker>
+
+Richard Schwartz was a young family therapist in the 1980s, trained to treat households as systems, when he noticed his clients describing themselves the same way they described their families. In the plural. "Part of me wants to leave him, but part of me is terrified to be alone." "There's a part that knows I should eat, and a part that won't let me." He started asking about those parts directly, as if interviewing members of a family, and found they answered. They had ages. They had histories. They had relationships with one another. Some fought. Some formed alliances. Some stood guard over others.
+
+Out of that he built Internal Family Systems, and it rests on a premise that sounds strange right up until you watch your own Sunday night. The mind is naturally multiple. Not split, not damaged, not sick. Multiple by design. What feels from the inside like a single stream of "me" is closer to a committee, a set of semi-autonomous sub-personalities Schwartz calls *parts*, each with its own view of the situation and its own idea of what to do. This is worth saying carefully, because it can be misheard. IFS is not describing dissociative identity disorder, the clinical condition once called multiple personality. Schwartz's claim is the opposite of pathology. Everyone is multiple. In trauma a system can get more walled-off and extreme, but the multiplicity itself is just what a mind is.
+
+And here is the move that gives the whole method its tone. Schwartz holds that there are, in his words, no bad parts.
+
+> There are no bad parts.
+
+Even the part that drives you to drink, the part that lashes out, the part that keeps you up scanning for threats: in this frame none of them is an enemy, and none is the problem to be deleted. Each is a part that took on a job, usually long ago, usually a job no child should have had, and is still doing it out of fear of what would happen if it stopped. The behavior can be destructive. The intent under it is always protective. That is a stance, not a proven fact about the brain, and it is fair to hold it as Schwartz's clinical posture rather than settled science. But as a posture it changes everything downstream, because you do not make war on a frightened protector and win. You make a different kind of contact.
+
+<SectionMarker>protectors, and what they guard</SectionMarker>
+
+The parts sort into a structure, and the structure is the heart of the model. Picture three nested layers.
+
+<ProtectiveSystemFigure />
+
+At the outside are the *protectors*, and they come in two kinds. *Managers* run the day. They are the proactive ones, working ahead of trouble to keep it from ever arriving: the inner critic that drafts and redrafts so you cannot be caught short, the planner that books every hour, the people-pleaser that reads the room and smooths it before anyone can be displeased, the Sunday-night sentinel scanning Monday for threats. Their whole strategy is prevention. Keep control, keep performing, keep everyone happy, and the pain never gets a chance to surface.
+
+When prevention fails and the pain breaks through anyway, the second kind of protector takes over. Schwartz calls these *firefighters*, and the name is exact. They are reactive, and they do not care about the furniture. Once a wound is lit, the firefighter's only job is to put it out now, by whatever works fastest: the third drink, the binge, the doomscroll until two in the morning, the sudden rage, the shutdown. Managers and firefighters are often at war with each other, the critic disgusted by the bingeing it cannot prevent, and that civil war is a lot of what we feel as being a mess. But they are on the same side. Same goal, different shift.
+
+<ProactiveReactiveFigure />
+
+What both kinds of protector are guarding sits in the inner layer: the *exiles*. These are young parts, frozen at the age they were hurt, carrying the raw material the protectors exist to keep down. The feeling of being unlovable, worthless, not enough, about to be abandoned. The exile is not weak because it is bad. It is exiled because its pain felt, at some point, like more than the system could survive, so the managers locked it away and the firefighters stand ready to douse it if it ever leaks. IFS has a precise word for what an exile carries: a *burden*. A burden is an extreme belief or emotion a part absorbed from a painful past, "I am not enough and they will find out," and the key claim is that the burden is not the part. It attached to the part, Schwartz says, the way a virus attaches to a host. Which means it can, in principle, be set down again.
+
+Sit with the shape of this for a moment, because it explains why the noise never stops on its own. The manager works to keep the exile buried. So the exile's wound is never actually seen, never healed, only suppressed. So the manager can never relax its guard. The protector is trapped doing a job that, by design, can never be finished. The anxiety on a Sunday night is not a malfunction. It is a part working overtime at an impossible task, and getting no thanks for it.
+
+<SectionMarker>the part that is not a part</SectionMarker>
+
+If the model stopped there it would be a tidy map of dysfunction and not much else. What makes IFS more than that, and what makes it belong in this book, is what it puts at the center of the diagram.
+
+Underneath all the parts, Schwartz says, is the *Self*. And the Self is not another part. It is not the manager that finally got organized or the wise voice you cultivate. It is the seat of awareness the parts are talking *to*, the "you" that can notice the anxious part without being it. His strongest and most surprising claim is that this Self is in everyone, that it is naturally calm and clear, and that trauma cannot damage it. Trauma can bury the Self under layers of protection so thick you forget it is there. It cannot break it. The work is never to build a Self. It is to clear enough space that the one already there can come forward and lead.
+
+You know the Self by its qualities. Schwartz lists eight of them, and because he is fond of patterns they all begin with the letter C: calm, curiosity, clarity, compassion, confidence, creativity, courage, and connectedness.
+
+<QualitiesOfSelfFigure />
+
+Read that wheel as a readout, not a to-do list. These are not virtues to manufacture by effort. They are what is simply present when no part has taken the wheel. The test is practical and a little uncanny once you try it. When you turn your attention to some troublesome part and find that you feel curious about it, even warm toward it, that is the sign the Self is the one looking. When instead you feel annoyed at it, or afraid of it, or want it gone, that is another part that has blended in, and the curiosity has gone out of the room. Several of the Cs tend to show up together or not at all. Their arrival is the Self arriving.
+
+This is the moment the clinical and the contemplative touch. The Self that watches the parts without becoming them is recognizably a cousin of [the observing self of ACT](/the-engineering-of-calm), the sky that is not the weather. It rhymes with the witness behind the churn in [Buddhist practice](/calm-abiding) and the still awareness behind the fluctuations in [yoga](/stilling-the-mind). Schwartz himself noticed the parallel to the Buddhist no-self only after he had built the model, and he is careful, and we should be too, not to flatten these into one thing. The traditions mean genuinely different things by the calm center, and the differences matter. But they are all pointing, from their own directions, at the same fact your Sunday night demonstrates: there is a place to stand that is not any of the voices. Schwartz sometimes describes the Self in frankly spiritual language. You do not have to follow him there for the map to be useful. A secular reader can take the Self as plain lived experience, the quiet vantage from which the rest of the committee becomes visible, and lose nothing practical.
+
+<SectionMarker>try it: the parts map</SectionMarker>
+
+The shift that matters here is felt, not understood, so the map below lets you feel it on a small worked-out system. You start *blended* with one anxious manager, the Sentinel, the Sunday-night voice. Blended means fused: its view fills the screen, its color washes everything, and the Self is dim and shrunk underneath it, its qualities out of reach. There is no daylight between you and the part. Notice that you cannot argue your way out of this state, and you cannot shove the part away. The single move that works is to step back. Unblend. Watch what happens to the center when you do, and then turn toward each part in turn and ask, with curiosity rather than war, what it is so afraid of.
+
+<PartsMapper />
+
+<SectionMarker>the way back to center</SectionMarker>
+
+That small word at the start of the widget, *blended*, is the linchpin of the whole method. Blending is when a part so takes over that its perspective becomes your perspective. You do not think "a part of me is furious." You are furious, and the fury is simply true, and you act on it. Unblending is the act of separating just enough to see the part as a part. It is the difference between *I am anxious* and *a part of me feels anxious*, and that small grammatical shift is not word games. The first sentence is spoken by the part. The second is spoken from the Self, with the anxious part now in view rather than behind the eyes.
+
+If that reminds you of [the defusion move from the last chapter](/the-engineering-of-calm), saying "I am having the thought that," you are right, and the family resemblance is real. But IFS asks for something defusion does not. Defusion creates distance from a thought and leaves it there, drifting on its leaf down the stream. IFS closes the distance again, on purpose, in a different spirit. Having unblended, you turn *toward* the part and get to know it. Distance first, then relationship. The aim is not to be rid of the anxious sentinel. It is to lead it.
+
+This is why fighting your anxiety so rarely works, and often makes it worse. When you attack the anxious part, you have not reduced the number of parts in the room. You have added a second one, a part that hates the first, and now there are two protectors fighting inside you instead of one. The off-center loop just gets another lap.
+
+<OffCenterLoopFigure />
+
+The exit from the loop is not to win it. It is to step out of it. Unblend, let the Self come back to the center, and lead from there. From the center the anxious part is no longer the whole truth. It is a frightened, loyal protector you can finally hear out.
+
+<SectionMarker>turn toward, do not fight</SectionMarker>
+
+So you have unblended and the Self is at the center. What do you actually do with the part you find? IFS teaches a sequence for getting to know a protector, and like Schwartz it spells with one letter, this time F. You *find* the part, often as a sensation somewhere in the body. You *focus* on it and let it come into detail. You notice how you *feel toward* it, which is the checkpoint that matters most, because if the honest answer is anything but openness, another part has blended and you gently ask that one to step back first. When there is real warmth available, you *befriend* it: you let it know you see the job it has been doing and you appreciate the effort, however clumsy the method. And then you ask after its *fear*. What are you scared would happen if you stopped?
+
+The answer is almost always protective, and almost always old. The sentinel is not anxious for the sake of anxiety. It is terrified that if it stops scanning, something will get past it and prove, once and for all, that you are not enough, which is exactly the burden the exile underneath is carrying. The protector has spent years standing between you and a wound. When it finally feels that the Self can take over that watch, it can begin to relax. That is the slow center of gravity of this work. Not defeating parts, but freeing them from jobs they were drafted into and never wanted.
+
+There is one more step in the full method, and this is where the chapter draws a firm line. Once a protector trusts the Self enough to give permission, the Self can turn to the exile it has been guarding, witness the pain it carries until it feels truly seen, and help it release the burden, what IFS calls *unburdening*. That step is real and it is powerful and it is not something to go digging for alone from a book. Approaching exiles can open old trauma fast, and it is meant to happen slowly, with consent from the protectors, and for most people with a trained guide. Everything in this chapter, and every exercise at the end of it, stays on the near side of that line. We befriend protectors. We do not go prying open exiles.
+
+<Caution title="where this chapter stops">
+  Getting to know your protectors and learning to unblend is safe, ordinary inner work. Going toward exiles
+  and the wounds they carry is not the same thing, and it is not a solo project. That work can surface
+  trauma quickly, and IFS itself teaches that it should be approached with consent from your protectors and,
+  for most people, with a trained therapist. This is education, not therapy. If you are in real distress, or
+  if a part you meet here is carrying more than you can hold, that is a reason to bring in a professional,
+  and [the final chapter points to where to look](/calm-is-not-numbness).
+</Caution>
+
+<SectionMarker>how well does this hold up</SectionMarker>
+
+A model can be a beautiful map of inner experience and still be an open question as evidence, and honesty requires holding both. IFS is, at this point, promising and largely unproven, and it would be a disservice to tell you otherwise.
+
+The case is thinner than the model's popularity suggests. IFS was listed in 2015 on a federal registry of evidence-based practices, which sounds weightier than it is: that registry took nominations from the developers of the programs themselves, was widely criticized as a low bar, rested in this case on a single study, and was frozen and defunded in 2018. That single study, a 2013 randomized trial in patients with rheumatoid arthritis, is still the only proper controlled trial IFS has. And it is sobering. It did not improve its main objective outcome, the disease activity a rheumatologist measured. Its gains were on things the patients reported about themselves, like pain and self-compassion, several of which faded by follow-up, and the IFS group got far more time and attention than the control group, which on its own can produce that kind of result. The widely repeated figure that ninety-two percent of trauma patients no longer met criteria for PTSD after IFS comes from a 2021 pilot of seventeen people with no comparison group at all. It is a hopeful signal, not proof. A 2025 review found twenty-seven IFS studies in total and only two of them randomized trials. Much of the enthusiastic research is authored or co-authored by Schwartz and people close to the model, and independent replication is still scarce.
+
+None of that means IFS does not work, and absence of strong evidence is not evidence of harm. It means the claims have, for now, outrun the data. The grown-up stance is the same one [the engineering chapter took](/the-engineering-of-calm): use the parts of this you find useful, hold the rest as a lens rather than a cure, and keep your expectations calibrated. As a *map*, a way of relating to your own inner crowd with less war and more curiosity, IFS can be genuinely steadying whether or not the trials ever fully come in. [The chapter on what actually works](/what-actually-works) grades the whole field, this included.
+
+<SectionMarker>one Sunday night, all the way back</SectionMarker>
+
+Take the nine o'clock voice and walk it home.
+
+It starts blended. *You never answered that email, they think you are flaky, you should not have said yes to Thursday.* For a while you simply are that voice, and the evening drains into it. The first move is the smallest and the hardest: catch it as a part. Not "I am anxious" but "a part of me is anxious, the one that scans ahead." Already there is a sliver of daylight. You are over here, noticing; the sentinel is over there, doing its thing.
+
+Now check how you feel toward it. If the honest answer is "I hate that it does this," that is a second part, the critic, blended in to attack the first. Ask the critic, kindly, to give you a minute. When what is left is something more like curiosity, the Self is at the center, and you can turn to the sentinel and actually ask: what are you afraid would happen if you stopped? Sit long enough and the answer comes, and it is not about the email. It is something like: if I stop watching, we will get blindsided, and everyone will see we were never really up to this. There is the exile, the young part carrying *not enough*, and there is the loyal guard that has spent years trying to make sure no one ever finds it.
+
+You do not go to that wound tonight, alone, on a Sunday. You do the thing that is yours to do. You thank the sentinel, sincerely, for how hard it has worked. You let it know the fear it is carrying is old, that the email can wait until morning, that you have got the watch from here. Maybe it relaxes a little. Maybe it does not, the first time, and that is fine; trust is built slowly.
+
+Notice what that did not require. It did not require silencing the part, which never works. It did not require numbing out, which is just handing the watch to a firefighter, and which is the [counterfeit calm this book keeps refusing](/calm-is-not-numbness). The anxiety was not the enemy and did not have to be killed. It had to be led. That is the calm at the center: not an empty mind, but a steady place to stand while the rest of the committee, finally, gets to put something down.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="the-calm-at-the-center"
+  id="map-three-parts"
+  n="01"
+  title="Map three of your parts"
+  input="text"
+  placeholder="part 1: what it does · what it might be protecting…  part 2: …  part 3: …"
+>
+  Name three parts you can recognize in yourself. For each, write what it does, in plain language (the
+  planner, the critic, the one that goes quiet, the one that reaches for the phone), and then take a guess at
+  what it might be trying to protect you from. You are not diagnosing anything. You are just sketching the
+  committee, and practicing the shift from "I am like this" to "a part of me does this." Sort each one, if you
+  can, into a proactive manager or a reactive firefighter.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-calm-at-the-center"
+  id="unblend-once"
+  n="02"
+  title="Unblend once, in real time"
+  input="text"
+  placeholder="the moment… · what I said, out loud or inside: 'a part of me feels…' · what shifted, even slightly…"
+>
+  Wait for a moment this week when a feeling takes you over, when you notice you have become irritated or
+  anxious or deflated. In that moment, change the sentence. Not "I am furious" but "a part of me feels
+  furious." Say it inside, or under your breath. Then notice what happens to the size of the feeling, and
+  whether a little space opens up between you and it. Write down the moment and what shifted. The shift is
+  often small. Small is the whole point.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-calm-at-the-center"
+  id="befriend-a-protector"
+  n="03"
+  title="A short dialogue with one protector"
+  input="text"
+  placeholder="the part… · how I feel toward it (am I curious, or is another part blended?)… · its job… · what it is afraid would happen if it stopped…"
+>
+  Pick one protector from your map, ideally a manager rather than a firefighter, and have a brief, friendly
+  conversation with it. First check how you feel toward it. If you are annoyed or scared, another part is
+  blended; ask that one to step back before you go on. When there is some curiosity available, let the part
+  know you see the job it has been doing, and ask it the one good question: what are you afraid would happen
+  if you stopped? Just listen to the answer. Stay with the protector. Do not go looking for the exile
+  underneath, especially alone. That is where this exercise ends.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-calm-at-the-center"
+  id="return-to-center"
+  n="04"
+  title="Two minutes at the center"
+  input="timer"
+  seconds={120}
+>
+  Sit comfortably and let your attention settle. As parts show up, an anxious one, a bored one, a planning
+  one, do not push them away and do not follow them. Just name each as a part, silently, and let it be there
+  without taking the wheel. Notice if any of the qualities of the Self begin to show up on their own: a
+  little calm, a little curiosity, some warmth toward the parts that are present. You are not trying to reach
+  a blank mind. You are practicing sitting at the center while the committee keeps talking. Two minutes is
+  plenty.
+</ExerciseCard>
