@@ -1,0 +1,244 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { EvidenceMapFigure } from '@/components/chapters/what-actually-works/EvidenceMapFigure';
+import { RouteMechanismFigure } from '@/components/chapters/what-actually-works/RouteMechanismFigure';
+import { PredictiveBrainLoop } from '@/components/chapters/what-actually-works/PredictiveBrainLoop';
+import { MechanismExplorer } from '@/components/chapters/what-actually-works/MechanismExplorer';
+
+export const reflection = {
+  path: '~/centering/15.1',
+  prompt:
+    'Pick the practice you lean on most for calm. Find its grade in this chapter. Does the grade change how you will use it? Not whether you keep doing it, but what you will now expect from it, and how you would know if it were working.',
+};
+
+export const sources = [
+  {
+    text: 'Madhav Goyal et al., "Meditation Programs for Psychological Stress and Well-being: A Systematic Review and Meta-analysis," JAMA Internal Medicine 174, no. 3 (2014): 357-368. The sober anchor of the whole chapter. Restricting to trials with active controls, it found moderate-strength evidence and small effects: anxiety about 0.38 at eight weeks, depression about 0.30, pain about 0.33, and no sign that meditation beat exercise, drugs, or other therapies.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4142584/',
+  },
+  {
+    text: 'Simon B. Goldberg et al., "The Empirical Status of Mindfulness-Based Interventions: A Systematic Review of 44 Meta-Analyses of Randomized Controlled Trials," Perspectives on Psychological Science 17, no. 1 (2022): 108-130. Better than passive controls, smaller and less often significant against active ones, only comparable to other evidence-based treatments, with harms under-reported.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8364929/',
+  },
+  {
+    text: 'Julieta Galante et al., "Mindfulness-based programmes for mental health promotion in adults in non-clinical settings," PLOS Medicine 18, no. 1 (2021): e1003481. In healthy adults, distress fell against passive controls (SMD -0.45) but essentially not at all against active controls (SMD -0.01). The clean demonstration that the everyday-wellness benefit rests on comparisons to doing nothing.',
+    url: 'https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003481',
+  },
+  {
+    text: 'Willem Kuyken et al., "Efficacy of Mindfulness-Based Cognitive Therapy in Prevention of Depressive Relapse: An Individual Patient Data Meta-analysis," JAMA Psychiatry 73, no. 6 (2016): 565-574. Nine trials, 1,258 patients. MBCT cut relapse versus usual care (HR 0.69) and versus maintenance antidepressants (HR 0.79), most in those with the heaviest residual symptoms. The strongest single application of trained presence in the book.',
+    url: 'https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2517515',
+  },
+  {
+    text: 'Simon B. Goldberg, Sin U. Lam, Willoughby B. Britton, and Richard J. Davidson, "Prevalence of meditation-related adverse effects in a population-based sample in the United States," Psychotherapy Research 32, no. 3 (2022): 291-305. In a US population sample, 10.4 percent reported effects lasting a month or longer and 1.2 percent reported lasting functional impairment, with childhood adversity predicting risk. The corrective to "safe for everyone."',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8636531/',
+  },
+  {
+    text: 'Pim Cuijpers et al., "How effective are cognitive behavior therapies for major depression and anxiety disorders?" World Psychiatry 15, no. 3 (2016): 245-258. The control condition drives the number: CBT for depression measured g=0.98 against a waitlist, which the authors call "probably a nocebo," but only g=0.55 against a pill placebo.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5032489/',
+  },
+  {
+    text: 'Joseph K. Carpenter et al., "Cognitive behavioral therapy for anxiety and related disorders: A meta-analysis of randomized placebo-controlled trials," Depression and Anxiety 35, no. 6 (2018): 502-514. Against a true placebo, CBT moved target symptoms by g=0.56, with response about three times as likely. The honest size of one of the best-supported methods in the field.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5992015/',
+  },
+  {
+    text: 'Jacqueline A-Tjak et al., "A Meta-Analysis of the Efficacy of Acceptance and Commitment Therapy for Clinically Relevant Mental and Physical Health Problems," Psychotherapy and Psychosomatics 84, no. 1 (2015): 30-36. ACT versus waitlist g=0.82, versus a psychological placebo g=0.51, and versus established treatments such as CBT only g=0.32 and not significant. Roughly parity, not superiority, and higher-quality trials found smaller effects.',
+    url: 'https://karger.com/pps/article/84/1/30/282854/',
+  },
+  {
+    text: 'Thomas L. Webb, Eleanor Miles, and Paschal Sheeran, "Dealing with feeling: A meta-analysis of the effectiveness of strategies derived from the process model of emotion regulation," Psychological Bulletin 138, no. 4 (2012): 775-808. Across 306 comparisons, cognitive reappraisal worked but was small (about d=0.36), with perspective-taking strongest (d=0.45) and plain distraction near zero.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/22582737/',
+  },
+  {
+    text: 'Ozlem Ayduk and Ethan Kross, "From a distance: Implications of spontaneous self-distancing for adaptive self-reflection," Journal of Personality and Social Psychology 98, no. 5 (2010): 809-829. People who spontaneously take a fly-on-the-wall view of their own distress show lower emotional reactivity (correlations around -0.31 to -0.34) and fewer intrusive thoughts weeks later. Small samples, but the basis for decentering.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2881638/',
+  },
+  {
+    text: 'Vivian C. Goessl, Joshua E. Curtiss, and Stefan G. Hofmann, "The effect of heart rate variability biofeedback training on stress and anxiety: A meta-analysis," Psychological Medicine 47, no. 15 (2017): 2578-2586, with Paul Lehrer et al., "Heart Rate Variability Biofeedback Improves Emotional and Physical Health and Performance," Applied Psychophysiology and Biofeedback 45 (2020): 109-129. A small-to-moderate controlled effect that, in Lehrer\'s words, "does not differ from that of other effective treatments."',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/32385728/',
+  },
+  {
+    text: 'Guy W. Fincham et al., "Effect of coherent breathing on mental health and wellbeing: a randomised placebo-controlled trial," Scientific Reports 13 (2023): 22141, with Fincham et al., "Effect of breathwork on stress and mental health," Scientific Reports 13 (2023): 432, and Andrea Zaccaro et al., Frontiers in Human Neuroscience 12 (2018): 353. The acute physiology of slow breathing is well documented, the pooled clinical effects are small, and a preregistered trial of 400 people found coherent breathing beat nothing but not a faster-paced placebo.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10719279/',
+  },
+  {
+    text: 'Julianne Holt-Lunstad, Timothy B. Smith, and J. Bradley Layton, "Social Relationships and Mortality Risk: A Meta-analytic Review," PLoS Medicine 7, no. 7 (2010): e1000316. Across 148 studies and 308,849 people, stronger social ties gave about 50 percent greater odds of surviving follow-up (OR 1.50). Among the largest associations in this chapter, and entirely observational.',
+    url: 'https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316',
+  },
+  {
+    text: 'David R. Cregg and Jennifer S. Cheavens, "Gratitude Interventions: Effective Self-help?" Journal of Happiness Studies 22 (2021): 413-445, with Leah R. Dickens, "Using Gratitude to Promote Positive Change," Basic and Applied Social Psychology 39, no. 4 (2017): 193-208. Gratitude practices show small effects on depression and anxiety (g about -0.29) that fall to roughly d=0.03 against an equally effortful positive activity. Real, modest, and oversold.',
+    url: 'https://doi.org/10.1007/s10902-020-00236-6',
+  },
+  {
+    text: 'Matthew A. Killingsworth, Daniel Kahneman, and Barbara Mellers, "Income and emotional well-being: A conflict resolved," PNAS 120, no. 10 (2023): e2208661120. A rare adversarial collaboration over 1.7 million real-time reports: happiness keeps rising with the logarithm of income, with a tiny correlation (about 0.09) and a flattening only for the least happy minority. The curve is certain and the effect is small.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10013834/',
+  },
+  {
+    text: 'Patrick L. Hill and Nicholas A. Turiano, "Purpose in Life as a Predictor of Mortality Across Adulthood," Psychological Science 25, no. 7 (2014): 1482-1486, with Randy Cohen, Chirag Bavishi, and Alan Rozanski, "Purpose in Life and Its Relationship to All-Cause Mortality and Cardiovascular Events: A Meta-Analysis," Psychosomatic Medicine 78, no. 2 (2016): 122-133. Purpose predicts lower mortality (HR 0.85 per standard deviation; pooled RR 0.83 across 136,000 people). Strong, convergent, and almost entirely observational.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4224996/',
+  },
+  {
+    text: 'Karl Friston, "The free-energy principle: a unified brain theory?" Nature Reviews Neuroscience 11 (2010): 127-138; Andy Clark, "Whatever next? Predictive brains, situated agents, and the future of cognitive science," Behavioral and Brain Sciences 36, no. 3 (2013): 181-204; and Anil K. Seth and Karl J. Friston, "Active interoceptive inference and the emotional brain," Philosophical Transactions of the Royal Society B 371 (2016): 20160007. The predictive-processing frame, offered as an elegant unifier. Its own authors note that direct evidence for interoceptive prediction errors "is still lacking."',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5062097/',
+  },
+  {
+    text: 'Gregory N. Bratman et al., "Nature experience reduces rumination and subgenual prefrontal cortex activation," PNAS 112, no. 28 (2015): 8567-8572, with Marc G. Berman, John Jonides, and Stephen Kaplan, Psychological Science 19, no. 12 (2008): 1207-1212. A single nature walk reliably beats a city walk on mood and attention and lowers activity in a brooding-linked brain region, though the self-reported drop in rumination was only a non-significant trend, and the comparisons are single-session.',
+    url: 'https://www.pnas.org/doi/10.1073/pnas.1510459112',
+  },
+];
+
+The app opens with a breath. A soft circle widens, holds, shrinks, and a line of calm sans-serif tells you the exercise is clinically proven to reduce stress. You believe it a little. You also do not, quite, because the last app said the same thing, and so did the supplement, the weighted blanket, the gratitude journal, and the man on the podcast selling a course. *Proven* is carrying a great deal of weight in that sentence. It never says proven against what.
+
+That last question is the whole chapter. You have spent fourteen chapters meeting each route to calm on its own terms, presented as fairly as I could put it. This is the cold one. Of everything in this book, what does the evidence actually support, how well, and where is it thin. It is the promise made back in [the engineering chapter](/the-engineering-of-calm), paid in full and route by route: these methods are real, and they are modest, and the distance between *real* and *miraculous* is where most of the harm in this field hides.
+
+So two honest pieces of news, and you should hear them together. The first is deflating. Almost nothing here is as powerful as it is sold to be, and a few beloved practices barely outperform doing something else with the same time and hope. The second is steadying. Several of these routes are genuinely supported, the well-supported ones are enough to build a life on, and a low grade often means a thing is hard to test, not that it does not work. Both are true. Holding both is the skill this chapter trains.
+
+<RouteTags routes={['letting-go', 'presence', 'the-body', 'perspective', 'enough', 'connection', 'meaning']} label="the seven routes, graded" />
+
+<SectionMarker>proven against what</SectionMarker>
+
+There is one question that opens the entire evidence base, and once you can ask it you will never read a wellness claim the same way again. When a study says a practice worked, the only thing that matters is what it was compared to.
+
+Most calm interventions are tested against a waitlist. One group gets the eight-week course, the other group gets nothing and waits. The course group improves more, and the headline writes itself. But look at everyone who signs up for a meditation trial. They wanted help, they expected it to work, they got eight weeks of attention and structure and a teacher who believed in it, and they were asked afterward, by that same hopeful program, whether they felt better. The waitlist group got none of that. So the comparison is not measuring meditation. It is measuring meditation plus attention plus ritual plus expectation plus the simple passage of time, against nothing at all.
+
+The honest test puts the practice against an active control: something else that also costs time and effort and carries a believable promise. A different class. A walking group. A relaxation tape. Measured that way, the effects of nearly everything in this chapter shrink, and some of them stop being detectable. The pattern is so consistent it is almost a law. Mindfulness reduces distress by a respectable amount against a waitlist and by essentially nothing against an active control. Cognitive therapy for depression measures a huge effect against a waitlist that one of its own leading researchers calls "probably a nocebo," and a moderate one against a placebo pill. Gratitude journaling lifts life satisfaction noticeably compared to listing your daily hassles, and by about a thousandth of that compared to listing things that simply went well. The number without its comparison condition is not a small piece of the truth. It is closer to noise dressed as news.
+
+A few more cautions sit underneath that one, and they all push the same direction.
+
+**Expectancy is almost impossible to remove.** You can give the control group a real activity, but you usually cannot blind people to which activity they got. You know whether you spent eight weeks meditating. The cleanest illustration is a preregistered trial of four hundred people that pitted a physiologically "correct" slow breathing rate against a faster placebo rate. The correct rate beat nothing. It did not beat the placebo. Both groups improved the same amount, because both groups expected to.
+
+**Publication bias is real here, not hypothetical.** Small studies with exciting results get published. Small studies with null results get filed in a drawer. Pool the published ones and the average is inflated. It is detectable: a meta-analysis of forest bathing shows the telltale asymmetry and reports effects so large they strain belief, sitting on top of high risk of bias in more than half its studies. The contrast case is heart-rate-variability biofeedback, whose depression meta-analysis comes back clean, which is how you know the audit can tell the difference.
+
+**Dose is mostly guesswork.** You have seen the figure that two hours a week in nature is the threshold for wellbeing. It comes from a single cross-sectional survey, not from titrating the dose in a trial, and the same curve flattens and even dips past a few hundred minutes. "More is better" is an assumption the data does not carry.
+
+**Harms are barely counted.** Most trials never ask whether anyone got worse, so the reassuring sub-one-percent rate is an artifact of not looking. When researchers actually monitor for it, a non-trivial minority report anxiety, dissociation, or surfacing trauma, and in one population sample about ten percent reported effects that lasted a month or more. Meditation is not dangerous. But "safe for everyone" is a marketing claim, not a finding.
+
+With all of that in hand, here is the grading scheme this chapter uses. It is deliberately blunt. **A** is well supported: large, replicated, and the effect survives a credible active or placebo control. **B** is moderate: real and replicated, but modest, and often no better than a fair active comparison. **C** is promising but thin: small or biased trials, plausible, and the effect fades when the comparison gets honest. **D** is observational or theoretical: a strong association you cannot ethically randomize, or an elegant model no trial has tested. Here is everything in the book, sorted.
+
+<EvidenceMapFigure />
+
+<SectionMarker>the shape is the finding</SectionMarker>
+
+Before any single practice, read the shape of that figure, because the shape is itself the most honest thing in the chapter.
+
+The top band is nearly empty. That is not a failure of the field so much as a feature of the truth. The two things that earn an A earn it in opposite and slightly disappointing ways. The income-and-happiness curve is graded A because over a million real-time reports and a rare collaboration between rivals nailed down its shape beyond argument, and the shape says that past a comfortable income each extra dollar buys almost nothing. Certain, and tiny. Cognitive behavioral therapy is graded A because hundreds of trials, including ones with real placebos, keep finding a moderate effect, but every impressive number it is famous for was measured against a waitlist, and against a placebo it comes down to earth. Large, and heavily hedged. There is no practice in this book that is both powerful and certain. If there were, you would already be doing it, and it would not need an app to tell you it was proven.
+
+The middle band is fat, and it is where most of the real action lives. Slow breathing and biofeedback, mindfulness for genuine distress, acceptance work, reappraisal, a walk in the woods. These are real. They replicate. They are also modest, they lean heavily on the attention and expectation they come wrapped in, and against a fair active control most of them match rather than beat the alternative. That is not nothing. A method that reliably gives you a small, real return and that you will actually keep doing is worth more than a dramatic one you abandon in a week. But it is a long way from rewiring your brain.
+
+The thin band, the C tier, is the disappointing middle. Lovingkindness, gratitude, the everyday-wellness version of mindfulness, the practice of stepping back from your own distress. Each is plausible, each shows a charming effect against doing nothing, and each shrinks toward zero the moment the comparison group does something equally effortful and hopeful. The honest reading is that a good deal of their benefit is the benefit of doing any deliberate, kind thing on purpose with the belief it will help. Which is real, and worth having, and not what the brand promised.
+
+Then the bottom band, and this is the part most people misread, so slow down. Grade D does not mean false. It means untested, in a specific way. Strong social relationships sit at D, and they also carry one of the largest numbers in the entire chapter, around fifty percent better odds of being alive at follow-up. The grade is low only because you cannot randomly assign people to a decade of loneliness to prove it. A sense of purpose sits at D for the same reason, with the same kind of strong, convergent, unrandomizable association. The grade is a measure of how confidently we can say a practice *causes* calm, not a measure of how much it matters. On any honest reading of your own life, connection and meaning may be the two largest levers you have. They are graded D because the cleanest study is impossible, not because the effect is small. Do not let a letter trick you into ranking the deepest things last.
+
+<SectionMarker>route to mechanism</SectionMarker>
+
+A mechanism is a story about why a thing works. A grade is how hard that story has been tested. The two come apart more often than you would think, and the next figure lays the seven routes out along both axes at once: what each is proposed to do, and how well we actually know it.
+
+<RouteMechanismFigure />
+
+A few of those rows are worth pausing on. The body has the cleanest mechanism in the book. A slow exhale really does engage the vagal brake, and breathing near six times a minute really does set the heart and the baroreflex resonating, and you can watch the heart-rate variability climb in real time. The physiology is not in doubt. What is in doubt is whether that elegant mechanism translates into durable calm beyond what any focused, unhurried few minutes would give you, which is why slow breathing keeps tying its own placebo. A beautiful mechanism is a reason to expect an effect. It is not the effect.
+
+Presence and perspective are the workhorses, attention and reappraisal, and they carry the field's better evidence, with cognitive therapy reaching an A and mindfulness-based relapse prevention standing out as the one place trained attention clearly beats an active comparison. And then connection and meaning, the two routes with the most powerful associations and the thinnest trials, a reminder that the best-evidenced thing and the most important thing are not always the same thing.
+
+<SectionMarker>the quiet unifier</SectionMarker>
+
+There is a frame, newer than any tradition in this book, that quietly ties the routes together, and it is worth meeting carefully, both for what it explains and for how easy it is to oversell.
+
+The idea is that the brain is not a passive receiver of the world but a prediction machine. It is always generating a forecast of the next moment, comparing that forecast against what actually arrives, and updating itself on the gap, the prediction error. Perception is the brain's best guess, corrected by the senses. On this view, anxiety is a particular failure of the loop. The brain is predicting threat, predicting it too high and holding the prediction with too much confidence, so that ordinary safe evidence cannot get in to update it. The forecast of danger becomes self-sealing.
+
+<PredictiveBrainLoop />
+
+What makes the frame seductive is how cleanly the seven routes drop into it. The body feeds the loop direct interoceptive evidence that nothing is wrong, a slow heart and an easy breath, which is hard for a threat forecast to argue with. Presence pulls attention off the runaway prediction and onto the actual, usually unalarming, input of the present moment. Letting go lowers the confidence on the threat belief so reality can finally revise it. Perspective re-judges the prediction itself. Read this way, every route is doing one job from a different angle: getting a brain that over-predicts danger to predict a little less of it, and to hold that prediction a little more loosely.
+
+It is elegant. It may even be right. And it is graded D, on purpose, and you should hold it exactly that lightly. This is a theoretical lens, not a tested mechanism. Its own leading proponents write plainly that direct evidence for the interoceptive prediction errors at its heart "is still lacking." The grandest version of it, the free energy principle, is argued by serious people to be unfalsifiable as stated, which is a polite way of saying it can absorb any result. Use it the way you would use a good map. It organizes the territory and shows how the routes connect. It is not the same as having walked the ground.
+
+<SectionMarker>try it: the mechanism explorer</SectionMarker>
+
+The map and the figures are fixed. The judgment they ask of you is a live skill, so here it is as something to handle. Pick any practice and the explorer lays it out on one card: the route it works through, the mechanism it is supposed to work by, what the trials actually found with the real numbers attached, the catch that the grade rests on, and a link to the source. Filter by grade to feel how empty the top is and how crowded the middle. Filter by route to see how lopsided the support is across the seven.
+
+<MechanismExplorer />
+
+Spend a minute looking up the practice you already rely on. The useful jolt is usually a recalibration, not a verdict. The thing you assumed was strongest turns out to be a modest B leaning on the company it keeps, and the breath you took for a mere relaxation trick turns out to have a mechanism you can name, and the deep thing you do for meaning turns out to be graded D for a reason that has nothing to do with whether it works.
+
+<SectionMarker>one claim, all the way through</SectionMarker>
+
+Take the single most common claim in this whole space and run it through the chapter's method, because the method is the real gift here, more durable than any one number.
+
+*Studies show that mindfulness reduces anxiety.*
+
+Start where you now know to start. Reduces it compared to what? Pull the trials apart by their control group and the one sentence splits into three. Against a waitlist, the effect is large and exciting, and almost worthless as evidence, because it is loaded with everything the waitlist lacked. Against a credible active control, the best meta-analysis finds an effect on anxiety of about 0.38 at eight weeks, real but small, and fading to about 0.22 within a few months. And in healthy people seeking general wellbeing rather than treatment for distress, against an active control, the effect is statistically indistinguishable from zero.
+
+Now grade it honestly. For genuine anxiety and depression, mindfulness is a B: a real, modest, replicated effect that does not clearly beat the other good things you could do with the time. For everyday wellness in an already-well person, it is closer to a C, almost all of its apparent benefit borrowed from expectation and the simple act of taking deliberate time. Name the catch out loud: the effect is small, it leans on belief, and for a minority of people the practice stirs up more than it settles, which the cheerful version never mentions.
+
+And then, the part that keeps this from being mere debunking, decide what to actually do. The honest conclusion is not "mindfulness does not work." It is "mindfulness gives a real but moderate return for distress, no clear edge over other good options, and a small risk worth knowing about." On that basis, a reasonable person tries it, expects a modest gain rather than a transformation, keeps it if it helps and drops it if it does not, and stops repeating the sixty-percent number from the app. That is the whole skill. Not cynicism. Calibration.
+
+<SectionMarker>what to do with a number</SectionMarker>
+
+So you have graded the field. Here is how to carry it, in four lines.
+
+Use the things that are supported enough and that you will actually do. A practice graded B that fits your life and that you keep up beats an A you admire and abandon. The point of the grading is not to find the one winner. It is to stop you pouring hope into the practices that need it most and deliver least.
+
+Expect a real, moderate return, and keep the receipts. Notice whether a thing is actually helping you, in your own life, over weeks. You are a sample of one, and your own honest before-and-after is better evidence for you than any meta-analysis, as long as you are honest about the part of you that wants it to have worked.
+
+Treat overselling as a cost, not a kindness. Every inflated promise sets you up for a letdown, crowds out an honest reckoning with the limits, and quietly abandons the minority for whom the practice goes wrong. The grown-up version, real benefits stated at their real size, is more useful than the miracle and more durable too.
+
+And do not confuse a low grade with a small thing. The routes the evidence can prove are not the same as the routes that matter most. Connection and meaning are graded D because the clean trial is impossible, and on the plainest reading of any human life they may be the largest forces in it. Grade your confidence with the evidence. Do not let the evidence grade your priorities. [The next chapter](/building-your-practice) takes this honest map and turns it into something you can actually carry: a few routes that fit you, supported well enough, practiced regularly.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="what-actually-works"
+  id="commit-supported"
+  n="01"
+  title="Commit to one well-supported practice"
+  input="text"
+  placeholder="the practice (graded A or B)… · its route… · when and where I will do it… · what a modest, honest win would look like…"
+>
+  Open the explorer and filter to grade A or B. Pick one practice from that set that genuinely fits your
+  life, not the most impressive one, the most doable one. Write it down with its route, name exactly when
+  and where you will do it, and then do the honest part: write what a real but modest win would look like
+  after a few weeks, so you are not waiting on a transformation that the evidence never promised.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="what-actually-works"
+  id="find-the-mechanism"
+  n="02"
+  title="Name the mechanism your favorite works through"
+  input="text"
+  placeholder="my go-to practice… · its route… · the mechanism it is proposed to work by… · its grade, and what that changes…"
+>
+  Take the practice you already lean on most when things get hard. Look it up in the explorer and write its
+  route and the mechanism it is supposed to work through, in your own words. Then write its grade, and one
+  sentence on what that grade changes, if anything, about how you will use it. Knowing the mechanism is not
+  just trivia. It tells you what to expect, and how you would know it was working.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="what-actually-works"
+  id="grade-a-claim"
+  n="03"
+  title="Grade one claim in the wild"
+  input="text"
+  placeholder="the claim, and where I saw it… · proven against what? · what is the comparison group… · my honest grade, A to D…"
+>
+  Find one calm-and-wellness claim out in the world this week: an app, a headline, a supplement, a friend
+  who swears by something. Write it down word for word. Then ask the one question that opens the whole
+  field: proven against what? See if you can find the comparison group. If the answer is a waitlist or
+  nothing at all, you already know to discount it. Give the claim your own honest grade, A to D, and notice
+  how it feels to hold a claim that loosely.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="what-actually-works"
+  id="n-of-one"
+  title="Run an honest test on yourself"
+  n="04"
+  input="text"
+  placeholder="the practice I am testing… · my honest baseline now (sleep, mood, tension)… · the two-week plan… · the result, told straight…"
+>
+  Pick one practice and run a fair trial of one. Before you start, write an honest baseline: how you are
+  sleeping, your mood most days, where you carry tension. Do the practice for two weeks, as written. Then
+  compare, and tell it straight, including the awkward possibility that nothing changed, or that the change
+  was just a good fortnight. You will never get a randomized control on your own life. You can still be the
+  honest scientist of it.
+</ExerciseCard>
