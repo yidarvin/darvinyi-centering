@@ -1,0 +1,179 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { WanderingMindFigure } from '@/components/chapters/the-quiet-mind/WanderingMindFigure';
+import { StimulationTreadmillFigure } from '@/components/chapters/the-quiet-mind/StimulationTreadmillFigure';
+import { FlowChannelFigure } from '@/components/chapters/the-quiet-mind/FlowChannelFigure';
+import { AttentionSpotlightFigure } from '@/components/chapters/the-quiet-mind/AttentionSpotlightFigure';
+import { AttentionTrainer } from '@/components/chapters/the-quiet-mind/AttentionTrainer';
+
+export const reflection = {
+  path: '~/centering/03.1',
+  prompt: 'When your attention left the room today, where did it go first: into the past, into the future, or into the running story about you? And what, in the end, brought it back?',
+};
+
+export const sources = [
+  { text: 'Killingsworth, M. A., & Gilbert, D. T. (2010). A wandering mind is an unhappy mind. Science, 330(6006), 932.', url: 'https://doi.org/10.1126/science.1192439' },
+  { text: 'Raichle, M. E., MacLeod, A. M., Snyder, A. Z., Powers, W. J., Gusnard, D. A., & Shulman, G. L. (2001). A default mode of brain function. PNAS, 98(2), 676–682.', url: 'https://doi.org/10.1073/pnas.98.2.676' },
+  { text: 'Mason, M. F., Norton, M. I., Van Horn, J. D., Wegner, D. M., Grafton, S. T., & Macrae, C. N. (2007). Wandering minds: The default network and stimulus-independent thought. Science, 315(5810), 393–395.', url: 'https://doi.org/10.1126/science.1131295' },
+  { text: 'Christoff, K., Gordon, A. M., Smallwood, J., Smith, R., & Schooler, J. W. (2009). Experience sampling during fMRI reveals default network and executive system contributions to mind wandering. PNAS, 106(21), 8719–8724.', url: 'https://doi.org/10.1073/pnas.0900234106' },
+  { text: "Buckner, R. L., Andrews-Hanna, J. R., & Schacter, D. L. (2008). The brain's default network: Anatomy, function, and relevance to disease. Annals of the New York Academy of Sciences, 1124(1), 1–38.", url: 'https://doi.org/10.1196/annals.1440.011' },
+  { text: 'Brickman, P., & Campbell, D. T. (1971). Hedonic relativism and planning the good society. In M. H. Appley (Ed.), Adaptation-Level Theory: A Symposium (pp. 287–305). Academic Press.', url: 'https://search.worldcat.org/title/140210' },
+  { text: 'Brickman, P., Coates, D., & Janoff-Bulman, R. (1978). Lottery winners and accident victims: Is happiness relative? Journal of Personality and Social Psychology, 36(8), 917–927.', url: 'https://doi.org/10.1037/0022-3514.36.8.917' },
+  { text: 'Diener, E., Lucas, R. E., & Scollon, C. N. (2006). Beyond the hedonic treadmill: Revising the adaptation theory of well-being. American Psychologist, 61(4), 305–314.', url: 'https://doi.org/10.1037/0003-066X.61.4.305' },
+  { text: 'Lucas, R. E., Clark, A. E., Georgellis, Y., & Diener, E. (2003). Reexamining adaptation and the set point model of happiness: Reactions to changes in marital status. Journal of Personality and Social Psychology, 84(3), 527–539.', url: 'https://doi.org/10.1037/0022-3514.84.3.527' },
+  { text: 'Lucas, R. E., Clark, A. E., Georgellis, Y., & Diener, E. (2004). Unemployment alters the set point for life satisfaction. Psychological Science, 15(1), 8–13.', url: 'https://doi.org/10.1111/j.0963-7214.2004.01501002.x' },
+  { text: 'Lyubomirsky, S. (2011). Hedonic adaptation to positive and negative experiences. In S. Folkman (Ed.), The Oxford Handbook of Stress, Health, and Coping (pp. 200–224). Oxford University Press.', url: 'https://sonjalyubomirsky.com/wp-content/uploads/2024/03/Lyubomirsky-2011.pdf' },
+  { text: 'Schultz, W., Dayan, P., & Montague, P. R. (1997). A neural substrate of prediction and reward. Science, 275(5306), 1593–1599.', url: 'https://doi.org/10.1126/science.275.5306.1593' },
+  { text: 'Csikszentmihalyi, M. (1975). Beyond Boredom and Anxiety: Experiencing Flow in Work and Play. Jossey-Bass.', url: 'https://search.worldcat.org/title/1730395' },
+  { text: 'Csikszentmihalyi, M. (1990). Flow: The Psychology of Optimal Experience. Harper & Row.', url: 'https://search.worldcat.org/title/20489476' },
+  { text: 'Massimini, F., & Carli, M. (1988). The systematic assessment of flow in daily experience. In M. Csikszentmihalyi & I. S. Csikszentmihalyi (Eds.), Optimal Experience (pp. 266–287). Cambridge University Press.', url: 'https://doi.org/10.1017/CBO9780511621956.016' },
+  { text: 'Csikszentmihalyi, M., & LeFevre, J. (1989). Optimal experience in work and leisure. Journal of Personality and Social Psychology, 56(5), 815–822.', url: 'https://doi.org/10.1037/0022-3514.56.5.815' },
+  { text: 'Nakamura, J., & Csikszentmihalyi, M. (2014). The concept of flow. In Flow and the Foundations of Positive Psychology (pp. 239–263). Springer.', url: 'https://doi.org/10.1007/978-94-017-9088-8_16' },
+  { text: "Abuhamdeh, S. (2020). Investigating the 'flow' experience: Key conceptual and operational issues. Frontiers in Psychology, 11, 158.", url: 'https://doi.org/10.3389/fpsyg.2020.00158' },
+  { text: 'Rozin, P., & Royzman, E. B. (2001). Negativity bias, negativity dominance, and contagion. Personality and Social Psychology Review, 5(4), 296–320.', url: 'https://doi.org/10.1207/S15327957PSPR0504_2' },
+  { text: 'Baumeister, R. F., Bratslavsky, E., Finkenauer, C., & Vohs, K. D. (2001). Bad is stronger than good. Review of General Psychology, 5(4), 323–370.', url: 'https://doi.org/10.1037/1089-2680.5.4.323' },
+  { text: 'Ito, T. A., Larsen, J. T., Smith, N. K., & Cacioppo, J. T. (1998). Negative information weighs more heavily on the brain: The negativity bias in evaluative categorizations. Journal of Personality and Social Psychology, 75(4), 887–900.', url: 'https://doi.org/10.1037/0022-3514.75.4.887' },
+];
+
+You sit down to read something that matters to you. A page in, your eyes are still moving over the words, but you are not. You are three days ahead, rehearsing a conversation you have not had yet, or a few years back, somewhere that still stings. Then you surface and realize you have read half a page and taken in none of it, and you go back to the top.
+
+This happens to everyone, all day. It is not a sign that something is wrong with you. It is the most ordinary thing a mind does. The [first chapter](/what-calm-is) argued that calm is a state you can recognize, an engaged settledness rather than a checking out. The [chapter after it](/the-settled-body) showed that calm is also a setting of the body, with a brake you can reach through the breath. This chapter is about the third piece, the one most people mean when they say they cannot relax: the mind itself, which does not want to sit still, and which resists calm in a few specific, well-studied ways.
+
+The good news is hidden in the resistance. Once you can see exactly how the mind pulls away from the present, you can see where the handle is. The rest of the book keeps reaching for that same handle under many different names. Here it is, plain.
+
+<SectionMarker>the default is drift</SectionMarker>
+
+In 2010 two researchers, Matthew Killingsworth and Daniel Gilbert, did something that was new at the time. They built an iPhone app that pinged people at random moments through the day and asked three things: how do you feel right now, what are you doing, and are you thinking about something other than what you are doing. Across about 2,250 adults answering at random points in ordinary life, the answer to that last question was yes 46.9 percent of the time. Close to half of waking life, spent somewhere other than where the body was. There was no activity, with one private exception, during which people's minds stayed put even seventy percent of the time.
+
+Hold that number loosely. It comes from one self-report study, mostly younger iPhone owners around 2010, and other research using other methods puts the off-task share anywhere from about a third to about half. The exact figure is not the point. The point is that a wandering mind is not a malfunction or a rare lapse. It is close to the resting state.
+
+The study's title was the part that traveled: a wandering mind is an unhappy mind. People reported lower mood when their attention was off the present, and what they were thinking about predicted how they felt better than what they were actually doing did. The authors went one careful step further. Lining the samples up in time, they found that mood tracked wandering at the moment before, while wandering was not well predicted by mood at the moment before, which suggested the drift tended to come first and the dip in mood to follow.
+
+Read that claim at exactly its real size. This is people tapping a phone screen, not an experiment, so it shows a pattern in time, not a proven cause, and the authors said as much. The effect is also modest. Most of what moves your mood from minute to minute is still unexplained by any of this. And there is a fair correction to make to the gloomy headline. When people's minds wandered to pleasant things, they were not measurably less happy than when they were focused. It was drifting to neutral or unpleasant material that cost them, and most drift goes there. So the trouble is less that the mind moves and more where it tends to go when it does.
+
+Where does it go. Usually to the same few places: back into the past, forward into the future, and around and around the self. The replay of what was said. The rehearsal of what might happen. The running commentary on how you are doing. Brain imaging gave this a physical home. In 2001 Marcus Raichle and colleagues noticed that a particular set of regions, a stretch of midline near the front of the brain and another near the back, grew quieter whenever a person bore down on a demanding external task, and lit back up the moment the task ended. They called it the default mode, the channel the brain falls into when nothing outside is asking for it. Later work tied that network to mind-wandering and to exactly this kind of self-referential, time-traveling thought.
+
+<WanderingMindFigure />
+
+Two honest notes, before this hardens into a slogan. The default mode network is not a bad network or an idle one. The same machinery does necessary work: remembering, planning, imagining what is going on in other people's heads. And mind-wandering is not a clean switch where one network clicks off and another on. One careful study found that when the mind wanders, control regions often light up alongside the default ones, and that the whole thing runs strongest precisely when people have no idea they have drifted. That last detail is the foothold for everything that follows. The problem is rarely the wandering itself. It is wandering without noticing, for minutes at a stretch. The skill is the noticing.
+
+<SectionMarker>the treadmill</SectionMarker>
+
+If the first way the mind resists calm is by leaving the present, the second is by refusing to be satisfied with it.
+
+There is a quiet assumption under a lot of restlessness: that calm is one acquisition away. The right job, the better apartment, the trip, the upgrade, and then you will finally settle. It does not work, and the reason has a name. Psychologists call it hedonic adaptation. A new pleasure lifts you, then you get used to it, and the lift fades back toward where you started. The metaphor that stuck, from a 1971 essay by Philip Brickman and Donald Campbell, is the treadmill. You keep acquiring and keep climbing, and you stay in roughly the same place.
+
+<StimulationTreadmillFigure />
+
+You can feel the mechanism in small ways. Walk into a room with a strong smell and within minutes you stop noticing it. Nerves that fire hard at a new signal quiet down when the signal holds steady. Something like that may run at the level of reward, too. Dopamine cells respond most to surprises, to a reward better than predicted, and barely respond to a reward you fully saw coming. A pleasure you have had a hundred times is fully predicted. That is a clean picture of why the tenth time is never the first time. It is worth flagging that it is a picture, an analogy. The chemistry of a momentary reward and the slow drift of how satisfied you feel with your life are not the same scale, and dopamine tracks wanting more than it tracks liking.
+
+The most famous study in this corner is also the most misremembered, so it is worth getting right. In 1978 researchers compared recent lottery winners, people who had been paralyzed in accidents, and ordinary controls. The story people tell is that within a year everyone had snapped back to the same happiness, winners and paralyzed alike. That is not what the study found. On a simple present-happiness scale the winners actually scored a little higher than controls, not lower, and in a sample that small the difference was not statistically reliable. What the winners did report was that ordinary pleasures, a good meal, a morning, a small piece of news, had become less enjoyable to them than the same things were to controls. Against the high of winning, the everyday had dimmed. And the people who had been paralyzed were not as happy as controls. They were doing better than you would guess, still above the middle of the scale, but measurably lower, and they remembered their past as happier than controls remembered theirs. The honest reading is gentler than the myth, and more interesting. We adapt, but not all the way, and not to everything.
+
+That gentler reading is where the science settled. The strong version of the treadmill, where everyone returns to a fixed, neutral set point no matter what happens, did not survive the long studies. Following tens of thousands of people for years, researchers found that the baseline most people return to is not neutral but mildly positive, that different people have genuinely different baselines, and that some events move the baseline for good. People largely adapt back after marriage. They do not, on average, fully recover from long unemployment or from the loss of a spouse. So the treadmill is real for much of what we chase, especially the things you can buy, and it is a good reason to stop expecting the next purchase to settle you. It is not a law that nothing matters. Some things change you. Knowing which is most of the work, and the chapters on [enough](/enough-and-no-fear) and on [simplicity](/nature-and-simplicity) come back to it.
+
+<SectionMarker>the tilt toward bad</SectionMarker>
+
+The third pull is the simplest and the oldest. Given a good thing and a bad thing of equal size, the bad one hits harder and stays longer. One harsh comment outweighs five kind ones. A single sour moment can color a whole good day. Researchers call it the negativity bias, and it is one of the better-replicated findings in all of psychology. Bad events pull more attention, drive more thought, and leave deeper marks than good events of the same size. You can even catch it early in the brain. Shown an unpleasant image and a pleasant one matched for how strong and how likely they were, the brain registers the unpleasant one more sharply, and it does so at the stage of sizing things up, before any deliberate reaction has formed.
+
+It is not hard to see why a mind would be built this way. An ancestor who treated a rustle in the grass as a threat and was usually wrong lost a little energy. One who treated it as nothing and was occasionally right died. Missing a danger is final in a way that missing an opportunity is not, so a brain that leans toward the negative tends to keep its owner alive long enough to pass the lean on. The bias is a feature, working as designed. It is just calibrated for a world with more predators and fewer unread messages. There are limits to it. In genuinely calm, safe, low-stakes moments the lean tips slightly the other way, toward the mildly positive, which is part of why a quiet evening with nothing wrong can feel quietly good for no reason. But put any load on the system and the thumb goes back onto the dark side of the scale.
+
+Put the three together and the picture is honest without being hopeless. Left to itself, the mind drifts off the present, tires of whatever it is given, and weights the worst of what it finds. That is not a personal defect, and it is not a modern disease, though modern life leans on every one of these levers on purpose. It is the standard equipment we all received. The rest of the chapter is about what you can do with it, and the first surprise is that the goal is not to shut the mind off.
+
+<SectionMarker>the good kind of absorbed</SectionMarker>
+
+Here is a state worth wanting. You are doing something a little hard, right at the edge of what you can do, and at some point the self-consciousness drops away, the chatter stops, and there is only the next move, and the next. An hour passes like ten minutes. A climber on a difficult route. A cook in a full kitchen. A child lost in a drawing. A programmer who looks up to find the room has gone dark. The psychologist Mihaly Csikszentmihalyi spent a career on this state and called it flow.
+
+Flow is not relaxation, and that difference is close to the heart of this whole book. It is one of the most absorbed and least anxious states a person can be in, and it arrives under demand, not in its absence. Csikszentmihalyi mapped it on two axes: how hard the task is, and how skilled you are at it. When the challenge runs far ahead of your skill, you get anxiety. When your skill runs far ahead of the challenge, you get boredom. Flow lives on the diagonal where the two are matched. The detail usually left out is that they have to be matched high, both well above your own everyday level. Matched low is not flow. It is a mild apathy, the half-lit fog of a task that asks nothing of you and leaves the mind free to wander off.
+
+<FlowChannelFigure />
+
+Notice what this does to the idea of calm. The most settled, quiet-minded state in the whole research literature is not an empty mind on a cushion. It is a fully occupied one, stretched right to its useful limit. The mind stops wandering here not because you forced it quiet but because the task finally grew interesting enough to hold it. This is the engaged calm the first chapter promised, the live opposite of checking out. One precision is worth keeping. Flow feels effortless, but that is the feeling, not the fact. It is expensive, in attention and in fuel. The effortlessness is what the inside of a well-matched challenge is like, not a sign that nothing is being spent.
+
+You cannot summon flow on command, but you can set its conditions. A clear goal. Quick, honest feedback on how you are doing. And a challenge tuned to sit just past your current skill, hard enough to demand you without tipping you into anxiety. A good deal of designing a calmer life, later in the book, turns out to be the work of arranging for more hours like this, and fewer of the understimulated fog that sends a mind looking for somewhere else to be.
+
+<SectionMarker>the spotlight</SectionMarker>
+
+Underneath flow, and underneath every method in this book, sits one faculty: attention. It helps to picture it as a spotlight. A narrow, movable beam of awareness. Whatever it lands on turns vivid and detailed and seems to matter, while everything outside the beam fades to a background you barely register. The same scene can be an anxious one or a peaceful one depending only on where the beam is pointed. The breath, the sounds in the room, the warmth of a cup, or else the worry, the replay, the forecast. The facts of the moment do not change. The lit one fills the screen.
+
+<AttentionSpotlightFigure />
+
+Two things about this beam decide a great deal. The first you already know. By default it swings toward the negative and toward the past and future, because that is how the equipment is built. Left alone, it lights the threat. The second is the hopeful one. The beam can be moved. Not held perfectly still, which is not on offer for anyone, but moved, again and again, back to where you want it. The capacity to notice where the light has gone and walk it back is not a fixed trait. It behaves more like a muscle, and like a muscle it answers to training. Every tradition in [Part Two](/calm-abiding) is, underneath its particular language, a way of training this one beam. What follows is the most stripped-down version of that training there is.
+
+<SectionMarker>the one move</SectionMarker>
+
+Here is the whole exercise, and it is almost insultingly simple. Pick something to rest your attention on. The breath is the usual choice, because it is always with you and always moving. Rest the beam there. Within a few seconds, or a few breaths, your mind will wander, because that is what minds do. At some point you will notice it has wandered. In that instant of noticing, the move is half done: you gently bring the beam back to the breath. Then it wanders again, and you bring it back again. That is the entire practice.
+
+The part people get wrong, the part that makes them quit, is believing the wandering is the failure and the staying is the goal. It runs the other way. You have almost no control over whether the mind wanders. You have complete control over what you do the moment you catch it. So the catch is the rep. Every time you notice you have drifted and come back, you have done one repetition of the single most useful mental move there is, the one under calm, under focus, under not getting dragged off by a feeling. A session where your mind wandered forty times and you returned forty times is not a failed session. It is forty reps. The trainer below counts those, and only those.
+
+<AttentionTrainer />
+
+Sit with it for a minute or two now, before you read on. The number it shows you is not a score to push down. Over weeks the wandering does tend to grow a little quieter and the catching a little quicker, but chasing that is only another way of leaving the present. Count the returns. Let the rest be what it is.
+
+<SectionMarker>five minutes, start to finish</SectionMarker>
+
+Say you give it five minutes after lunch. You set a timer so you do not have to watch the clock, close your eyes or let them rest soft toward the floor, and put your attention on the feeling of the breath, at the belly or the nose, wherever it is easiest to find.
+
+The first few breaths go fine. Air in, air out. Then, with no decision on your part, you are thinking about the email you owe someone, and from there about whether they are annoyed with you, and from there about a different person entirely who was annoyed with you years ago. None of this announced itself. You did not choose to leave the breath. You simply find yourself, some unknown number of seconds later, completely elsewhere. That is the drift, the default mode doing its job. It is not a lapse in the practice. It is the practice handing you its one and only question.
+
+And here is the rep. You notice. There is a small click of waking up, of realizing the beam has slid off into the dark. That noticing is the whole thing, the very meta-awareness the research found goes missing in the worst of the wandering. You do not scold yourself, because scolding is just more thinking and it tends to keep you gone longer. You note it, mildly, thinking, or simply, back, and you move the beam to the breath. One rep. Maybe you get three breaths this time before it goes again, off to the afternoon ahead, to a sound in the hall, to a flicker of judgment about how well you are even doing this. Each time, the same move. Notice, return.
+
+Five minutes in, the timer sounds. You did not clear your mind. You were not blank, and you were not blissed out. You wandered, by an honest count, eleven times, and eleven times you came back. What you actually practiced, eleven times over, was catching your own attention in the act of leaving and walking it home. That is the muscle. Every contemplative method in this book, and every clinical one in [the engineering chapter](/the-engineering-of-calm), is a variation on lifting that single weight. You just did a set.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="the-quiet-mind"
+  id="five-minute-sit"
+  n="01"
+  title="Five minutes of notice-and-return"
+  input="timer"
+  seconds={300}
+>
+  Sit, rest your attention on the breath, and run the one move for five minutes. Each time you catch
+  your mind wandering, name it gently and bring the beam back. Use the trainer above if you want to
+  count, or just sit with this timer. When it ends, do not grade how focused you were. The only thing
+  that matters is that you kept coming back. Do this most days for a week and notice, without
+  measuring, whether the catching starts to come a little sooner.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-quiet-mind"
+  id="stimulation-log"
+  n="02"
+  title="Track your stimulation for a day"
+  input="text"
+  placeholder="what I reached for… · what I was avoiding feeling… · the pattern I noticed…"
+>
+  For one ordinary day, make a small note each time you reach for a hit of stimulation: the phone at a
+  red light, a snack you were not hungry for, a new tab, the feed, the next episode. You are not trying
+  to stop. You are just watching the treadmill run. Where you can, note what feeling you were stepping
+  away from in that moment. By evening, write the pattern you saw. Most people find the reach clusters
+  around a few specific discomforts.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-quiet-mind"
+  id="catch-a-flow"
+  n="03"
+  title="Catch one flow state"
+  input="text"
+  placeholder="what I was doing… · the challenge vs my skill… · clear goal? quick feedback?…"
+>
+  Notice one time this week that you lost track of the clock in a good way, absorbed and unselfconscious.
+  Afterward, write down what you were doing and why it held you. Was the challenge sitting just past your
+  skill? Was the goal clear and the feedback quick? Flow does not come on command, but its conditions
+  repeat. Naming them once makes them easier to set up on purpose.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="the-quiet-mind"
+  id="return-in-the-wild"
+  n="04"
+  title="One deliberate return, off the cushion"
+  input="checkbox"
+>
+  The practice in its smallest live form. Once today, in the middle of something ordinary (washing a dish,
+  waiting in a line, half-listening to someone), catch your attention drifting and walk it back on purpose.
+  Not in a formal sit. In the actual day. Mark this done once you have caught and returned the beam at
+  least once out in real life, where it counts.
+</ExerciseCard>

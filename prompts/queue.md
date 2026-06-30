@@ -7,7 +7,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 00 | scaffold and site shell | `prompts/00-scaffold.md` | DONE |
 | 01 | Ch 1 — What Calm Is, and Isn't | `prompts/ch01-what-calm-is.md` | DONE |
 | 02 | Ch 2 — The Settled Body | `prompts/ch02-the-settled-body.md` | DONE |
-| 03 | Ch 3 — The Quiet Mind | `prompts/ch03-the-quiet-mind.md` | PENDING |
+| 03 | Ch 3 — The Quiet Mind | `prompts/ch03-the-quiet-mind.md` | DONE |
 | 04 | Ch 4 — Stoicism: Tranquility by Judgment | `prompts/ch04-tranquility-by-judgment.md` | PENDING |
 | 05 | Ch 5 — Epicureanism: Enough, and No Fear | `prompts/ch05-enough-and-no-fear.md` | PENDING |
 | 06 | Ch 6 — Buddhism: Calm Abiding | `prompts/ch06-calm-abiding.md` | PENDING |
