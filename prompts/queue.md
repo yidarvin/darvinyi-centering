@@ -21,5 +21,5 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 14 | Ch 14 — One Calm, Many Doors | `prompts/ch14-one-calm-many-doors.md` | DONE |
 | 15 | Ch 15 — What Actually Works | `prompts/ch15-what-actually-works.md` | DONE |
 | 16 | Ch 16 — Building Your Practice | `prompts/ch16-building-your-practice.md` | DONE |
-| 17 | Ch 17 — Designing for Calm | `prompts/ch17-designing-for-calm.md` | PENDING |
+| 17 | Ch 17 — Designing for Calm | `prompts/ch17-designing-for-calm.md` | DONE |
 | 18 | Ch 18 — Calm Is Not Numbness | `prompts/ch18-calm-is-not-numbness.md` | PENDING |

@@ -1,0 +1,263 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { CalmChecklistFigure } from '@/components/chapters/designing-for-calm/CalmChecklistFigure';
+import { DefaultTerrainFigure } from '@/components/chapters/designing-for-calm/DefaultTerrainFigure';
+import { MarginOverloadFigure } from '@/components/chapters/designing-for-calm/MarginOverloadFigure';
+import { CalmEnvironmentAudit } from '@/components/chapters/designing-for-calm/CalmEnvironmentAudit';
+
+export const reflection = {
+  path: '~/centering/17.1',
+  prompt:
+    'Which single default in your day most reliably pulls you out of calm? Name it, name the smallest change that would flip it, and name where in your space or your schedule that change actually lives.',
+};
+
+export const sources = [
+  {
+    text: 'Herbert A. Simon, "Designing Organizations for an Information-Rich World," in Martin Greenberger, ed., Computers, Communications, and the Public Interest (Johns Hopkins University Press, 1971), pp. 40-41. The founding sentence of the whole field: "a wealth of information creates a poverty of attention." Written before the personal computer, the web, or the phone, and it named the scarce resource the next fifty years would fight over.',
+    url: 'https://digitalcollections.library.cmu.edu/awweb/awarchive?type=file&item=33748',
+  },
+  {
+    text: 'B. J. Fogg, Persuasive Technology: Using Computers to Change What We Think and Do (Morgan Kaufmann, 2003), and the Fogg Behavior Model (behaviormodel.org, 2009). Fogg coined "captology," ran the Stanford lab where several app founders trained, and formalized behavior = motivation, ability, and a prompt arriving together. His key lever: raising ability, meaning removing friction, beats raising motivation. A design framework described by its own author, and the intellectual engine behind habit-forming products.',
+    url: 'https://www.behaviormodel.org/',
+  },
+  {
+    text: 'Nir Eyal, Hooked: How to Build Habit-Forming Products (Portfolio, 2014). The explicit product playbook: trigger, action, variable reward, investment, with external triggers giving way over time to internal ones like boredom and loneliness. Valuable precisely because it is the designer\'s own account of how the loop is built, not a critic\'s. Eyal later argued in Indistractable (2019) that users keep their agency; take the mechanism from the first book and the responsibility caveat with a grain of salt.',
+    url: 'https://www.nirandfar.com/how-to-manufacture-desire/',
+  },
+  {
+    text: 'Tristan Harris, "How Technology Is Hijacking Your Mind, from a Magician and Google\'s Design Ethicist" (2016). The insider case that products exploit psychological blind spots the way a magician does, that the phone is a pocket slot machine running on intermittent variable rewards, and that whoever controls the menu controls the choices. Advocacy, not a controlled study, and worth reading as such. The viral "150 checks a day" figure traces to a company estimate, not a measurement.',
+    url: 'https://medium.com/thrive-global/how-technology-hijacks-peoples-minds-from-a-magician-and-google-s-design-ethicist-56d62ef5edf3',
+  },
+  {
+    text: 'Charles B. Ferster and B. F. Skinner, Schedules of Reinforcement (Appleton-Century-Crofts, 1957). The source of the slot-machine mechanism: an unpredictable, intermittent reward produces the highest, steadiest rate of the behavior and is slower to fade than a predictable one, the partial reinforcement effect. Pull-to-refresh runs on this schedule. Honest limit: the popular claim that variable-ratio is uniquely "the most resistant to extinction" is a textbook oversimplification later controlled work (Nevin et al., 2001) complicates, and the reinforcement schedule being shared does not make heavy use a clinical addiction.',
+    url: 'https://en.wikipedia.org/wiki/Reinforcement',
+  },
+  {
+    text: 'Eric J. Johnson and Daniel G. Goldstein, "Do Defaults Save Lives?" Science 302, no. 5649 (2003): 1338-1339. The cleanest demonstration that defaults dominate: organ-donation consent runs near 99 percent in opt-out countries and around 12 percent in culturally similar opt-in neighbors, so the pre-set option, not people\'s values, moved the number, and an online experiment roughly doubled agreement by flipping the default. Note it measures registered consent, not transplants performed. The lesson for self-design: set the calm option as your default.',
+    url: 'https://www.science.org/doi/10.1126/science.1091721',
+  },
+  {
+    text: 'Richard H. Thaler and Cass R. Sunstein, Nudge (Yale University Press, 2008), read alongside the honest correction: Mertens et al. (PNAS 2022) found an average nudge effect of d = 0.43 with defaults strongest, but Maier et al. (PNAS 2022) showed the overall effect vanished after correcting for publication bias, and DellaVigna and Linos (Econometrica 2022) found real government nudge trials averaged just 1.4 percentage points against 8.7 in journals. The takeaway kept in this chapter: generic nudging is oversold, but defaults are the one reliably strong category, which is exactly the lever you turn on yourself.',
+    url: 'https://www.pnas.org/doi/10.1073/pnas.2107346118',
+  },
+  {
+    text: 'Gloria Mark, Victor M. González, and Justin Harris, "No Task Left Behind? Examining the Nature of Fragmented Work," CHI 2005. Field observation of information workers: about 11 minutes on a task before a switch, and roughly 25 minutes to return to an interrupted task, passing through about two other tasks first. The famous "23 minutes 15 seconds" is not from any paper of hers; it comes from an interview. Use the field figure, and remember it is calendar time that includes the detours, not a pure mental reboot.',
+    url: 'https://dl.acm.org/doi/10.1145/1054972.1055017',
+  },
+  {
+    text: 'Gloria Mark, Daniela Gudith, and Ulrich Klocke, "The Cost of Interrupted Work: More Speed and Stress," CHI 2008. Interrupted people finished the task about as fast, sometimes faster, and at no loss of quality, but paid for it in higher stress, frustration, time pressure, and effort. The cost of interruption is not slowness. It is the strain of the compensation, and it accumulates.',
+    url: 'https://dl.acm.org/doi/10.1145/1357054.1357072',
+  },
+  {
+    text: 'Sophie Leroy, "Why Is It So Hard to Do My Work? The Challenge of Attention Residue When Switching Between Work Tasks," Organizational Behavior and Human Decision Processes 109, no. 2 (2009): 168-181. When you switch tasks, part of your attention stays stuck on the last one, and that residue measurably hurts the next, worst when the first task was left unfinished. A clean mental close reduces it. The reason a pause between tasks is not wasted time.',
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S0749597809000399',
+  },
+  {
+    text: 'Cary Stothart, Ainsley Mitchum, and Courtney Yehnert, "The Attentional Cost of Receiving a Cell Phone Notification," Journal of Experimental Psychology: Human Perception and Performance 41, no. 4 (2015): 893-897. Merely receiving a notification, without touching the phone, made 166 students noticeably worse on a vigilance task, roughly tripling the error rate, an effect comparable to actually using the phone. One lab study, an artificial task, and a relative risk off a low base, so read the direction confidently and the size cautiously.',
+    url: 'https://psycnet.apa.org/doi/10.1037/xhp0000100',
+  },
+  {
+    text: 'Kostadin Kushlev, Jason Proulx, and Elizabeth W. Dunn, "Silence Your Phones: Smartphone Notifications Increase Inattention and Hyperactivity Symptoms," CHI 2016. In a within-person field experiment, a week with alerts on and the phone in reach produced more self-reported inattention and hyperactivity than a week with alerts off and the phone away. Self-report, and it bundles notifications with proximity, but it points the same way as the rest. Read with Nicholas Fitz et al., "Batching Smartphone Notifications Can Improve Well-Being," Computers in Human Behavior 101 (2019): 84-94, a two-week randomized field experiment where receiving notifications in three predictable daily batches beat the constant stream, while turning them fully off backfired with more anxiety and fear of missing out. The calm move is a few windows, not total silence.',
+    url: 'https://www.sciencedirect.com/science/article/abs/pii/S0747563219302596',
+  },
+  {
+    text: 'Adrian F. Ward, Kristen Duke, Ayelet Gneezy, and Maarten W. Bos, "Brain Drain: The Mere Presence of One\'s Own Smartphone Reduces Available Cognitive Capacity," Journal of the Association for Consumer Research 2, no. 2 (2017): 140-154, corrected by the meta-analysis of Böttger, Poschik, and Zierer, "Does the Brain Drain Effect Really Exist?" Behavioral Sciences 13, no. 9 (2023): 751. The original found phone-in-another-room beat phone-on-the-desk on memory and reasoning; the meta-analysis of 22 studies found the effect small overall (g = -0.14) and real mainly for memory, not attention. Move the phone out of reach, and expect a modest gain, not a transformation.',
+    url: 'https://www.journals.uchicago.edu/doi/10.1086/691462',
+  },
+  {
+    text: 'Cynthia A. Dekker and Susanne E. Baumgartner, "Is Life Brighter When Your Phone Is Not?" Mobile Media & Communication 12, no. 3 (2024). Switching a phone to grayscale cut daily screen time by about 20 minutes, and it did so by shortening sessions, not by stopping people picking the phone up, a clean demonstration of the friction principle. One modest study (N = 84), and about half the participants found grayscale annoying, which is part of why the friction works and why few keep it.',
+    url: 'https://journals.sagepub.com/doi/10.1177/20501579231212062',
+  },
+  {
+    text: 'Gloria Mark, Attention Span (Hanover Square Press, 2023), synthesizing two decades of computer-logging studies: the average uninterrupted stretch on a single screen fell from about 2.5 minutes in 2004 to roughly 47 seconds since 2016. This measures how long before you switch, not your underlying capacity to concentrate, and much of the switching is device and work design rather than personal weakness.',
+    url: 'https://gloriamark.com/attention-span/',
+  },
+  {
+    text: 'On light: Joshua J. Gooley et al., "Exposure to Room Light before Bedtime Suppresses Melatonin Onset and Shortens Melatonin Duration in Humans," Journal of Clinical Endocrinology & Metabolism 96, no. 3 (2011): E463-E472, a controlled study of 116 adults where ordinary room light (under 200 lux) delayed melatonin by about two hours; with Anne-Marie Chang et al., "Evening Use of Light-Emitting eReaders Negatively Affects Sleep," PNAS 112, no. 4 (2015): 1232-1237; and Mohamed Boubekri et al., "Impact of Windows and Daylight Exposure on Overall Health and Sleep Quality of Office Workers," Journal of Clinical Sleep Medicine 10, no. 6 (2014): 603-611, a small pilot in which daylit workers slept about 46 minutes longer. The physiology is solid; the office-window finding is a suggestive pilot, not proof.',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3047226/',
+  },
+  {
+    text: 'On noise: World Health Organization, Environmental Noise Guidelines for the European Region (2018), which set road-traffic thresholds of 53 dB Lden by day and 45 dB Lnight, built on graded systematic reviews; with Thomas Münzel, Mette Sørensen, and Andreas Daiber, "Transportation Noise Pollution and Cardiovascular Disease," Nature Reviews Cardiology 18 (2021): 619-636, on the stress-hormone pathway from chronic noise to strain. The mechanism is experimentally supported; the disease links are observational. And Rachel Buxton et al., "A Synthesis of Health Benefits of Natural Sounds," PNAS 118, no. 14 (2021), a meta-analysis in which water sounds most lifted mood and birdsong most lowered stress, though effects are varied and short-term.',
+    url: 'https://www.who.int/europe/publications/i/item/9789289053563',
+  },
+  {
+    text: 'On clutter and green: Stephanie A. McMains and Sabine Kastner, "Interactions of Top-Down and Bottom-Up Mechanisms in Human Visual Cortex," Journal of Neuroscience 31, no. 2 (2011): 587-597, showing that multiple objects in view compete and suppress each other in visual cortex (a lab study of ten people, so the tidy-your-desk application is a fair extrapolation, not a demonstrated result); Darby Saxbe and Rena Repetti, "No Place Like Home," Personality and Social Psychology Bulletin 36, no. 1 (2010): 71-81, where "stressful home" language tracked flatter cortisol slopes in 30 couples; and Roger S. Ulrich, "View through a Window May Influence Recovery from Surgery," Science 224 (1984): 420-421, the 46-patient study where a view of trees beat a brick wall. Foundational, small, and much-quoted. On indoor plants, the viral "15 percent more productive" (Nieuwenhuis et al., 2014) does not survive larger, longer workplace studies, which find perceived benefits far exceed measured ones. Adding green is cheap and plausibly helps a little; it is not a productivity machine.',
+    url: 'https://www.jneurosci.org/content/31/2/587',
+  },
+  {
+    text: 'On the vocabulary, placed on its own terms: Richard B. Pilgrim, "Intervals (Ma) in Space and Time," History of Religions 25, no. 3 (1986), on ma (間) as the charged, meaningful interval, not Western minimalism; Leonard Koren, Wabi-Sabi for Artists, Designers, Poets & Philosophers (Stone Bridge Press, 1994); Meik Wiking, The Little Book of Hygge (Penguin, 2016); Olga Mecking, "The Case for Doing Nothing," New York Times (2019), on niksen; and standard Swedish-language scholarship on lagom as moderation tied to Jantelagen. Treat these as cultural design vocabulary. The wellness health claims attached to niksen and hygge are journalistic and inferential, borrowed from general rest and mind-wandering research, not studies of the named practice.',
+    url: 'https://www.jstor.org/stable/1062484',
+  },
+  {
+    text: 'On the culture of speed and subtraction as background: Carl Honoré, In Praise of Slow (HarperOne, 2004), and Cal Newport, Digital Minimalism (Portfolio, 2019). The lineage this chapter draws on for slow living, margin, and protecting attention as a resource, held as thoughtful argument rather than measured evidence.',
+    url: 'https://www.calnewport.com/books/digital-minimalism/',
+  },
+];
+
+You can do everything right and still lose the morning. You did the breathing. You sorted the worry into what was yours to carry and what was not. You sat for ten minutes and meant it. Then the day started, and by ten you were frayed again, and not really through any fault of your own. The overhead light was flat and bright. The phone buzzed four times before the coffee was poured. The calendar had no air in it. And a pile of unopened mail sat in the corner of your eye the whole time, saying nothing and pulling at you anyway. You were doing the inner work in a room built to undo it.
+
+This is the part the practice chapters leave out. Calm is not only something you build inside yourself. It is also built around you, in the light you sit under, the sounds you cannot get away from, the shape of your hours, and the small bright rectangle that keeps your attention on a string. Some of that environment is neutral. A good deal of it is not. And almost none of it is an accident.
+
+Here is the move for this chapter, and it runs underneath everything below. Your environment is a set of defaults, the things that happen when you do nothing. You do nothing most of the time, so the defaults win. Leave them as they came and many of them were set by someone whose interest is not your calm. Change them, on purpose, and you can make the settled option the one that takes no effort at all. You stop being the person the room acts on and become the one who designed the room.
+
+There are three places to look, and one lever that works in all of them.
+
+<RouteTags routes={['enough', 'the-body', 'presence']} label="routes" />
+
+Space, time, attention. Your rooms, your hours, your focus. Each one has a few levers that matter, and in each one the lever is the default. Most of the changes are subtractions, things you take away rather than add, which is the good news. Subtracting is cheaper and quieter than buying the calm-branded object the same attention economy would be glad to sell you.
+
+<CalmChecklistFigure />
+
+Read that as a map of where the work is, not a list to complete. You are not going to fix all of it. At the end you will choose one thing. But it helps to see the whole board first, and to notice that the three domains are not really separate problems. They rhyme. Each is a place where a default is quietly deciding for you, and each can be regraded so it decides in your favor.
+
+<SectionMarker>the room is not neutral</SectionMarker>
+
+Start with the hardest default to see, because it is the one that was engineered against you with the most talent and money behind it. The attention part.
+
+In 1971, before the web, before the personal computer, an economist named Herbert Simon wrote a sentence that turned out to describe the next fifty years. A wealth of information, he said, creates a poverty of attention. When information is scarce, gathering more of it is the whole game. When information is endless, the scarce thing is no longer information. It is your attention, and whatever can capture it wins.
+
+An industry grew up to capture it, and it does not hide how. The methods are not a conspiracy theory whispered by critics. They are written down, by the people who built them, in books you can buy. B. J. Fogg, at Stanford, gave the field its engine: a behavior happens when motivation, ability, and a prompt land at the same moment, and the most reliable lever is ability, which means making the thing easier, stripping the friction out of it. Nir Eyal packaged the product version as the Hook: a trigger, a frictionless action, a variable reward, and an investment that loads the next trigger. Over enough cycles the external trigger, the buzz or the badge, gives way to an internal one, so that boredom or loneliness alone is enough to make your thumb find the app.
+
+The sharpest piece of it is the variable reward, and it is worth being precise, because the precise version is more useful than the frightening one. In Skinner's work on reinforcement, a reward delivered on an unpredictable schedule produces the highest and steadiest rate of the behavior, and it fades more slowly than a predictable reward does. That is the schedule a slot machine runs on, and it is the schedule you pull when you swipe a feed down to refresh it and wait to see what appears. Tristan Harris, who worked inside this world before he turned on it, called the phone a slot machine in your pocket, and at the level of the reinforcement schedule the comparison is fair. It is worth keeping one line clear, though, in the honest spirit of this book. The schedule being the same is not the same as an addiction. There is no recognized clinical diagnosis for smartphone addiction, much of that literature is thin, and it is enough, and more accurate, to say these things are engineered to be hard to put down.
+
+Even the shape of the scroll is a default. Infinite scroll, the feature that loads the next screen before you ask for it, was built to remove the friction of clicking to the next page. Its own inventor, Aza Raskin, has said he regrets it, because deleting the natural stopping point does something quiet and powerful: it turns stopping into the effortful choice, the thing you now have to remember to do. Autoplay does the same to video. None of this needs you to be weak. It needs only that you do nothing, and continuing is the default.
+
+So the room is not neutral. But here is the turn, and it is the whole reason this chapter is hopeful rather than grim. The same science cuts both ways. The study of how defaults steer behavior has a clean, almost unfair result at its center. When countries make organ donation the default and let you opt out, consent runs near universal. When otherwise similar neighbors make you opt in, it stays low. The values are the same across the border. The default moved the number. The people who design feeds know this, and it is the same lever you can pick up and turn on yourself.
+
+<DefaultTerrainFigure />
+
+<SectionMarker>design the default</SectionMarker>
+
+State the principle plainly. The default is the option you get when you do nothing, and since willpower is expensive and runs lowest exactly when you are tired, which is exactly when you need calm, the trick is to not spend willpower at all. Spend one act of design, once, and let the new default carry the choice every day after. You are regrading the hill so that calm is downhill.
+
+There are two moves, and they are mirror images. Add friction to what you want less of. Take friction off what you want more of. A small, deliberate obstacle is enough. When researchers had people switch their phones to grayscale, draining the color that makes the screen rewarding, daily use fell by about twenty minutes, and it fell because sessions got shorter, not because people stopped reaching for the phone. It was one modest study, and about half the participants found grayscale annoying, which is the point: the friction is a little annoying, and the annoyance is doing the work. You do not need grayscale in particular. You need the shape. Take the app off the home screen so opening it is a choice. Log out so the password is a speed bump. Leave the book on the pillow so the easy thing at bedtime is the page, not the feed.
+
+A word of honesty about the science, because this book grades its evidence rather than selling it. The broad claim that clever nudges reliably change behavior is oversold. The headline effect sizes shrink or vanish when you correct for the studies that never got published, and real-world nudge programs move the needle far less than journal articles suggest. But defaults are the exception. Across that same literature, the default is the one lever that holds up. That is not a coincidence for a chapter on designing your own defaults. It means the move here is the sturdiest one in the whole field, and it is the one you control completely, because no one has more authority over your defaults than you do.
+
+Notice, too, how much of this is subtraction. You are mostly removing: a trigger, a screen, a step's worth of ease. The calm environment is not something you buy and install. It is mostly something you clear away, which is a relief, since the alternative would be one more thing to shop for.
+
+<SectionMarker>your space</SectionMarker>
+
+Now the concrete domains, starting with the one you stand in. Space has four levers worth knowing: light, sound, clutter, and something green.
+
+Light first, because it reaches deeper into the body than it seems. Your internal clock reads light as the signal for daytime, and it is not fussy about the source. In a controlled study, ordinary evening room light, under 200 lux, the brightness of a normal lit living room, delayed the body's release of melatonin by about two hours compared with dim light. Reading on a bright screen before bed does the same. The default in most homes is an overhead light blazing at full until the moment the lamp goes off, and a phone as the last thing the eyes take in. The design change is small and it costs nothing: after dark, drop to one warm, low lamp, and set the screens down or dim them for the last stretch before sleep, so your body gets the darkness it reads as night. The other half of the same lever runs the opposite way in the morning. Getting real daylight early helps set the clock. The office-window study that people love to quote, where daylit workers slept about 46 minutes longer, is a small pilot and not proof of a precise number, but it points the same direction the physiology does. Bright morning, dim evening. That is the whole rule.
+
+Sound is the lever people tolerate longest and should not. Noise you cannot control is a low, steady tax on the nervous system, not just an annoyance. The World Health Organization, reviewing the evidence, set actual thresholds for chronic traffic noise, and the mechanism behind those numbers is well established: sustained noise, especially at night, keeps the body's stress system switched on and its sleep broken. Much of the link to disease is correlational, so hold that part loosely, but the stress pathway itself is experimentally real. You often cannot silence the street. You can make one slot or one corner reliably quiet, block what you can with a door or earplugs or a steady fan, and where the noise cannot be removed, cover it with something the nervous system likes. A meta-analysis of natural sounds found that water tends to lift mood and birdsong tends to lower stress, though the effects vary and are short-lived. A recording of a stream is not a cure. It is a better default than the one the traffic hands you.
+
+Clutter is the lever with the most folklore and the most modest evidence, so let me be careful. A well-known brain-imaging study found that when several objects sit in your visual field they compete with one another for processing and mutually dampen the response, which is a real finding about how vision works. It used simple shapes in a scanner, not a messy desk, so the leap to your kitchen counter is a reasonable guess rather than a proven fact. A much-cited study of couples found that people who described their homes in cluttered, unfinished terms showed a flatter daily cortisol pattern, but it was small, correlational, and mostly held for the women in the sample. Put together, the honest read is that a visually loud room plausibly costs you a little attention and a little ease, and that clearing it is nearly free. So clear one surface, the one in your main sightline, and keep it clear with a short reset at the same time each day. You are not tidying the house. You are turning down the volume in one place you look at often.
+
+The fourth lever is to put something living or natural in view. The founding study here is famous and thin at the same time: surgical patients whose window looked out on a stand of trees recovered a little faster and needed fewer strong painkillers than matched patients facing a brick wall. It was 46 people, decades ago, one hospital. The popular claim that office plants make you 15 percent more productive comes from real experiments, but the larger and longer studies do not find the productivity or mood effects, only that people like the space more and think it helps. The truthful version is undramatic and still worth acting on. A plant, or a desk turned toward a window with something green in it, is cheap, asks nothing of you, and plausibly helps a little all day. This is the same route the [transcendentalists](/nature-and-simplicity) took outdoors, brought inside and scaled down to what fits on a windowsill.
+
+<SectionMarker>your time</SectionMarker>
+
+Space is where you are. Time is when you are, and the modern default for time is to fill it. The culture runs on urgency, treats a full calendar as a full life, and leaves no gap anywhere, which feels productive and quietly guarantees that any small disruption ruins the day. The four levers here are margin, a clear off, slow transitions, and permission to do nothing.
+
+Margin is the most important and the least intuitive, so start there. Margin is empty time left in on purpose, the gap between the things. It feels like waste, and it is the opposite. Think of a day booked wall to wall, one meeting sliding straight into the next. The moment one thing runs long, which one thing always does, it shoves everything after it late, and you spend the afternoon behind, rushing, apologizing, frayed. The overrun had nowhere to go.
+
+<MarginOverloadFigure />
+
+The same overrun on a day with a little slack in it just lands in the empty space and stops. Nothing cascades. There is a rough principle from the study of queues that fits the intuition, and it is worth naming as an analogy rather than a measured law: as you pack a system closer to its limit, the delays do not grow smoothly, they explode. A road at 70 percent of capacity flows. At 100 percent it jams. Your day is the same. The fix is not to do less, necessarily. It is to stop scheduling to the very edge, and to leave a buffer between the blocks so a single overrun does not become the day's.
+
+The second lever is a clear off. A day needs an edge, a line where work ends, or it never actually ends and never actually rests. When work can reach you at any hour, it reaches you at every hour, and the low background hum of being always slightly on call never resolves into either real work or real rest. Set a hard stop, and give it a small ritual that marks it, closing the laptop, a short walk, changing clothes, anything that tells your body the day is over. The edge is what lets the evening be an evening.
+
+Third, put a pause between things. Most of us move from one task straight into the next with no gap, and the last task comes along for the ride. There is a name for it, attention residue: when you switch, part of your mind stays stuck on what you just left, and it drags on what you do next, worst when the first thing was left unfinished. A clean close cuts the residue. Sixty seconds is enough. A few slow breaths, a look out the window, a moment to let the last thing actually end before the next one starts. This is [presence](/the-quiet-mind) applied to the seams of the day, the small hinges where calm is usually lost.
+
+The fourth lever is the one that feels almost illegal: leave a stretch of time to do nothing, and do not reach for a screen to fill it. Not rest as recovery for more output. Nothing, on purpose. The instinct to pack every empty moment is exactly what keeps the mind from settling, and the moments between tasks are where a wandering, unforced mind does some of its quietest and most creative work. The evidence sold with this idea is thin and mostly borrowed, so do not oversell it to yourself. But the practice costs nothing and the loss of it costs something, and you already know the difference between an evening spent idle and an evening spent scrolling, which is not idle at all.
+
+<SectionMarker>your attention</SectionMarker>
+
+The first section named the machine built to take your attention. This one is about the defaults you can reset to keep it. The single highest-leverage change is also the simplest: turn off every notification that is not a person.
+
+The case for it is stronger than it sounds. Merely receiving a notification, without even touching the phone, made people measurably worse on an attention task, roughly tripling the error rate, an effect on par with actually using the device. That was one lab study with an artificial task, so hold the exact number lightly, but the direction is echoed elsewhere: a week lived with alerts on and the phone in reach produced more self-reported inattention than a week with alerts off and the phone away. The nuance matters, though, and it is the kind this book insists on. Going fully silent is not automatically best. In a two-week field experiment, people who got their notifications in three predictable batches a day came out ahead on mood, focus, and stress, while the group that switched notifications entirely off did worse, more anxious and more afraid of missing something, so they checked more. The calm default is not zero. It is a few predictable windows. Let people reach you. Let the feeds wait until you go to them.
+
+The phone's mere presence is its own small tax. In the original studies, people whose phone sat in another room outperformed those with it face up on the desk on tests of memory and reasoning. A later pooling of the research cut the effect down to size, small overall and real mainly for memory, so do not expect a transformation. But the change is free. During work that deserves your focus, park the phone in another room or a drawer. Out of reach is different from face down, because a face-down phone still sits at the edge of attention, holding a thread.
+
+The last attention lever is to do one thing at a time. The average uninterrupted stretch on a single screen has fallen to under a minute, and while much of that switching is the software's doing rather than yours, the cost is real. Interrupted work does not usually come out slower, interestingly. People compensate by speeding up. What it costs is the strain of the compensation: more stress, more pressure, more effort spent, and about 25 minutes to fully return to a task once it is knocked off course. So give the thing in front of you your whole attention. One screen. Let the show be a show and the meal be a meal and the conversation be the conversation. This is the same [trained return](/the-quiet-mind) the meditation chapters teach, moved out of the cushion and into the way you set up your desk and your dinner.
+
+<SectionMarker>the words for it</SectionMarker>
+
+Other cultures got here first, and they left words behind that are worth borrowing accurately rather than flattening into a single cozy blur, because each names a different piece of what this chapter is about. Marketing has smeared them all into one Scandinavian mood, which is wrong on the geography and wrong on the meaning.
+
+The Swedish word lagom means, roughly, just the right amount, not too much and not too little. It is the [enough](/enough-and-no-fear) of space and time, the instinct to stop at sufficiency rather than pile on. It has an honest shadow, too: it is bound up with a cultural pressure not to stand out, so it can shade from balance into conformity. The Danish hygge is a different thing entirely, not moderation but a warm, sensory, social coziness, candlelight and a blanket and people you like in the room. That is the atmosphere the low evening lamp is reaching for. The Japanese ma, written 間, is different again, and the one most often misused. It is not minimalism and it is not empty space in the Western sense. It is the charged, meaningful interval, the gap that gives the rest its shape, the silence that makes the music, the pause in a room or a conversation that is full rather than blank. It is the buffer in your schedule and the cleared surface, understood as a presence and not an absence. The Dutch niksen is the plainest of the set, an ordinary verb that just means to do nothing, to loaf, lifted lately into the idea of doing nothing on purpose. Its dictionary meaning is closer to idling than to a wellness practice, and its health claims are journalistic rather than proven, so borrow the word without the marketing. Two more sit nearby if you want them: the Japanese wabi-sabi, the acceptance of things imperfect and worn and passing, and the Swedish fika, the coffee pause taken with someone else, a break made into a small shared ritual. None of these is a technique. They are names for defaults other people already live inside, and having the word makes the thing easier to want.
+
+<SectionMarker>try it: the calm-environment audit</SectionMarker>
+
+Now turn the map on your own life. Go through space, time, and attention and mark what is actually true for you, without trying to fix anything yet. Each thing you mark opens its one targeted subtraction, the small change that flips that default. Then comes the part the whole chapter has been building toward, and the part that separates a redesign you keep from a resolution you abandon: you choose one. Not the list. One default, changed this week.
+
+<CalmEnvironmentAudit />
+
+The temptation is to fix everything, and it is the same temptation that kills practices in [the last chapter](/building-your-practice). A room redesigned by one flip you actually keep beats the whole list you admire on a Sunday and forget by Wednesday. Pick the single default with the most reach, and let the rest wait their turn.
+
+<SectionMarker>one room, redesigned</SectionMarker>
+
+Walk it through once on a real shape. Call him Omar. His inner practice is fine. His environment is quietly working against all of it. He runs the audit and, honestly, most of it lights up. Under space: the overhead light blasting into the night, a desk that collects everything, nothing green in the whole apartment. Under time: calls stacked with no gaps, lunch eaten at the keyboard, no line at all between work and evening. Under attention: every app allowed to buzz, the phone face up beside him all day, a second screen going through dinner, and the phone as both the last thing he sees at night and the first thing he grabs in the morning.
+
+That is a long list, and the instinct is to declare a new life on Monday. He does not. He looks for the single change with the most reach, and he finds it in an odd place. He moves the phone's charger from the bedroom to the kitchen. That is the whole change. It takes a minute. But notice what one flip does: the phone is no longer the last thing he touches at night, so the bedtime scroll and its bright screen are simply gone, which quietly fixes the evening light too. It is no longer the first thing he reaches for in the morning, because it is not in the room. And the temptation to check it in bed disappears, because checking it now means getting up and walking to the kitchen, a small friction that turns a reflex back into a choice. One default, regraded, doing the work of three.
+
+The cluttered desk and the wall-to-wall calendar are still there. He leaves them, on purpose, for next month. This is not a renovation. It is one hill regraded so the easy path runs the right way, kept because it was small enough to keep. That is the whole method. The knowing was never the hard part, and neither, it turns out, is the doing, once you stop trying to do all of it at once.
+
+The next chapter closes the book where the first one opened it, on the line that runs the length of it: real calm is engaged, not checked out. Designing a quiet room is not the same as hiding in one, and [the final chapter](/calm-is-not-numbness) draws that line plainly, along with the honest word about when a settled environment is not enough and it is time to reach for more than a practice.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="designing-for-calm"
+  id="one-default"
+  n="01"
+  title="Change one environmental default"
+  input="text"
+  placeholder="the default I am changing (space? time? attention?)… · the flip… · where in my day or space it lives…"
+>
+  Use the audit above, then commit to a single change and make it a default, not a decision you have to keep
+  making. Name the one you picked. Write the flip in a form you cannot wriggle out of: not "use my phone less"
+  but "the charger lives in the kitchen," not "dim the lights" but "one warm lamp after the sun goes down."
+  And write where it lives, the exact spot in your space or your evening where the change takes effect, so it
+  happens on its own instead of needing you to remember it.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="designing-for-calm"
+  id="add-margin"
+  n="02"
+  title="Add margin to one part of the week"
+  input="text"
+  placeholder="the most overloaded stretch… · the gap I will leave (when, how long)… · what it protects…"
+>
+  Find the most overloaded stretch of your week, the one that reliably runs you ragged, and leave one gap in
+  it on purpose. Fifteen minutes between the two afternoon calls. A lunch that is actually a lunch. One evening
+  with nothing scheduled. Write when the gap is and how long, and then write what it protects, because a buffer
+  with a job is one you will defend. Leaving it empty is the point. That empty space is what absorbs the
+  overrun instead of passing it down the day to you.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="designing-for-calm"
+  id="attention-diet"
+  n="03"
+  title="A one-day attention diet"
+  input="text"
+  placeholder="the day I picked… · notifications off, phone out of reach, one screen at a time, phone-free first 30 min… · what changed…"
+>
+  Pick one ordinary day and reset the attention defaults for just that day. Turn off every notification that is
+  not a person. Keep the phone in another room during any real work. Do one thing on one screen at a time, no
+  second stream running. And leave the first thirty minutes of the morning phone-free. It is one day, so it
+  costs you almost nothing to try. At the end, write what changed, honestly, including the awkward possibility
+  that you barely noticed the world kept turning without you watching it in real time.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="designing-for-calm"
+  id="ten-minutes-niksen"
+  n="04"
+  title="Ten minutes of doing nothing"
+  input="timer"
+  seconds={600}
+>
+  The Dutch word is niksen, and it means exactly what it looks like: nothing, on purpose. Find ten minutes, sit
+  or stand or look out a window, and do not fill them. No phone, no podcast, no tidying, no productive use of
+  the gap. Let your attention wander wherever it wants. This is not meditation, there is nothing to focus on
+  and nothing to get right. If it feels uncomfortable at first, that discomfort is worth noticing: it is the
+  measure of how unused to empty time you have become. Most of the settling arrives a few minutes in, once you
+  stop expecting the time to earn its keep.
+</ExerciseCard>
