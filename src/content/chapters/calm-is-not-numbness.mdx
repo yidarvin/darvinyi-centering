@@ -1,0 +1,183 @@
+import { SectionMarker } from '@/components/SectionMarker';
+import { ExerciseCard } from '@/components/ExerciseCard';
+import { RouteTags } from '@/components/RouteTags';
+import { CounterfeitsFigure } from '@/components/chapters/calm-is-not-numbness/CounterfeitsFigure';
+import { FoundationFigure } from '@/components/chapters/calm-is-not-numbness/FoundationFigure';
+import { FlagsFigure } from '@/components/chapters/calm-is-not-numbness/FlagsFigure';
+import { SelfCheck } from '@/components/chapters/calm-is-not-numbness/SelfCheck';
+
+export const reflection = {
+  path: '~/centering/18.1',
+  prompt:
+    'Name one calm you reach for most. Does it carry you back toward your life, or away from it? Answer as honestly as the first chapter asked you to.',
+};
+
+export const sources = [
+  { text: 'Welwood, J. (2000). Toward a Psychology of Awakening: Buddhism, Psychotherapy, and the Path of Personal and Spiritual Transformation. Boston: Shambhala. The book where Welwood, who coined the term "spiritual bypassing" in the early 1980s, developed it in full: using spiritual ideas and practices to sidestep unresolved emotional and developmental work. A clinical and observational concept, not a validated construct.', url: 'https://www.shambhala.com/toward-a-psychology-of-awakening.html' },
+  { text: 'Fossella, T. (2011). "Human Nature, Buddha Nature: An Interview with John Welwood." Tricycle, Spring 2011. Welwood restates the original definition and the reason he named it: he saw the pattern in his Buddhist community and in himself.', url: 'https://tricycle.org/magazine/human-nature-buddha-nature/' },
+  { text: 'Masters, R. A. (2010). Spiritual Bypassing: When Spirituality Disconnects Us from What Really Matters. Berkeley: North Atlantic Books. Extends the idea with a clinician\'s catalogue of its forms: compulsive niceness, emotional numbing, exaggerated detachment, anger phobia, weak boundaries. Influential and clinical, not empirical.', url: 'https://www.penguinrandomhouse.com/books/562490/spiritual-bypassing-by-robert-augustus-masters-phd/' },
+  { text: 'Fox, J., Cashwell, C. S., & Picciotto, G. (2017). "The opiate of the masses: Measuring spiritual bypass and its relationship to spirituality, religion, mindfulness, psychological distress, and personality." Spirituality in Clinical Practice, 4(4), 274-287. The 13-item Spiritual Bypass Scale, two facets (psychological avoidance and spiritualizing). Early psychometric work on convenience samples: it shows the construct can be measured and correlates with distress, not that bypassing causes harm.', url: 'https://psycnet.apa.org/record/2017-45103-001' },
+  { text: 'Cashwell, C. S., Glosoff, H. L., & Hammond, C. (2010). "Spiritual bypass: A preliminary investigation." Counseling and Values, 54(2), 162-174.', url: 'https://onlinelibrary.wiley.com/doi/abs/10.1002/j.2161-007X.2010.tb00014.x' },
+  { text: 'Ford, B. Q., Lam, P., John, O. P., & Mauss, I. B. (2018). "The psychological health benefits of accepting negative emotions and thoughts: Laboratory, diary, and longitudinal evidence." Journal of Personality and Social Psychology, 115(6), 1075-1092. Across a large sample, a lab stressor, and a longitudinal design, habitually accepting your own negative feelings predicted less negative affect and fewer depressive symptoms over time. Modest effects, and about accepting inner experience, not external circumstances.', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5767148/' },
+  { text: 'Shallcross, A. J., Troy, A. S., Boland, M., & Mauss, I. B. (2010). "Let it be: Accepting negative emotional experiences predicts decreased negative affect and depressive symptoms." Behaviour Research and Therapy, 48(9), 921-929.', url: 'https://pubmed.ncbi.nlm.nih.gov/20566191/' },
+  { text: 'Bastian, B., Kuppens, P., Hornsey, M. J., Park, J., Koval, P., & Uchida, Y. (2012). "Feeling bad about being sad: The role of social expectancies in amplifying negative mood." Emotion, 12(1), 69-80. When people believe others expect them not to feel bad, they feel worse, partly by ruminating about feeling bad. The empirical backbone for why "toxic positivity" backfires, though it measures perceived social pressure, not a thing labeled toxic positivity.', url: 'https://pubmed.ncbi.nlm.nih.gov/21787076/' },
+  { text: 'Mauss, I. B., Tamir, M., Anderson, C. L., & Savino, N. S. (2011). "Can seeking happiness make people unhappy? Paradoxical effects of valuing happiness." Emotion, 11(4), 807-815.', url: 'https://pubmed.ncbi.nlm.nih.gov/21517168/' },
+  { text: 'Hayes, S. C., Wilson, K. G., Gifford, E. V., Follette, V. M., & Strosahl, K. (1996). "Experiential avoidance and behavioral disorders: A functional dimensional approach to diagnosis and treatment." Journal of Consulting and Clinical Psychology, 64(6), 1152-1168. Names experiential avoidance, the effort to escape or alter unwanted inner experience even when it costs you, as a process running across many disorders. A theoretical proposal; the label is functional, so the same act can be avoidant or not depending on what it is for.', url: 'https://psycnet.apa.org/record/1997-02209-004' },
+  { text: 'Kashdan, T. B., & Rottenberg, J. (2010). "Psychological flexibility as a fundamental aspect of health." Clinical Psychology Review, 30(7), 865-878. Argues that staying in contact with the present and adapting behavior toward your values is a core marker of health, and rigid avoidance its opposite. A synthesis, not a causal test.', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2998793/' },
+  { text: 'Bond, F. W., Hayes, S. C., Baer, R. A., et al. (2011). "Preliminary psychometric properties of the Acceptance and Action Questionnaire-II." Behavior Therapy, 42(4), 676-688. Read alongside Wolgast, M. (2014), "What does the AAQ-II really measure?" Behavior Therapy, 45(6), 831-839, and Rochefort et al. (2018), which show the standard avoidance measure overlaps heavily with neuroticism and general distress. So some acceptance-and-avoidance findings partly reflect distress itself. Graded honestly, not oversold.', url: 'https://www.sciencedirect.com/science/article/abs/pii/S0005789411000888' },
+  { text: 'Gross, J. J., & John, O. P. (2003). "Individual differences in two emotion regulation processes." Journal of Personality and Social Psychology, 85(2), 348-362. Habitual suppressors report less positive emotion, more negative emotion, and thinner relationships than habitual reappraisers. Correlational, moderate, and culturally qualified, but it points the same way as Chapter 1.', url: 'https://pubmed.ncbi.nlm.nih.gov/12916575/' },
+  { text: 'National Institute of Mental Health. "Depression," "Understanding Psychosis," and "Warning Signs of Suicide." Source for the yellow and red signposts: symptoms most of the day, nearly every day, for at least two weeks; when to talk to a provider; and that asking someone directly about suicide does not increase risk. Not a diagnostic instrument.', url: 'https://www.nimh.nih.gov/health/publications/depression' },
+  { text: 'World Health Organization. "Depressive disorder (depression)," Fact Sheet. Confirms the two-week, most-of-the-day threshold, separates a depressive episode from ordinary mood swings, and notes the impact on home, work, and school.', url: 'https://www.who.int/news-room/fact-sheets/detail/depression' },
+  { text: 'NHS. "Get help with low mood, sadness or depression" and "Where to get urgent help for mental health." The green-tier framing (ordinary low mood, self-help first) and the routing to urgent care. UK numbers: 111 for urgent help, 999 or A&E if life is at risk, Samaritans on 116 123.', url: 'https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/low-mood-sadness-depression/' },
+  { text: 'Mental Health First Aid (National Council for Mental Wellbeing). The ALGEE action plan, whose first step is to assess for risk of suicide or harm, and which separates crisis situations from ordinary support. The nearest formal analogue to the green/yellow/red structure, which is itself an editorial aid, not an official triage tool.', url: 'https://mentalhealthfirstaid.org/news/algee-how-mhfa-helps-you-respond-in-crisis-and-non-crisis-situations/' },
+  { text: 'Crisis and help resources verified against official sources on 2026-06-30: 988 Suicide and Crisis Lifeline (988lifeline.org), Crisis Text Line (crisistextline.org), The Trevor Project (thetrevorproject.org), Veterans Crisis Line (veteranscrisisline.net), Trans Lifeline (translifeline.org), Find A Helpline and IASP (findahelpline.com), Samaritans (samaritans.org, 116 123), and the therapist directories named in the text. Numbers are region-specific and change; confirm your local line is current before you rely on it.', url: 'https://findahelpline.com' },
+];
+
+A man I know lost his father in the spring. When I saw him a week later I said the usual clumsy thing, that I was sorry, that it must be hard. He smiled, and he was serene, and he said that death is natural, that his father had lived a full life, that everything is impermanent and there was really nothing to grieve. He meant it. He had spent years meditating and it showed, the voice low and even, the face untroubled. And standing there I felt something I could not name at first, a kind of cold coming off all that warmth. It was months before he cried about his father, and when he finally did, he told me those first weeks had not been peace at all. They had been a very well-built wall.
+
+That is the counterfeit this whole book has been circling, and now, at the end, we can name it straight out. There is a stillness that is the finest thing a person can grow, and there is a stillness that is a place to hide, and from across the room they can look exactly alike. The [first chapter](/what-calm-is) opened this. A settled body is not the same as a person who has checked out. Everything since has been ways of settling that keep you in your life rather than lifting you out of it. This last chapter is about the lift-out, the calm that has quietly become a way of not being reached, so that you can spot it in yourself, tell it from the real thing, and know what to do when the real thing is not enough.
+
+<RouteTags routes={['letting-go', 'presence', 'connection']} label="where real calm leans" />
+
+<SectionMarker>the four calms</SectionMarker>
+
+Start with the plain fact that makes the whole problem possible. Several very different states all wear the same face. A quiet voice, an unhurried manner, no visible storm. You cannot tell them apart by looking, not from outside and often not from inside either, because the counterfeits do not feel like fraud. They feel like relief, which is exactly what makes them so easy to keep.
+
+So we need the tell, and it is not in the body. It is in two things you cannot see in a photograph: what the state is doing with a feeling, and which direction it leaves you facing. Real calm meets the feeling, lets it move, and turns you back toward your life. Each counterfeit does something else with the feeling, and each one turns you away.
+
+<CounterfeitsFigure />
+
+Look at the four together. Engaged equanimity, on the left, is the one the book trains toward: the feeling is felt all the way, it crests and passes, and you are still there, more able to act, not less. The other three are the lookalikes. Spiritual bypassing floats up above the feeling. Avoidance leaves the room before the feeling can land. Sedation flattens everything, feeling and self at once. All three can pass for peace, sometimes for years. None of them meets the thing, and all of them, quietly, point you away from your own life. The rest of this chapter is those three counterfeits, up close, and then the honest question of what to do when a feeling is bigger than any practice.
+
+<SectionMarker>rising above it</SectionMarker>
+
+The first counterfeit has a name, and it comes from inside the contemplative world, not from its critics. In the early 1980s a psychotherapist named John Welwood, who was himself a serious Buddhist practitioner, watched people in his own community use the practice to skip the parts of themselves they did not want to face. He called it spiritual bypassing: using spiritual ideas and practices to sidestep unresolved emotional wounds and unfinished growing up. He was not sneering. He saw it in himself. He thought it was one of the most common traps on the path, precisely because it looks so much like progress.
+
+The tell is a feeling handled too fast and too high. Grief answered with "it was their time." Anger answered with "I've let that go," when the letting go took about four seconds and the anger was pointing at something real. A boundary that never gets set because setting it would not be very loving. The trouble is not the ideas. Impermanence is true, and so is compassion, and so is the fact that most of what we cling to we could hold more loosely. The trouble is using a true idea to leave a room you have not actually walked through. Robert Augustus Masters, extending Welwood's work, catalogued the shapes it takes: a compulsive niceness that cannot say a hard thing, an exaggerated detachment that reads as wisdom and works as distance, a phobia of one's own anger, a tolerance so wide it has stopped protecting anything. Be honest about the evidence here. This is a clinician's map, sharpened later into a questionnaire by Craig Cashwell and colleagues, who found that people who score high on spiritual bypass also tend to score high on psychological distress. That is a correlation on small samples, not proof that bypassing causes the pain. Take the concept as a mirror, which is what it was built to be, not as a diagnosis.
+
+The mirror is worth holding up because the practices in this book are unusually good raw material for bypassing. Every one of them can be run in reverse. The breath that settles you can become the breath you reach for so you never have to feel the thing. The witness that gives you distance from a feeling can become a way to never get close to one. The acceptance the next chapters praised can curdle into a spiritual excuse for not changing what you could change. The move is not to distrust the practices. It is to keep asking what you are doing with them: meeting the feeling, or getting above it.
+
+<SectionMarker>the quiet exit</SectionMarker>
+
+The second counterfeit is plainer and older, and psychology has studied it hard. It is avoidance. In 1996 Steven Hayes and colleagues gave the careful version of it a name, experiential avoidance, the effort to escape or push away your own inner experience, the thoughts and feelings and memories and sensations, even when the pushing costs you more than the feeling would have. It shows up across a wide range of suffering, which is why they treated it as a single process worth naming. Chronic avoidance predicts worse outcomes, not better.
+
+Here is the distinction the whole thing turns on, and it is easy to get wrong. Acceptance is not avoidance, and it is also not resignation. This book has spent chapters on acceptance, on letting the wave rise and fall, on radical acceptance of what you cannot change. None of that means wanting the feeling, approving of it, or lying down under your circumstances. In the [acceptance-based therapies](/the-engineering-of-calm) the word means something precise: you are willing to have the experience as it is, and you keep moving toward what you care about anyway. Avoidance is the opposite motion. It is willing to give up a great deal, including the things you care about, in order to not have the experience. The person who accepts their fear goes to the hard conversation carrying it. The person who avoids it cancels the conversation and calls the relief peace.
+
+So the test for this counterfeit is a question about direction. Is the calm you have built increasing your capacity to be with hard things, or refining your skill at not feeling them? Todd Kashdan and Jonathan Rottenberg gathered the evidence that the first of those, the flexible capacity to stay in contact with your experience and still act on your values, tracks with health, while rigid avoidance tracks with its opposite. One honest caveat, because this book grades its evidence. The standard questionnaire for avoidance overlaps so heavily with plain neuroticism and distress that some of the effect is probably distress measuring itself. The direction of the finding is trustworthy. The exact size is softer than the headline. Meeting your experience is better for you than fleeing it, by a real but modest margin, and the flight is easiest to miss when it comes dressed as serenity.
+
+<SectionMarker>the smile that isn't</SectionMarker>
+
+The third counterfeit is the social one, the one other people press on you and you learn to press on yourself. Lately it goes by "toxic positivity," which is a popular phrase, not a clinical one, so hold the label loosely and look at what sits under it. Underneath is real research. Iris Mauss and colleagues have shown, across a large sample and a lab study and a longitudinal follow-up, that people who habitually accept their own negative feelings, who let themselves feel bad without a second layer of judgment about feeling bad, end up with less negative emotion and fewer depressive symptoms over time. The doubling back is the poison. It is not the sadness that does the damage so much as the verdict that you should not be sad.
+
+And that verdict is often handed to you. Brock Bastian and colleagues found that when people believe others expect them not to feel negative emotions, they feel worse, not better, and the extra suffering runs through rumination, through lying awake asking what is wrong with you for not being fine. Mauss found something adjacent and strange: valuing happiness very highly can itself lower your wellbeing, especially when times are not hard, because the wanting sets a bar the moment keeps failing to clear. Put it together and the cheerful command, good vibes only, look on the bright side, at least it wasn't worse, turns out to be a small engine for misery. Aimed at yourself it is suppression, which Chapter 1 already showed keeps the feeling and adds a load. Aimed at someone else it is worse, because it tells a person in pain that their pain is unwelcome here, and now they are alone with it as well as hurting. Real calm can sit with a friend's grief without rushing to fix the mood. The counterfeit cannot bear the discomfort, so it reaches for the bright side, and calls abandonment kindness.
+
+<SectionMarker>a base, not a bunker</SectionMarker>
+
+Notice what all three counterfeits share. Each uses a settled state to get away from something: a feeling, a task, a truth, another person's pain. That is the deepest tell of all, and it points at what real calm is for. The equanimity this book has been after is not an exit from your life. It is a place to stand in it.
+
+<FoundationFigure />
+
+Hold the two pictures side by side. You can use a calm mind as a bunker, a sealed room where nothing reaches you, and for a while that feels like safety. But a bunker keeps your life out along with your troubles. The grief cannot reach you, and neither can the love. The hard conversation stays on the far side of the wall, and so does the repair on the other side of the conversation. Or you can use the very same settled center as a base, the solid ground you push off from to go meet the thing. This is the version every tradition in this book was actually pointing at, once you look. The [Stoic](/tranquility-by-judgment) gets calm about what is not up to him so he can act, hard and well, on what is. The [bodhisattva](/calm-abiding) steadies the mind in order to turn toward the suffering of the world, not away from it. [Internal Family Systems](/the-calm-at-the-center) calls it Self-leadership, the calm center leading the parts back into a life, and the whole point is the leading. A settled nervous system is worth training because of what it lets you do while settled: feel the loss, say the true thing, sit with the friend, act on the injustice without being swept off your feet by it. Calm is not the goal. It is the platform the goal is reached from.
+
+That is the spine of the book, stated one last time. Equanimity over suppression. Engaged over checked out. A base, not a bunker. Everything from here is about the case where the base is not enough on its own.
+
+<SectionMarker>when a practice is not enough</SectionMarker>
+
+This book has been careful about one line from the start, and it needs to be plainest right here. This is education, not therapy, and reading it is not treatment. The practices in these chapters are real and many of them are well supported, but they are the sort of thing that helps an ordinary hard week, builds a steadier baseline, gives you somewhere to stand. They are not a substitute for care when care is what the situation needs. Some distress is not a training problem. Trying to breathe your way through a depression, or meditate away a danger to yourself, is its own kind of bypassing, the responsible-sounding kind, and it can cost time you do not have.
+
+So the useful skill is knowing which situation you are in. You cannot diagnose yourself, and nothing here is trying to. But you can learn the signposts, the way you learn the difference between a bruise and a break without being a doctor. Public-health bodies converge on roughly the same markers, and they sort into three tiers.
+
+<FlagsFigure />
+
+Read them as a ladder, not a set of boxes. Green is ordinary distress, the kind that moves when you rest, talk, walk it off. A practice is a fair place to start there, which is most of what this book is for. Yellow is distress that has stopped moving: low mood or anxiety most of the day, nearly every day, for two weeks or more, sleep or appetite clearly changed, pulling away from people, leaning on something to cope, work and relationships beginning to slip. Yellow is not an emergency and it is not a diagnosis. It is a sign that a conversation with a professional is worth having, sooner rather than later. Red is about safety: thoughts of suicide or self-harm, thoughts of harming someone else, the loss of any ability to keep yourself safe, or losing contact with what is real. Red is the one tier where the rule changes from watch to act. You do not need to be certain. You do not need it to be bad enough. You reach out now.
+
+Two things make these tiers easier to use honestly. First, they are signposts and not a verdict, so err toward the higher one, and when in doubt, ask a real professional who can see you. Second, reaching out is never an overreaction. You are allowed to talk to someone at green. You do not have to earn help by getting worse.
+
+<SectionMarker>the self-check</SectionMarker>
+
+Here is the instrument, and it does two separate jobs on purpose. The first is a mirror for the counterfeits: a handful of honest questions that sort a calm you have been leaning on toward equanimity or toward one of its lookalikes. There is no score and no pass. It only helps you see which way your calm is facing. The second job is the more serious one, the flags, a place to tick what is actually true for you and, if anything lands in yellow or red, to find the number you might need. The resources are there whether or not you tick a thing, because you should never have to pass a quiz to reach a crisis line. If you do only one interactive thing in this whole book, do the last part of this one: find two resources and save them somewhere you will have them later.
+
+<SelfCheck />
+
+<SectionMarker>how to find help</SectionMarker>
+
+Because the widget hides the specifics until you open it, here they are in plain sight too, since a number you can see is worth more than one you have to go looking for.
+
+If you might be in danger right now, in the United States, call or text 988, the Suicide and Crisis Lifeline, or chat at 988lifeline.org. It is free, confidential, and staffed around the clock, and it is for people worried about someone else as much as for people in the thick of it. If you would rather text than talk, text HOME to 741741. If a life is in immediate danger, call 911. Outside the United States, the cleanest starting point is findahelpline.com, which points you to a verified line in your own country. In the UK and Ireland, Samaritans answer at 116 123, any hour. These numbers are the sort of thing that changes, so the version saved in the widget carries the date it was checked, and it is worth confirming your local line is current before you lean on it.
+
+For the slower, non-emergency work of finding a therapist, there is no single door and that is fine. A directory like Psychology Today lets you filter by location, insurance, and specialty, and there are directories built for specific needs: Inclusive Therapists and Therapy for Black Girls for identity-affirming care, and the professional bodies for particular methods, like the ACT directory at contextualscience.org or the IFS one at ifs-institute.com. The fastest covered routes are often the ones people skip: the number on the back of your insurance card, a referral from your regular doctor, or an employer's assistance program, which usually includes a few free and confidential sessions. If cost is the wall, it does not have to be the end of it. Open Path Collective lists sliding-scale therapists, university training clinics and community mental health centers charge little, and in the United States SAMHSA will route you, at findtreatment.gov or 1-800-662-4357. That last line is for finding treatment, not for a crisis. For a crisis it is 988.
+
+<SectionMarker>one calm, walked through</SectionMarker>
+
+Return to the man from the opening, because he is the whole chapter in one person. For those first weeks his calm was real to him. He was not lying. He had built, out of genuine practice, a stillness that held the grief at exactly arm's length, close enough to point at, far enough to not feel. If you had put him in front of the self-check, the settling questions would have caught it before he could. When a hard feeling comes, does the practice help you feel it or not feel it? Not feel it. After you practice, are you more able to turn toward the thing, or does it stay on the far side? It stayed. The calm was a bunker with a very good view.
+
+What changed was not more practice. It was less. A friend, sitting with him, did not offer a teaching. She just said she missed his dad too, and let the silence be as heavy as it was, and did not reach for the bright side. And the wall, which had been holding against advice and against comfort, did not hold against company. He cried for the first time, badly, and it was not a relapse or a failure of his equanimity. It was the equanimity finally doing its real job, which was to let him stand in the loss instead of above it. His practice had not been wrong. It had just been pointed at the exit, and it took another person to turn it back toward the room.
+
+Not every version of this ends in a good cry with a friend. Sometimes the honest walk-through lands on a yellow flag, the grief that has not lifted in two months and has started eating the days, and the next move is a phone call to someone trained, not a better breathing pattern. Sometimes it lands on red, and the move is a number, tonight. The skill this chapter is really teaching is the small, clear-eyed act of noticing which one you are in, and not using calm as a reason to wait.
+
+<SectionMarker>the last word</SectionMarker>
+
+Go back to the two Sunday nights the book started on. One was a person at ease with a hard week still ahead of them, settled and entirely there. The other looked the same from the doorway and was empty inside, quiet because its owner had left. Everything in between has been in the service of telling those two apart, in yourself, in the dark, when it counts, and of building more of the first kind on purpose.
+
+That was the promise on the first page, and it holds. Calm is trainable. The set point moves. The body has a brake you can learn to use, the mind has a return you can practice, and the traditions, for all their different gods and vocabularies, kept finding the same few doors into the same quiet room. But the room was never meant to be somewhere you go to disappear. The calm worth having is the kind that hands you back to your life more able to meet it, more able to feel the whole of it, more able to act. Settled, and still here. That was the test in the first chapter and it is the test in the last one. Not the absence of trouble. Not numbness. A trained, engaged, wide-awake peace, and the wisdom to know when the peace is not enough and it is time to ask for a hand.
+
+<SectionMarker>try these</SectionMarker>
+
+<ExerciseCard
+  chapterSlug="calm-is-not-numbness"
+  id="settling-or-avoiding"
+  n="01"
+  title="Check one calm for bypassing"
+  input="text"
+  placeholder="the calm I reach for… · what it does with the feeling… · toward my life, or away…"
+>
+  Pick one calm you lean on: a practice, a phrase, a way of getting quiet. Run it through the two questions
+  the counterfeits fail. What does it do with a hard feeling, meet it or skip past it? And where does it leave
+  you, more able to turn toward your life or further from it? Write the honest answer. If it comes out
+  "avoiding," you are not in trouble and you do not need to practice harder. You need to turn, gently, toward
+  the thing the calm was helping you leave.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="calm-is-not-numbness"
+  id="your-flags"
+  n="02"
+  title="Name your yellow and red lines in advance"
+  input="text"
+  placeholder="my yellow (worth talking to someone if…)… · my red (reach out now if…)…"
+>
+  It is easier to read a signpost you wrote before you needed it. In a steady moment, name your own lines.
+  Your yellow: the specific sign that, for you, means it is time to talk to a professional, not just to
+  breathe. Poor sleep for two weeks, say, or pulling out of every plan. Your red: the line that means reach
+  out now, do not wait. Write them plainly, in your own words, so that a future you in a worse week has
+  something clear to check against instead of having to decide from inside the fog.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="calm-is-not-numbness"
+  id="two-resources"
+  n="03"
+  title="Locate two resources before you need them"
+  input="text"
+  placeholder="a person I could tell… · a line or a service, saved in my phone…"
+>
+  The point of a resource is that it is already there when the fog rolls in and you cannot think of one. Find
+  two now, while it is calm. One person you could actually tell if things got bad, named. One professional or
+  crisis resource, saved somewhere you will have it: the 988 line in your contacts, a therapist directory
+  bookmarked, your insurance's mental-health number written down. Use the widget above to browse them. You are
+  not predicting a crisis. You are leaving yourself a map.
+</ExerciseCard>
+
+<ExerciseCard
+  chapterSlug="calm-is-not-numbness"
+  id="two-questions-again"
+  n="04"
+  title="The two questions, one last time"
+  input="checkbox"
+>
+  The whole book fits in the instrument the first chapter handed you. The next time you feel calm, run the two
+  questions again. Am I settled? And am I still here? Settled and here is the real thing, the thing worth all
+  this training. Settled and gone is the counterfeit, and now you know its three disguises. That is the entire
+  practice, carried in a pocket. Mark this done once you have run it on a live moment, and then, gently, close
+  the book and go be in your life.
+</ExerciseCard>
