@@ -15,7 +15,7 @@ export function BeginnersMindFigure() {
   return (
     <Figure
       caption="fig_07.3 · beginners_mind"
-      sub={'shoshin, beginner’s mind. the expert meets a familiar thing already labeled and filed, and sees one worn groove. the beginner meets it without the stack of assumptions, and it opens. Shunryu Suzuki: “in the beginner’s mind there are many possibilities, but in the expert’s mind there are few.” not ignorance. a trained willingness to see the ordinary as if for the first time.'}
+      sub={'shoshin, beginner’s mind. the expert meets a familiar thing already labeled and filed, and sees one worn groove. the beginner meets it without the stack of assumptions, and it opens. Shunryu Suzuki: “in the beginner’s mind there are many possibilities, but in the expert’s there are few.” not ignorance. a trained willingness to see the ordinary as if for the first time.'}
       max={520}
     >
       <svg

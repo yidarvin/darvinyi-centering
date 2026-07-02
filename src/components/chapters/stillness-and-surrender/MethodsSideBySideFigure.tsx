@@ -3,7 +3,7 @@ import { Figure } from '@/components/Figure';
 import { METHODS, type Method } from './methods';
 
 /**
- * fig_12.3, the contemplative methods side by side: what each does with attention and
+ * fig_12.2, the contemplative methods side by side: what each does with attention and
  * the self, and the name each gives the calm it receives. The shared center is real (a
  * repeated anchor, a posture of letting go, a gentle return), and the figure marks it.
  * But the frames do not match: four different names for the calm, and behind each a
@@ -58,8 +58,8 @@ function Card({ m }: { m: Method }) {
 export function MethodsSideBySideFigure() {
   return (
     <Figure
-      caption="fig_12.3 · four_doors_one_move"
-      sub="Read across the top and the methods look unrelated. Read the bottom rows and a single move shows through: a repeated anchor, a loosening of the grip, a gentle return. The convergence is real. So is the difference: each names the calm differently, and behind each is a different account of who sends it. Same move, not the same meaning."
+      caption="fig_12.2 · four_doors_one_move"
+      sub="Read across the top and the methods look unrelated. Read the bottom rows and a single move shows through: a repeated anchor, a loosening of the grip, a gentle return. What the columns do not share is the meaning: four names for the calm, and four accounts of who sends it."
       max={900}
     >
       <div style={{ display: 'flex', gap: 11, flexWrap: 'wrap' }}>

@@ -19,7 +19,7 @@ export function FlowChannelFigure() {
   return (
     <Figure
       caption="fig_03.3a · the_flow_channel"
-      sub="flow is matched challenge and skill, both high: deep, engaged absorption, not relaxation. (the original three-channel sketch; later experience-sampling work refined it into eight.)"
+      sub="flow is matched challenge and skill, both high: deep, engaged absorption, not relaxation. (the quadrant version of the map; experience-sampling studies have split it as finely as eight channels.)"
       max={420}
     >
       <svg
@@ -38,8 +38,8 @@ export function FlowChannelFigure() {
         <polygon points={`${X0},${YB} ${X0},${YT} ${X1},${YT}`} fill={c.coralFog} />
         <polygon points={`${X0},${YB} ${X1},${YB} ${X1},${YT}`} fill={c.amberFog} />
 
-        {/* the flow band along the matched diagonal, inset so its caps stay in frame */}
-        <line x1={66} y1={223} x2={288} y2={45} stroke={c.teal} strokeWidth={30} strokeLinecap="round" strokeOpacity={0.16} />
+        {/* the flow band on the both-high half of the matched diagonal, inset so its caps stay in frame */}
+        <line x1={150} y1={156} x2={288} y2={45} stroke={c.teal} strokeWidth={30} strokeLinecap="round" strokeOpacity={0.16} />
         <line x1={X0} y1={YB} x2={X1} y2={YT} stroke={c.teal} strokeWidth={1.6} strokeDasharray="5 4" strokeOpacity={0.8} />
 
         {/* the frame */}

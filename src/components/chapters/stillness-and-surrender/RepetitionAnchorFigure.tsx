@@ -2,7 +2,7 @@ import { c, mono } from '@/styles/tokens';
 import { Figure } from '@/components/Figure';
 
 /**
- * fig_12.2, repetition as an anchor. Attention (the wandering line) keeps drifting up
+ * fig_12.3, repetition as an anchor. Attention (the wandering line) keeps drifting up
  * into thought and keeps being drawn back down to a single repeated anchor (the
  * baseline). Each return is a teal dot: the return is the practice, not the failure of
  * it. This is the mechanism shared by the Jesus Prayer, the sacred word, dhikr, and a
@@ -43,7 +43,7 @@ const ANCHORS = [
 export function RepetitionAnchorFigure() {
   return (
     <Figure
-      caption="fig_12.2 · the_anchor_and_the_return"
+      caption="fig_12.3 · the_anchor_and_the_return"
       sub="Attention wanders up into thought, again and again. Every tradition here hands it one undemanding thing to come back to: a phrase, a name, a word, the breath. The dots are the returns. The return is the practice, not the interruption of it, which is exactly the attention rep from The Quiet Mind."
       max={VB_W}
     >

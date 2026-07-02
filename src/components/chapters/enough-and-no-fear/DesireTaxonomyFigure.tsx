@@ -12,7 +12,7 @@ interface Band {
 }
 
 /**
- * fig_05.1a: the three kinds of wanting. Epicurus sorts desires in the Letter to
+ * fig_05.2a: the three kinds of wanting. Epicurus sorts desires in the Letter to
  * Menoeceus: natural and necessary, natural but not necessary, and neither (the
  * vain or empty desires). The bands descend from the short, reachable floor to
  * the bottomless top. The whole ethical payload is in the right rail: the natural
@@ -52,7 +52,7 @@ const BANDS: Band[] = [
 export function DesireTaxonomyFigure() {
   return (
     <Figure
-      caption="fig_05.1a · the_three_desires"
+      caption="fig_05.2a · the_three_desires"
       sub="Epicurus, Letter to Menoeceus 127–8. natural and necessary desires are few and easy to satisfy; natural but unnecessary ones only vary the pleasure; vain desires have no natural limit, so the chase has no end."
       max={560}
     >

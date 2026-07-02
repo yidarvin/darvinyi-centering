@@ -16,7 +16,7 @@ export function SetPointFigure() {
   return (
     <Figure
       caption="fig_01.1c · the_movable_set_point"
-      sub="temperament gives you a range, not a verdict. the point you keep returning to is movable, and moving it toward the settled end is what practice does."
+      sub="temperament hands you a range. the point you keep returning to sits inside it, and practice moves it toward the settled end."
       max={520}
     >
       <svg

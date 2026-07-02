@@ -2,7 +2,7 @@ import { Figure } from '@/components/Figure';
 import { c, mono } from '@/styles/tokens';
 
 /**
- * fig_16.3, the minimum effective dose. Two honest curves and their product.
+ * fig_16.2, the minimum effective dose. Two honest curves and their product.
  * The benefit of a single session rises fast and then saturates: the first few
  * minutes buy most of the calm, and more buys less and less. The odds you keep
  * it up fall as the daily ask grows: a big plan is a plan you quit. What you
@@ -44,7 +44,7 @@ export function MinimumDoseFigure() {
 
   return (
     <Figure
-      caption="fig_16.3 · minimum_effective_dose: the smallest thing that still works"
+      caption="fig_16.2 · minimum_effective_dose: the smallest thing that still works"
       sub="Benefit per session saturates fast, so the first few minutes carry most of the gain. The odds you keep it up fall as the daily ask grows. What you actually get is the two multiplied, and it peaks at a small, sustainable dose, well left of the most you could do."
       max={600}
     >

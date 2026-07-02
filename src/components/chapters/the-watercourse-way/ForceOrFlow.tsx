@@ -445,7 +445,7 @@ export function ForceOrFlow() {
             <CornerDownRight size={15} color={c.teal} style={{ marginTop: 3, flexShrink: 0 }} />
             <p style={{ fontSize: 13.5, lineHeight: 1.62, color: c.text, margin: 0 }}>
               {forcingCount === 0 ? (
-                <>You marked nothing as forcing. Either you are unusually settled, or worth a second, more honest pass.</>
+                <>You marked nothing as forcing. Either you are unusually settled, or this list is worth a second, more honest pass.</>
               ) : (
                 <>
                   You are forcing in{' '}

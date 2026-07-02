@@ -13,9 +13,9 @@ import { c } from '@/styles/tokens';
  * `soft` cells are looser, literary fits, hedged in the prose and the inspector.
  *
  * Names are the traditions' own terms, verified against primary sources and
- * scholarship. Transliterations are kept plain (no diacritics) to match the house
- * style and to render cleanly in the graph's canvas labels. No em dashes anywhere
- * in a reader-facing string.
+ * scholarship. Transliterations are kept plain (no diacritics) so they render
+ * cleanly in the graph's canvas labels; the chapters themselves use the fuller
+ * diacritic forms. No em dashes anywhere in a reader-facing string.
  */
 
 export type TraditionId =
@@ -245,7 +245,7 @@ export const TRADITIONS: Tradition[] = [
       {
         route: 'letting-go',
         name: 'surrender',
-        how: 'Entrust the outcome to God. Islamic tawakkul, Christian abandonment to providence: release the grip.',
+        how: 'Entrust the outcome to God: keep the worry in full view and let the hand go slack around it.',
       },
       {
         route: 'meaning',
@@ -254,8 +254,8 @@ export const TRADITIONS: Tradition[] = [
       },
       {
         route: 'presence',
-        name: 'the presence of God',
-        how: 'Practice the presence: continual, present-moment attention turned toward God in the most ordinary tasks.',
+        name: 'remembrance',
+        how: 'Repeat a short prayer, the Jesus Prayer or dhikr, and return to it each time the mind strays: remembrance that holds attention in the present.',
       },
     ],
   },
@@ -411,7 +411,7 @@ export interface Divergence {
 export const DIVERGENCES: Divergence[] = [
   {
     question: 'Is the cosmos a providential order, or impersonal cause with no mind behind it?',
-    a: { who: 'Stoicism', pos: 'The universe is a rational whole, and what happens is fated and good for it.' },
+    a: { who: 'Stoicism', pos: 'The universe is a rational whole, and what happens is fated and serves the good of that whole.' },
     b: { who: 'Buddhism', pos: 'No creator, no cosmic plan. Just conditions arising and passing, owed to no one.' },
   },
   {

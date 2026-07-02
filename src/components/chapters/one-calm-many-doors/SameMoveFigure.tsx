@@ -92,7 +92,7 @@ export function SameMoveFigure() {
   return (
     <Figure
       caption="fig_14.2 · same_move, many_names: the witness, and the fault line under it"
-      sub="The view from the inside rhymes: a quiet awareness that watches the weather of the mind without being it. The answer underneath does not. Identical felt report, opposite verdict on whether anyone is home. Hold this as a family resemblance, not a proof that these are one experience."
+      sub="Many traditions report a quiet awareness that watches the weather of the mind without being it. What that awareness is, they contest all the way down. Hold this as a family resemblance, not a proof that these are one experience."
       max={520}
     >
       <div

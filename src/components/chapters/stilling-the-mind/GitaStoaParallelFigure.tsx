@@ -40,7 +40,7 @@ const STOA: Side = {
   notLabel: 'not up to us',
   not: 'the body, reputation, outcomes',
   frame: 'Frame: act by reason. No offering and no deity required. Virtue is the only good, the ruling mind (hēgemonikon) is sovereign, and one lives in accord with nature and reason.',
-  rest: 'ataraxia · freedom from disturbance',
+  rest: 'euthymia · the settled mind (tranquillitas)',
 };
 
 function Row({ label, body, col, strong }: { label: string; body: string; col: string; strong?: boolean }) {

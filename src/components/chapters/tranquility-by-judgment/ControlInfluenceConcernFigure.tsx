@@ -17,7 +17,7 @@ export function ControlInfluenceConcernFigure() {
   return (
     <Figure
       caption="fig_04.3a · control_influence_concern"
-      sub="the center (up to me, or not) is Epictetus. the two outer rings, influence and concern, are Stephen Covey's (1989); the 'control' label was added by later popularizers. the Stoic name for working the middle ring is the reserve clause, acting fully but holding 'fate permitting' in reserve. either way: spend your effort at the center."
+      sub="the center is Epictetus: what is up to me. the two outer rings, influence and concern, are Stephen Covey's (1989); the 'control' label was added by later popularizers. the Stoic name for working the middle ring is the reserve clause, acting fully but holding 'fate permitting' in reserve. either way: spend your effort at the center."
       max={420}
     >
       <svg

@@ -345,7 +345,7 @@ export const SITUATIONS: Situation[] = [
   {
     id: 'overloaded-day',
     label: 'A tense, overloaded day',
-    routes: ['the-body', 'presence', 'perspective', 'enough'],
+    routes: ['the-body', 'presence', 'letting-go', 'perspective', 'enough'],
   },
   {
     id: 'conflict',
@@ -381,7 +381,7 @@ export const ROUTE_ORDER: RouteId[] = [
 ];
 
 /* --------------------------------------------------------------------------
- * The daily-and-weekly template (fig_16.2). A realistic rhythm, not a regimen:
+ * The daily-and-weekly template (fig_16.3). A realistic rhythm, not a regimen:
  * a couple of small daily anchors, a longer session when there is room, an
  * in-the-moment reset always available, and one weekly review. The shape is the
  * lesson. Most of it is small and most of it is daily.

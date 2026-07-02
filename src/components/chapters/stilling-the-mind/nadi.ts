@@ -1,5 +1,5 @@
 /**
- * The timing and geometry for widget_09.1, the nāḍī śodhana pacer.
+ * The timing and geometry for widget_09.2, the nāḍī śodhana pacer.
  *
  * One honest note carried into the chapter: nāḍī śodhana (alternate-nostril
  * breathing) is a haṭha-yoga technique from later texts like the Haṭha Yoga

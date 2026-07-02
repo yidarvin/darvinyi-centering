@@ -5,7 +5,7 @@ import { useLocalStorage } from '@/lib/useLocalStorage';
 import { LIMBS, GROUPS } from './limbs';
 
 /**
- * widget_09.2, the eight-limbs explorer. The staircase figure shows the shape; this
+ * widget_09.1, the eight-limbs explorer. The staircase figure shows the shape; this
  * lets the reader open each limb and read what it holds, including the five yamas and
  * five niyamas that the figure leaves folded up. An accordion: one open at a time,
  * keyboard operable, the last-opened remembered.

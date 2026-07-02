@@ -40,7 +40,7 @@ export function RoutesMapFigure() {
   return (
     <Figure
       caption="fig_14.1 · the_routes, and how many doors open onto each"
-      sub="The same handful of moves, each shown across the traditions at once. Presence and letting go are the most-traveled. Meaning is walked here by one. Convergence is real and uneven, and a thin row is honest, not a gap to paper over."
+      sub="The same handful of moves, each shown across the traditions at once, sorted from the most-traveled road to the least crowded."
       max={460}
     >
       <svg

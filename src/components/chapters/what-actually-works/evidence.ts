@@ -124,7 +124,7 @@ export const PRACTICES: Practice[] = [
     mechanism:
       'Teach a recovered patient to spot the early signature of a slide back into depression and to step back from the ruminative loop before it catches. The proposed active ingredient is decentering: relating to a dark thought as a passing event, not the truth.',
     evidence:
-      'An individual-patient meta-analysis of 9 trials and 1,258 patients (Kuyken 2016) found mindfulness-based cognitive therapy cut relapse over 60 weeks versus usual care (HR 0.69) and even versus maintenance antidepressants (HR 0.79). The benefit was largest in those with the most residual symptoms. This is the single strongest application of trained presence in the book.',
+      'An individual-patient meta-analysis of 9 trials and 1,258 patients (Kuyken 2016) found mindfulness-based cognitive therapy cut relapse over 60 weeks versus non-MBCT comparators (HR 0.69) and even versus maintenance antidepressants (HR 0.77). The benefit was largest in those with the most residual symptoms. This is the single strongest application of trained presence in the book.',
     caveat:
       'The edge over antidepressants is modest, with the upper confidence bound nearly touching 1.0. The benefit concentrates in higher-severity patients, not everyone. This is relapse prevention for recurrent depression, not a general wellness practice.',
     source: 'Kuyken 2016, JAMA Psychiatry',
@@ -154,7 +154,7 @@ export const PRACTICES: Practice[] = [
     evidence:
       'A nature walk reliably beats a city walk on mood and on attention: Berman 2008 found about a 20 percent gain on a backward digit-span task, near zero after an urban walk. Bratman 2015 found a real drop in subgenual prefrontal activity, a region tied to brooding (a large effect, d about 1.0). A meta-analysis of 32 studies (McMahan 2015) finds a moderate lift in positive affect.',
     caveat:
-      'Almost all single-session, with an urban-only comparator, so nature cannot be separated from novelty or simply leaving a stressful place. The widely repeated "less rumination" self-report was only a non-significant trend (p = 0.07). Samples are small and skew young.',
+      'Almost all single-session, with an urban-only comparator, so nature cannot be separated from novelty or simply leaving a stressful place. On the widely repeated "less rumination" self-report, the nature-versus-urban interaction was only a non-significant trend (p = 0.07). Samples are small and skew young.',
     source: 'Berman 2008; Bratman 2015',
     url: 'https://www.pnas.org/doi/10.1073/pnas.1510459112',
   },
@@ -180,9 +180,9 @@ export const PRACTICES: Practice[] = [
     mechanism:
       'A live heart-rate display helps you find and hold the breathing rate that makes your heart-rate swings the largest, proposed to strengthen baroreflex gain and vagal regulation over weeks of training.',
     evidence:
-      'Controlled trials show a small-to-moderate effect on stress and anxiety (Goessl 2017, a between-group g around 0.83, though on only about 13 controlled studies). This corner of the literature is relatively clean: the depression meta-analysis (Pizzoli 2021) shows no detectable publication bias.',
+      'Controlled trials find a real effect on stress and anxiety: Goessl 2017 reports a between-group g around 0.83, though from only about 13 small controlled studies, and Lehrer\'s broader 58-trial review calls the pooled effect small to moderate. This corner of the literature is relatively clean: the depression meta-analysis (Pizzoli 2021) shows no detectable publication bias.',
     caveat:
-      'Lehrer\'s review of 58 trials found the effect "does not differ from that of other effective treatments": a valid option, not a superior one. The often-quoted g around 0.8 is an uncontrolled pre-post figure that includes regression to the mean. Trust the between-group numbers.',
+      'Lehrer\'s review found the effect "does not differ from that of other effective treatments": a valid option, not a superior one. The g around 0.8 rests on a handful of small trials, so treat it as an upper bound rather than a settled size.',
     source: 'Goessl 2017; Lehrer 2020',
     url: 'https://pubmed.ncbi.nlm.nih.gov/32385728/',
   },

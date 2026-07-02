@@ -3,7 +3,7 @@ import { c, mono } from '@/styles/tokens';
 import { DAY_SLOTS, WEEK, type Kind } from './practices';
 
 /**
- * fig_16.2, the daily-and-weekly template. A rhythm, not a regimen. The day holds
+ * fig_16.3, the daily-and-weekly template. A rhythm, not a regimen. The day holds
  * a small morning anchor, a midday reset, an evening session, and an in-the-moment
  * reset always on call. The week is mostly the same small anchor every day, a
  * longer sit on a few of them, and one review on the seventh. The shape carries
@@ -38,7 +38,7 @@ export function TemplateFigure() {
 
   return (
     <Figure
-      caption="fig_16.2 · the_template: a day, and a week"
+      caption="fig_16.3 · the_template: a day, and a week"
       sub="Mostly small, mostly daily. One anchor you almost never skip, a longer sit when there is room, a reset for the hard moment, and a single weekly review to keep the thing honest. A plan you can actually keep beats a better one you cannot."
       max={600}
     >

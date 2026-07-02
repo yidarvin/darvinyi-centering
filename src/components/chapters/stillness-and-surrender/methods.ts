@@ -2,7 +2,7 @@ import { c } from '@/styles/tokens';
 
 /**
  * The four contemplative methods surveyed in Ch 12, the single source of truth for
- * both the side-by-side figure (fig_12.3) and the methods explorer (widget_12.1) so
+ * both the side-by-side figure (fig_12.2) and the methods explorer (widget_12.1) so
  * the two never drift. Four methods across three faiths: two Christian (Orthodox
  * hesychasm and Western Centering Prayer), one Muslim (Sufi dhikr), one Jewish
  * (Shabbat, equanimity, hitbodedut).

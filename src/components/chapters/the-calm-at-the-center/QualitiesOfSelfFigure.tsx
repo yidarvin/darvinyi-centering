@@ -35,7 +35,7 @@ export function QualitiesOfSelfFigure() {
   return (
     <Figure
       caption="fig_11.3 · the_qualities_of_self"
-      sub="the eight Cs. not qualities to manufacture, but the ones already there once no part is blended. when several show up together, that is the readout that the Self is leading."
+      sub="the eight Cs. they come back on their own once no part is blended. when several show up together, that is the readout that the Self is leading."
       max={400}
     >
       <svg

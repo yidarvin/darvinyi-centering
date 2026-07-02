@@ -22,7 +22,7 @@ export function EnsoFigure() {
   return (
     <Figure
       caption="fig_07.1 · ensō"
-      sub="the ensō, the Zen circle, drawn in one breath and one unbroken gesture, then left as it fell. it is usually open, not closed, and never redrawn. complete and imperfect at once. the figure this whole chapter is brushed inside of: calm is not a perfect circle to be finished somewhere else, it is this stroke, here, met all the way."
+      sub="the ensō, the Zen circle, drawn in one breath and one unbroken gesture, then left as it fell. it is often left open, and never redrawn. complete and imperfect at once. the figure this whole chapter is brushed inside of: calm is not a perfect circle to be finished somewhere else, it is this stroke, here, met all the way."
       max={420}
     >
       <svg

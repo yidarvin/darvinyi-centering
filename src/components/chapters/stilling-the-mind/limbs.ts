@@ -2,7 +2,7 @@ import { c } from '@/styles/tokens';
 
 /**
  * The eight limbs of yoga (aṣṭāṅga), Yoga Sutra 2.29, the single source of truth
- * for both the staircase figure (fig_09.3) and the explorer (widget_09.2) so the
+ * for both the staircase figure (fig_09.2) and the explorer (widget_09.1) so the
  * two never drift. The order is Patanjali's; the grouping (outer conduct, the body
  * and senses, the inner core) is the standard one, with the deepening teal marking
  * the move from external to internal. The last three together are saṃyama (3.4).
@@ -68,7 +68,7 @@ export const LIMBS: Limb[] = [
     name: 'observances',
     gloss: 'how you treat yourself',
     detail:
-      'Five observances turned inward, the habits that keep the inner ground in order. Note santoṣa, contentment, sitting right in the middle of the list. The same enough that runs through this whole book.',
+      'Five observances turned inward, the habits that keep the inner ground in order. Note santoṣa, contentment, sitting second in the list. The same enough that runs through this whole book.',
     group: 'outer',
     sutra: 'YS 2.32',
     sub: [
@@ -87,7 +87,7 @@ export const LIMBS: Limb[] = [
     name: 'posture',
     gloss: 'a steady, easy seat',
     detail:
-      'The whole of Patanjali on posture is two words: sthira-sukham, steady and comfortable (2.46). Āsana here is a seat for sitting still, not a workout. The vast vocabulary of modern postures came much later. The point is a body that can be forgotten so the mind can be watched.',
+      'Patanjali’s whole definition of posture is two words: sthira-sukham, steady and comfortable (2.46). Āsana here is a seat for sitting still, not a workout. The vast vocabulary of modern postures came much later. The point is a body that can be forgotten so the mind can be watched.',
     group: 'body',
     sutra: 'YS 2.46',
     color: c.tealDim,

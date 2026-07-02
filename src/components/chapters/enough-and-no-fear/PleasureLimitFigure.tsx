@@ -4,7 +4,7 @@ import { Figure } from '@/components/Figure';
 const monoFamily = mono.fontFamily;
 
 /**
- * fig_05.2a: the limit of pleasure. Epicurus's central economic insight (Principal
+ * fig_05.1a: the limit of pleasure. Epicurus's central economic insight (Principal
  * Doctrines III and XVIII): the magnitude of pleasure has a ceiling, and that
  * ceiling is the removal of all pain. Once want is gone, more consumption does not
  * raise pleasure, it only varies it. The solid teal curve climbs steeply out of
@@ -14,7 +14,7 @@ const monoFamily = mono.fontFamily;
 export function PleasureLimitFigure() {
   return (
     <Figure
-      caption="fig_05.2a · the_limit_of_pleasure"
+      caption="fig_05.1a · the_limit_of_pleasure"
       sub="Principal Doctrines III and XVIII. the highest pleasure is the removal of all pain (ataraxia in the mind, aponia in the body). past that ceiling, luxury only varies the pleasure, it does not increase it. the dashed line is the illusion that more keeps buying more."
       max={520}
     >

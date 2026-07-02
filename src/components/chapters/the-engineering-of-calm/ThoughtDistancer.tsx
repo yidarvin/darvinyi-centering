@@ -391,8 +391,8 @@ export function ThoughtDistancer() {
             <p style={{ fontSize: 13, lineHeight: 1.62, color: c.text, margin: 0 }}>
               Notice that nothing here deleted the thought or the feeling. You named the move it was
               making, set it at a distance, found the truer line, and chose a next step with the feeling
-              still in the room. That is the whole engineering of calm: not silence, but a little space
-              between you and the noise.
+              still in the room. That is the whole toolkit in one pass, and it gets faster
+              each time you run it.
             </p>
           </div>
         )}

@@ -15,7 +15,7 @@ export function WithTheGrainFigure() {
     <Figure
       caption="fig_08.3 · with_the_grain"
       sub={
-        'Cook Ding, Zhuangzi ch.3: after nineteen years and many thousands of oxen his blade "is as sharp as if it had newly come from the whetstone," because he guides it through the natural crevices instead of hacking through bone. effort without strain. this is wu wei, and it is the heart of the chapter.'
+        'Cook Ding, Zhuangzi ch.3: after nineteen years and several thousand oxen his blade "is as sharp as if it had newly come from the whetstone," because he guides it through the natural crevices instead of hacking through bone. effort without strain. this is wu wei, and it is the heart of the chapter.'
       }
       max={540}
     >

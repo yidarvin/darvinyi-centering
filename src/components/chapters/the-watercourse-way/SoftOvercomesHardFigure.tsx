@@ -16,7 +16,7 @@ export function SoftOvercomesHardFigure() {
     <Figure
       caption="fig_08.2 · soft_overcomes_hard"
       sub={
-        'ch.76: the living are supple, the dead stiff. "firmness and strength are the concomitants of death; and softness and weakness, the concomitants of life." ch.78: nothing is softer or weaker than water, yet for wearing down the firm and strong nothing surpasses it. the soft does not break. it outlasts.'
+        'ch.76: the living are supple, the dead stiff. "firmness and strength are the concomitants of death; softness and weakness, the concomitants of life." ch.78: nothing is softer or weaker than water, yet for wearing down the firm and strong nothing surpasses it. the soft does not break. it outlasts.'
       }
       max={540}
     >
