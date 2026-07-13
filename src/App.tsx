@@ -12,6 +12,9 @@ import { NotFound } from '@/pages/NotFound';
 // weigh down every page's initial load, only a visit to /search.
 const Search = lazy(() => import('@/pages/Search').then((m) => ({ default: m.Search })));
 const Glossary = lazy(() => import('@/pages/Glossary').then((m) => ({ default: m.Glossary })));
+const RouteIndex = lazy(() => import('@/pages/RouteIndex').then((m) => ({ default: m.RouteIndex })));
+const Bibliography = lazy(() => import('@/pages/Bibliography').then((m) => ({ default: m.Bibliography })));
+const Index = lazy(() => import('@/pages/Index').then((m) => ({ default: m.Index })));
 
 export function App() {
   return (
@@ -37,6 +40,30 @@ export function App() {
             element={
               <Suspense fallback={null}>
                 <Glossary />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/routes/:id"
+            element={
+              <Suspense fallback={null}>
+                <RouteIndex />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/sources"
+            element={
+              <Suspense fallback={null}>
+                <Bibliography />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/index"
+            element={
+              <Suspense fallback={null}>
+                <Index />
               </Suspense>
             }
           />

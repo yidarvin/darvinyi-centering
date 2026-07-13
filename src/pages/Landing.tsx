@@ -97,7 +97,8 @@ export function Landing() {
               key={r.id}
               style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}
             >
-              <span
+              <Link
+                to={`/routes/${r.id}`}
                 style={{
                   ...mono,
                   fontSize: 12,
@@ -109,10 +110,11 @@ export function Landing() {
                   flex: '0 0 auto',
                   minWidth: 104,
                   textAlign: 'center',
+                  textDecoration: 'none',
                 }}
               >
                 {r.label}
-              </span>
+              </Link>
               <span style={{ fontSize: 14, lineHeight: 1.5, color: c.muted, flex: '1 1 240px' }}>
                 {r.gloss}
               </span>
@@ -186,6 +188,28 @@ export function Landing() {
             </div>
           </div>
         ))}
+      </section>
+
+      {/* reference layer */}
+      <section
+        style={{
+          maxWidth: 820,
+          margin: '0 auto',
+          padding: '0 22px 70px',
+          display: 'flex',
+          gap: 18,
+          flexWrap: 'wrap',
+        }}
+      >
+        <Link to="/glossary" style={{ ...mono, fontSize: 12, color: c.faint, textDecoration: 'none' }}>
+          glossary →
+        </Link>
+        <Link to="/index" style={{ ...mono, fontSize: 12, color: c.faint, textDecoration: 'none' }}>
+          A-Z index →
+        </Link>
+        <Link to="/sources" style={{ ...mono, fontSize: 12, color: c.faint, textDecoration: 'none' }}>
+          sources →
+        </Link>
       </section>
     </main>
   );

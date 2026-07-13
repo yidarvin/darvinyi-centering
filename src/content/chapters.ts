@@ -1,3 +1,5 @@
+import type { RouteId } from '@/content/routes';
+
 /**
  * The ordered manifest of every chapter, Ch 0 through Ch 18. This single source
  * drives the landing index, the router, the chapter header, and prev/next nav.
@@ -23,6 +25,13 @@ export interface Chapter {
   slug: string;
   /** the mono subtitle shown under the chapter title */
   subtitle: string;
+  /**
+   * The routes to calm this chapter leans on, the source of truth for
+   * RouteTags (which reads this by default) and the /routes/:id browse page.
+   * Left undefined for chapters whose RouteTags call is a bespoke display
+   * (e.g. showing all seven with its own label) rather than a plain tagging.
+   */
+  routes?: RouteId[];
 }
 
 export const CHAPTERS: Chapter[] = [
@@ -32,22 +41,22 @@ export const CHAPTERS: Chapter[] = [
   { num: 2, part: PART.one, title: 'The Settled Body', slug: 'the-settled-body', subtitle: 'the body has a brake' },
   { num: 3, part: PART.one, title: 'The Quiet Mind', slug: 'the-quiet-mind', subtitle: 'why the mind resists, and how to train it' },
 
-  { num: 4, part: PART.two, title: 'Stoicism: Tranquility by Judgment', slug: 'tranquility-by-judgment', subtitle: 'stoicism · disturbance comes from judgment' },
-  { num: 5, part: PART.two, title: 'Epicureanism: Enough, and No Fear', slug: 'enough-and-no-fear', subtitle: 'epicureanism · want less, fear less' },
-  { num: 6, part: PART.two, title: 'Buddhism: Calm Abiding', slug: 'calm-abiding', subtitle: 'buddhism · the mind, mapped' },
-  { num: 7, part: PART.two, title: 'Zen: The Ordinary Mind', slug: 'the-ordinary-mind', subtitle: 'zen · this breath, this cup' },
-  { num: 8, part: PART.two, title: 'Taoism: The Watercourse Way', slug: 'the-watercourse-way', subtitle: 'taoism · stop fighting the current' },
-  { num: 9, part: PART.two, title: 'Yoga and the Stilling of the Mind', slug: 'stilling-the-mind', subtitle: 'yoga · the stilling of the fluctuations' },
-  { num: 10, part: PART.two, title: 'The Engineering of Calm', slug: 'the-engineering-of-calm', subtitle: 'the clinical methods · calm, made testable' },
-  { num: 11, part: PART.two, title: 'Internal Family Systems: The Calm at the Center', slug: 'the-calm-at-the-center', subtitle: 'internal family systems · the self beneath the parts' },
-  { num: 12, part: PART.two, title: 'Stillness and Surrender: The Contemplative Religions', slug: 'stillness-and-surrender', subtitle: 'the contemplative religions · a survey' },
-  { num: 13, part: PART.two, title: 'Nature and Simplicity: The Transcendentalists', slug: 'nature-and-simplicity', subtitle: 'the transcendentalists · solitude and simplicity' },
+  { num: 4, part: PART.two, title: 'Stoicism: Tranquility by Judgment', slug: 'tranquility-by-judgment', subtitle: 'stoicism · disturbance comes from judgment', routes: ['letting-go', 'perspective'] },
+  { num: 5, part: PART.two, title: 'Epicureanism: Enough, and No Fear', slug: 'enough-and-no-fear', subtitle: 'epicureanism · want less, fear less', routes: ['enough', 'connection', 'perspective'] },
+  { num: 6, part: PART.two, title: 'Buddhism: Calm Abiding', slug: 'calm-abiding', subtitle: 'buddhism · the mind, mapped', routes: ['presence', 'letting-go', 'connection'] },
+  { num: 7, part: PART.two, title: 'Zen: The Ordinary Mind', slug: 'the-ordinary-mind', subtitle: 'zen · this breath, this cup', routes: ['presence', 'enough'] },
+  { num: 8, part: PART.two, title: 'Taoism: The Watercourse Way', slug: 'the-watercourse-way', subtitle: 'taoism · stop fighting the current', routes: ['letting-go', 'presence'] },
+  { num: 9, part: PART.two, title: 'Yoga and the Stilling of the Mind', slug: 'stilling-the-mind', subtitle: 'yoga · the stilling of the fluctuations', routes: ['the-body', 'letting-go', 'presence'] },
+  { num: 10, part: PART.two, title: 'The Engineering of Calm', slug: 'the-engineering-of-calm', subtitle: 'the clinical methods · calm, made testable', routes: ['letting-go', 'presence', 'perspective'] },
+  { num: 11, part: PART.two, title: 'Internal Family Systems: The Calm at the Center', slug: 'the-calm-at-the-center', subtitle: 'internal family systems · the self beneath the parts', routes: ['letting-go', 'connection', 'presence'] },
+  { num: 12, part: PART.two, title: 'Stillness and Surrender: The Contemplative Religions', slug: 'stillness-and-surrender', subtitle: 'the contemplative religions · a survey', routes: ['letting-go', 'meaning', 'presence'] },
+  { num: 13, part: PART.two, title: 'Nature and Simplicity: The Transcendentalists', slug: 'nature-and-simplicity', subtitle: 'the transcendentalists · solitude and simplicity', routes: ['enough', 'perspective', 'presence', 'the-body'] },
 
   { num: 14, part: PART.three, title: 'One Calm, Many Doors', slug: 'one-calm-many-doors', subtitle: 'the routes, collected' },
   { num: 15, part: PART.three, title: 'What Actually Works', slug: 'what-actually-works', subtitle: 'the evidence, graded honestly' },
 
   { num: 16, part: PART.four, title: 'Building Your Practice', slug: 'building-your-practice', subtitle: 'a few routes that fit you' },
-  { num: 17, part: PART.four, title: 'Designing for Calm', slug: 'designing-for-calm', subtitle: 'calm built around you' },
+  { num: 17, part: PART.four, title: 'Designing for Calm', slug: 'designing-for-calm', subtitle: 'calm built around you', routes: ['enough', 'the-body', 'presence'] },
   { num: 18, part: PART.four, title: 'Calm Is Not Numbness', slug: 'calm-is-not-numbness', subtitle: 'the spine, stated plainly' },
 ];
 
