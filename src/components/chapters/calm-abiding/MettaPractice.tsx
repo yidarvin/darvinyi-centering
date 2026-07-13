@@ -10,9 +10,12 @@ interface Recipient {
   who: string;
 }
 
-// the graded order from the Visuddhimagga: begin where good will comes easily,
-// then widen the circle until the lines between self, friend, stranger, and
-// difficult person dissolve.
+// a modern six-step widening of the classical order. the Visuddhimagga itself
+// works through four objects, oneself, a dear person, a neutral person, then
+// a hostile person, before widening outward to all beings; it has no separate
+// benefactor/friend split. begin where good will comes easily, then widen the
+// circle until the lines between self, friend, stranger, and difficult person
+// dissolve.
 const RECIPIENTS: Recipient[] = [
   { id: 'self', label: 'yourself', who: 'Begin here. Picture yourself, or just feel where you sit.' },
   { id: 'benefactor', label: 'a benefactor', who: 'Someone who has been good to you, easy to feel warmth for.' },
@@ -28,12 +31,15 @@ const PHRASES = ['be safe', 'be happy', 'be healthy', 'live with ease'];
 const PHRASE_MS = 5500; // one slow, coherent breath per phrase
 
 /**
- * widget_06.3, the metta phrase practice. The reader moves through the classical
- * graded order of recipients (self, benefactor, friend, neutral, difficult, all)
- * while a phrase cycles on a slow breath cadence. The phrasing is named as the
- * modern Insight-tradition formula and the order as the Visuddhimagga's; the
- * practice itself is the Karaniya Metta Sutta's lovingkindness. A gentle caution
- * carries the manual's own advice about where not to begin.
+ * widget_06.3, the metta phrase practice. The reader moves through a modern
+ * six-step widening of recipients (self, benefactor, friend, neutral, difficult,
+ * all) while a phrase cycles on a slow breath cadence. The Visuddhimagga's own
+ * order is narrower, four objects (self, a dear person, a neutral person, a
+ * hostile person) before it widens to all beings, with no benefactor/friend
+ * split; this widget's finer steps are a modern teaching form built on it, not a
+ * direct rendering of it. The phrasing is the modern Insight-tradition formula;
+ * the practice itself is the Karaniya Metta Sutta's lovingkindness. A gentle
+ * caution carries the manual's own advice about where not to begin.
  */
 export function MettaPractice() {
   const [rounds, setRounds] = useLocalStorage<number>('centering:widget:calm-abiding:metta-rounds', 0);
@@ -83,8 +89,9 @@ export function MettaPractice() {
       }
       footer={
         <span style={{ ...mono, fontSize: 11, color: c.faint, lineHeight: 1.5 }}>
-          practice: Karaṇīya Metta Sutta (Sn 1.8) · order of recipients: the Visuddhimagga · the four
-          phrases are the modern Insight-tradition formula, not lines from the sutta
+          practice: Karaṇīya Metta Sutta (Sn 1.8) · order of recipients: a modern six-step form built on
+          the Visuddhimagga's four · the four phrases are the modern Insight-tradition formula, not lines
+          from the sutta
         </span>
       }
     >

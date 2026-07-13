@@ -10,7 +10,7 @@ const monoFamily = mono.fontFamily;
 const STAGES = [
   {
     k: 'fourth jhāna',
-    detail: 'pleasure and pain set down · pure equanimity, one-pointed',
+    detail: 'pleasure and pain set down · equanimity, mindfulness purified',
     col: c.teal,
     fill: 'rgba(45,212,191,0.16)',
     dashed: false,
@@ -63,14 +63,14 @@ export function SettlingStagesFigure() {
   return (
     <Figure
       caption="fig_06.3a · the_mind_settling"
-      sub="the Theravāda map. resting on the breath (ānāpānasati, MN 118), the five hindrances quiet like silt sinking out of water, and concentration deepens through the four jhānas, each shedding one more coarse factor until only equanimity and one-pointedness remain. access concentration is a later refinement from the commentaries, not a stage named in the suttas. the Tibetan tradition draws a parallel nine-stage road, the elephant-taming path: a different map of the same settling."
+      sub="the Theravāda map. resting on the breath (ānāpānasati, MN 118), the five hindrances quiet like silt sinking out of water, and concentration deepens through the four jhānas, each shedding one more coarse factor until only equanimity and a mind of fully purified mindfulness remain. access concentration is a later refinement from the commentaries, not a stage named in the suttas. the Tibetan tradition draws a parallel nine-stage road, the elephant-taming path: a different map of the same settling."
       max={540}
     >
       <svg
         viewBox={`0 0 520 ${height}`}
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A ladder of calm read from the bottom up. At the base, the scattered mind with its five hindrances: desire, ill will, sloth, restlessness, and doubt. Above it, access concentration, marked as later commentary. Then the four jhanas in turn, each shedding a coarser factor: the first with applied and sustained thought, rapture, and pleasure; the second as thinking stills; the third as rapture fades into equanimity; the fourth setting down pleasure and pain into pure equanimity and one-pointedness. The breath is the anchor running up the whole climb."
+        aria-label="A ladder of calm read from the bottom up. At the base, the scattered mind with its five hindrances: desire, ill will, sloth, restlessness, and doubt. Above it, access concentration, marked as later commentary. Then the four jhanas in turn, each shedding a coarser factor: the first with applied and sustained thought, rapture, and pleasure; the second as thinking stills; the third as rapture fades into equanimity; the fourth setting down pleasure and pain into equanimity and fully purified mindfulness. The breath is the anchor running up the whole climb."
       >
         <defs>
           <marker id="ss-up" markerWidth="9" markerHeight="9" refX="3" refY="6.5" orient="auto">
@@ -127,7 +127,7 @@ export function SettlingStagesFigure() {
               >
                 {s.k}
               </text>
-              <text x={LEFT + 16} y={y + 34} fontFamily={monoFamily} fontSize={9.5} fill={c.muted}>
+              <text x={LEFT + 16} y={y + 34} fontFamily={monoFamily} fontSize={10.5} fill={c.muted}>
                 {s.detail}
               </text>
             </g>

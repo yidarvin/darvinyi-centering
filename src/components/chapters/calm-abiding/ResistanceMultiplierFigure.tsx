@@ -8,10 +8,11 @@ const monoFamily = mono.fontFamily;
  * Shinzen Young compresses the second-arrow teaching into a formula: suffering =
  * pain x resistance. The figure holds pain fixed (the coral baseline, the first
  * arrow, which never moves) and lets resistance grow along the x axis. The teal
- * line is the total: where resistance is near zero the total sits right on the
- * pain line (one arrow), and the amber wedge above it is everything resistance
- * multiplies in (the second arrow). The formula is Young's, a modern shorthand,
- * not a line from the canon. The teaching it compresses is the Sallatha Sutta's.
+ * line is the total, everything felt: pain plus the suffering resistance adds on
+ * top. Where resistance is near zero the total sits right on the pain line (one
+ * arrow), and the amber wedge above it is the suffering itself, the second arrow,
+ * pain times resistance. The formula is Young's, a modern shorthand, not a line
+ * from the canon. The teaching it compresses is the Sallatha Sutta's.
  */
 export function ResistanceMultiplierFigure() {
   // geometry
@@ -24,14 +25,14 @@ export function ResistanceMultiplierFigure() {
   return (
     <Figure
       caption="fig_06.2a · pain_times_resistance"
-      sub="suffering = pain x resistance, a modern shorthand from the meditation teacher Shinzen Young, not a line from the canon. it compresses the two arrows: the pain (coral) holds steady no matter what, and the suffering you feel (teal) is that pain multiplied by how hard you push against it. turn resistance toward zero and the total drops back onto the pain line. the first arrow remains. the second goes quiet."
+      sub="suffering = pain x resistance, a modern shorthand from the meditation teacher Shinzen Young, not a line from the canon. the coral floor is the pain itself, the first arrow, and it holds steady no matter what. the teal line above it is the total, everything you feel: pain plus the suffering resistance adds on top, the amber wedge, pain times resistance. turn resistance toward zero and the wedge collapses, and the total drops back onto the pain line. the first arrow remains. the second goes quiet."
       max={540}
     >
       <svg
         viewBox="0 0 500 270"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A graph of suffering against resistance. A flat coral dashed line marks pain, held constant, the first arrow. A teal line starts on the pain line where resistance is none and rises steeply as resistance grows. The amber area between the pain line and the rising teal line is the second arrow, the suffering that resistance multiplies in. Where resistance is near zero, the total rests on the pain line: one arrow, not two."
+        aria-label="A graph of suffering against resistance. A flat coral dashed line marks pain, held constant, the first arrow. A teal line, the total of everything felt, starts on the pain line where resistance is none and rises steeply as resistance grows. The amber area between the pain line and the rising teal line is the suffering itself, the second arrow, the amount resistance multiplies in. Where resistance is near zero, the total rests on the pain line: one arrow, not two."
       >
         {/* axes */}
         <line x1={x0} y1={28} x2={x0} y2={yBase} stroke={c.line2} strokeWidth={1} />
@@ -60,19 +61,19 @@ export function ResistanceMultiplierFigure() {
 
         {/* label: the wedge */}
         <text x={x1 - 8} y={topY + 60} textAnchor="end" fontFamily={monoFamily} fontSize={10.5} fontWeight={600} fill={c.amber}>
-          the second arrow
+          suffering · the second arrow
         </text>
         <text x={x1 - 8} y={topY + 73} textAnchor="end" fontFamily={monoFamily} fontSize={9} fill={c.amber} fillOpacity={0.9}>
-          what resistance multiplies in
+          = pain × resistance
         </text>
 
         {/* total label near the line */}
         <text x={x1 - 150} y={topY + 6} textAnchor="start" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.teal}>
-          suffering felt
+          what you feel · the total
         </text>
 
         {/* one-arrow marker at the origin of the total */}
-        <text x={x0 + 8} y={painY + 16} fontFamily={monoFamily} fontSize={8.5} fill={c.teal}>
+        <text x={x0 + 8} y={painY + 16} fontFamily={monoFamily} fontSize={9.5} fill={c.teal}>
           one arrow here
         </text>
 

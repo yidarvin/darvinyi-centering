@@ -54,7 +54,7 @@ export function TwoArrowsFigure() {
         <text x={40} y={80} textAnchor="start" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.coral}>
           first arrow
         </text>
-        <text x={40} y={92} textAnchor="start" fontFamily={monoFamily} fontSize={8.5} fill={c.coral} fillOpacity={0.85}>
+        <text x={40} y={92} textAnchor="start" fontFamily={monoFamily} fontSize={9.5} fill={c.coral} fillOpacity={0.85}>
           the painful feeling
         </text>
 
@@ -72,7 +72,7 @@ export function TwoArrowsFigure() {
         <text x={212} y={198} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.amber}>
           arrow
         </text>
-        <text x={212} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.amber} fillOpacity={0.85}>
+        <text x={212} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.amber} fillOpacity={0.85}>
           you add it
         </text>
 
@@ -100,7 +100,7 @@ export function TwoArrowsFigure() {
         <text x={296} y={80} textAnchor="start" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.coral}>
           first arrow
         </text>
-        <text x={296} y={92} textAnchor="start" fontFamily={monoFamily} fontSize={8.5} fill={c.coral} fillOpacity={0.85}>
+        <text x={296} y={92} textAnchor="start" fontFamily={monoFamily} fontSize={9.5} fill={c.coral} fillOpacity={0.85}>
           still felt, fully
         </text>
 
