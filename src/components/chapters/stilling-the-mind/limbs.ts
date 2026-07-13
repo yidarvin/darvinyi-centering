@@ -147,7 +147,7 @@ export const LIMBS: Limb[] = [
     name: 'absorption',
     gloss: 'the watcher and the watched, one',
     detail:
-      'Absorption so complete that the sense of a separate watcher drops away and only the object remains. This is the far end of the road, where the fluctuations have stilled and, in Patanjali’s words, the seer rests in its own nature.',
+      'Absorption so complete that the sense of a separate watcher drops away and only the object remains. This is samādhi with a seed, the end of the eight limbs, not the end of the road: Patanjali’s final goal is a further, objectless absorption, and past that kaivalya, where even that last fluctuation stills for good and the seer rests in its own nature.',
     group: 'inner',
     sutra: 'YS 3.3',
     color: c.teal,
