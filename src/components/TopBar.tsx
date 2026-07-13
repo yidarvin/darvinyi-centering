@@ -1,15 +1,20 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { c, mono } from '@/styles/tokens';
 
 /**
- * A minimal top bar: the wordmark links home, and on a chapter page a subtle
- * teal line tracks reading progress down the page.
+ * A minimal top bar: the wordmark links home, a search box, and on a chapter
+ * page a subtle teal line tracks reading progress down the page. Pressing
+ * `/` from anywhere on the site focuses the search box, unless the reader is
+ * already typing somewhere.
  */
 export function TopBar() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const onChapter = pathname !== '/';
   const [progress, setProgress] = useState(0);
+  const [query, setQuery] = useState('');
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!onChapter) {
@@ -30,6 +35,28 @@ export function TopBar() {
     };
   }, [onChapter, pathname]);
 
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== '/') return;
+      const active = document.activeElement;
+      const isTyping =
+        active instanceof HTMLInputElement ||
+        active instanceof HTMLTextAreaElement ||
+        (active instanceof HTMLElement && active.isContentEditable);
+      if (isTyping) return;
+      e.preventDefault();
+      searchInputRef.current?.focus();
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  function submitSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const q = query.trim();
+    navigate(q ? `/search?q=${encodeURIComponent(q)}` : '/search');
+  }
+
   return (
     <div
       style={{
@@ -49,6 +76,7 @@ export function TopBar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          gap: 14,
         }}
       >
         <Link
@@ -63,19 +91,45 @@ export function TopBar() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: 8,
+            flexShrink: 0,
           }}
         >
           <span style={{ color: c.teal }}>centering</span>
           <span style={{ color: c.faint, fontWeight: 400 }}>/ calm</span>
         </Link>
-        {onChapter && (
-          <Link
-            to="/"
-            style={{ ...mono, fontSize: 11.5, color: c.faint, textDecoration: 'none' }}
-          >
-            contents
-          </Link>
-        )}
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14, minWidth: 0 }}>
+          <form onSubmit={submitSearch} style={{ minWidth: 0 }}>
+            <input
+              ref={searchInputRef}
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="search  /"
+              aria-label="Search the book"
+              style={{
+                ...mono,
+                width: '100%',
+                maxWidth: 170,
+                minWidth: 64,
+                fontSize: 12,
+                padding: '6px 10px',
+                borderRadius: 7,
+                border: `1px solid ${c.line2}`,
+                background: c.panel,
+                color: c.text,
+              }}
+            />
+          </form>
+          {onChapter && (
+            <Link
+              to="/"
+              style={{ ...mono, fontSize: 11.5, color: c.faint, textDecoration: 'none', flexShrink: 0 }}
+            >
+              contents
+            </Link>
+          )}
+        </div>
       </div>
       {/* reading progress */}
       <div style={{ height: 2, background: 'transparent' }}>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { c, mono } from '@/styles/tokens';
 import { getChapter } from '@/content/chapters';
 import { getChapterLoader, type ChapterModule } from '@/content/loadChapter';
@@ -14,6 +14,7 @@ type Status = 'loading' | 'ready' | 'empty';
 
 export function ChapterPage() {
   const { slug = '' } = useParams();
+  const { hash } = useLocation();
   const chapter = getChapter(slug);
   const [mod, setMod] = useState<ChapterModule | null>(null);
   const [status, setStatus] = useState<Status>('loading');
@@ -44,6 +45,16 @@ export function ChapterPage() {
       active = false;
     };
   }, [slug, chapter]);
+
+  // a cross-reference or search result can land here with a section anchor;
+  // the target only exists once the chapter's content has actually mounted,
+  // so wait for `ready` rather than relying on the browser's own (unreliable,
+  // for async content) fragment-navigation.
+  useEffect(() => {
+    if (status !== 'ready' || !hash) return;
+    const target = document.getElementById(hash.slice(1));
+    target?.scrollIntoView({ block: 'start' });
+  }, [status, hash]);
 
   if (!chapter) return <NotFound />;
 

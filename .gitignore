@@ -13,6 +13,9 @@ dist-ssr/
 build/
 *.local
 
+# Generated at build/dev time by scripts/build-search-index.mjs
+src/content/searchIndex.json
+
 # Vite / TypeScript caches
 .vite/
 *.tsbuildinfo

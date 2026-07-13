@@ -41,7 +41,7 @@ A critique-driven pass that lifts the finished book to reference-guide quality. 
 | 27 | Buddhism (calm-abiding) critique-fix | `prompts/27-buddhism.md` | 6 | DONE |
 | 28 | Taoism (watercourse-way) critique-fix | `prompts/28-taoism.md` | 6 | DONE |
 | 29 | Section anchors + per-chapter TOC | `prompts/29-anchors-toc.md` | 7 · optional | DONE |
-| 30 | Full-text search | `prompts/30-search.md` | 7 · optional | PENDING |
+| 30 | Full-text search | `prompts/30-search.md` | 7 · optional | DONE |
 | 31 | Glossary + Term component | `prompts/31-glossary.md` | 7 · optional | PENDING |
 | 32 | Route-browse + bibliography + index | `prompts/32-route-bib-index.md` | 7 · optional | PENDING |
 | 33 | SEO/prerender + print stylesheet | `prompts/33-seo-print.md` | 7 · optional | PENDING |
