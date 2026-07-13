@@ -37,7 +37,7 @@ A critique-driven pass that lifts the finished book to reference-guide quality. 
 | 23 | Figure-vs-prose consistency | `prompts/23-figure-prose.md` | 3 · focus | DONE |
 | 24 | Voice de-templating sweep | `prompts/24-voice.md` | 4 · focus | DONE |
 | 25 | Faithfulness & scholarly precision | `prompts/25-faithfulness.md` | 5 | DONE |
-| 26 | Sourcing hygiene & quick wins | `prompts/26-sourcing.md` | 5 | PENDING |
+| 26 | Sourcing hygiene & quick wins | `prompts/26-sourcing.md` | 5 | DONE |
 | 27 | Buddhism (calm-abiding) critique-fix | `prompts/27-buddhism.md` | 6 | PENDING |
 | 28 | Taoism (watercourse-way) critique-fix | `prompts/28-taoism.md` | 6 | PENDING |
 | 29 | Section anchors + per-chapter TOC | `prompts/29-anchors-toc.md` | 7 · optional | PENDING |

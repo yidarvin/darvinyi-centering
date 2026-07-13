@@ -4,7 +4,7 @@ import { FLAG_TIERS } from './flags';
 
 /**
  * fig_18.1c: green, yellow, and red flags for when a practice is enough and when
- * it is time to bring in help. Read bottom to top as the signs escalate: green is
+ * it is time to bring in help. Read top to bottom as the signs escalate: green is
  * ordinary distress that a practice can meet, yellow is persistent distress worth
  * a conversation with a professional, red is a safety concern that needs help now.
  * These are signposts synthesized from public-health guidance, not a diagnosis,

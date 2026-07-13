@@ -169,8 +169,8 @@ export const PRACTICES: Practice[] = [
       'The acute physiology is reliable and well documented (Zaccaro 2018). A meta-analysis of breathwork (Fincham 2023) found small effects on stress (g = -0.35), anxiety (g = -0.32), and depression (g = -0.40), with low publication bias.',
     caveat:
       'The strongest single test, a preregistered RCT of 400 people, found coherent breathing at 5.5 per minute beat nothing but did not beat a 12 per minute attention placebo. Both arms improved equally. Much of the benefit may be the focused-attention time-out it shares with brief mindfulness. Stop if you feel lightheaded.',
-    source: 'Fincham 2023, Sci Reports (RCT)',
-    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10719279/',
+    source: 'Fincham et al. 2023, Sci Reports (meta-analysis)',
+    url: 'https://doi.org/10.1038/s41598-022-27247-y',
   },
   {
     id: 'hrv-biofeedback',

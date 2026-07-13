@@ -263,7 +263,7 @@ function LeanReadout({ lean, answered, score }: { lean: Lean; answered: number; 
     lean === 'settling'
       ? 'This reads like settling. The calm you are describing meets what is hard and points you back toward your life. That is the real thing. Keep going.'
       : lean === 'avoiding'
-      ? 'Some of this reads like avoidance wearing calm’s clothes: a settled surface over a feeling that has not been met. That is worth knowing, not a failing. The move is not to practice harder. It is to turn, gently, toward the thing you have been settling away from. If what you are avoiding feels too big to face alone, the check below is for exactly that.'
+      ? "Some of this reads like avoidance wearing calm's clothes: a settled surface over a feeling that has not been met. That is worth knowing, not a failing. The move is not to practice harder. It is to turn, gently, toward the thing you have been settling away from. If what you are avoiding feels too big to face alone, the check below is for exactly that."
       : 'This reads like some of both. Part of your calm meets what is hard, and part of it may be helping you slip past it. Worth watching which is which, without turning it into one more thing to judge yourself for.';
 
   return (
