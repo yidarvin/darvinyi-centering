@@ -7,10 +7,13 @@
  *    services, with an international directory (findahelpline.com) as the pointer
  *    for everyone else. Re-verify before any deploy that ships a long time after
  *    this date.
- *  - Do NOT reintroduce a "988, press 3" instruction for LGBTQ+ youth. That
- *    specialized federal service was discontinued on 2025-07-17. The main 988
- *    line still serves everyone; for dedicated LGBTQ+ youth support the current
- *    route is The Trevor Project's own line, listed below.
+ *  - "988, press 3" for LGBTQ+ youth was discontinued on 2025-07-17. The main 988
+ *    line still serves everyone; the current dedicated route for LGBTQ+ youth is
+ *    The Trevor Project's own line, listed below. There has been talk of a
+ *    relaunch of a specialized 988 route by the end of 2026. Verify the current
+ *    status directly with 988lifeline.org and thetrevorproject.org at each build
+ *    rather than trusting this note once time has passed, and update both the
+ *    resource list and this comment to match whatever is true then.
  *  - Trans Lifeline is peer support with limited staffed hours, not a 24/7 line.
  *    It is paired here with a note to use a 24/7 option after hours.
  *  - This is information, not diagnosis or therapy. The prose and the widget say

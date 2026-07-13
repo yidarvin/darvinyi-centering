@@ -32,7 +32,10 @@ const LEANS: { id: Lean; mid?: boolean }[] = [
 
 export function SelfCheck() {
   const [answers, setAnswers] = useLocalStorage<Record<string, Lean>>(`${NS}:answers`, {});
-  const [checks, setChecks] = useLocalStorage<Record<string, boolean>>(`${NS}:checks`, {});
+  // session-only, on purpose: these checkboxes can include suicidal-ideation flags,
+  // and this is a widget people may use on a shared or borrowed device. Nothing
+  // here should still be ticked for the next person who opens the page.
+  const [checks, setChecks] = useState<Record<string, boolean>>({});
   const [browseOpen, setBrowseOpen] = useState(false);
 
   const answered = CHECK_QUESTIONS.filter((q) => answers[q.id]);
@@ -68,7 +71,8 @@ export function SelfCheck() {
         <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
           <LifeBuoy size={14} color={c.faint} style={{ flexShrink: 0 }} />
           <span style={{ ...mono, fontSize: 11.5, color: c.faint, flex: 1, minWidth: 180, lineHeight: 1.5 }}>
-            a mirror, not a verdict. it cannot see you, and it saves as you go.
+            a mirror, not a verdict. it cannot see you. the questions above save between visits; the
+            checklist below does not, so it clears itself when you leave.
           </span>
           {started && (
             <button type="button" onClick={reset} style={footBtn}>
@@ -176,8 +180,9 @@ export function SelfCheck() {
       <FlagChecklist tier={yellow} checks={checks} onToggle={toggleCheck} />
       <FlagChecklist tier={red} checks={checks} onToggle={toggleCheck} />
 
-      {/* auto-surfaced response */}
-      <div style={{ padding: '4px 16px 14px' }}>
+      {/* auto-surfaced response, announced live so a screen-reader user hears that
+          crisis resources appeared the moment a red or yellow flag is ticked */}
+      <div style={{ padding: '4px 16px 14px' }} role="status" aria-live="polite" aria-atomic="true">
         {redOn ? (
           <ResponsePanel
             color={c.coral}

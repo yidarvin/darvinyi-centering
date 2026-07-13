@@ -23,3 +23,25 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 | 16 | Ch 16 — Building Your Practice | `prompts/ch16-building-your-practice.md` | DONE |
 | 17 | Ch 17 — Designing for Calm | `prompts/ch17-designing-for-calm.md` | DONE |
 | 18 | Ch 18 — Calm Is Not Numbness | `prompts/ch18-calm-is-not-numbness.md` | DONE |
+
+## Phase B — Polish & Elevation
+
+A critique-driven pass that lifts the finished book to reference-guide quality. Run 19–28 in order first (Tiers 1–6). Items 29–33 are the optional reference-layer; if taken, do 29 first. Plan and rationale: `/Users/darvin/.claude/plans/this-is-an-calmness-starry-kay.md`. One item per run; leave `typecheck`/`lint`/`build` green and commit at the end of each.
+
+| # | item | file | tier | status |
+|----|------|------|------|--------|
+| 19 | Safety & self-check hardening | `prompts/19-safety-a11y.md` | 1 · critical | DONE |
+| 20 | Overstated-claim corrections | `prompts/20-claim-corrections.md` | 1 · critical | PENDING |
+| 21 | Widget accessibility hardening | `prompts/21-widget-a11y.md` | 2 · focus | PENDING |
+| 22 | Figure accessibility & legibility | `prompts/22-figure-a11y.md` | 2 · focus | PENDING |
+| 23 | Figure-vs-prose consistency | `prompts/23-figure-prose.md` | 3 · focus | PENDING |
+| 24 | Voice de-templating sweep | `prompts/24-voice.md` | 4 · focus | PENDING |
+| 25 | Faithfulness & scholarly precision | `prompts/25-faithfulness.md` | 5 | PENDING |
+| 26 | Sourcing hygiene & quick wins | `prompts/26-sourcing.md` | 5 | PENDING |
+| 27 | Buddhism (calm-abiding) critique-fix | `prompts/27-buddhism.md` | 6 | PENDING |
+| 28 | Taoism (watercourse-way) critique-fix | `prompts/28-taoism.md` | 6 | PENDING |
+| 29 | Section anchors + per-chapter TOC | `prompts/29-anchors-toc.md` | 7 · optional | PENDING |
+| 30 | Full-text search | `prompts/30-search.md` | 7 · optional | PENDING |
+| 31 | Glossary + Term component | `prompts/31-glossary.md` | 7 · optional | PENDING |
+| 32 | Route-browse + bibliography + index | `prompts/32-route-bib-index.md` | 7 · optional | PENDING |
+| 33 | SEO/prerender + print stylesheet | `prompts/33-seo-print.md` | 7 · optional | PENDING |
