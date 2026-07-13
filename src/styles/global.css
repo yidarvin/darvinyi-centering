@@ -153,6 +153,99 @@ svg g[role='button']:focus-visible {
   transform: translateY(0);
 }
 
+/* clear the sticky TopBar when an anchor link jumps to a section */
+h1[id],
+h2[id],
+h3[id] {
+  scroll-margin-top: 84px;
+}
+
+/* chapter layout: the reading column, the header above it, and, on a wide
+   viewport, a sticky table-of-contents rail. A CSS grid places all three:
+   on a narrow viewport the TOC sits between the header and the body (as a
+   collapsible disclosure); on a wide one it moves beside both, pinned in
+   place while reading. `<main>` stays the real landmark element but is
+   `display: contents` so its two children join the grid directly, letting
+   the TOC slot in visually between them without breaking the DOM's single
+   <main> region. */
+.chapter-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 720px);
+  grid-template-areas: 'header' 'toc' 'content';
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+  justify-content: center;
+}
+
+.chapter-main-contents {
+  display: contents;
+}
+
+.chapter-header-area {
+  grid-area: header;
+  padding-top: 44px;
+}
+
+.chapter-body-area {
+  grid-area: content;
+  padding-bottom: 72px;
+}
+
+.chapter-toc {
+  grid-area: toc;
+  margin: 24px 0 4px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  padding: 12px 14px;
+}
+
+.chapter-toc-summary {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--faint);
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.chapter-toc-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.chapter-toc-list a {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.chapter-toc-list a:hover {
+  color: var(--teal);
+  border-bottom-color: var(--teal-edge);
+}
+
+@media (min-width: 1080px) {
+  .chapter-shell {
+    grid-template-columns: 720px 208px;
+    grid-template-areas: 'header toc' 'content toc';
+    column-gap: 32px;
+  }
+  .chapter-toc {
+    position: sticky;
+    top: 84px;
+    align-self: start;
+    margin: 44px 0 0;
+    max-height: calc(100vh - 108px);
+    overflow-y: auto;
+  }
+}
+
 /* chapter index cards: a restrained lift on hover */
 .chapter-card {
   transition:

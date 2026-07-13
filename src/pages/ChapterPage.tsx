@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { c, mono, space } from '@/styles/tokens';
+import { c, mono } from '@/styles/tokens';
 import { getChapter } from '@/content/chapters';
 import { getChapterLoader, type ChapterModule } from '@/content/loadChapter';
 import { ChapterHeader } from '@/components/ChapterHeader';
 import { ChapterNav } from '@/components/ChapterNav';
+import { ChapterTOC } from '@/components/ChapterTOC';
 import { Reflection } from '@/components/Reflection';
 import { Sources } from '@/components/Sources';
 import { NotFound } from '@/pages/NotFound';
@@ -16,6 +17,7 @@ export function ChapterPage() {
   const chapter = getChapter(slug);
   const [mod, setMod] = useState<ChapterModule | null>(null);
   const [status, setStatus] = useState<Status>('loading');
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!chapter) return;
@@ -48,40 +50,47 @@ export function ChapterPage() {
   const Content = mod?.default;
 
   return (
-    <main
-      id="main"
-      style={{ maxWidth: space.reading, margin: '0 auto', padding: '44px 22px 72px' }}
-    >
-      <ChapterHeader
-        part={chapter.part}
-        num={chapter.num}
-        title={chapter.title}
-        subtitle={chapter.subtitle}
-      />
+    <div className="chapter-shell">
+      <main id="main" className="chapter-main-contents">
+        <div className="chapter-header-area">
+          <ChapterHeader
+            part={chapter.part}
+            num={chapter.num}
+            title={chapter.title}
+            subtitle={chapter.subtitle}
+          />
+        </div>
 
-      {status === 'loading' && (
-        <p style={{ ...mono, fontSize: 12.5, color: c.faint, margin: '40px 0' }}>loading…</p>
-      )}
-
-      {status === 'empty' && <ComingSoon />}
-
-      {status === 'ready' && Content && (
-        <>
-          <Content />
-          {mod?.reflection && (
-            <Reflection
-              chapterSlug={slug}
-              path={mod.reflection.path}
-              prompt={mod.reflection.prompt}
-              id={mod.reflection.id}
-            />
+        <div className="chapter-body-area">
+          {status === 'loading' && (
+            <p style={{ ...mono, fontSize: 12.5, color: c.faint, margin: '40px 0' }}>loading…</p>
           )}
-          {mod?.sources && <Sources items={mod.sources} />}
-        </>
-      )}
 
-      <ChapterNav slug={slug} />
-    </main>
+          {status === 'empty' && <ComingSoon />}
+
+          {status === 'ready' && Content && (
+            <>
+              <div ref={contentRef}>
+                <Content />
+              </div>
+              {mod?.reflection && (
+                <Reflection
+                  chapterSlug={slug}
+                  path={mod.reflection.path}
+                  prompt={mod.reflection.prompt}
+                  id={mod.reflection.id}
+                />
+              )}
+              {mod?.sources && <Sources items={mod.sources} />}
+            </>
+          )}
+
+          <ChapterNav slug={slug} />
+        </div>
+      </main>
+
+      {status === 'ready' && <ChapterTOC containerRef={contentRef} watch={[slug, status]} />}
+    </div>
   );
 }
 
