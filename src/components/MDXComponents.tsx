@@ -5,6 +5,7 @@ import type { ComponentProps, ReactNode } from 'react';
 import type { MDXComponents } from 'mdx/types';
 import { Link } from 'react-router-dom';
 import { c, mono } from '@/styles/tokens';
+import { Term } from '@/components/Term';
 
 /**
  * The prose typography layer. Renders the Markdown elements of a chapter in the
@@ -80,9 +81,10 @@ const Strong = (props: { children?: ReactNode }) => (
   <strong style={{ color: c.text, fontWeight: 600 }}>{props.children}</strong>
 );
 
-const Em = (props: { children?: ReactNode }) => (
-  <em style={{ color: c.text, fontStyle: 'italic' }}>{props.children}</em>
-);
+// most `*emphasis*` is plain italics; where the text matches a glossary term
+// defined in this chapter, Term renders a hoverable, deep-linkable reference
+// instead. See src/components/Term.tsx.
+const Em = (props: { children?: ReactNode }) => <Term>{props.children}</Term>;
 
 const Code = (props: { children?: ReactNode }) => (
   <code

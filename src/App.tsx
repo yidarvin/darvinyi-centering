@@ -11,6 +11,7 @@ import { NotFound } from '@/pages/NotFound';
 // code-split: MiniSearch and the search index (a few hundred KB) should not
 // weigh down every page's initial load, only a visit to /search.
 const Search = lazy(() => import('@/pages/Search').then((m) => ({ default: m.Search })));
+const Glossary = lazy(() => import('@/pages/Glossary').then((m) => ({ default: m.Glossary })));
 
 export function App() {
   return (
@@ -28,6 +29,14 @@ export function App() {
             element={
               <Suspense fallback={null}>
                 <Search />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/glossary"
+            element={
+              <Suspense fallback={null}>
+                <Glossary />
               </Suspense>
             }
           />

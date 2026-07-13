@@ -121,6 +121,12 @@ export function TopBar() {
               }}
             />
           </form>
+          <Link
+            to="/glossary"
+            style={{ ...mono, fontSize: 11.5, color: c.faint, textDecoration: 'none', flexShrink: 0 }}
+          >
+            glossary
+          </Link>
           {onChapter && (
             <Link
               to="/"

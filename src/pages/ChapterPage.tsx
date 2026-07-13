@@ -8,6 +8,7 @@ import { ChapterNav } from '@/components/ChapterNav';
 import { ChapterTOC } from '@/components/ChapterTOC';
 import { Reflection } from '@/components/Reflection';
 import { Sources } from '@/components/Sources';
+import { ChapterSlugContext } from '@/lib/chapterSlugContext';
 import { NotFound } from '@/pages/NotFound';
 
 type Status = 'loading' | 'ready' | 'empty';
@@ -81,9 +82,11 @@ export function ChapterPage() {
 
           {status === 'ready' && Content && (
             <>
-              <div ref={contentRef}>
-                <Content />
-              </div>
+              <ChapterSlugContext.Provider value={slug}>
+                <div ref={contentRef}>
+                  <Content />
+                </div>
+              </ChapterSlugContext.Provider>
               {mod?.reflection && (
                 <Reflection
                   chapterSlug={slug}
