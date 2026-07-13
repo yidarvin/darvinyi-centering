@@ -21,7 +21,7 @@ export function FlowingWaterFigure() {
       max={540}
     >
       <svg
-        viewBox="0 0 500 224"
+        viewBox="0 0 500 240"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
         aria-label="A river flowing left to right. On its current, three transient forms each shown arising faintly, cresting, and dissolving into dashed outlines: a bubble of feeling, a lump of foam that is form, and a shimmer of perception like a mirage. Downstream arrows mark the flow. Nothing on the water stays. This is impermanence, anicca: every conditioned thing arises and passes."
@@ -83,9 +83,12 @@ export function FlowingWaterFigure() {
           a mirage
         </text>
 
-        {/* anicca caption */}
-        <text x={250} y={212} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
-          anicca · sabbe saṅkhārā aniccā · all conditioned things flow and pass
+        {/* anicca caption, split across two lines so it stays readable at phone width */}
+        <text x={250} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.faint}>
+          anicca · sabbe saṅkhārā aniccā
+        </text>
+        <text x={250} y={226} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.faint}>
+          all conditioned things flow and pass
         </text>
       </svg>
     </Figure>

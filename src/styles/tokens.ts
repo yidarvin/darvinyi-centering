@@ -21,7 +21,10 @@ export const c = {
   text: '#e6e8ea',
   prose: '#c4cace', // long-form body, a touch brighter than muted for readability
   muted: '#9aa1a8',
-  faint: '#5f666d',
+  // raised from #5f666d: the old value read ~3.2:1 against the panel
+  // surfaces, below WCAG AA for the small caption and label text it is
+  // almost always used at. This clears 4.5:1 against bg, panel, and panel2.
+  faint: '#838a91',
 
   // teal: the constant accent
   teal: '#2dd4bf',
