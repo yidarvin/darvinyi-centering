@@ -7,11 +7,14 @@
  * changes.
  *
  * The site's production origin isn't recorded anywhere in this repo (no
- * committed custom domain), and a guessed real-looking URL risks shipping
- * silently wrong. Set SITE_ORIGIN to the actual deployed origin before
- * running this in a real build: SITE_ORIGIN=https://your-real-domain node
- * scripts/build-sitemap.mjs. Left unset, it falls back to an unmistakably
- * fake placeholder so a stale sitemap.xml is obvious rather than plausible.
+ * committed custom domain). On Vercel, VERCEL_PROJECT_PRODUCTION_URL (the
+ * stable production domain) or VERCEL_URL (the per-deployment domain) are
+ * injected automatically at build time, no dashboard config needed, so those
+ * are tried first. A custom domain fronting the Vercel deployment should set
+ * SITE_ORIGIN explicitly: SITE_ORIGIN=https://your-real-domain node
+ * scripts/build-sitemap.mjs. Absent all three (e.g. a local build), it falls
+ * back to an unmistakably fake placeholder so a stale sitemap.xml is obvious
+ * rather than plausible.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -22,7 +25,11 @@ const CHAPTERS_TS = path.join(ROOT, 'src/content/chapters.ts');
 const ROUTES_TS = path.join(ROOT, 'src/content/routes.ts');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 
-const SITE_ORIGIN = process.env.SITE_ORIGIN ?? 'https://REPLACE-WITH-YOUR-DOMAIN.example';
+const SITE_ORIGIN =
+  process.env.SITE_ORIGIN ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ??
+  (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ??
+  'https://REPLACE-WITH-YOUR-DOMAIN.example';
 
 function parseChapterSlugs() {
   const src = readFileSync(CHAPTERS_TS, 'utf8');
