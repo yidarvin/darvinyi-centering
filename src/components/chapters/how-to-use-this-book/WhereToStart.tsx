@@ -18,7 +18,7 @@ const PULLS: Pull[] = [
     id: 'mind',
     label: 'a quieter mind',
     to: 'the-quiet-mind',
-    why: 'The mind resists calm by design. Start by seeing why, then train the one move every later chapter reuses: notice the drift, come back.',
+    why: 'The mind resists calm by design. Start by seeing why, then train the move the meditation chapters keep coming back to: notice the drift, come back.',
   },
   {
     id: 'body',

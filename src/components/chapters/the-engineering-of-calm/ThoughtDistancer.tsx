@@ -25,7 +25,11 @@ interface Distortion {
   gloss: string;
 }
 
-// the canonical list: Beck spotted the pattern, Burns expanded and named it in Feeling Good (1980)
+// a widely used list descended from Burns's ten in Feeling Good (1980). This
+// version keeps mind reading and fortune telling as two separate moves rather
+// than folding them into Burns's single "jumping to conclusions," matching how
+// the chapter's worked example names them, and it does not include Burns's
+// "disqualifying the positive." Close kin to his list, not a reprint of it.
 const DISTORTIONS: Distortion[] = [
   { id: 'all-or-nothing', label: 'all-or-nothing', gloss: 'black and white, with nothing in between' },
   { id: 'overgeneralizing', label: 'overgeneralizing', gloss: 'one time becomes always, or never' },
@@ -55,6 +59,10 @@ const FRAMES: Frame[] = [
 function lower(t: string) {
   const trimmed = t.trim().replace(/[.]+$/, '');
   if (!trimmed) return '';
+  // the pronoun "I" (plain, or in "I'm," "I've," "I'll," "I'd") keeps its
+  // capital even mid-sentence; only an incidental sentence-initial capital
+  // ("If," "This," "They"...) gets lowered
+  if (/^I(?:'|\s|$)/.test(trimmed)) return trimmed + '.';
   return trimmed.charAt(0).toLowerCase() + trimmed.slice(1) + '.';
 }
 
@@ -298,9 +306,11 @@ export function ThoughtDistancer() {
           {'// '}wise mind locator
         </div>
         <p style={{ fontSize: 13, lineHeight: 1.6, color: c.muted, margin: '0 0 16px' }}>
-          A different tool from Linehan, for the heat of the moment. Slide between acting straight off
-          the feeling and talking the feeling out of existence. Wise mind is the overlap, where both are
-          in the room.
+          A different tool from Linehan, for the heat of the moment. Slide toward wherever the pull is
+          strongest right now, straight off the feeling or arguing it away. The middle is not a formula,
+          half feeling plus half logic. It only marks where the pull is roughly balanced. Wise mind
+          itself is the settled, both-at-once knowing that balance points toward, not the average of
+          the two.
         </p>
 
         {/* the two overlapping minds */}

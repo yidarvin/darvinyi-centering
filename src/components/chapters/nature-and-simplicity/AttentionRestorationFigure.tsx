@@ -31,7 +31,7 @@ const PANELS: PanelSpec[] = [
     sub: 'screens · tasks · interruption',
     level: 0.22,
     color: DRAIN,
-    caption: 'hard fascination demands top-down control. the reservoir drains.',
+    caption: 'effortful focus and constant interruption spend directed attention. the reservoir drains.',
   },
   {
     key: 'restore',
