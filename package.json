@@ -6,12 +6,13 @@
   "description": "Centering — the philosophies and practices of calm. An interactive textbook.",
   "scripts": {
     "dev": "node scripts/build-search-index.mjs && vite",
-    "build": "node scripts/build-search-index.mjs && tsc --noEmit && vite build",
+    "build": "node scripts/build-search-index.mjs && node scripts/build-sitemap.mjs && tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,mdx}\"",
-    "build:search-index": "node scripts/build-search-index.mjs"
+    "build:search-index": "node scripts/build-search-index.mjs",
+    "build:sitemap": "node scripts/build-sitemap.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",

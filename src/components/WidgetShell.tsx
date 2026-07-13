@@ -24,6 +24,7 @@ export function WidgetShell({ id, name, title, legend, children, footer }: Widge
   return (
     <section
       aria-label={title ?? name}
+      className="widget-shell"
       style={{
         border: `1px solid ${c.line2}`,
         borderRadius: 14,
@@ -32,6 +33,11 @@ export function WidgetShell({ id, name, title, legend, children, footer }: Widge
         marginBottom: 40,
       }}
     >
+      <p className="widget-print-note">
+        widget_{id} · {name}
+        {title ? `: ${title}` : ''}. Interactive; view this page online to use it.
+      </p>
+
       <header
         style={{
           padding: '15px 18px 13px',
@@ -60,7 +66,7 @@ export function WidgetShell({ id, name, title, legend, children, footer }: Widge
         {legend && <div>{legend}</div>}
       </header>
 
-      <div>{children}</div>
+      <div className="widget-body">{children}</div>
 
       {footer && (
         <div

@@ -2,9 +2,16 @@ import { Link } from 'react-router-dom';
 import { c, mono, space } from '@/styles/tokens';
 import { GLOSSARY } from '@/content/glossary';
 import { slugify } from '@/lib/slugify';
+import { useDocumentHead } from '@/lib/useDocumentHead';
 
 export function Glossary() {
   const sorted = [...GLOSSARY].sort((a, b) => a.term.localeCompare(b.term));
+
+  useDocumentHead({
+    title: 'Glossary',
+    description: 'Every term the book uses on its own footing, from ataraxia to ziran, each linking back to where it is explained.',
+    path: '/glossary',
+  });
 
   return (
     <main id="main" style={{ maxWidth: space.reading, margin: '0 auto', padding: '44px 22px 72px' }}>

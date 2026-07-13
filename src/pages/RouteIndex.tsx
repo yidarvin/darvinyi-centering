@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { c, mono, space } from '@/styles/tokens';
 import { ROUTES, getRoute, type RouteId } from '@/content/routes';
 import { CHAPTERS, chapterNumLabel } from '@/content/chapters';
+import { useDocumentHead } from '@/lib/useDocumentHead';
 import { NotFound } from '@/pages/NotFound';
 
 function isRouteId(id: string): id is RouteId {
@@ -10,10 +11,18 @@ function isRouteId(id: string): id is RouteId {
 
 export function RouteIndex() {
   const { id = '' } = useParams();
-  if (!isRouteId(id)) return <NotFound />;
+  const valid = isRouteId(id);
+  const route = valid ? getRoute(id) : undefined;
 
-  const route = getRoute(id);
-  const chapters = CHAPTERS.filter((ch) => ch.routes?.includes(id));
+  useDocumentHead({
+    title: route ? `The ${route.label} route` : '',
+    description: route?.gloss ?? '',
+    path: `/routes/${id}`,
+  });
+
+  if (!route) return <NotFound />;
+
+  const chapters = CHAPTERS.filter((ch) => ch.routes?.includes(id as RouteId));
 
   return (
     <main id="main" style={{ maxWidth: space.reading, margin: '0 auto', padding: '44px 22px 72px' }}>

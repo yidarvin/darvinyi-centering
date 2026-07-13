@@ -44,4 +44,4 @@ A critique-driven pass that lifts the finished book to reference-guide quality. 
 | 30 | Full-text search | `prompts/30-search.md` | 7 · optional | DONE |
 | 31 | Glossary + Term component | `prompts/31-glossary.md` | 7 · optional | DONE |
 | 32 | Route-browse + bibliography + index | `prompts/32-route-bib-index.md` | 7 · optional | DONE |
-| 33 | SEO/prerender + print stylesheet | `prompts/33-seo-print.md` | 7 · optional | PENDING |
+| 33 | SEO/prerender + print stylesheet | `prompts/33-seo-print.md` | 7 · optional | DONE |

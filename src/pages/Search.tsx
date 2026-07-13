@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { c, mono, space } from '@/styles/tokens';
 import { search, type SearchHit } from '@/lib/search';
+import { useDocumentHead } from '@/lib/useDocumentHead';
 
 function hitHref(hit: SearchHit): string {
   return `/${hit.chapterSlug}${hit.anchor ? `#${hit.anchor}` : ''}`;
@@ -12,6 +13,8 @@ export function Search() {
   const [query, setQuery] = useState(() => params.get('q') ?? '');
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
+
+  useDocumentHead({ title: 'Search', description: 'Search every chapter and section of the book.', path: '/search' });
 
   const results = useMemo(() => search(query), [query]);
 

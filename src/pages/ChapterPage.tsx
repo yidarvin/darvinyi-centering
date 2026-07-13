@@ -9,6 +9,7 @@ import { ChapterTOC } from '@/components/ChapterTOC';
 import { Reflection } from '@/components/Reflection';
 import { Sources } from '@/components/Sources';
 import { ChapterSlugContext } from '@/lib/chapterSlugContext';
+import { useDocumentHead } from '@/lib/useDocumentHead';
 import { NotFound } from '@/pages/NotFound';
 
 type Status = 'loading' | 'ready' | 'empty';
@@ -56,6 +57,12 @@ export function ChapterPage() {
     const target = document.getElementById(hash.slice(1));
     target?.scrollIntoView({ block: 'start' });
   }, [status, hash]);
+
+  useDocumentHead({
+    title: chapter?.title ?? '',
+    description: chapter?.blurb ?? '',
+    path: `/${slug}`,
+  });
 
   if (!chapter) return <NotFound />;
 

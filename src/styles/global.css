@@ -258,3 +258,82 @@ h3[id] {
   background: var(--panel2);
   transform: translateY(-2px);
 }
+
+/* the print-only note inside a widget, hidden on screen */
+.widget-print-note {
+  display: none;
+}
+
+/* a chapter printed light-on-white, with the on-screen chrome and the
+   controls a widget needs on screen (and cannot use on paper) hidden. */
+@media print {
+  html,
+  body {
+    background: #fff;
+    color: #111;
+  }
+
+  .skip-link,
+  .chapter-toc,
+  .topbar {
+    display: none !important;
+  }
+
+  .chapter-shell {
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #000 !important;
+  }
+
+  p,
+  li {
+    color: #222 !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* reveal the destination of an internal link next to its text, since a
+     printed page has no way to click through */
+  a[href^='/']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  .widget-shell {
+    border: 1px solid #999 !important;
+    background: #fafafa !important;
+    break-inside: avoid;
+  }
+
+  .widget-shell .widget-body,
+  .widget-shell header,
+  .widget-shell > div:last-child {
+    display: none !important;
+  }
+
+  .widget-print-note {
+    display: block !important;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #333 !important;
+  }
+
+  svg {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}

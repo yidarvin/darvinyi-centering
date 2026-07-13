@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { c, mono, space } from '@/styles/tokens';
 import { CHAPTERS } from '@/content/chapters';
 import { getChapterLoader } from '@/content/loadChapter';
+import { useDocumentHead } from '@/lib/useDocumentHead';
 
 interface BibEntry {
   text: string;
@@ -12,6 +13,12 @@ interface BibEntry {
 
 export function Bibliography() {
   const [entries, setEntries] = useState<BibEntry[] | null>(null);
+
+  useDocumentHead({
+    title: 'Sources',
+    description: "Every chapter's sources combined into one deduplicated, backlinked bibliography.",
+    path: '/sources',
+  });
 
   useEffect(() => {
     let active = true;

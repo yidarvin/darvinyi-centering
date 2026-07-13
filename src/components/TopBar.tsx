@@ -59,6 +59,7 @@ export function TopBar() {
 
   return (
     <div
+      className="topbar"
       style={{
         position: 'sticky',
         top: 0,

@@ -3,6 +3,7 @@ import { c, mono, space } from '@/styles/tokens';
 import { GLOSSARY } from '@/content/glossary';
 import { NAMED_ENTRIES } from '@/content/namedEntries';
 import { slugify } from '@/lib/slugify';
+import { useDocumentHead } from '@/lib/useDocumentHead';
 
 interface Row {
   label: string;
@@ -11,6 +12,12 @@ interface Row {
 }
 
 export function Index() {
+  useDocumentHead({
+    title: 'A-Z Index',
+    description: 'Every name and term the book uses, from the glossary and the people and mechanisms it cites, alphabetized.',
+    path: '/index',
+  });
+
   const rows: Row[] = [
     ...GLOSSARY.map((entry) => ({
       label: entry.term,

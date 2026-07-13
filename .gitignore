@@ -16,6 +16,10 @@ build/
 # Generated at build/dev time by scripts/build-search-index.mjs
 src/content/searchIndex.json
 
+# Generated at build time by scripts/build-sitemap.mjs
+public/sitemap.xml
+public/robots.txt
+
 # Vite / TypeScript caches
 .vite/
 *.tsbuildinfo
