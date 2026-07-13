@@ -35,7 +35,7 @@ A critique-driven pass that lifts the finished book to reference-guide quality. 
 | 21 | Widget accessibility hardening | `prompts/21-widget-a11y.md` | 2 · focus | DONE |
 | 22 | Figure accessibility & legibility | `prompts/22-figure-a11y.md` | 2 · focus | DONE |
 | 23 | Figure-vs-prose consistency | `prompts/23-figure-prose.md` | 3 · focus | DONE |
-| 24 | Voice de-templating sweep | `prompts/24-voice.md` | 4 · focus | PENDING |
+| 24 | Voice de-templating sweep | `prompts/24-voice.md` | 4 · focus | DONE |
 | 25 | Faithfulness & scholarly precision | `prompts/25-faithfulness.md` | 5 | PENDING |
 | 26 | Sourcing hygiene & quick wins | `prompts/26-sourcing.md` | 5 | PENDING |
 | 27 | Buddhism (calm-abiding) critique-fix | `prompts/27-buddhism.md` | 6 | PENDING |
