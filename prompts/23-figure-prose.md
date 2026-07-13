@@ -1,0 +1,16 @@
+# Polish 23 — Figure-vs-prose consistency
+
+Queue item (Phase B). Operate per `CLAUDE.md`. Several figures visually encode the exact oversimplified model the prose then dismantles, or contradict the taxonomy the chapter teaches. Fix the figure (and make the small paired-prose reconciliation) so figure and text agree. "A diagram that misrepresents the idea is worse than no diagram."
+
+## Fixes
+- **Ch18** `calm-is-not-numbness/CounterfeitsFigure.tsx`: it labels lane 4 "Sedation"/counterfeit_3, but the three prose sections deliver bypassing/avoidance/toxic-positivity. Sedation is named+numbered but never explained; toxic positivity is explained but absent from the figure. Reconcile figure and prose; fix the shifting "those three counterfeits" referent at `calm-is-not-numbness.mdx:50` and `:76`.
+- **Ch3** `the-quiet-mind/WanderingMindFigure.tsx`: redraw so the automatic loop does NOT re-enter "on the task" (as drawn, drift self-corrects, contradicting the thesis); make the teal "notice + return" the only path back. `the-quiet-mind/StimulationTreadmillFigure.tsx`: let the geometry show a small permanent baseline shift rather than a perfectly fixed set point the prose then dismantles.
+- **Ch11** `the-calm-at-the-center/ProtectiveSystemFigure.tsx` (fig_11.1): fix the caption so Self is not accessed last ("access runs … before the center" contradicts IFS: Self is the vantage accessed first via unblending). Restore the missing "6th F" in `the-calm-at-the-center.mdx:99` (prose says "every step begins with F" but lists 5, folding "Flesh out" into Focus). **Ch14** `one-calm-many-doors/SameMoveFigure.tsx`: carve IFS off the permanent-self pole tag.
+- **Ch16** `building-your-practice/MinimumDoseFigure.tsx`: it marks the argmax of benefit×adherence (~63% benefit) but labels it "minimum effective dose" (a threshold), contradicting "the first few minutes buy most of the calm." Rename/relabel and mark it as schematic. Fix `building-your-practice/RouteSituationMatrixFigure.tsx` sub-caption that asserts routes the cells omit (racing-night omits perspective, conflict omits presence).
+- **Ch1** `what-calm-is/EquanimitySuppressionFigure.tsx` (fig_01.1b): relabel the equanimity chip "reactivity down" → "recovers faster" (contradicts the chapter's own claim) and reconcile the crest heights.
+- **Ch15** `what-actually-works/EvidenceMapFigure.tsx`: add a visible route legend and a non-color channel (or text label) for route — the route dot colors currently collide 1:1 with the four grade-band colors.
+- **Ch4** `tranquility-by-judgment/ImpressionAssentFigure.tsx`: don't equate the impression (phantasia) with a first movement (propatheia). `tranquility-by-judgment/TwoBinsFigure.tsx`: print "offices" not "outcomes" for Enchiridion 1's fourth item. **Ch13** `nature-and-simplicity/SimplicityFreedomFigure.tsx`: drop KEEP tiles from 4 to "two or three" to match Thoreau/prose.
+
+## Definition of done
+- Each named figure now agrees with its chapter's prose; small prose reconciliations made where noted.
+- Figures still accurate, labeled, responsive. Typecheck, lint, build pass. Verify each changed figure at desktop and 360px. Commit as `fix(figures): reconcile figures with the prose they illustrate`.
