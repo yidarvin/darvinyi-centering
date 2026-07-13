@@ -335,7 +335,7 @@ export type { RouteId, Route };
  * one side. We sort each onto the fault line and keep the honest hedges.
  * ------------------------------------------------------------------------ */
 
-export type WitnessPole = 'self' | 'no-self' | 'stance' | 'union' | 'disanalogy';
+export type WitnessPole = 'self' | 'no-self' | 'stance' | 'union' | 'disanalogy' | 'boundary';
 
 export interface WitnessEntry {
   tradition: string;
@@ -360,8 +360,8 @@ export const WITNESS: WitnessEntry[] = [
   {
     tradition: 'Internal Family Systems',
     term: 'the Self',
-    note: 'The calm center that sees the parts and is not one of them. The most essence-like of the modern frames, and a boundary case.',
-    pole: 'self',
+    note: 'The calm center that sees the parts and is not one of them. The most essence-like of the modern frames, but a clinical construct, not a claim about a soul that predates this life or survives it.',
+    pole: 'boundary',
   },
   {
     tradition: 'Buddhism',
@@ -448,4 +448,5 @@ export const POLE_COLOR: Record<WitnessPole, string> = {
   stance: c.violet,
   union: c.coral,
   disanalogy: c.faint,
+  boundary: c.sky,
 };

@@ -37,8 +37,11 @@ function Node({ cx, cy, w = 92, label, col, fill, strong }: NodeProps) {
 
 /**
  * fig_04.2a: event to impression to assent to reaction. The Stoic mechanism of
- * disturbance. An event throws up an impression (phantasia) on its own, a first
- * movement you did not choose. The one step that is up to you is assent
+ * disturbance. An event throws up an impression (phantasia), a mental picture
+ * of what happened, arriving on its own, unbidden, and not yet a judgment. (A
+ * sharp impression can also spark a first movement, propatheia, a fast,
+ * pre-rational flinch in the body. That is a separate reflex, not the
+ * impression itself.) The one step that is up to you is assent
  * (sunkatathesis): grant it to the impression "this is bad" and a passion
  * follows; withhold it and the impression passes. The fork is the whole lever.
  */
@@ -46,14 +49,14 @@ export function ImpressionAssentFigure() {
   return (
     <Figure
       caption="fig_04.2a · where_judgment_enters"
-      sub="an event throws up an impression on its own (a first movement). the one step up to you is assent. grant it to 'this is bad' and a passion follows; withhold it and the impression passes. Epictetus: we are disturbed not by events, but by our judgments about them."
+      sub="an event throws up an impression on its own, a mental picture that arrives unbidden, not yet a judgment. the one step up to you is assent. grant it to 'this is bad' and a passion follows; withhold it and the impression passes. Epictetus: we are disturbed not by events, but by our judgments about them."
       max={540}
     >
       <svg
         viewBox="0 0 500 236"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A left-to-right chain: an event leads to an impression that 'this is bad', which arrives on its own as a first movement. The impression reaches assent, the one step that is up to you, where judgment enters. From assent the path forks two ways: withhold assent and reach equanimity, or grant assent and reach disturbance."
+        aria-label="A left-to-right chain: an event leads to an impression that 'this is bad,' a mental picture that arrives on its own, unbidden. The impression reaches assent, the one step that is up to you, where judgment enters. From assent the path forks two ways: withhold assent and reach equanimity, or grant assent and reach disturbance."
       >
         <defs>
           <marker id="ia-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">

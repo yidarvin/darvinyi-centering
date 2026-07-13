@@ -7,7 +7,7 @@ const SLATE = '#7c8794';
 const SLATE_FOG = 'rgba(124,135,148,0.10)';
 const SLATE_EDGE = 'rgba(124,135,148,0.42)';
 
-type Kind = 'equanimity' | 'bypassing' | 'avoidance' | 'sedation';
+type Kind = 'equanimity' | 'bypassing' | 'avoidance' | 'toxicPositivity';
 
 interface LaneData {
   kind: Kind;
@@ -26,10 +26,10 @@ interface LaneData {
  * a feeling that rises, and a marker for you. What differs is what happens to the
  * feeling and where you are while it happens.
  *
- *   equanimity → the feeling crests and passes, and you stay with it (met)
- *   bypassing  → the feeling stays, and you float up and away above it (skipped)
- *   avoidance  → the feeling stays, and you leave the frame (escaped)
- *   sedation   → the feeling is flattened to nothing, and so are you (numbed)
+ *   equanimity      → the feeling crests and passes, and you stay with it (met)
+ *   bypassing       → the feeling stays, and you float up and away above it (skipped)
+ *   avoidance       → the feeling stays, and you leave the frame (escaped)
+ *   toxicPositivity → the feeling stays, and a forced smile is pressed over it while you stay put (suppressed)
  */
 function Glyph({ kind, color, fog }: { kind: Kind; color: string; fog: string }) {
   const label =
@@ -39,7 +39,7 @@ function Glyph({ kind, color, fog }: { kind: Kind; color: string; fog: string })
       ? 'The feeling stays raised near the baseline while you float up and away above it. It is stepped over, not met, and it persists underneath.'
       : kind === 'avoidance'
       ? 'The feeling stays raised while you leave the frame entirely. It is escaped, not met, and it persists behind you.'
-      : 'The feeling is flattened to the baseline and you are faded out with it. Nothing is felt, and no one is home.';
+      : 'The feeling stays raised while a flat, bright line, a forced smile, is pressed over it. You stay in the frame, holding the lid down. It is suppressed, not met, and it persists underneath.';
 
   return (
     <svg
@@ -102,17 +102,22 @@ function Glyph({ kind, color, fog }: { kind: Kind; color: string; fog: string })
         </>
       )}
 
-      {kind === 'sedation' && (
+      {kind === 'toxicPositivity' && (
         <>
-          {/* the feeling flattened to nothing */}
-          <path d="M14 66 L158 66" fill="none" stroke={color} strokeWidth={2} strokeDasharray="1 4" />
-          {/* the ghost of a feeling that never got to rise */}
-          <path d="M46 66 C58 58, 66 56, 86 56 C106 56, 114 63, 132 65" fill="none" stroke={color} strokeWidth={1} strokeDasharray="2 3" opacity={0.5} />
-          {/* you, faded and gone */}
-          <circle cx={86} cy={40} r={4.4} fill="none" stroke={color} strokeWidth={1.2} opacity={0.4} />
-          <circle cx={86} cy={40} r={1.6} fill={color} opacity={0.4} />
-          <text x={86} y={33} textAnchor="middle" fontFamily={monoFamily} fontSize={7} fill={color} opacity={0.6}>
-            gone
+          {/* the feeling stays raised, unmet, same as bypassing and avoidance */}
+          <path d="M14 66 C46 54, 60 48, 90 48 L150 48 C156 48, 158 50, 158 52 L158 66 Z" fill={fog} />
+          <path d="M14 66 C46 54, 60 48, 90 48 L150 48 C156 48, 158 50, 158 52" fill="none" stroke={color} strokeWidth={2} />
+          {/* the forced smile, a flat bright line pressed down over the feeling */}
+          <path d="M38 27 L142 27" fill="none" stroke={color} strokeWidth={1.8} />
+          <text x={90} y={19} textAnchor="middle" fontFamily={monoFamily} fontSize={6.5} fill={color}>
+            "good vibes only"
+          </text>
+          {/* you, staying put, holding the smile down over the feeling underneath */}
+          <path d="M90 40 L86 32 M90 40 L94 32" fill="none" stroke={color} strokeWidth={1.2} />
+          <circle cx={90} cy={44} r={4.4} fill="none" stroke={color} strokeWidth={1.4} />
+          <circle cx={90} cy={44} r={1.7} fill={color} />
+          <text x={102} y={47} textAnchor="start" fontFamily={monoFamily} fontSize={7} fill={color}>
+            you
           </text>
         </>
       )}
@@ -193,11 +198,11 @@ const LANES: LaneData[] = [
     toward: false,
   },
   {
-    kind: 'sedation',
+    kind: 'toxicPositivity',
     tag: 'counterfeit_3',
-    title: 'Sedation',
-    looks: 'Gone flat. The body is quiet because no one is home.',
-    feeling: 'numbed, unfelt',
+    title: 'Toxic positivity',
+    looks: 'A forced smile pressed over it. "Good vibes only," and the feeling goes unheard.',
+    feeling: 'suppressed, still there',
     color: SLATE,
     fog: SLATE_FOG,
     edge: SLATE_EDGE,
@@ -210,9 +215,10 @@ const LANES: LaneData[] = [
  * across the room: a settled face, a low voice, no visible storm. The tell is not
  * in the body. It is what the state does with a feeling, and which direction it
  * leaves you facing. Equanimity meets the feeling and returns you toward your
- * life. Bypassing floats above it, avoidance leaves the room, sedation flattens
- * everything, and all three leave the feeling unmet and turn you away. This is the
- * Chapter 1 line (equanimity versus its lookalikes) drawn one last time, wider.
+ * life. Bypassing floats above it, avoidance leaves the room, toxic positivity
+ * smiles over it, and all three leave the feeling unmet and turn you away. This
+ * chapter's three counterfeits, the ones it goes on to explain in depth, not the
+ * plain sedation Chapter 1 already covered.
  */
 export function CounterfeitsFigure() {
   return (

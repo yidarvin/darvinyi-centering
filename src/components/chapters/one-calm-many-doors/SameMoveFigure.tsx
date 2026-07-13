@@ -82,11 +82,12 @@ function OffAxis({ w, label }: { w: WitnessEntry; label: string }) {
 }
 
 export function SameMoveFigure() {
-  const off = byPole('stance').concat(byPole('union'), byPole('disanalogy'));
+  const off = byPole('stance').concat(byPole('union'), byPole('disanalogy'), byPole('boundary'));
   const offLabels: Record<string, string> = {
     ACT: 'a stance, not a soul',
     'Christian contemplation': 'aimed at union, not watching',
     Stoicism: 'an active judge, the disanalogy',
+    'Internal Family Systems': 'enduring, not claimed eternal',
   };
 
   return (

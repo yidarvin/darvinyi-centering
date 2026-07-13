@@ -2,18 +2,19 @@ import { c, mono } from '@/styles/tokens';
 import { Figure } from '@/components/Figure';
 
 /**
- * fig_11.1 · the_protective_system. The inner system drawn as nested layers: an
- * outer ring of protectors (managers and firefighters), an inner ring of exiles,
- * and at the dead center the Self. The point the diagram encodes is the order of
- * access. You meet protectors first, exiles only with their permission, and the
- * Self is what is left when no part has the wheel. Concept: Schwartz, the IFS
- * model of parts and Self.
+ * fig_11.1 · the_protective_system. The inner system drawn as nested layers, by
+ * structural depth, not by the order you reach them. Self sits at the calm
+ * core, the vantage you return to first, by unblending, before you turn to any
+ * part. Protectors form the outer ring (managers and firefighters), doing the
+ * daily guarding. Exiles sit deeper still, the wounds the protectors shield, and
+ * are approached last, slowly, only with a protector's consent. Concept:
+ * Schwartz, the IFS model of parts and Self.
  */
 export function ProtectiveSystemFigure() {
   return (
     <Figure
       caption="fig_11.1 · the_protective_system"
-      sub="access runs outside-in: protectors are met before exiles, and exiles before the center. the Self is not buried treasure to dig for. it is what is already there once the parts step back."
+      sub="the layers are depth, not an order of access. the Self at the center is the vantage you return to first, by stepping back from a part, not buried treasure dug up last. protectors work the perimeter. exiles sit deepest, shielded, and are approached last and slowly, with a protector's consent."
       max={340}
     >
       <svg

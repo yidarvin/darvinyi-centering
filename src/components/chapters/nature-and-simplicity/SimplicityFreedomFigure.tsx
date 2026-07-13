@@ -15,7 +15,7 @@ const GAP = 18;
 const GRID = { x: 16, y: 22, cell: 30, cols: 5, rows: 4, pad: 4 };
 
 // which cells stay filled in the "deliberate" panel (the essentials, two or three)
-const KEEP = new Set([7, 8, 11, 12]);
+const KEEP = new Set([7, 8, 12]);
 
 function cellRect(i: number) {
   const col = i % GRID.cols;

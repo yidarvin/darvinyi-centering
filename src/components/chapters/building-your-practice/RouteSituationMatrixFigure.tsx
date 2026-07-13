@@ -49,7 +49,7 @@ export function RouteSituationMatrixFigure() {
   return (
     <Figure
       caption="fig_16.1 · route_x_situation: which routes meet which moment"
-      sub="A filled cell is a route that genuinely helps that moment. No situation needs all seven. The hot moments (a racing night, a sharp word) are met by the body, presence, letting go, and perspective. The heavier trouble (loss, going flat) leans on connection and meaning."
+      sub="A filled cell is a route that genuinely helps that moment. No situation needs all seven. A racing mind at 2am leans on the body, presence, and letting go. A sharp word leans on the body, letting go, and perspective. The heavier trouble (loss, going flat) leans on connection and meaning."
       max={600}
     >
       <svg

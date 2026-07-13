@@ -1,6 +1,21 @@
 import { Figure } from '@/components/Figure';
 import { c, mono } from '@/styles/tokens';
 import { practicesByGrade, getRoute } from './evidence';
+import { ROUTES, type RouteId } from '@/content/routes';
+
+// short, distinct labels for the route mark on each practice, so it does not
+// rely on color alone: the route colors reuse the same hues as the four grade
+// bands (connection/emerald, enough/sky, perspective/amber, presence/violet),
+// so a dot by itself can read as "which grade," not "which route."
+const ROUTE_ABBR: Record<RouteId, string> = {
+  'letting-go': 'LG',
+  presence: 'PR',
+  'the-body': 'BD',
+  perspective: 'PV',
+  enough: 'EN',
+  connection: 'CN',
+  meaning: 'MN',
+};
 
 /**
  * fig_15.1, the evidence map. Every graded practice, sorted into four bands from
@@ -77,13 +92,20 @@ export function EvidenceMapFigure() {
                     <span
                       aria-hidden="true"
                       style={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: 99,
-                        background: route.color,
+                        ...mono,
+                        fontSize: 7.5,
+                        fontWeight: 700,
+                        color: route.color,
+                        border: `1px solid ${route.color}66`,
+                        background: `${route.color}18`,
+                        borderRadius: 4,
+                        padding: '1px 3px',
                         flexShrink: 0,
+                        lineHeight: 1.3,
                       }}
-                    />
+                    >
+                      {ROUTE_ABBR[p.route]}
+                    </span>
                     {p.name}
                   </span>
                 );
@@ -93,18 +115,42 @@ export function EvidenceMapFigure() {
         ))}
       </div>
 
-      {/* the dot legend maps to the seven routes */}
+      {/* a visible legend for the route mark, since several route colors reuse
+          the same hues as the grade bands above */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 9, marginTop: 14, paddingTop: 12, borderTop: `1px solid ${c.line}` }}>
+        {ROUTES.map((r) => (
+          <span key={r.id} style={{ ...mono, display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 10, color: c.muted }}>
+            <span
+              aria-hidden="true"
+              style={{
+                ...mono,
+                fontSize: 7.5,
+                fontWeight: 700,
+                color: r.color,
+                border: `1px solid ${r.color}66`,
+                background: `${r.color}18`,
+                borderRadius: 4,
+                padding: '1px 3px',
+              }}
+            >
+              {ROUTE_ABBR[r.id]}
+            </span>
+            {r.label}
+          </span>
+        ))}
+      </div>
+
       <div
         style={{
           ...mono,
           fontSize: 10.5,
           color: c.faint,
-          marginTop: 14,
+          marginTop: 10,
           lineHeight: 1.6,
         }}
       >
-        the dot marks the route each practice works through. grade is strength of evidence, not size of effect: a
-        certain, tiny finding can outrank a dramatic, untested one.
+        the mark on each practice is the route it works through, from the legend above. grade is strength of
+        evidence, not size of effect: a certain, tiny finding can outrank a dramatic, untested one.
       </div>
     </Figure>
   );

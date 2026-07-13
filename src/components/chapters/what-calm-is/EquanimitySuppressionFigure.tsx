@@ -24,7 +24,7 @@ function Chart({ kind, color, fog }: { kind: 'suppress' | 'allow'; color: string
       aria-label={
         kind === 'suppress'
           ? 'Felt intensity stays high under a clamped lid: the outward expression is flattened, but the feeling and its cost do not return to baseline.'
-          : 'Felt intensity rises into a wave and returns close to baseline: the feeling is met, crests, and passes.'
+          : 'Felt intensity jumps to the same height as suppression, but the feeling is met, crests, and returns fully to baseline instead of staying elevated. The initial reaction is not smaller. It just recovers faster.'
       }
     >
       {/* axes */}
@@ -68,22 +68,23 @@ function Chart({ kind, color, fog }: { kind: 'suppress' | 'allow'; color: string
         </>
       ) : (
         <>
-          {/* the wave: met, crests, returns near baseline */}
-          <path d="M16 92 C56 92, 70 30, 104 30 C140 30, 152 86, 200 88 L200 92 L16 92 Z" fill={fog} />
+          {/* the wave: the same jump as suppression (same peak height), met,
+              and fully returned by the end, not left elevated */}
+          <path d="M16 92 C40 56, 56 48, 78 48 C112 48, 130 91, 200 91 L200 92 L16 92 Z" fill={fog} />
           <path
-            d="M16 92 C56 92, 70 30, 104 30 C140 30, 152 86, 200 88"
+            d="M16 92 C40 56, 56 48, 78 48 C112 48, 130 91, 200 91"
             fill="none"
             stroke={color}
             strokeWidth={2}
           />
           {/* the witness, staying in contact through the crest */}
-          <circle cx={104} cy={30} r={4.6} fill="none" stroke={color} strokeWidth={1.4} />
-          <circle cx={104} cy={30} r={1.7} fill={color} />
-          <text x={104} y={22} textAnchor="middle" fontFamily={monoFamily} fontSize={7.5} fill={color}>
+          <circle cx={78} cy={48} r={4.6} fill="none" stroke={color} strokeWidth={1.4} />
+          <circle cx={78} cy={48} r={1.7} fill={color} />
+          <text x={78} y={40} textAnchor="middle" fontFamily={monoFamily} fontSize={7.5} fill={color}>
             stay with it
           </text>
-          {/* it passes */}
-          <circle cx={200} cy={88} r={2.4} fill={color} />
+          {/* it passes, back near baseline, unlike suppression's plateau */}
+          <circle cx={200} cy={91} r={2.4} fill={color} />
         </>
       )}
     </svg>
@@ -129,10 +130,12 @@ function Lane({ tag, title, sub, color, fog, edge, chips, chart }: LaneProps) {
 }
 
 /**
- * fig_01.1b: equanimity versus suppression. Two responses to the same feeling.
+ * fig_01.1b: equanimity versus suppression. Two responses to the same feeling,
+ * with the same initial jump, drawn at the same height in both charts.
  * Suppression clamps the outward expression while the feeling, and its cost to
  * body, memory, and connection, stay elevated. Equanimity keeps you in contact,
- * so the wave can crest and pass. This is the line Chapter 18 returns to.
+ * so the wave can crest and return fully. The difference is recovery speed,
+ * not a smaller reaction. This is the line Chapter 18 returns to.
  */
 export function EquanimitySuppressionFigure() {
   return (
@@ -160,7 +163,7 @@ export function EquanimitySuppressionFigure() {
           fog={c.tealFog}
           edge={c.tealEdge}
           chart="allow"
-          chips={['stays in contact', 'reactivity ↓', 'the wave passes', 'still here']}
+          chips={['stays in contact', 'recovers faster', 'the wave passes', 'still here']}
         />
       </div>
     </Figure>

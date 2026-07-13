@@ -2,13 +2,15 @@ import { Figure } from '@/components/Figure';
 import { c, mono } from '@/styles/tokens';
 
 /**
- * fig_16.2, the minimum effective dose. Two honest curves and their product.
- * The benefit of a single session rises fast and then saturates: the first few
- * minutes buy most of the calm, and more buys less and less. The odds you keep
- * it up fall as the daily ask grows: a big plan is a plan you quit. What you
- * actually get over weeks is the two multiplied together, and that product peaks
- * not at the most you could do but at a modest, sustainable dose. The smallest
- * thing that still works, done for a long time, beats the heroic thing abandoned.
+ * fig_16.2, the sustainable dose. Two schematic curves and their product, not
+ * measured data. The benefit of a single session rises fast and then
+ * saturates: the first few minutes buy most of the calm, and more buys less
+ * and less. The odds you keep it up fall as the daily ask grows: a big plan is
+ * a plan you quit. What you actually get over weeks is the two multiplied
+ * together, and that product peaks not at the most you could do, and not at
+ * the bare threshold either, but at the point that best trades per-session
+ * benefit against the odds of sticking with it. That peak, not a minimum
+ * threshold, is what the figure marks.
  */
 
 const VW = 600;
@@ -44,15 +46,15 @@ export function MinimumDoseFigure() {
 
   return (
     <Figure
-      caption="fig_16.2 · minimum_effective_dose: the smallest thing that still works"
-      sub="Benefit per session saturates fast, so the first few minutes carry most of the gain. The odds you keep it up fall as the daily ask grows. What you actually get is the two multiplied, and it peaks at a small, sustainable dose, well left of the most you could do."
+      caption="fig_16.2 · the_sustainable_dose: where benefit times adherence peaks"
+      sub="Benefit per session saturates fast, so the first few minutes carry most of the gain. The odds you keep it up fall as the daily ask grows. What you actually get is the two multiplied, and it peaks at a small, sustainable dose, well left of the most you could do. The curves are schematic, drawn to show the shape of the tradeoff, not measured data."
       max={600}
     >
       <svg
         viewBox={`0 0 ${VW} ${VH}`}
         width="100%"
         role="img"
-        aria-label="A plot of dose against benefit. The benefit of one session rises and saturates. The probability of sticking with it falls as the dose grows. Their product, what you actually get over time, peaks at a small dose, far to the left of the maximum, marked as the minimum effective dose."
+        aria-label="A schematic plot of dose against benefit. The benefit of one session rises and saturates. The probability of sticking with it falls as the dose grows. Their product, what you actually get over time, peaks at a small dose, far to the left of the maximum: not the bare minimum that works, but the sustainable dose that best trades benefit against the odds of keeping it up."
         style={{ display: 'block' }}
       >
         {/* axes */}
@@ -97,7 +99,7 @@ export function MinimumDoseFigure() {
         <circle cx={peakX} cy={peakY} r={5} fill={c.teal} />
         <circle cx={peakX} cy={peakY} r={9} fill="none" stroke={c.teal} strokeOpacity={0.35} strokeWidth={1.5} />
         <text x={peakX + 12} y={peakY - 10} textAnchor="start" style={{ ...mono, fontSize: 11, fontWeight: 600 }} fill={c.text}>
-          minimum effective dose
+          the sustainable dose
         </text>
         <text x={peakX + 12} y={peakY + 4} textAnchor="start" style={{ ...mono, fontSize: 10 }} fill={c.muted}>
           the one you will actually keep

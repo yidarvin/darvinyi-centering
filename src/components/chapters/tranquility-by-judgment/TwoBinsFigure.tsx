@@ -13,7 +13,7 @@ const BINS = [
     k: 'not_up_to_me',
     col: c.amber,
     fog: c.amberFog,
-    items: ['the body', 'property', 'reputation', 'outcomes'],
+    items: ['the body', 'property', 'reputation', 'offices'],
     summary: 'everything else',
   },
 ];

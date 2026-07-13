@@ -11,19 +11,22 @@ const NODES = [
   { x: 120, y: 160, label: 'minutes pass', col: c.muted },
 ];
 
-// arcs between node edges, center (240,160) r=120, clockwise
+// arcs between node edges, center (240,160) r=120, clockwise. only three: the
+// drift moves from the task through the default-mode stations, but it does not
+// close itself back to the task. that return only happens through the separate
+// teal notice-and-return path drawn below, never on its own.
 const ARCS = [
   'M 273.1 44.6 A 120 120 0 0 1 355.4 126.9',
   'M 355.4 193.1 A 120 120 0 0 1 273.1 275.4',
   'M 206.9 275.4 A 120 120 0 0 1 124.6 193.1',
-  'M 124.6 126.9 A 120 120 0 0 1 206.9 44.6',
 ];
 
 /**
  * fig_03.1a: the wandering-mind loop. Left to its own devices the brain does not
  * rest on a task. It falls into the default mode network, a self-referential
- * circuit of past, future, and self, and the loop sustains itself. The one
- * trained move is the teal exit: notice the drift, return attention to the task.
+ * circuit of past, future, and self, and minutes pass with no way back on its
+ * own. The one trained move, drawn as the only path back to the task, is the
+ * teal exit: notice the drift, return attention to the task.
  */
 export function WanderingMindFigure() {
   return (
@@ -36,7 +39,7 @@ export function WanderingMindFigure() {
         viewBox="0 0 480 320"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A loop of four stations turning clockwise: on the task, attention slips, thoughts of past and future and self, minutes pass, and back to on the task. A teal arrow points into the first station, labeled notice and return, the one move you train."
+        aria-label="Four stations turning clockwise: on the task, attention slips, thoughts of past and future and self, minutes pass. The loop does not close itself back to the task. A separate teal arrow, labeled notice and return, runs from minutes pass back to on the task: the one trained move, and the only way back."
       >
         <defs>
           <marker id="wm-arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
@@ -95,18 +98,19 @@ export function WanderingMindFigure() {
           </g>
         ))}
 
-        {/* the trained exit: notice and return, re-aiming attention at the task */}
+        {/* the trained exit: notice and return. this is the only path back to
+            the task; the automatic loop above never closes itself. */}
         <path
-          d="M 392 56 C 350 36, 312 34, 282 38"
+          d="M 124.6 126.9 A 120 120 0 0 1 206.9 44.6"
           fill="none"
           stroke={c.teal}
-          strokeWidth={1.6}
+          strokeWidth={1.8}
           markerEnd="url(#wm-teal)"
         />
-        <text x={400} y={52} textAnchor="start" fontFamily={monoFamily} fontSize={10.5} fontWeight={500} fill={c.teal}>
+        <text x={108} y={82} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fontWeight={500} fill={c.teal}>
           notice
         </text>
-        <text x={400} y={66} textAnchor="start" fontFamily={monoFamily} fontSize={10.5} fontWeight={500} fill={c.teal}>
+        <text x={108} y={96} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fontWeight={500} fill={c.teal}>
           + return
         </text>
       </svg>
