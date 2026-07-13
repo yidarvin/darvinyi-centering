@@ -296,7 +296,7 @@ export function ForceOrFlow() {
         </svg>
 
         {/* strain and effort read-outs */}
-        <div style={{ maxWidth: 460, margin: '14px auto 0' }}>
+        <div style={{ maxWidth: 460, margin: '14px auto 0' }} aria-live="polite" aria-atomic="true">
           <Bar label="strain" sub="the friction you add" pct={strainPct} color={c.coral} />
           <Bar label="effort" sub="what the task costs · barely moves" pct={effortPct} color={c.amber} />
         </div>
@@ -316,7 +316,7 @@ export function ForceOrFlow() {
             max={100}
             value={slider}
             onChange={(e) => setSlider(Number(e.target.value))}
-            aria-valuetext={`${Math.round(force * 100)} percent push, ${v.head}, strain ${Math.round(strainPct * 100)} percent`}
+            aria-valuetext={`${Math.round(force * 100)} percent push, ${v.head}, strain ${Math.round(strainPct * 100)} percent, effort ${Math.round(effortPct * 100)} percent`}
             style={{ width: '100%', accentColor: force >= 0.45 ? c.coral : c.teal, cursor: 'pointer' }}
           />
           <div
@@ -477,7 +477,15 @@ function Bar({ label, sub, pct, color }: { label: string; sub: string; pct: numb
         <span style={{ ...mono, fontSize: 11, color }}>{label}</span>
         <span style={{ ...mono, fontSize: 10, color: c.faint }}>{sub}</span>
       </div>
-      <div style={{ height: 8, borderRadius: 5, background: c.panel, border: `1px solid ${c.line}`, overflow: 'hidden' }}>
+      <div
+        role="progressbar"
+        aria-label={`${label}, ${sub}`}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(pct * 100)}
+        aria-valuetext={`${Math.round(pct * 100)} percent`}
+        style={{ height: 8, borderRadius: 5, background: c.panel, border: `1px solid ${c.line}`, overflow: 'hidden' }}
+      >
         <div
           style={{
             height: '100%',
