@@ -180,12 +180,29 @@ export function PartsMapper() {
               );
             })}
 
-            {/* the exile */}
-            <PartNode id="notenough" pos={pos('notenough')} sel={sel} dim={blended} onSel={setSel} onNodeKey={onNodeKey} />
+            {/* the exile: inert while blended, since the only move available then is to unblend */}
+            <PartNode
+              id="notenough"
+              pos={pos('notenough')}
+              sel={sel}
+              dim={blended}
+              onSel={setSel}
+              onNodeKey={onNodeKey}
+              disabled={blended}
+            />
 
-            {/* the protectors */}
+            {/* the protectors: same, inert while blended so keyboard focus goes straight to the unblend move */}
             {PROTECTORS.map((p) => (
-              <PartNode key={p} id={p} pos={pos(p)} sel={sel} dim={false} onSel={setSel} onNodeKey={onNodeKey} />
+              <PartNode
+                key={p}
+                id={p}
+                pos={pos(p)}
+                sel={sel}
+                dim={false}
+                onSel={setSel}
+                onNodeKey={onNodeKey}
+                disabled={blended}
+              />
             ))}
 
             {/* the Self, scales in on unblend, gently breathing */}
@@ -250,6 +267,7 @@ function PartNode({
   dim,
   onSel,
   onNodeKey,
+  disabled = false,
 }: {
   id: string;
   pos: { x: number; y: number };
@@ -257,20 +275,22 @@ function PartNode({
   dim: boolean;
   onSel: (id: string) => void;
   onNodeKey: (e: KeyboardEvent, fn: () => void) => void;
+  disabled?: boolean;
 }) {
   const p = PARTS[id];
   const k = KIND[p.kind];
   const selected = sel === id;
   return (
     <g
-      tabIndex={0}
+      tabIndex={disabled ? -1 : 0}
       role="button"
       aria-label={p.label.replace(/_/g, ' ')}
       aria-pressed={selected}
-      onClick={() => onSel(id)}
-      onKeyDown={(e) => onNodeKey(e, () => onSel(id))}
+      aria-disabled={disabled}
+      onClick={() => !disabled && onSel(id)}
+      onKeyDown={(e) => !disabled && onNodeKey(e, () => onSel(id))}
       style={{
-        cursor: 'pointer',
+        cursor: disabled ? 'default' : 'pointer',
         transform: `translate(${pos.x}px,${pos.y}px)`,
         transition: 'transform .7s cubic-bezier(.34,1.1,.4,1)',
       }}

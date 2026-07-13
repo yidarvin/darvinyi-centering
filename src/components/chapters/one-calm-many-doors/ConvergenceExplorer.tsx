@@ -473,7 +473,11 @@ function SoftTag() {
 function Inspector({ sel }: { sel: Selection }) {
   if (sel === null || sel.kind === 'calm') {
     return (
-      <div style={{ padding: '16px 18px 20px', background: c.panel, borderTop: `1px solid ${c.line}` }}>
+      <div
+        role="status"
+        aria-live="polite"
+        style={{ padding: '16px 18px 20px', background: c.panel, borderTop: `1px solid ${c.line}` }}
+      >
         <p style={{ fontSize: 14, lineHeight: 1.6, color: c.muted, margin: 0 }}>
           {sel?.kind === 'calm'
             ? 'Every route runs to the same center. That is the wager of the whole book, drawn as one picture: many doors, one room behind them.'
@@ -490,7 +494,11 @@ function Inspector({ sel }: { sel: Selection }) {
       return cell ? [{ t, cell }] : [];
     });
     return (
-      <div style={{ padding: '16px 18px 20px', background: `${route.color}0c`, borderTop: `1px solid ${c.line}` }}>
+      <div
+        role="status"
+        aria-live="polite"
+        style={{ padding: '16px 18px 20px', background: `${route.color}0c`, borderTop: `1px solid ${c.line}` }}
+      >
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
           <span style={{ ...mono, fontSize: 14, color: route.color, fontWeight: 600 }}>{route.label}</span>
           <span style={{ ...mono, fontSize: 11, color: c.faint }}>{doors.length} doors</span>
@@ -516,7 +524,11 @@ function Inspector({ sel }: { sel: Selection }) {
   // tradition selected
   const t = getTradition(sel.id);
   return (
-    <div style={{ padding: '16px 18px 20px', background: c.panel, borderTop: `1px solid ${c.line}` }}>
+    <div
+      role="status"
+      aria-live="polite"
+      style={{ padding: '16px 18px 20px', background: c.panel, borderTop: `1px solid ${c.line}` }}
+    >
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
         <span style={{ fontSize: 15, fontWeight: 600, color: c.text }}>{t.label}</span>
         <span style={{ ...mono, fontSize: 11, color: c.faint }}>

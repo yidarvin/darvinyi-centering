@@ -244,6 +244,47 @@ export function CalmQuadrant() {
           <circle cx={px} cy={py} r={4.2} fill={puckColor} />
         </svg>
 
+        {/* pinned states, as a keyboard-reachable list: the map above only takes a
+            pointer to select or remove a pin, so this row gives the same two moves
+            to anyone using the keyboard */}
+        {pins.length > 0 && (
+          <div
+            role="group"
+            aria-label="your pinned states"
+            style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginTop: 12 }}
+          >
+            {pins.map((p) => {
+              const isSel = p.id === selectedId;
+              const q = quadAt(p.e, p.a);
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  aria-pressed={isSel}
+                  onClick={() => selectPin(p)}
+                  style={{
+                    ...mono,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    cursor: 'pointer',
+                    fontSize: 11.5,
+                    padding: '6px 10px',
+                    borderRadius: 8,
+                    border: `1px solid ${isSel ? q.edge : c.line2}`,
+                    background: isSel ? q.fog : 'transparent',
+                    color: isSel ? q.color : c.muted,
+                    transition: 'all .14s ease',
+                  }}
+                >
+                  <span aria-hidden="true" style={{ width: 7, height: 7, borderRadius: 99, background: q.color, flexShrink: 0 }} />
+                  {shortLabel(p.label) || 'unnamed state'}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {/* read-out */}
         {touched ? (
           <div

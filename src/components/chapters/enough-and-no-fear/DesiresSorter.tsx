@@ -206,12 +206,13 @@ export function DesiresSorter() {
                   {it.text}
                 </p>
                 {shown && sel && (
-                  <span style={{ flexShrink: 0, marginTop: 1 }} aria-hidden="true">
+                  <span style={{ flexShrink: 0, marginTop: 1 }}>
                     {right ? (
-                      <Check size={16} color={c.teal} strokeWidth={2.5} />
+                      <Check size={16} color={c.teal} strokeWidth={2.5} aria-hidden="true" />
                     ) : (
-                      <X size={16} color={c.coral} strokeWidth={2.5} />
+                      <X size={16} color={c.coral} strokeWidth={2.5} aria-hidden="true" />
                     )}
+                    <span className="visually-hidden">{right ? "matches Epicurus's answer" : "not Epicurus's answer"}</span>
                   </span>
                 )}
               </div>

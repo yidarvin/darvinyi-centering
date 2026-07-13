@@ -23,6 +23,7 @@ interface WidgetShellProps {
 export function WidgetShell({ id, name, title, legend, children, footer }: WidgetShellProps) {
   return (
     <section
+      aria-label={title ?? name}
       style={{
         border: `1px solid ${c.line2}`,
         borderRadius: 14,

@@ -179,6 +179,7 @@ export function NotingTimer() {
               <button
                 key={label}
                 type="button"
+                disabled={phase !== 'running'}
                 onClick={() => note(label)}
                 style={{
                   ...mono,

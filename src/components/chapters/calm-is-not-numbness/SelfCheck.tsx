@@ -100,7 +100,7 @@ export function SelfCheck() {
             <legend style={{ fontSize: 13.5, lineHeight: 1.55, color: c.prose, padding: 0, marginBottom: 9 }}>
               {q.prompt}
             </legend>
-            <div role="radiogroup" aria-label={q.prompt} style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+            <div role="group" aria-label={q.prompt} style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
               {LEANS.map(({ id, mid }) => {
                 const on = current === id;
                 const label = id === 'settling' ? q.settling : id === 'avoiding' ? q.avoiding : 'some of both';
@@ -111,8 +111,7 @@ export function SelfCheck() {
                   <button
                     key={id}
                     type="button"
-                    role="radio"
-                    aria-checked={on}
+                    aria-pressed={on}
                     onClick={() => setAnswer(q.id, id)}
                     style={{
                       display: 'flex',

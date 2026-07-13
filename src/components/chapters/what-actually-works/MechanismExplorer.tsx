@@ -224,7 +224,11 @@ function Inspector({ id }: { id: string }) {
   const grade = getGrade(p.grade);
 
   return (
-    <div style={{ padding: '16px 18px 20px', background: `${grade.color}0a`, borderTop: `1px solid ${grade.color}33` }}>
+    <div
+      role="status"
+      aria-live="polite"
+      style={{ padding: '16px 18px 20px', background: `${grade.color}0a`, borderTop: `1px solid ${grade.color}33` }}
+    >
       {/* header: name, route, grade */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 4 }}>
         <span style={{ fontSize: 16, fontWeight: 600, color: c.text }}>{p.name}</span>

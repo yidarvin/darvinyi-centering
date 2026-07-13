@@ -54,6 +54,24 @@ export function PresenceTimer() {
   const counted = useRef(false);
   const [ensoLen, setEnsoLen] = useState(560);
 
+  const beginRef = useRef<HTMLButtonElement | null>(null);
+  const comeBackRef = useRef<HTMLButtonElement | null>(null);
+  const againRef = useRef<HTMLButtonElement | null>(null);
+  const isFirstPhase = useRef(true);
+
+  // move focus to each phase's primary control, so a keyboard user is never
+  // stranded on <body> when begin/end/reset swaps the buttons out from under
+  // them. skipped on first mount, so the widget does not grab focus unasked.
+  useEffect(() => {
+    if (isFirstPhase.current) {
+      isFirstPhase.current = false;
+      return;
+    }
+    if (phase === 'idle') beginRef.current?.focus();
+    else if (phase === 'running') comeBackRef.current?.focus();
+    else if (phase === 'done') againRef.current?.focus();
+  }, [phase]);
+
   // measure the brushed path once, so the dash can draw it exactly. guarded so
   // a non-DOM environment (SSR, jsdom) falls back to the static length instead
   // of throwing.
@@ -272,7 +290,7 @@ export function PresenceTimer() {
         {/* controls */}
         {phase === 'idle' && (
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button type="button" onClick={begin} style={primaryBtn}>
+            <button ref={beginRef} type="button" onClick={begin} style={primaryBtn}>
               <Play size={14} /> begin
             </button>
           </div>
@@ -280,7 +298,7 @@ export function PresenceTimer() {
 
         {phase === 'running' && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-            <button type="button" onClick={comeBack} style={returnBtn}>
+            <button ref={comeBackRef} type="button" onClick={comeBack} style={returnBtn}>
               <CornerDownLeft size={15} /> the mind left · come back
             </button>
             <button type="button" onClick={end} style={ghostBtn}>
@@ -301,7 +319,7 @@ export function PresenceTimer() {
               </p>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <button type="button" onClick={reset} style={primaryBtn}>
+              <button ref={againRef} type="button" onClick={reset} style={primaryBtn}>
                 <RotateCcw size={13} /> again
               </button>
             </div>

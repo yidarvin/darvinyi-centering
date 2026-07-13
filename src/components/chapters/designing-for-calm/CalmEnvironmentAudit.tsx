@@ -239,7 +239,7 @@ export function CalmEnvironmentAudit() {
         ) : (
           <>
             <div style={{ ...mono, fontSize: 11, color: c.faint, marginBottom: 8 }}>the one I will change</div>
-            <div role="radiogroup" aria-label="the one default to change" style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 14 }}>
+            <div role="group" aria-label="the one default to change" style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 14 }}>
               {flaggedItems.map((item) => {
                 const on = pick === item.id;
                 const dom = domainOf(item.id);
@@ -248,8 +248,7 @@ export function CalmEnvironmentAudit() {
                   <button
                     key={item.id}
                     type="button"
-                    role="radio"
-                    aria-checked={on}
+                    aria-pressed={on}
                     onClick={() => setPick(on ? '' : item.id)}
                     style={{
                       ...mono,

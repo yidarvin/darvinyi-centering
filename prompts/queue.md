@@ -32,7 +32,7 @@ A critique-driven pass that lifts the finished book to reference-guide quality. 
 |----|------|------|------|--------|
 | 19 | Safety & self-check hardening | `prompts/19-safety-a11y.md` | 1 · critical | DONE |
 | 20 | Overstated-claim corrections | `prompts/20-claim-corrections.md` | 1 · critical | DONE |
-| 21 | Widget accessibility hardening | `prompts/21-widget-a11y.md` | 2 · focus | PENDING |
+| 21 | Widget accessibility hardening | `prompts/21-widget-a11y.md` | 2 · focus | DONE |
 | 22 | Figure accessibility & legibility | `prompts/22-figure-a11y.md` | 2 · focus | PENDING |
 | 23 | Figure-vs-prose consistency | `prompts/23-figure-prose.md` | 3 · focus | PENDING |
 | 24 | Voice de-templating sweep | `prompts/24-voice.md` | 4 · focus | PENDING |
