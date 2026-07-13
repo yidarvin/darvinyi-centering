@@ -26,6 +26,12 @@ export function SoftOvercomesHardFigure() {
         role="img"
         aria-label="Two panels. Left: a storm wind blows from the upper left. A supple stalk bends far over with the wind and stays whole, while beside it a rigid branch has snapped clean in two. What bends, lives. Right: drops of water fall onto a block of stone and have worn a smooth channel down through it. The softest thing wears away the hardest."
       >
+        <defs>
+          <marker id="soh-wind" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto">
+            <path d="M0 0 L4.5 3 L0 6 Z" fill={c.faint} fillOpacity={0.8} />
+          </marker>
+        </defs>
+
         <line x1={260} y1={20} x2={260} y2={224} stroke={c.line} strokeWidth={1} strokeDasharray="2 4" />
 
         {/* ---- LEFT: what bends, lives (ch.76) ---- */}
@@ -39,12 +45,7 @@ export function SoftOvercomesHardFigure() {
           <path d="M20,74 q 50,-8 96,0" markerEnd="url(#soh-wind)" />
           <path d="M20,92 q 40,-8 78,0" markerEnd="url(#soh-wind)" />
         </g>
-        <defs>
-          <marker id="soh-wind" markerWidth="7" markerHeight="7" refX="4.5" refY="3" orient="auto">
-            <path d="M0 0 L4.5 3 L0 6 Z" fill={c.faint} fillOpacity={0.8} />
-          </marker>
-        </defs>
-        <text x={28} y={50} fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+        <text x={28} y={50} fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
           the storm
         </text>
 
@@ -55,7 +56,7 @@ export function SoftOvercomesHardFigure() {
         <path d="M84,196 C 86,150 96,120 132,108" fill="none" stroke={c.teal} strokeWidth={2.6} strokeLinecap="round" />
         <path d="M132,108 q 18,-6 30,4" fill="none" stroke={c.teal} strokeWidth={1.6} strokeLinecap="round" />
         <path d="M120,118 q 16,-10 30,-4" fill="none" stroke={c.teal} strokeWidth={1.4} strokeOpacity={0.7} strokeLinecap="round" />
-        <text x={96} y={214} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.teal}>
+        <text x={96} y={214} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.teal}>
           the reed bends
         </text>
 
@@ -67,7 +68,7 @@ export function SoftOvercomesHardFigure() {
         <text x={210} y={132} fontFamily={monoFamily} fontSize={9} fill={c.coral}>
           snap
         </text>
-        <text x={202} y={214} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+        <text x={202} y={214} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
           the rigid breaks
         </text>
 
@@ -82,7 +83,7 @@ export function SoftOvercomesHardFigure() {
           <ellipse cx={392} cy={76} rx={2.6} ry={4.4} fillOpacity={0.7} />
           <ellipse cx={392} cy={96} rx={2.2} ry={3.8} fillOpacity={0.45} />
         </g>
-        <text x={406} y={58} fontFamily={monoFamily} fontSize={8.5} fill={c.teal}>
+        <text x={406} y={58} fontFamily={monoFamily} fontSize={9.5} fill={c.teal}>
           the soft drop
         </text>
 
@@ -99,7 +100,7 @@ export function SoftOvercomesHardFigure() {
           strokeOpacity={0.85}
           strokeLinecap="round"
         />
-        <text x={395} y={216} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+        <text x={395} y={216} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
           the hardest stone
         </text>
         <text x={448} y={138} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.teal}>

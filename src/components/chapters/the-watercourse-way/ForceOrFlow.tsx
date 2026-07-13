@@ -110,8 +110,9 @@ function surfacePath(force: number): string {
  * situation) never changes. What changes is the reader. Toward "force," the
  * water piles up choppy behind a coral dam and the strain bar fills; toward
  * "flow," the dam dissolves into a smooth teal streamline that takes the low
- * path around the rock, and the strain falls to almost nothing while a floor of
- * real effort remains, because wu wei is not inaction. Below, a small mapper
+ * path around the rock. The strain bar swings the full range, but the effort
+ * bar stays close to flat throughout, because the task's real cost does not
+ * change with how you meet it; wu wei is not inaction. Below, a small mapper
  * lets the reader mark where in their own life they are currently forcing, and
  * keeps it. Concept: Tao Te Ching ch.8, 43, 78; Cook Ding, Zhuangzi ch.3.
  */
@@ -124,7 +125,7 @@ export function ForceOrFlow() {
   const force = slider / 100;
   const flow = 1 - force;
   const strainPct = force;
-  const effortPct = 0.22 + 0.78 * force; // a floor of effort always remains: flowing is not nothing
+  const effortPct = 0.42 + 0.16 * force; // the task's own cost stays close to flat; strain is what actually swings
   const v = verdict(force);
 
   const forcingCount = ARENAS.filter((a) => picks[a.id] === 'force').length;
@@ -297,7 +298,7 @@ export function ForceOrFlow() {
         {/* strain and effort read-outs */}
         <div style={{ maxWidth: 460, margin: '14px auto 0' }}>
           <Bar label="strain" sub="the friction you add" pct={strainPct} color={c.coral} />
-          <Bar label="effort" sub="what it costs you · never quite zero" pct={effortPct} color={c.amber} />
+          <Bar label="effort" sub="what the task costs · barely moves" pct={effortPct} color={c.amber} />
         </div>
 
         {/* the slider */}
@@ -315,6 +316,7 @@ export function ForceOrFlow() {
             max={100}
             value={slider}
             onChange={(e) => setSlider(Number(e.target.value))}
+            aria-valuetext={`${Math.round(force * 100)} percent push, ${v.head}, strain ${Math.round(strainPct * 100)} percent`}
             style={{ width: '100%', accentColor: force >= 0.45 ? c.coral : c.teal, cursor: 'pointer' }}
           />
           <div
@@ -357,6 +359,9 @@ export function ForceOrFlow() {
       {/* the verdict */}
       <div style={{ padding: '8px 16px 18px' }}>
         <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
           style={{
             maxWidth: 460,
             margin: '0 auto',
