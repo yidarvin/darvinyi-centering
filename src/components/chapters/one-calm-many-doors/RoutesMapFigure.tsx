@@ -9,6 +9,12 @@ import { routesWithTraditions, TRADITIONS, type TraditionId } from './convergenc
  * meaning is walked by one. The convergence is real and uneven, and the figure
  * does not pretend otherwise. Read straight off the same data as the widget, so
  * the two can never disagree.
+ *
+ * Layout: each route gets a two-line block, a header (route label left, door
+ * count right) over a row of coded chips, one per tradition that walks it. The
+ * header sits above the chips rather than beside them so the whole figure can
+ * run at a narrow viewBox width and still stay legible on a phone; the earlier
+ * side-by-side layout wasted no data, but it forced a wide, cramped canvas.
  */
 
 const CODE: Record<TraditionId, string> = {
@@ -24,14 +30,15 @@ const CODE: Record<TraditionId, string> = {
   transcendentalists: 'Tr',
 };
 
-const ROW_H = 40;
-const TOP = 12;
-const LABEL_W = 128;
-const PITCH = 34;
-const R = 13;
-const DOT_START = LABEL_W + 6;
-const MAX_DOTS = 8; // presence, the widest row
-const WIDTH = DOT_START + MAX_DOTS * PITCH + 6;
+const WIDTH = 300;
+const MARGIN_X = 4;
+const TOP = 16;
+const ROW_H = 76;
+const HEADER_DY = 16; // header text baseline, measured from the row's top
+const CHIP_DY = 50; // chip row center, measured from the row's top
+const R = 12; // chip radius
+const PITCH = 34; // chip center-to-center spacing
+const DOT_START = MARGIN_X + R; // first chip's center x
 
 export function RoutesMapFigure() {
   const rows = routesWithTraditions();
@@ -41,7 +48,7 @@ export function RoutesMapFigure() {
     <Figure
       caption="fig_14.1 · the_routes, and how many doors open onto each"
       sub="The same handful of moves, each shown across the traditions at once, sorted from the most-traveled road to the least crowded."
-      max={460}
+      max={330}
     >
       <svg
         viewBox={`0 0 ${WIDTH} ${height}`}
@@ -50,27 +57,30 @@ export function RoutesMapFigure() {
         aria-label="The seven routes to calm, sorted by how many traditions use each. Presence is used by eight traditions, letting go by seven, perspective by four, enough and connection by three each, the body by two, and meaning by one."
       >
         {rows.map((row, i) => {
-          const cy = TOP + i * ROW_H + ROW_H / 2;
+          const rowTop = TOP + i * ROW_H;
+          const headerY = rowTop + HEADER_DY;
+          const chipY = rowTop + CHIP_DY;
+          const lastChipX = DOT_START + (row.traditions.length - 1) * PITCH;
+
           return (
             <g key={row.route.id}>
-              {/* route label */}
+              {/* header line: route label left, door count right */}
               <text
-                x={0}
-                y={cy}
-                dy={4}
+                x={MARGIN_X}
+                y={headerY}
                 fontFamily={mono.fontFamily}
-                fontSize={12.5}
+                fontSize={16}
                 fontWeight={600}
                 fill={row.route.color}
               >
                 {row.route.label}
               </text>
               <text
-                x={0}
-                y={cy}
-                dy={18}
+                x={WIDTH - MARGIN_X}
+                y={headerY}
+                textAnchor="end"
                 fontFamily={mono.fontFamily}
-                fontSize={10}
+                fontSize={13}
                 fill={c.faint}
               >
                 {row.traditions.length === 1 ? '1 door' : `${row.traditions.length} doors`}
@@ -78,10 +88,10 @@ export function RoutesMapFigure() {
 
               {/* a faint rail behind the chips */}
               <line
-                x1={DOT_START + R}
-                y1={cy}
-                x2={DOT_START + (row.traditions.length - 1) * PITCH + R}
-                y2={cy}
+                x1={DOT_START}
+                y1={chipY}
+                x2={lastChipX}
+                y2={chipY}
                 stroke={row.route.color}
                 strokeOpacity={0.22}
                 strokeWidth={1}
@@ -89,13 +99,13 @@ export function RoutesMapFigure() {
 
               {/* one coded chip per tradition that walks this route */}
               {row.traditions.map((t, j) => {
-                const cx = DOT_START + j * PITCH + R;
+                const cx = DOT_START + j * PITCH;
                 const soft = t.cell.soft;
                 return (
                   <g key={t.tradition.id}>
                     <circle
                       cx={cx}
-                      cy={cy}
+                      cy={chipY}
                       r={R}
                       fill={`${row.route.color}22`}
                       stroke={row.route.color}
@@ -105,11 +115,11 @@ export function RoutesMapFigure() {
                     />
                     <text
                       x={cx}
-                      y={cy}
-                      dy={3.5}
+                      y={chipY}
+                      dy={4.5}
                       textAnchor="middle"
                       fontFamily={mono.fontFamily}
-                      fontSize={9.5}
+                      fontSize={13}
                       fontWeight={600}
                       fill={row.route.color}
                     >
@@ -127,13 +137,13 @@ export function RoutesMapFigure() {
       <div
         style={{
           ...mono,
-          fontSize: 10.5,
+          fontSize: 11.5,
           color: c.faint,
           marginTop: 14,
           display: 'flex',
           flexWrap: 'wrap',
           gap: '4px 12px',
-          lineHeight: 1.5,
+          lineHeight: 1.55,
         }}
       >
         {TRADITIONS.map((t) => (

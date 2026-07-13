@@ -7,14 +7,15 @@ interface NodeProps {
   cx: number;
   cy: number;
   w?: number;
+  h?: number;
+  fontSize?: number;
   label: string;
   col: string;
   fill: string;
   strong?: boolean;
 }
 
-function Node({ cx, cy, w = 92, label, col, fill, strong }: NodeProps) {
-  const h = 34;
+function Node({ cx, cy, w = 110, h = 42, fontSize = 15, label, col, fill, strong }: NodeProps) {
   return (
     <g>
       <rect
@@ -28,7 +29,7 @@ function Node({ cx, cy, w = 92, label, col, fill, strong }: NodeProps) {
         strokeWidth={strong ? 1.8 : 1.3}
         strokeOpacity={strong ? 1 : 0.7}
       />
-      <text x={cx} y={cy + 4} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fontWeight={strong ? 600 : 500} fill={col}>
+      <text x={cx} y={cy + fontSize * 0.32} textAnchor="middle" fontFamily={monoFamily} fontSize={fontSize} fontWeight={strong ? 600 : 500} fill={col}>
         {label}
       </text>
     </g>
@@ -44,19 +45,55 @@ function Node({ cx, cy, w = 92, label, col, fill, strong }: NodeProps) {
  * impression itself.) The one step that is up to you is assent
  * (sunkatathesis): grant it to the impression "this is bad" and a passion
  * follows; withhold it and the impression passes. The fork is the whole lever.
+ *
+ * Laid out top-to-bottom rather than left-to-right so every label can run at
+ * a legible size on a narrow viewport: a horizontal chain of five boxes plus
+ * eight caption strings has no room to grow, but a vertical chain does, since
+ * height is free while the mobile render width is not. Each node's Greek term
+ * and its plain-English instance are merged onto one caption line beneath
+ * that node (they were already the same color in the original, split above
+ * and below); the fork keeps its two branch labels and two outcome nodes.
  */
 export function ImpressionAssentFigure() {
+  const cx = 150;
+
+  // main chain
+  const eventCy = 37;
+  const eventBottom = eventCy + 21;
+  const cap1Y = eventBottom + 16 + 11; // baseline
+  const arrow1Y1 = cap1Y + 4 + 14;
+  const arrow1Y2 = arrow1Y1 + 22;
+
+  const impressionCy = arrow1Y2 + 14 + 21;
+  const impressionBottom = impressionCy + 21;
+  const cap2Y = impressionBottom + 16 + 11;
+  const arrow2Y1 = cap2Y + 4 + 14;
+  const arrow2Y2 = arrow2Y1 + 22;
+
+  const assentCy = arrow2Y2 + 14 + 21;
+  const assentBottom = assentCy + 21;
+  const cap3Y = assentBottom + 16 + 11;
+
+  const branchY = cap3Y + 4 + 22 + 11;
+  const forkCy = branchY + 4 + 15 + 20;
+  const forkTop = forkCy - 20;
+
+  const viewH = forkCy + 20 + 18;
+
+  const eqCx = 80;
+  const disCx = 220;
+
   return (
     <Figure
       caption="fig_04.2a · where_judgment_enters"
       sub="an event throws up an impression on its own, a mental picture that arrives unbidden, not yet a judgment. the one step up to you is assent. grant it to 'this is bad' and a passion follows; withhold it and the impression passes. Epictetus: we are disturbed not by events, but by our judgments about them."
-      max={540}
+      max={380}
     >
       <svg
-        viewBox="0 0 500 236"
+        viewBox={`0 0 300 ${viewH}`}
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A left-to-right chain: an event leads to an impression that 'this is bad,' a mental picture that arrives on its own, unbidden. The impression reaches assent, the one step that is up to you, where judgment enters. From assent the path forks two ways: withhold assent and reach equanimity, or grant assent and reach disturbance."
+        aria-label="A top-to-bottom chain: an event leads to an impression, a mental picture that arrives on its own, unbidden, that reads 'this is bad.' The impression reaches assent, the one step that is up to you, where judgment enters. From assent the path forks two ways: withhold assent and reach equanimity, or grant assent and reach disturbance."
       >
         <defs>
           <marker id="ia-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
@@ -71,42 +108,50 @@ export function ImpressionAssentFigure() {
         </defs>
 
         {/* the chain */}
-        <line x1={116} y1={132} x2={152} y2={132} stroke={c.faint} strokeWidth={1.3} markerEnd="url(#ia-arrow)" />
-        <line x1={248} y1={132} x2={278} y2={132} stroke={c.faint} strokeWidth={1.3} markerEnd="url(#ia-arrow)" />
+        <line x1={cx} y1={arrow1Y1} x2={cx} y2={arrow1Y2} stroke={c.faint} strokeWidth={1.3} markerEnd="url(#ia-arrow)" />
+        <line x1={cx} y1={arrow2Y1} x2={cx} y2={arrow2Y2} stroke={c.faint} strokeWidth={1.3} markerEnd="url(#ia-arrow)" />
 
         {/* the fork */}
-        <path d="M 372 124 C 392 112, 404 96, 410 86" fill="none" stroke={c.teal} strokeWidth={1.5} markerEnd="url(#ia-teal)" />
-        <path d="M 372 140 C 392 152, 404 168, 410 178" fill="none" stroke={c.coral} strokeWidth={1.5} markerEnd="url(#ia-coral)" />
+        <path
+          d={`M ${cx} ${assentBottom} C ${cx - 14} ${assentBottom + 18}, ${cx - 42} ${forkTop - 35}, ${eqCx} ${forkTop}`}
+          fill="none"
+          stroke={c.teal}
+          strokeWidth={1.5}
+          markerEnd="url(#ia-teal)"
+        />
+        <path
+          d={`M ${cx} ${assentBottom} C ${cx + 14} ${assentBottom + 18}, ${cx + 42} ${forkTop - 35}, ${disCx} ${forkTop}`}
+          fill="none"
+          stroke={c.coral}
+          strokeWidth={1.5}
+          markerEnd="url(#ia-coral)"
+        />
 
-        {/* captions */}
-        <text x={200} y={101} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
-          phantasia
-        </text>
-        <text x={326} y={101} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.teal}>
-          sunkatathesis
-        </text>
-        <text x={70} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
+        {/* captions, one merged line per node: the term and its plain instance */}
+        <text x={cx} y={cap1Y} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.faint}>
           something happens
         </text>
-        <text x={200} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.faint}>
-          &ldquo;this is bad&rdquo;
+        <text x={cx} y={cap2Y} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.faint}>
+          phantasia · &ldquo;this is bad&rdquo;
         </text>
-        <text x={326} y={168} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.teal}>
-          judgment enters
+        <text x={cx} y={cap3Y} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.teal}>
+          sunkatathesis · judgment enters
         </text>
-        <text x={448} y={48} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.teal}>
+
+        {/* branch labels */}
+        <text x={eqCx} y={branchY} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.teal}>
           withhold
         </text>
-        <text x={448} y={222} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.coral}>
+        <text x={disCx} y={branchY} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.coral}>
           assent given
         </text>
 
         {/* the nodes */}
-        <Node cx={70} cy={132} w={88} label="event" col={c.muted} fill={c.panel2} />
-        <Node cx={200} cy={132} label="impression" col={c.muted} fill={c.panel2} />
-        <Node cx={326} cy={132} label="assent?" col={c.teal} fill={c.tealFog} strong />
-        <Node cx={448} cy={68} w={92} label="equanimity" col={c.teal} fill={c.tealFog} />
-        <Node cx={448} cy={190} w={92} label="disturbance" col={c.coral} fill={c.coralFog} />
+        <Node cx={cx} cy={eventCy} w={90} label="event" col={c.muted} fill={c.panel2} />
+        <Node cx={cx} cy={impressionCy} w={124} label="impression" col={c.muted} fill={c.panel2} />
+        <Node cx={cx} cy={assentCy} w={100} label="assent?" col={c.teal} fill={c.tealFog} strong />
+        <Node cx={eqCx} cy={forkCy} w={118} h={40} fontSize={13} label="equanimity" col={c.teal} fill={c.tealFog} />
+        <Node cx={disCx} cy={forkCy} w={126} h={40} fontSize={13} label="disturbance" col={c.coral} fill={c.coralFog} />
       </svg>
     </Figure>
   );

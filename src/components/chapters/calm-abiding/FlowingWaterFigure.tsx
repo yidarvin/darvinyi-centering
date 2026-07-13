@@ -3,28 +3,56 @@ import { Figure } from '@/components/Figure';
 
 const monoFamily = mono.fontFamily;
 
+// layout constants: three stacked "passages" of the same river, each showing
+// one transient form arising, cresting, and dissolving. Stacking (rather than
+// the old left-to-right triptych) gives every row the full canvas width for
+// its label, which is what makes the type legible at phone width.
+const VB_W = 360;
+const TITLE_FS = 17; // bold row title: feeling / form / perception
+const SUB_FS = 15; // "a bubble" / "a lump of foam" / "a mirage"
+const CAPTION_FS = 15; // bottom anicca lines
+
+const TOP_PAD = 14;
+const ROW_H = 118; // vertical distance from one row's top to the next
+const TITLE_DY = 20; // row top -> title baseline
+const GRAPHIC_DY = 58; // row top -> graphic center y
+const SUB_DY = 102; // row top -> sublabel baseline
+const CAPTION_GAP = 26;
+const CAPTION_LINE_H = 26;
+
+const row1Top = TOP_PAD;
+const row2Top = row1Top + ROW_H;
+const row3Top = row2Top + ROW_H;
+
+const caption1Y = row3Top + SUB_DY + CAPTION_GAP;
+const caption2Y = caption1Y + CAPTION_LINE_H;
+const VB_H = caption2Y + 20;
+
+const CX = VB_W / 2; // 180, the shared center column for title/graphic/sublabel
+
 /**
  * fig_06.4a: impermanence as flowing water. The Pheṇapiṇḍūpama Sutta (SN 22.95)
  * likens the five aggregates to things with no solid core, carried on a river:
  * form is a lump of foam, feeling a bubble, perception a mirage, formations a
- * hollow plantain trunk, consciousness a conjuror's trick. The figure draws the
- * current and three of those forms arising and dissolving on it, to make anicca
- * concrete: conditioned things flow, they do not stay. (The "you cannot step in
- * the same river twice" line is Heraclitus, Greek, not the Buddha. The flowing
- * image is genuinely Buddhist. The Greek aphorism is not.)
+ * hollow plantain trunk, consciousness a conjuror's trick. The figure draws
+ * three of those forms, each arising and dissolving on its own passage of the
+ * current, stacked top to bottom, to make anicca concrete: conditioned things
+ * flow, they do not stay. (The "you cannot step in the same river twice" line
+ * is Heraclitus, Greek, not the Buddha. The flowing image is genuinely
+ * Buddhist. The Greek aphorism is not.)
  */
 export function FlowingWaterFigure() {
   return (
     <Figure
       caption="fig_06.4a · impermanence_flows"
       sub="Pheṇapiṇḍūpama Sutta (SN 22.95): form is like a lump of foam, feeling like a bubble, perception like a mirage, all of it carried on the current and gone. anicca, the first of the three marks: every conditioned thing arises and passes. you are not watching a fixed scene. you are watching a river."
-      max={540}
+      max={420}
     >
       <svg
-        viewBox="0 0 500 240"
+        viewBox={`0 0 ${VB_W} ${VB_H}`}
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A river flowing left to right. On its current, three transient forms each shown arising faintly, cresting, and dissolving into dashed outlines: a bubble of feeling, a lump of foam that is form, and a shimmer of perception like a mirage. Downstream arrows mark the flow. Nothing on the water stays. This is impermanence, anicca: every conditioned thing arises and passes."
+        aria-label="Three transient forms, each shown arising faintly, cresting, and dissolving into a dashed outline, stacked in their own rows top to bottom, each on its own passage of the same flowing river: a bubble of feeling, a lump of foam that is form, and a shimmer of perception like a mirage. Downstream arrows mark the flow in every row. Nothing on the water stays. This is impermanence, anicca: every conditioned thing arises and passes."
       >
         <defs>
           <marker id="fw-flow" markerWidth="8" markerHeight="8" refX="5.5" refY="3" orient="auto">
@@ -36,58 +64,80 @@ export function FlowingWaterFigure() {
           </linearGradient>
         </defs>
 
-        {/* the river channel */}
-        <path
-          d="M8,92 C 120,74 200,110 320,92 C 400,80 460,98 492,92 L492,156 C 460,162 400,144 320,156 C 200,170 120,138 8,156 Z"
-          fill="url(#fw-river)"
-          stroke={c.line2}
-          strokeWidth={1}
-        />
-
-        {/* current lines */}
-        <path d="M30,118 C 150,104 260,132 360,118 C 420,110 460,120 482,116" fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.4} markerEnd="url(#fw-flow)" />
-        <path d="M30,134 C 150,148 260,120 360,134 C 420,142 460,130 482,136" fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.3} markerEnd="url(#fw-flow)" />
-
-        {/* form A: a bubble (feeling), at left, lifecycle arising -> cresting -> gone */}
-        <circle cx={70} cy={108} r={5} fill="none" stroke={c.violet} strokeOpacity={0.45} strokeWidth={1} />
-        <circle cx={104} cy={104} r={9} fill={c.violetFog} stroke={c.violet} strokeWidth={1.4} />
-        <circle cx={138} cy={110} r={6} fill="none" stroke={c.violet} strokeWidth={1} strokeDasharray="2 3" strokeOpacity={0.6} />
-        <text x={104} y={84} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.violet}>
-          feeling
-        </text>
-        <text x={104} y={188} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.muted}>
-          a bubble
-        </text>
-
-        {/* form B: foam (form), center */}
+        {/* row 1: feeling, a bubble -- arises, crests, dissolves */}
         <g>
-          <circle cx={232} cy={106} r={6} fill={c.tealFog} stroke={c.teal} strokeWidth={1.2} />
-          <circle cx={244} cy={114} r={8} fill={c.tealFog} stroke={c.teal} strokeWidth={1.4} />
-          <circle cx={256} cy={104} r={5} fill={c.tealFog} stroke={c.teal} strokeWidth={1.1} />
-          <circle cx={272} cy={112} r={6} fill="none" stroke={c.teal} strokeWidth={1} strokeDasharray="2 3" strokeOpacity={0.6} />
+          <path
+            d={`M16,${row1Top + GRAPHIC_DY - 12} C 100,${row1Top + GRAPHIC_DY - 16} 220,${row1Top + GRAPHIC_DY - 6} 344,${row1Top + GRAPHIC_DY - 12} L344,${row1Top + GRAPHIC_DY + 14} C 220,${row1Top + GRAPHIC_DY + 10} 100,${row1Top + GRAPHIC_DY + 18} 16,${row1Top + GRAPHIC_DY + 14} Z`}
+            fill="url(#fw-river)"
+            stroke={c.line2}
+            strokeWidth={1}
+          />
+          <path d={`M30,${row1Top + GRAPHIC_DY - 4} C 120,${row1Top + GRAPHIC_DY - 12} 220,${row1Top + GRAPHIC_DY + 2} 330,${row1Top + GRAPHIC_DY - 4}`} fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.4} markerEnd="url(#fw-flow)" />
+          <path d={`M30,${row1Top + GRAPHIC_DY + 10} C 120,${row1Top + GRAPHIC_DY + 20} 220,${row1Top + GRAPHIC_DY + 4} 330,${row1Top + GRAPHIC_DY + 12}`} fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.3} markerEnd="url(#fw-flow)" />
+
+          <circle cx={132} cy={row1Top + GRAPHIC_DY + 6} r={7} fill="none" stroke={c.violet} strokeOpacity={0.45} strokeWidth={1.2} />
+          <circle cx={CX} cy={row1Top + GRAPHIC_DY} r={13} fill={c.violetFog} stroke={c.violet} strokeWidth={1.6} />
+          <circle cx={228} cy={row1Top + GRAPHIC_DY + 10} r={8.5} fill="none" stroke={c.violet} strokeWidth={1.2} strokeDasharray="3 4" strokeOpacity={0.6} />
+
+          <text x={CX} y={row1Top + TITLE_DY} textAnchor="middle" fontFamily={monoFamily} fontSize={TITLE_FS} fontWeight={600} fill={c.violet}>
+            feeling
+          </text>
+          <text x={CX} y={row1Top + SUB_DY} textAnchor="middle" fontFamily={monoFamily} fontSize={SUB_FS} fill={c.muted}>
+            a bubble
+          </text>
         </g>
-        <text x={248} y={84} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.teal}>
-          form
-        </text>
-        <text x={248} y={188} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.muted}>
-          a lump of foam
-        </text>
 
-        {/* form C: a mirage (perception), right, shimmer */}
-        <path d="M372,112 q 6,-12 12,0 q 6,12 12,0 q 6,-12 12,0" fill="none" stroke={c.amber} strokeWidth={1.4} />
-        <path d="M376,122 q 6,-8 12,0 q 6,8 12,0" fill="none" stroke={c.amber} strokeWidth={1} strokeOpacity={0.5} strokeDasharray="2 3" />
-        <text x={396} y={84} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.amber}>
-          perception
-        </text>
-        <text x={396} y={188} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.muted}>
-          a mirage
-        </text>
+        {/* row 2: form, a lump of foam -- a cluster of bubbles, one already dissolving */}
+        <g>
+          <path
+            d={`M16,${row2Top + GRAPHIC_DY - 12} C 100,${row2Top + GRAPHIC_DY - 16} 220,${row2Top + GRAPHIC_DY - 6} 344,${row2Top + GRAPHIC_DY - 12} L344,${row2Top + GRAPHIC_DY + 14} C 220,${row2Top + GRAPHIC_DY + 10} 100,${row2Top + GRAPHIC_DY + 18} 16,${row2Top + GRAPHIC_DY + 14} Z`}
+            fill="url(#fw-river)"
+            stroke={c.line2}
+            strokeWidth={1}
+          />
+          <path d={`M30,${row2Top + GRAPHIC_DY - 4} C 120,${row2Top + GRAPHIC_DY - 12} 220,${row2Top + GRAPHIC_DY + 2} 330,${row2Top + GRAPHIC_DY - 4}`} fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.4} markerEnd="url(#fw-flow)" />
+          <path d={`M30,${row2Top + GRAPHIC_DY + 10} C 120,${row2Top + GRAPHIC_DY + 20} 220,${row2Top + GRAPHIC_DY + 4} 330,${row2Top + GRAPHIC_DY + 12}`} fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.3} markerEnd="url(#fw-flow)" />
 
-        {/* anicca caption, split across two lines so it stays readable at phone width */}
-        <text x={250} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.faint}>
+          <circle cx={160} cy={row2Top + GRAPHIC_DY - 4} r={8} fill={c.tealFog} stroke={c.teal} strokeWidth={1.4} />
+          <circle cx={177} cy={row2Top + GRAPHIC_DY + 9} r={11} fill={c.tealFog} stroke={c.teal} strokeWidth={1.6} />
+          <circle cx={196} cy={row2Top + GRAPHIC_DY - 6} r={7} fill={c.tealFog} stroke={c.teal} strokeWidth={1.3} />
+          <circle cx={219} cy={row2Top + GRAPHIC_DY + 6} r={8} fill="none" stroke={c.teal} strokeWidth={1.2} strokeDasharray="3 4" strokeOpacity={0.6} />
+
+          <text x={CX} y={row2Top + TITLE_DY} textAnchor="middle" fontFamily={monoFamily} fontSize={TITLE_FS} fontWeight={600} fill={c.teal}>
+            form
+          </text>
+          <text x={CX} y={row2Top + SUB_DY} textAnchor="middle" fontFamily={monoFamily} fontSize={SUB_FS} fill={c.muted}>
+            a lump of foam
+          </text>
+        </g>
+
+        {/* row 3: perception, a mirage -- a shimmer, then a fainter, fading shimmer */}
+        <g>
+          <path
+            d={`M16,${row3Top + GRAPHIC_DY - 12} C 100,${row3Top + GRAPHIC_DY - 16} 220,${row3Top + GRAPHIC_DY - 6} 344,${row3Top + GRAPHIC_DY - 12} L344,${row3Top + GRAPHIC_DY + 14} C 220,${row3Top + GRAPHIC_DY + 10} 100,${row3Top + GRAPHIC_DY + 18} 16,${row3Top + GRAPHIC_DY + 14} Z`}
+            fill="url(#fw-river)"
+            stroke={c.line2}
+            strokeWidth={1}
+          />
+          <path d={`M30,${row3Top + GRAPHIC_DY - 4} C 120,${row3Top + GRAPHIC_DY - 12} 220,${row3Top + GRAPHIC_DY + 2} 330,${row3Top + GRAPHIC_DY - 4}`} fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.4} markerEnd="url(#fw-flow)" />
+          <path d={`M30,${row3Top + GRAPHIC_DY + 10} C 120,${row3Top + GRAPHIC_DY + 20} 220,${row3Top + GRAPHIC_DY + 4} 330,${row3Top + GRAPHIC_DY + 12}`} fill="none" stroke={c.tealDim} strokeWidth={1} strokeOpacity={0.3} markerEnd="url(#fw-flow)" />
+
+          <path d={`M140,${row3Top + GRAPHIC_DY + 2} q 10,-18 20,0 q 10,18 20,0 q 10,-18 20,0`} fill="none" stroke={c.amber} strokeWidth={1.8} />
+          <path d={`M164,${row3Top + GRAPHIC_DY + 12} q 8,-10 16,0 q 8,10 16,0`} fill="none" stroke={c.amber} strokeWidth={1.2} strokeOpacity={0.5} strokeDasharray="3 4" />
+
+          <text x={CX} y={row3Top + TITLE_DY} textAnchor="middle" fontFamily={monoFamily} fontSize={TITLE_FS} fontWeight={600} fill={c.amber}>
+            perception
+          </text>
+          <text x={CX} y={row3Top + SUB_DY} textAnchor="middle" fontFamily={monoFamily} fontSize={SUB_FS} fill={c.muted}>
+            a mirage
+          </text>
+        </g>
+
+        {/* anicca caption, two lines, read after all three passages */}
+        <text x={CX} y={caption1Y} textAnchor="middle" fontFamily={monoFamily} fontSize={CAPTION_FS} fill={c.faint}>
           anicca · sabbe saṅkhārā aniccā
         </text>
-        <text x={250} y={226} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.faint}>
+        <text x={CX} y={caption2Y} textAnchor="middle" fontFamily={monoFamily} fontSize={CAPTION_FS} fill={c.faint}>
           all conditioned things flow and pass
         </text>
       </svg>

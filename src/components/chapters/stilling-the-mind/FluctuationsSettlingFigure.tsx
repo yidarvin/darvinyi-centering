@@ -14,6 +14,12 @@ const BASE_Y = 96;
 const AMP = 22;
 const FLAT_FROM = 0.62; // fraction of width where the surface is essentially still
 
+// the two zone labels sit in a 520-wide viewBox rendered at a fixed 288px on
+// phones, so their font sizes are set well above the 11px-effective floor:
+// 24 * (288/520) ≈ 13.3px, 22 * (288/520) ≈ 12.2px.
+const FONT_ZONE = 24;
+const FONT_NOTE = 22;
+
 function surfacePath(): string {
   const n = JITTER.length;
   return JITTER.map((m, i) => {
@@ -45,6 +51,12 @@ function star(cx: number, cy: number, r: number): string {
 export function FluctuationsSettlingFigure() {
   const surface = surfacePath();
   const starX = 430;
+  // the primary star sits well above BASE_Y so the enlarged "stillness ·
+  // nirodha" label (fontSize 24) below it keeps a comfortable vertical
+  // buffer; the reflection star mirrors it symmetrically about the still
+  // water line (BASE_Y).
+  const starCy = 26;
+  const reflectionCy = 2 * BASE_Y - starCy;
   return (
     <Figure
       caption="fig_09.1 · citta_vṛtti_nirodha"
@@ -52,7 +64,7 @@ export function FluctuationsSettlingFigure() {
       max={540}
     >
       <svg
-        viewBox="0 0 520 200"
+        viewBox="0 0 520 234"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
         aria-label="A pool of water seen from the side. On the left the surface is choppy and broken, churned by the mind’s fluctuations, and it holds no clear reflection. Moving right, the waves flatten until the surface is perfectly still and mirrors a single point of light above it, the seer resting in its own nature."
@@ -83,52 +95,50 @@ export function FluctuationsSettlingFigure() {
         </g>
 
         {/* the star above the still water, and its clean mirror reflection */}
-        <path d={star(starX, 44, 9)} fill={c.teal} />
-        <path d={star(starX, 148, 9)} fill={c.teal} fillOpacity={0.34} />
-        <line x1={starX} y1={BASE_Y + 2} x2={starX} y2={138} stroke={c.teal} strokeWidth={0.8} strokeOpacity={0.25} strokeDasharray="2 4" />
+        <path d={star(starX, starCy, 9)} fill={c.teal} />
+        <path d={star(starX, reflectionCy, 9)} fill={c.teal} fillOpacity={0.34} />
+        <line x1={starX} y1={BASE_Y + 2} x2={starX} y2={reflectionCy - 10} stroke={c.teal} strokeWidth={0.8} strokeOpacity={0.25} strokeDasharray="2 4" />
 
         {/* the surface line, coral (churning) grading to teal (still) */}
         <path d={surface} fill="none" stroke="url(#fl-calm)" strokeWidth={2.2} strokeLinejoin="round" />
 
-        {/* zone labels */}
-        <text x={X0 + 4} y={28} fontFamily={monoFamily} fontSize={11} fill={c.coral}>
+        {/* zone labels. the sub caption below already spells out "no reflection
+            holds" and "the seer, in its own nature (1.3)" in full sentences,
+            so those two secondary lines are dropped here rather than shrunk:
+            keeping them meant five crowded labels fighting for an 11px floor,
+            and the caption already carries that half of the meaning. */}
+        <text x={X0 + 4} y={36} fontFamily={monoFamily} fontSize={FONT_ZONE} fill={c.coral}>
           the churning mind
         </text>
-        <text x={X0 + 4} y={42} fontFamily={monoFamily} fontSize={9} fill={c.faint}>
-          no reflection holds
-        </text>
 
-        <text x={X1 - 4} y={84} textAnchor="end" fontFamily={monoFamily} fontSize={11} fill={c.teal}>
+        <text x={X1 - 4} y={80} textAnchor="end" fontFamily={monoFamily} fontSize={FONT_ZONE} fill={c.teal}>
           stillness · nirodha
-        </text>
-        <text x={X1 - 4} y={176} textAnchor="end" fontFamily={monoFamily} fontSize={9} fill={c.muted}>
-          the seer, in its own nature (1.3)
         </text>
 
         {/* the settling arrow */}
-        <text x={262} y={192} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.faint}>
+        <text x={260} y={215} textAnchor="middle" fontFamily={monoFamily} fontSize={FONT_NOTE} fill={c.faint}>
           the ripples settle →
         </text>
       </svg>
 
       {/* the five fluctuations: what churns the surface (YS 1.5–1.11) */}
-      <div style={{ marginTop: 16 }}>
-        <div style={{ ...mono, fontSize: 10.5, color: c.faint, letterSpacing: '.04em', marginBottom: 9 }}>
+      <div style={{ marginTop: 18 }}>
+        <div style={{ ...mono, fontSize: 12, color: c.faint, letterSpacing: '.04em', marginBottom: 10 }}>
           the five vṛtti · every kind of ripple
         </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           {VRITTIS.map((v) => (
             <span
               key={v.sanskrit}
               title={v.gloss}
               style={{
                 ...mono,
-                fontSize: 10.5,
+                fontSize: 12,
                 color: c.muted,
                 border: `1px solid ${c.line2}`,
                 background: c.panel2,
-                borderRadius: 6,
-                padding: '4px 9px',
+                borderRadius: 7,
+                padding: '5px 10px',
                 lineHeight: 1.3,
               }}
             >

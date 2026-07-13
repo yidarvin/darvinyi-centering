@@ -3,9 +3,25 @@ import { Figure } from '@/components/Figure';
 
 const monoFamily = mono.fontFamily;
 
-const X0 = 70;
-const X1 = 452;
+const X0 = 20;
+const X1 = 460;
 const SPAN = X1 - X0;
+
+const HEADER_FS = 21;
+const DESC_FS = 19.5;
+
+// lane 1 (fast, shallow breathing)
+const HEADER1_Y = 28;
+const DESC1_Y = 63;
+const MID1 = 108;
+
+// divider between lanes
+const DIVIDER_Y = 158;
+
+// lane 2 (slow, resonance breathing)
+const HEADER2_Y = 196;
+const DESC2_Y = 231;
+const MID2 = 305;
 
 function trace(mid: number, fn: (t: number) => number, n = 260): string {
   const pts: string[] = [];
@@ -26,7 +42,7 @@ function trace(mid: number, fn: (t: number) => number, n = 260): string {
  */
 export function HrvFigure() {
   // shallow, quick breathing: small, irregular wobble
-  const fast = trace(82, (t) => {
+  const fast = trace(MID1, (t) => {
     const x = t * SPAN;
     return (
       9 * Math.sin(2 * Math.PI * 6.5 * t) +
@@ -37,7 +53,7 @@ export function HrvFigure() {
   });
 
   // slow breathing ~6 / min: large, clean sine (resonance)
-  const slow = trace(214, (t) => 36 * Math.sin(2 * Math.PI * 2.5 * t));
+  const slow = trace(MID2, (t) => 36 * Math.sin(2 * Math.PI * 2.5 * t));
 
   return (
     <Figure
@@ -46,47 +62,33 @@ export function HrvFigure() {
       max={520}
     >
       <svg
-        viewBox="0 0 480 296"
+        viewBox="0 0 480 365"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="Two heart-rate traces. With shallow, quick breathing the trace makes a small, ragged wave. With slow breathing near six breaths a minute the trace makes a large, smooth wave several times bigger, as the breath and heart fall into resonance."
+        aria-label="Two heart-rate traces, stacked. With shallow, quick breathing the trace makes a small, ragged wave. With slow breathing near six breaths a minute the trace makes a large, smooth wave several times bigger, as the breath and heart fall into resonance."
       >
         {/* top lane: fast shallow breathing */}
-        <text x={X0} y={26} fontFamily={monoFamily} fontSize={10.5} fill={c.muted}>
+        <text x={X0} y={HEADER1_Y} fontFamily={monoFamily} fontSize={HEADER_FS} fill={c.muted}>
           shallow, quick breaths
         </text>
-        <text x={X1} y={26} textAnchor="end" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
+        <text x={X0} y={DESC1_Y} fontFamily={monoFamily} fontSize={DESC_FS} fill={c.faint}>
           small, ragged wave
         </text>
-        <line x1={X0} y1={82} x2={X1} y2={82} stroke={c.line} strokeWidth={1} strokeDasharray="2 4" />
+        <line x1={X0} y1={MID1} x2={X1} y2={MID1} stroke={c.line} strokeWidth={1} strokeDasharray="2 4" />
         <polyline points={fast} fill="none" stroke={c.faint} strokeWidth={1.8} strokeLinejoin="round" />
-        {/* amplitude bracket */}
-        <line x1={X1 + 0} y1={73} x2={X1 + 0} y2={91} stroke={c.line2} strokeWidth={1} transform="translate(-2,0)" />
 
         {/* divider */}
-        <line x1={X0} y1={140} x2={X1} y2={140} stroke={c.line} strokeWidth={1} />
+        <line x1={X0} y1={DIVIDER_Y} x2={X1} y2={DIVIDER_Y} stroke={c.line} strokeWidth={1} />
 
         {/* bottom lane: slow breathing ~6 / min */}
-        <text x={X0} y={170} fontFamily={monoFamily} fontSize={10.5} fill={c.teal}>
+        <text x={X0} y={HEADER2_Y} fontFamily={monoFamily} fontSize={HEADER_FS} fill={c.teal}>
           slow breaths, ~6 / min
         </text>
-        <text x={X1} y={170} textAnchor="end" fontFamily={monoFamily} fontSize={9.5} fill={c.tealDim}>
+        <text x={X0} y={DESC2_Y} fontFamily={monoFamily} fontSize={DESC_FS} fill={c.tealDim}>
           large, smooth wave
         </text>
-        <line x1={X0} y1={214} x2={X1} y2={214} stroke={c.line} strokeWidth={1} strokeDasharray="2 4" />
+        <line x1={X0} y1={MID2} x2={X1} y2={MID2} stroke={c.line} strokeWidth={1} strokeDasharray="2 4" />
         <polyline points={slow} fill="none" stroke={c.teal} strokeWidth={2.2} strokeLinejoin="round" />
-
-        {/* amplitude comparison brackets at the far left */}
-        <g stroke={c.line2} strokeWidth={1}>
-          <line x1={X0 - 14} y1={73} x2={X0 - 14} y2={91} />
-          <line x1={X0 - 14} y1={178} x2={X0 - 14} y2={250} />
-        </g>
-        <text x={X0 - 20} y={86} textAnchor="end" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
-          small
-        </text>
-        <text x={X0 - 20} y={217} textAnchor="end" fontFamily={monoFamily} fontSize={8.5} fill={c.tealDim}>
-          large
-        </text>
       </svg>
     </Figure>
   );

@@ -16,77 +16,74 @@ export function SymmetryArgumentFigure() {
     <Figure
       caption="fig_05.3a · the_symmetry_of_non_being"
       sub="Epicurus, Letter to Menoeceus 125; Lucretius, On the Nature of Things 3 (the mirror of past and future time). the eternity before you were born never once troubled you. the eternity after is its mirror. this answers the fear of being dead, not the grief of others or the pain of dying."
-      max={540}
+      max={480}
     >
       <svg
-        viewBox="0 0 480 210"
+        viewBox="0 0 300 250"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A timeline. On the left, an endless void labelled the time before you were born, which was nothing to you. In the centre, a bright bar, your life. On the right, an endless void labelled the time after you die, drawn identically to the left. A mirror line through your life shows the two voids are the same nothing."
+        aria-label="A timeline mirrored around your life. On the left, an endless void, before birth, marked with an infinity symbol and labelled nothing to you. In the centre, a highlighted bar, your life, the only part you are in. On the right, an endless void, after death, drawn identically to the left and also labelled nothing to you. A dashed mirror line runs through the centre of your life. Below the diagram: you weren't there to mind the first, you won't be there to mind the second."
       >
         {/* mirror axis through the centre of the life bar */}
-        <line x1={240} y1={26} x2={240} y2={170} stroke={c.faint} strokeWidth={1} strokeDasharray="3 5" strokeOpacity={0.7} />
-        <text x={240} y={20} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.faint}>
+        <text x={150} y={22} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.faint}>
           mirror
         </text>
+        <line x1={150} y1={30} x2={150} y2={192} stroke={c.faint} strokeWidth={1} strokeDasharray="3 5" strokeOpacity={0.7} />
 
         {/* left void: before birth */}
-        <rect x={24} y={70} width={158} height={44} rx={5} fill="rgba(255,255,255,0.02)" stroke={c.faint} strokeWidth={1} strokeDasharray="4 4" strokeOpacity={0.7} />
+        <rect x={5} y={86} width={100} height={56} rx={5} fill="rgba(255,255,255,0.02)" stroke={c.faint} strokeWidth={1} strokeDasharray="4 4" strokeOpacity={0.7} />
         {/* right void: after death, drawn identically */}
-        <rect x={298} y={70} width={158} height={44} rx={5} fill="rgba(255,255,255,0.02)" stroke={c.faint} strokeWidth={1} strokeDasharray="4 4" strokeOpacity={0.7} />
+        <rect x={195} y={86} width={100} height={56} rx={5} fill="rgba(255,255,255,0.02)" stroke={c.faint} strokeWidth={1} strokeDasharray="4 4" strokeOpacity={0.7} />
 
         {/* life */}
-        <rect x={182} y={62} width={116} height={60} rx={6} fill={c.tealFog} stroke={c.teal} strokeWidth={1.6} />
+        <rect x={120} y={86} width={60} height={56} rx={6} fill={c.tealFog} stroke={c.teal} strokeWidth={1.6} />
 
-        {/* infinity markers at the far ends */}
-        <text x={20} y={97} textAnchor="middle" fontFamily={monoFamily} fontSize={15} fill={c.faint}>
-          ∞
+        {/* region names, above the band */}
+        <text x={55} y={48} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.muted}>
+          before birth
         </text>
-        <text x={460} y={97} textAnchor="middle" fontFamily={monoFamily} fontSize={15} fill={c.faint}>
-          ∞
-        </text>
-
-        {/* region names */}
-        <text x={103} y={44} textAnchor="middle" fontFamily={monoFamily} fontSize={11} fill={c.muted}>
-          before you were born
-        </text>
-        <text x={103} y={57} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
-          an eternity
-        </text>
-
-        <text x={240} y={44} textAnchor="middle" fontFamily={monoFamily} fontSize={11.5} fontWeight={600} fill={c.teal}>
+        <text x={150} y={48} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fontWeight={600} fill={c.teal}>
           your life
         </text>
-        <text x={240} y={57} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.teal} fillOpacity={0.85}>
-          the only part you are in
+        <text x={245} y={48} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.muted}>
+          after death
         </text>
 
-        <text x={377} y={44} textAnchor="middle" fontFamily={monoFamily} fontSize={11} fill={c.muted}>
-          after you die
-        </text>
-        <text x={377} y={57} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
-          an eternity
+        {/* what your life is, the one non-void region */}
+        <text x={150} y={72} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.teal} fillOpacity={0.85}>
+          the part you're in
         </text>
 
-        {/* the symmetry line, stated */}
-        <text x={103} y={138} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
-          nothing to you
+        {/* infinity markers, inside each void */}
+        <text x={55} y={122} textAnchor="middle" fontFamily={monoFamily} fontSize={22} fill={c.faint}>
+          ∞
         </text>
-        <text x={377} y={138} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
-          nothing to you
+        <text x={245} y={122} textAnchor="middle" fontFamily={monoFamily} fontSize={22} fill={c.faint}>
+          ∞
         </text>
 
         {/* boundary ticks */}
-        <text x={182} y={156} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.muted}>
+        <text x={112.5} y={156} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.muted}>
           birth
         </text>
-        <text x={298} y={156} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.muted}>
+        <text x={187.5} y={156} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.muted}>
           death
         </text>
 
-        {/* the conclusion */}
-        <text x={240} y={188} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fill={c.text}>
-          you were not there to mind the first. you will not be there to mind the second.
+        {/* the symmetry line, stated under each void, identically */}
+        <text x={55} y={182} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.faint}>
+          nothing to you
+        </text>
+        <text x={245} y={182} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.faint}>
+          nothing to you
+        </text>
+
+        {/* the conclusion, one clause per line */}
+        <text x={150} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.text}>
+          you weren't there to mind the first.
+        </text>
+        <text x={150} y={232} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.text}>
+          you won't be there to mind the second.
         </text>
       </svg>
     </Figure>

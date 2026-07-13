@@ -14,10 +14,10 @@ const MIDY = ay(0.5);
  */
 export function CalmMapBackdrop() {
   const corners = [
-    { q: QUADS.agitation, x: MAP.x0 + 7, y: MAP.y0 + 14, anchor: 'start' as const },
-    { q: QUADS.flow, x: MAP.x1 - 7, y: MAP.y0 + 14, anchor: 'end' as const },
-    { q: QUADS.sedation, x: MAP.x0 + 7, y: MAP.y1 - 9, anchor: 'start' as const },
-    { q: QUADS.equanimity, x: MAP.x1 - 7, y: MAP.y1 - 9, anchor: 'end' as const },
+    { q: QUADS.agitation, x: MAP.x0 + 9, y: MAP.y0 + 16, anchor: 'start' as const },
+    { q: QUADS.flow, x: MAP.x1 - 9, y: MAP.y0 + 16, anchor: 'end' as const },
+    { q: QUADS.sedation, x: MAP.x0 + 9, y: MAP.y1 - 10, anchor: 'start' as const },
+    { q: QUADS.equanimity, x: MAP.x1 - 9, y: MAP.y1 - 10, anchor: 'end' as const },
   ];
   return (
     <Fragment>
@@ -37,38 +37,38 @@ export function CalmMapBackdrop() {
 
       {/* quadrant labels, in their corners */}
       {corners.map(({ q, x, y, anchor }) => (
-        <text key={q.id} x={x} y={y} textAnchor={anchor} fontFamily={monoFamily} fontSize={11.5} fontWeight={600} fill={q.color}>
+        <text key={q.id} x={x} y={y} textAnchor={anchor} fontFamily={monoFamily} fontSize={14} fontWeight={600} fill={q.color}>
           {q.label}
         </text>
       ))}
 
       {/* Y axis: arousal */}
       <text
-        x={14}
+        x={11}
         y={(MAP.y0 + MAP.y1) / 2}
         textAnchor="middle"
         fontFamily={monoFamily}
-        fontSize={10.5}
+        fontSize={13}
         fill={c.muted}
-        transform={`rotate(-90 14 ${(MAP.y0 + MAP.y1) / 2})`}
+        transform={`rotate(-90 11 ${(MAP.y0 + MAP.y1) / 2})`}
       >
         arousal
       </text>
-      <text x={31} y={MAP.y0 + 7} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+      <text x={42} y={MAP.y0 + 9} textAnchor="end" fontFamily={monoFamily} fontSize={12.5} fill={c.faint}>
         high
       </text>
-      <text x={31} y={MAP.y1 - 1} textAnchor="middle" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+      <text x={42} y={MAP.y1 - 2} textAnchor="end" fontFamily={monoFamily} fontSize={12.5} fill={c.faint}>
         low
       </text>
 
       {/* X axis: engagement */}
-      <text x={(MAP.x0 + MAP.x1) / 2} y={MAP.vbH - 7} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.muted}>
+      <text x={(MAP.x0 + MAP.x1) / 2} y={MAP.vbH - 16} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.muted}>
         engagement
       </text>
-      <text x={MAP.x0} y={MAP.y1 + 13} textAnchor="start" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+      <text x={MAP.x0} y={MAP.y1 + 16} textAnchor="start" fontFamily={monoFamily} fontSize={12.5} fill={c.faint}>
         checked out
       </text>
-      <text x={MAP.x1} y={MAP.y1 + 13} textAnchor="end" fontFamily={monoFamily} fontSize={8.5} fill={c.faint}>
+      <text x={MAP.x1} y={MAP.y1 + 16} textAnchor="end" fontFamily={monoFamily} fontSize={12.5} fill={c.faint}>
         present
       </text>
     </Fragment>

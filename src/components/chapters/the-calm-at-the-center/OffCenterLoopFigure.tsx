@@ -9,20 +9,27 @@ import { Figure } from '@/components/Figure';
  * The one exit, drawn in teal, is to unblend: step back so the Self returns to
  * lead. Concept: Schwartz, why protectors stay stuck, and unblending as the way
  * back to Self.
+ *
+ * Legibility redesign: the four steps used to sit at the compass points of a
+ * circle, which forced small labels into small arcs. They now run down a single
+ * vertical column instead, with a loop-back arrow on the right carrying "burden
+ * never heals" back to "exile pain stirs" so the same cycle still reads as a
+ * closed loop. The "off_center" note moved from the middle of the (former)
+ * circle to a kicker above the column, and the teal "unblend" exit moved from a
+ * side note to a callout beneath the loop, with its arrow still pointing back
+ * into the cycle. Same four steps, same loop, same one exit -- just stacked
+ * instead of circled, so every label can be read at a legible size.
  */
 
-const NODES = [
-  { x: 240, y: 40, label: 'exile pain stirs', col: c.violet },
-  { x: 360, y: 160, label: 'protector blends, fires', col: c.amber },
-  { x: 240, y: 280, label: 'you act off-center', col: c.coral },
-  { x: 120, y: 160, label: 'burden never heals', col: c.violet },
-];
+const CX = 118;
+const BOX_W = 210;
+const HALF_W = BOX_W / 2;
 
-const ARCS = [
-  'M 273.1 44.6 A 120 120 0 0 1 355.4 126.9',
-  'M 355.4 193.1 A 120 120 0 0 1 273.1 275.4',
-  'M 206.9 275.4 A 120 120 0 0 1 124.6 193.1',
-  'M 124.6 126.9 A 120 120 0 0 1 206.9 44.6',
+const NODES = [
+  { y: 86, h: 44, lines: ['exile pain stirs'], col: c.violet },
+  { y: 185, h: 62, lines: ['protector', 'blends, fires'], col: c.amber },
+  { y: 284, h: 44, lines: ['you act off-center'], col: c.coral },
+  { y: 374, h: 44, lines: ['burden never heals'], col: c.violet },
 ];
 
 export function OffCenterLoopFigure() {
@@ -30,13 +37,13 @@ export function OffCenterLoopFigure() {
     <Figure
       caption="fig_11.4 · the_off_center_loop"
       sub="the protector keeps the exile buried, so the burden never heals, and the protector can never rest. the way out is not to win the loop. it is to step out of it: unblend, and let the Self return to the center."
-      max={440}
+      max={280}
     >
       <svg
-        viewBox="0 0 480 320"
+        viewBox="0 0 300 480"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="A four-step loop drawn as a circle of arrows. Exile pain stirs, the protector blends and fires, you act off-center, the burden never heals, and back to the start. A teal note off to the side points in to the cycle and reads: unblend, return to center."
+        aria-label="A four-step cycle drawn as a vertical loop, labeled off_center: the Self is off the wheel. Exile pain stirs, then the protector blends and fires, then you act off-center, then the burden never heals, and a loop-back arrow on the right carries the cycle back to the start. Below the loop, a teal arrow points back into it with the note: unblend, return to center."
       >
         <defs>
           <marker id="ocl-arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
@@ -47,32 +54,61 @@ export function OffCenterLoopFigure() {
           </marker>
         </defs>
 
-        {ARCS.map((d, i) => (
-          <path key={i} d={d} fill="none" stroke={c.muted} strokeOpacity={0.5} strokeWidth={1.5} markerEnd="url(#ocl-arrow)" />
-        ))}
-
-        <text x={240} y={156} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={11} fill={c.faint}>
+        <text x={150} y={24} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={13} fill={c.faint}>
           off_center
         </text>
-        <text x={240} y={171} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={10} fill={c.faint}>
+        <text x={150} y={42} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={13} fill={c.faint}>
           the Self is off the wheel
         </text>
 
+        {/* down-arrows between consecutive steps */}
+        <line x1={CX} y1={108} x2={CX} y2={154} stroke={c.muted} strokeOpacity={0.5} strokeWidth={1.5} markerEnd="url(#ocl-arrow)" />
+        <line x1={CX} y1={216} x2={CX} y2={262} stroke={c.muted} strokeOpacity={0.5} strokeWidth={1.5} markerEnd="url(#ocl-arrow)" />
+        <line x1={CX} y1={306} x2={CX} y2={352} stroke={c.muted} strokeOpacity={0.5} strokeWidth={1.5} markerEnd="url(#ocl-arrow)" />
+
+        {/* loop-back arrow: burden never heals, back to exile pain stirs */}
+        <path
+          d="M 223 374 C 280 350, 280 110, 223 86"
+          fill="none"
+          stroke={c.muted}
+          strokeOpacity={0.5}
+          strokeWidth={1.5}
+          markerEnd="url(#ocl-arrow)"
+        />
+
         {NODES.map((n, i) => (
           <g key={i}>
-            <rect x={n.x - 70} y={n.y - 19} width={140} height={38} rx={9} fill={c.panel2} stroke={n.col} strokeWidth={1.4} strokeOpacity={0.7} />
-            <text x={n.x} y={n.y + 4} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={11} fontWeight={500} fill={n.col}>
-              {n.label}
-            </text>
+            <rect
+              x={CX - HALF_W}
+              y={n.y - n.h / 2}
+              width={BOX_W}
+              height={n.h}
+              rx={9}
+              fill={c.panel2}
+              stroke={n.col}
+              strokeWidth={1.4}
+              strokeOpacity={0.7}
+            />
+            {n.lines.length === 1 ? (
+              <text x={CX} y={n.y + 5} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={14} fontWeight={500} fill={n.col}>
+                {n.lines[0]}
+              </text>
+            ) : (
+              <>
+                <text x={CX} y={n.y - 4} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={14} fontWeight={500} fill={n.col}>
+                  {n.lines[0]}
+                </text>
+                <text x={CX} y={n.y + 17} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={14} fontWeight={500} fill={n.col}>
+                  {n.lines[1]}
+                </text>
+              </>
+            )}
           </g>
         ))}
 
-        <line x1={92} y1={88} x2={150} y2={104} stroke={c.teal} strokeWidth={1} strokeOpacity={0.7} markerEnd="url(#ocl-arrow-teal)" />
-        <text x={70} y={70} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={10} fontWeight={500} fill={c.teal}>
-          unblend ·
-        </text>
-        <text x={70} y={83} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={10} fontWeight={500} fill={c.teal}>
-          return to center
+        <line x1={150} y1={430} x2={204} y2={396} stroke={c.teal} strokeWidth={1.2} strokeOpacity={0.8} markerEnd="url(#ocl-arrow-teal)" />
+        <text x={150} y={452} textAnchor="middle" fontFamily={mono.fontFamily} fontSize={14} fontWeight={500} fill={c.teal}>
+          unblend, return to center
         </text>
       </svg>
     </Figure>

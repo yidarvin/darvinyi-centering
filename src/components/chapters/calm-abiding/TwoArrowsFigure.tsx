@@ -11,20 +11,26 @@ const monoFamily = mono.fontFamily;
  * aversion, lamentation, the craving to flee. The trained disciple still feels the
  * first arrow (equanimity is not numbness) and does not shoot the second.
  *
- * Two panels: the untrained response (two arrows) beside the trained one (one).
+ * Two panels, stacked top-to-bottom (rather than side by side): the untrained
+ * response (two arrows) above the trained one (one arrow). Stacking gives each
+ * panel the full width to breathe, which is what lets the labels run at a
+ * legible size on a narrow phone screen without crowding the "you" circle or
+ * the arrow paths. The relationship encoded (first arrow always lands; second
+ * arrow is optional and self-drawn) is unchanged from the original side-by-side
+ * version.
  */
 export function TwoArrowsFigure() {
   return (
     <Figure
       caption="fig_06.1a · the_two_arrows"
       sub="Sallatha Sutta (SN 36.6). the first arrow is the painful feeling itself, and it lands on everyone. the second is the one you draw and fire at yourself: the sorrow, the aversion, the wish to be anywhere else. the trained mind still feels the first arrow. it just stops shooting the second."
-      max={540}
+      max={380}
     >
       <svg
-        viewBox="0 0 520 300"
+        viewBox="0 0 300 450"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
-        aria-label="Two panels. Left, the untrained response: a circle marked you is struck by a first arrow from the world, the painful feeling, and by a second arrow it fires back into itself, the reaction. Two pains, bodily and mental. Right, the trained response: the same first arrow lands, but the second is never drawn. One pain, bodily only."
+        aria-label="Two panels, stacked vertically. Top, the untrained response: a circle marked you is struck by a first arrow from the world, the painful feeling, and draws a second arrow that loops back into itself, the reaction. Two pains, bodily and mental. Bottom, the trained response: the same first arrow lands, but the second is never drawn. One pain, bodily only."
       >
         <defs>
           <marker id="ta-coral" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto">
@@ -35,96 +41,93 @@ export function TwoArrowsFigure() {
           </marker>
         </defs>
 
-        {/* divider */}
-        <line x1={260} y1={26} x2={260} y2={282} stroke={c.line} strokeWidth={1} strokeDasharray="2 5" />
+        {/* divider between the two stacked panels */}
+        <line x1={20} y1={227} x2={280} y2={227} stroke={c.line} strokeWidth={1} strokeDasharray="2 5" />
 
-        {/* ── panel A: the untrained response ───────────────────── */}
-        <text x={132} y={36} textAnchor="middle" fontFamily={monoFamily} fontSize={11.5} fontWeight={600} fill={c.text}>
+        {/* ── panel A: the untrained response (top) ─────────────────── */}
+        <text x={150} y={32} textAnchor="middle" fontFamily={monoFamily} fontSize={16} fontWeight={600} fill={c.text}>
           the untrained response
         </text>
 
         {/* you */}
-        <circle cx={132} cy={172} r={27} fill={c.panel2} stroke={c.line2} strokeWidth={1.4} />
-        <text x={132} y={176} textAnchor="middle" fontFamily={monoFamily} fontSize={11} fill={c.muted}>
+        <circle cx={95} cy={118} r={30} fill={c.panel2} stroke={c.line2} strokeWidth={1.4} />
+        <text x={95} y={122} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.muted}>
           you
         </text>
 
         {/* first arrow: from the world, unavoidable */}
-        <line x1={44} y1={88} x2={110} y2={152} stroke={c.coral} strokeWidth={2.2} markerEnd="url(#ta-coral)" />
-        <text x={40} y={80} textAnchor="start" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.coral}>
+        <line x1={25} y1={90} x2={67} y2={107} stroke={c.coral} strokeWidth={2.2} markerEnd="url(#ta-coral)" />
+        <text x={14} y={64} textAnchor="start" fontFamily={monoFamily} fontSize={13} fontWeight={600} fill={c.coral}>
           first arrow
         </text>
-        <text x={40} y={92} textAnchor="start" fontFamily={monoFamily} fontSize={9.5} fill={c.coral} fillOpacity={0.85}>
+        <text x={14} y={80} textAnchor="start" fontFamily={monoFamily} fontSize={12} fill={c.coral} fillOpacity={0.85}>
           the painful feeling
         </text>
 
         {/* second arrow: self-shot, looping from you back into you */}
         <path
-          d="M150 192 C 196 214, 206 150, 158 156"
+          d="M115 140 C 166 165, 170 94, 124 100"
           fill="none"
           stroke={c.amber}
           strokeWidth={2.2}
           markerEnd="url(#ta-amber)"
         />
-        <text x={212} y={186} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.amber}>
-          second
+        <text x={230} y={100} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fontWeight={600} fill={c.amber}>
+          second arrow
         </text>
-        <text x={212} y={198} textAnchor="middle" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.amber}>
-          arrow
-        </text>
-        <text x={212} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.amber} fillOpacity={0.85}>
+        <text x={230} y={116} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.amber} fillOpacity={0.85}>
           you add it
         </text>
 
         {/* verdict A */}
-        <text x={132} y={258} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.text}>
+        <text x={150} y={192} textAnchor="middle" fontFamily={monoFamily} fontSize={13.5} fill={c.text}>
           two pains
         </text>
-        <text x={132} y={272} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.faint}>
+        <text x={150} y={210} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.faint}>
           bodily + mental
         </text>
 
-        {/* ── panel B: the trained response ─────────────────────── */}
-        <text x={388} y={36} textAnchor="middle" fontFamily={monoFamily} fontSize={11.5} fontWeight={600} fill={c.text}>
+        {/* ── panel B: the trained response (bottom) ────────────────── */}
+        <text x={150} y={257} textAnchor="middle" fontFamily={monoFamily} fontSize={16} fontWeight={600} fill={c.text}>
           the trained response
         </text>
 
         {/* you */}
-        <circle cx={388} cy={172} r={27} fill={c.tealFog} stroke={c.tealEdge} strokeWidth={1.4} />
-        <text x={388} y={176} textAnchor="middle" fontFamily={monoFamily} fontSize={11} fill={c.teal}>
+        <circle cx={95} cy={343} r={30} fill={c.tealFog} stroke={c.tealEdge} strokeWidth={1.4} />
+        <text x={95} y={347} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.teal}>
           you
         </text>
 
         {/* first arrow: still lands */}
-        <line x1={300} y1={88} x2={366} y2={152} stroke={c.coral} strokeWidth={2.2} markerEnd="url(#ta-coral)" />
-        <text x={296} y={80} textAnchor="start" fontFamily={monoFamily} fontSize={10} fontWeight={600} fill={c.coral}>
+        <line x1={25} y1={315} x2={67} y2={332} stroke={c.coral} strokeWidth={2.2} markerEnd="url(#ta-coral)" />
+        <text x={14} y={289} textAnchor="start" fontFamily={monoFamily} fontSize={13} fontWeight={600} fill={c.coral}>
           first arrow
         </text>
-        <text x={296} y={92} textAnchor="start" fontFamily={monoFamily} fontSize={9.5} fill={c.coral} fillOpacity={0.85}>
+        <text x={14} y={305} textAnchor="start" fontFamily={monoFamily} fontSize={12} fill={c.coral} fillOpacity={0.85}>
           still felt, fully
         </text>
 
         {/* second arrow: never drawn */}
         <path
-          d="M406 192 C 452 214, 462 150, 414 156"
+          d="M115 365 C 166 390, 170 319, 124 325"
           fill="none"
           stroke={c.faint}
           strokeWidth={1.4}
           strokeDasharray="3 5"
           strokeOpacity={0.7}
         />
-        <text x={468} y={186} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
-          never
+        <text x={230} y={325} textAnchor="middle" fontFamily={monoFamily} fontSize={13} fill={c.faint} fillOpacity={0.7}>
+          second arrow
         </text>
-        <text x={468} y={198} textAnchor="middle" fontFamily={monoFamily} fontSize={9.5} fill={c.faint}>
-          drawn
+        <text x={230} y={341} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.faint} fillOpacity={0.7}>
+          never drawn
         </text>
 
         {/* verdict B */}
-        <text x={388} y={258} textAnchor="middle" fontFamily={monoFamily} fontSize={10.5} fill={c.teal}>
+        <text x={150} y={417} textAnchor="middle" fontFamily={monoFamily} fontSize={13.5} fill={c.teal}>
           one pain
         </text>
-        <text x={388} y={272} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.faint}>
+        <text x={150} y={435} textAnchor="middle" fontFamily={monoFamily} fontSize={12} fill={c.faint}>
           bodily only
         </text>
       </svg>

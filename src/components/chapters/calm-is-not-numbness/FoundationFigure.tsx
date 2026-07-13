@@ -7,18 +7,35 @@ const monoFamily = mono.fontFamily;
 const SLATE = '#7c8794';
 const SLATE_FOG = 'rgba(124,135,148,0.10)';
 
-/** the four things a settled center either shuts out or steps toward */
+/** shared geometry: a 260x196 viewBox, four items across, wide enough at the
+ * legible font sizes below that "hard talk" and "others" never touch. */
+const VB_W = 260;
+const VB_H = 196;
+const CX = 130;
+const FS = 10.5; // every <text> in this figure uses this one size, on purpose
+
+/** the four things a settled center either shuts out or steps toward.
+ * labels are shortened from the prose's "the hard conversation," "other
+ * people" etc. so four of them fit across 260px at a legible size; the
+ * aria-labels below spell the full phrasing out for anyone not seeing the shapes. */
 const ITEMS = [
-  { label: 'the hard talk', x: 40 },
-  { label: 'grief', x: 96 },
-  { label: 'the work', x: 152 },
-  { label: 'other people', x: 208 },
+  { label: 'hard talk', x: 40 },
+  { label: 'grief', x: 100 },
+  { label: 'the work', x: 160 },
+  { label: 'others', x: 220 },
 ];
 
+const ITEM_LABEL_Y = 18;
+const ITEM_CIRCLE_CY = 34;
+const ITEM_R = 5;
+
 function Bunker() {
+  const wallY = 72;
+  const wallH = 114;
+  const youCy = 129;
   return (
     <svg
-      viewBox="0 0 248 168"
+      viewBox={`0 0 ${VB_W} ${VB_H}`}
       style={{ width: '100%', height: 'auto', display: 'block' }}
       role="img"
       aria-label="Calm as a bunker. A settled center is sealed inside a thick wall. The hard conversation, grief, the work, and other people all sit outside and bounce off the wall. Nothing reaches in and nothing steps out."
@@ -26,24 +43,24 @@ function Bunker() {
       {/* the items, outside, kept out */}
       {ITEMS.map((it) => (
         <g key={it.label}>
-          <circle cx={it.x} cy={26} r={4} fill="none" stroke={SLATE} strokeWidth={1.2} />
-          <text x={it.x} y={16} textAnchor="middle" fontFamily={monoFamily} fontSize={7} fill={c.faint}>
+          <circle cx={it.x} cy={ITEM_CIRCLE_CY} r={ITEM_R} fill="none" stroke={SLATE} strokeWidth={1.3} />
+          <text x={it.x} y={ITEM_LABEL_Y} textAnchor="middle" fontFamily={monoFamily} fontSize={FS} fill={c.faint}>
             {it.label}
           </text>
           {/* bouncing off the wall */}
-          <path d={`M${it.x} 32 L${it.x} 52`} stroke={SLATE} strokeWidth={1} strokeDasharray="2 3" opacity={0.7} />
-          <path d={`M${it.x - 3} 48 L${it.x} 53 L${it.x + 3} 48`} fill="none" stroke={SLATE} strokeWidth={1} opacity={0.7} />
+          <path d={`M${it.x} 41 L${it.x} 59`} stroke={SLATE} strokeWidth={1} strokeDasharray="2 3" opacity={0.7} />
+          <path d={`M${it.x - 3} 59 L${it.x} 64 L${it.x + 3} 59`} fill="none" stroke={SLATE} strokeWidth={1} opacity={0.7} />
         </g>
       ))}
 
       {/* the wall */}
-      <rect x={28} y={62} width={192} height={92} rx={10} fill="none" stroke={SLATE} strokeWidth={2.4} />
-      <rect x={28} y={62} width={192} height={92} rx={10} fill={SLATE_FOG} />
+      <rect x={30} y={wallY} width={200} height={wallH} rx={10} fill="none" stroke={SLATE} strokeWidth={2.4} />
+      <rect x={30} y={wallY} width={200} height={wallH} rx={10} fill={SLATE_FOG} />
 
       {/* you, sealed inside */}
-      <circle cx={124} cy={112} r={11} fill="none" stroke={SLATE} strokeWidth={1.4} />
-      <circle cx={124} cy={112} r={4.4} fill={SLATE} />
-      <text x={124} y={138} textAnchor="middle" fontFamily={monoFamily} fontSize={7.5} fill={c.muted}>
+      <circle cx={CX} cy={youCy} r={12} fill="none" stroke={SLATE} strokeWidth={1.5} />
+      <circle cx={CX} cy={youCy} r={5} fill={SLATE} />
+      <text x={CX} y={176} textAnchor="middle" fontFamily={monoFamily} fontSize={FS} fill={c.muted}>
         sealed in
       </text>
     </svg>
@@ -51,11 +68,12 @@ function Bunker() {
 }
 
 function Base() {
-  const cx = 124;
-  const groundY = 128;
+  const youCy = 100;
+  const hubY = 112; // where the branches leave from, just under the "you" circle
+  const groundY = 144;
   return (
     <svg
-      viewBox="0 0 248 168"
+      viewBox={`0 0 ${VB_W} ${VB_H}`}
       style={{ width: '100%', height: 'auto', display: 'block' }}
       role="img"
       aria-label="Calm as a base. A settled center is the ground you stand on, and from it you reach out toward the hard conversation, grief, the work, and other people. The base does not keep the world away. It is what lets you meet it."
@@ -65,29 +83,33 @@ function Base() {
         <g key={it.label}>
           {/* branch from you out to the item */}
           <path
-            d={`M${cx} ${groundY - 6} Q${(cx + it.x) / 2} ${it.x === cx ? 60 : 54}, ${it.x} 34`}
+            d={`M${CX} ${hubY} Q${(CX + it.x) / 2} 45, ${it.x} 38`}
             fill="none"
             stroke={c.teal}
-            strokeWidth={1.3}
+            strokeWidth={1.4}
           />
-          <circle cx={it.x} cy={30} r={4.4} fill={c.tealFog} stroke={c.teal} strokeWidth={1.3} />
-          <text x={it.x} y={20} textAnchor="middle" fontFamily={monoFamily} fontSize={7} fill={c.teal}>
+          <circle cx={it.x} cy={ITEM_CIRCLE_CY} r={ITEM_R} fill={c.tealFog} stroke={c.teal} strokeWidth={1.3} />
+          <text x={it.x} y={ITEM_LABEL_Y} textAnchor="middle" fontFamily={monoFamily} fontSize={FS} fill={c.teal}>
             {it.label}
           </text>
         </g>
       ))}
 
       {/* you, standing on the base */}
-      <circle cx={cx} cy={groundY - 16} r={7.5} fill="none" stroke={c.teal} strokeWidth={1.5} />
-      <circle cx={cx} cy={groundY - 16} r={3.4} fill={c.teal} />
-      <text x={cx} y={groundY - 26} textAnchor="middle" fontFamily={monoFamily} fontSize={7} fill={c.teal}>
+      <circle cx={CX} cy={youCy} r={9} fill="none" stroke={c.teal} strokeWidth={1.6} />
+      <circle cx={CX} cy={youCy} r={4.2} fill={c.teal} />
+      <text x={CX} y={128} textAnchor="middle" fontFamily={monoFamily} fontSize={FS} fill={c.teal}>
         you
       </text>
 
       {/* the settled base: a broad, low platform */}
-      <path d={`M40 ${groundY} Q124 ${groundY + 16}, 208 ${groundY} L208 ${groundY + 6} Q124 ${groundY + 22}, 40 ${groundY + 6} Z`} fill={c.teal} opacity={0.9} />
-      <line x1={40} y1={groundY} x2={208} y2={groundY} stroke={c.teal} strokeWidth={2.4} />
-      <text x={cx} y={groundY + 34} textAnchor="middle" fontFamily={monoFamily} fontSize={7.5} fill={c.teal}>
+      <path
+        d={`M40 ${groundY} Q${CX} ${groundY + 16}, 220 ${groundY} L220 ${groundY + 6} Q${CX} ${groundY + 22}, 40 ${groundY + 6} Z`}
+        fill={c.teal}
+        opacity={0.9}
+      />
+      <line x1={40} y1={groundY} x2={220} y2={groundY} stroke={c.teal} strokeWidth={2.4} />
+      <text x={CX} y={182} textAnchor="middle" fontFamily={monoFamily} fontSize={FS} fill={c.teal}>
         the settled base
       </text>
     </svg>

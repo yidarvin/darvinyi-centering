@@ -4,29 +4,63 @@ import { LIMBS } from './limbs';
 
 const monoFamily = mono.fontFamily;
 
-const ROW_H = 40;
-const GAP = 8;
-const STEP = 13; // each higher limb steps right: the staircase rises left to right
-const LEFT = 16;
-const W_ROW = 372;
-const TOP = 14;
+// Layout constants. Rows are drawn wide (one sanskrit+citation line, one short
+// gloss line) and stacked vertically rather than packed with four separate
+// text fields per row, so every label stays comfortably readable at phone
+// width. See the component doc comment below for the legibility math.
+const ROW_H = 50;
+const GAP = 12;
+const STEP = 7; // each higher limb steps right: the staircase rises left to right
+const LEFT = 14;
+const W_ROW = 240;
+const TOP = 18;
+const BOTTOM_PAD = 22;
+const VBW = 352;
+
+// Font sizes (SVG user units). At the site-wide phone render width of 288px
+// against this 352-wide viewBox, the scale factor is 288/352 = 0.818, so:
+//   F_MAIN (17)      -> 13.9px effective
+//   F_SUB  (14.5)    -> 11.9px effective (sutra refs, gloss line, index digit)
+//   F_BRACKET (15)   -> 12.3px effective (the saṃyama label)
+// All comfortably clear the ~11px legibility floor.
+const F_MAIN = 17;
+const F_SUB = 14.5;
+const F_BRACKET = 15;
+
+// A short, figure-only paraphrase of each limb's gloss (the fuller gloss and
+// detail live in limbs.ts, the prose, and the eight-limbs explorer widget).
+// Kept to roughly 20 characters so the line fits a single row at legible
+// size on a 360px phone; still an accurate compression of the canonical
+// gloss, not a different claim.
+const GLOSS_SHORT: Record<number, string> = {
+  1: 'toward others',
+  2: 'toward yourself',
+  3: 'a steady, easy seat',
+  4: 'regulating breath',
+  5: 'senses turn inward',
+  6: 'bound to one point',
+  7: 'attention unbroken',
+  8: 'watcher, watched, one',
+};
 
 export function EightLimbsStaircaseFigure() {
   const n = LIMBS.length;
-  const height = TOP + n * ROW_H + (n - 1) * GAP + 30;
+  const height = TOP + n * ROW_H + (n - 1) * GAP + BOTTOM_PAD;
   // draw top (samādhi, n=8) down to bottom (yama, n=1)
   const rows = [...LIMBS].sort((a, b) => b.n - a.n);
   const innerTopY = TOP; // samādhi row top
   const innerBottomY = TOP + 2 * (ROW_H + GAP) + ROW_H; // bottom of dhāraṇā row
+  const bracketX = LEFT + 7 * STEP + W_ROW + 8;
+  const labelX = bracketX + 18;
 
   return (
     <Figure
       caption="fig_09.2 · the_eight_limbs"
       sub="The eight limbs (aṣṭāṅga, YS 2.29), climbing from outward conduct through the body and the senses to the still inner core. The last three together are saṃyama. One honest caution: Patanjali draws them in order, but he does not say you must finish one before starting the next. They lean on each other, and most people work several at once. The staircase is a teaching shape, not a locked sequence."
-      max={540}
+      max={380}
     >
       <svg
-        viewBox={`0 0 520 ${height}`}
+        viewBox={`0 0 ${VBW} ${height}`}
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
         aria-label="The eight limbs of yoga drawn as a staircase rising from lower left to upper right. From the bottom: yama, the restraints, and niyama, the observances, the outer conduct in amber. Then asana, posture; pranayama, the breath; and pratyahara, the withdrawal of the senses, the body and senses in dim teal. Then dharana, concentration; dhyana, meditation; and samadhi, absorption, the inner core in bright teal, the three together called samyama."
@@ -66,37 +100,26 @@ export function EightLimbsStaircaseFigure() {
                 strokeOpacity={0.85}
                 strokeWidth={1.2}
               />
-              <text
-                x={x + 13}
-                y={y + 17}
-                fontFamily={monoFamily}
-                fontSize={9}
-                fill={c.faint}
-              >
-                {limb.n}
+              {/* line 1: index + sanskrit name, sutra ref right-aligned */}
+              <text x={x + 14} y={y + 22} fontFamily={monoFamily} fontSize={F_MAIN} fontWeight={600} fill={limb.color}>
+                <tspan fill={c.faint} fontWeight={400} fontSize={F_SUB}>
+                  {limb.n}
+                </tspan>
+                <tspan dx={7}>{limb.sanskrit}</tspan>
               </text>
               <text
-                x={x + 28}
-                y={y + 18}
-                fontFamily={monoFamily}
-                fontSize={12.5}
-                fontWeight={600}
-                fill={limb.color}
-              >
-                {limb.sanskrit}
-              </text>
-              <text x={x + 28} y={y + 32} fontFamily={monoFamily} fontSize={9.5} fill={c.muted}>
-                {limb.name} · {limb.gloss}
-              </text>
-              <text
-                x={x + W_ROW - 12}
-                y={y + 17}
+                x={x + W_ROW - 14}
+                y={y + 22}
                 textAnchor="end"
                 fontFamily={monoFamily}
-                fontSize={8.5}
+                fontSize={F_SUB}
                 fill={c.faint}
               >
                 {limb.sutra}
+              </text>
+              {/* line 2: the short gloss */}
+              <text x={x + 14} y={y + 42} fontFamily={monoFamily} fontSize={F_SUB} fill={c.muted}>
+                {GLOSS_SHORT[limb.n]}
               </text>
             </g>
           );
@@ -104,18 +127,16 @@ export function EightLimbsStaircaseFigure() {
 
         {/* saṃyama bracket on the top three (inner) limbs */}
         <g stroke={c.teal} strokeWidth={1.2} fill="none" strokeOpacity={0.8}>
-          <path
-            d={`M${LEFT + 7 * STEP + W_ROW + 8},${innerTopY + 4} h8 V${innerBottomY - 4} h-8`}
-          />
+          <path d={`M${bracketX},${innerTopY + 4} h8 V${innerBottomY - 4} h-8`} />
         </g>
         <text
-          x={LEFT + 7 * STEP + W_ROW + 20}
+          x={labelX}
           y={(innerTopY + innerBottomY) / 2 - 4}
           fontFamily={monoFamily}
-          fontSize={10}
+          fontSize={F_BRACKET}
           fontWeight={600}
           fill={c.teal}
-          transform={`rotate(90 ${LEFT + 7 * STEP + W_ROW + 20} ${(innerTopY + innerBottomY) / 2 - 4})`}
+          transform={`rotate(90 ${labelX} ${(innerTopY + innerBottomY) / 2 - 4})`}
           textAnchor="middle"
         >
           saṃyama (3.4)
@@ -131,7 +152,7 @@ export function EightLimbsStaircaseFigure() {
         ].map((g) => (
           <span key={g.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 7 }}>
             <span style={{ width: 9, height: 9, borderRadius: 3, background: g.col, flexShrink: 0 }} />
-            <span style={{ ...mono, fontSize: 10.5, color: c.muted }}>
+            <span style={{ ...mono, fontSize: 11, color: c.muted }}>
               {g.label} <span style={{ color: c.faint }}>· {g.note}</span>
             </span>
           </span>

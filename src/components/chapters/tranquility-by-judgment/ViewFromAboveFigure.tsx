@@ -2,8 +2,11 @@ import { c, mono } from '@/styles/tokens';
 import { Figure } from '@/components/Figure';
 
 const monoFamily = mono.fontFamily;
-const CX = 170;
-const CY = 182;
+const CX = 165;
+const CY = 180;
+// vertical distance from the top of a ring to the baseline of its label,
+// so the label reads as "just inside" that ring
+const LABEL_INSET = 16;
 
 // rings from the close-in worry out to the cosmos, each fainter than the last
 const RINGS = [
@@ -28,7 +31,7 @@ export function ViewFromAboveFigure() {
       max={400}
     >
       <svg
-        viewBox="0 0 340 360"
+        viewBox="0 0 330 410"
         style={{ width: '100%', height: 'auto', display: 'block' }}
         role="img"
         aria-label="A worry sits as a small dot at the center of widening concentric rings labeled, from the inside out: today, your years, the city and the age, the earth, and all people and all time. Seen from the widest ring, the worry keeps its small true size."
@@ -39,7 +42,7 @@ export function ViewFromAboveFigure() {
 
         {/* the worry, at true size, at the center */}
         <circle cx={CX} cy={CY} r={4} fill={c.coral} />
-        <text x={CX + 12} y={CY + 4} textAnchor="start" fontFamily={monoFamily} fontSize={9} fill={c.coral}>
+        <text x={CX + 22} y={CY + 10} textAnchor="start" fontFamily={monoFamily} fontSize={14} fill={c.coral}>
           the worry
         </text>
 
@@ -48,10 +51,10 @@ export function ViewFromAboveFigure() {
           <text
             key={ring.r}
             x={CX}
-            y={CY - ring.r + 13}
+            y={CY - ring.r + LABEL_INSET}
             textAnchor="middle"
             fontFamily={monoFamily}
-            fontSize={9}
+            fontSize={14}
             fill={c.muted}
             fillOpacity={0.5 + ring.op}
           >
@@ -59,9 +62,12 @@ export function ViewFromAboveFigure() {
           </text>
         ))}
 
-        {/* the direction of the move */}
-        <text x={CX} y={348} textAnchor="middle" fontFamily={monoFamily} fontSize={9} fill={c.faint}>
-          zoom out · the farther up, the smaller it looks
+        {/* the direction of the move, split across two lines so it stays wide-margined at this font size */}
+        <text x={CX} y={372} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.faint}>
+          zoom out
+        </text>
+        <text x={CX} y={396} textAnchor="middle" fontFamily={monoFamily} fontSize={14} fill={c.faint}>
+          farther up, it looks smaller
         </text>
       </svg>
     </Figure>

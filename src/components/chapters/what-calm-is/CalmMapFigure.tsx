@@ -9,8 +9,8 @@ const monoFamily = mono.fontFamily;
 function Sample({ e, a, text, color }: { e: number; a: number; text: string; color: string }) {
   return (
     <g>
-      <circle cx={ex(e)} cy={ay(a)} r={2.6} fill={color} opacity={0.75} />
-      <text x={ex(e) + 6} y={ay(a) + 3} fontFamily={monoFamily} fontSize={8.2} fill={c.faint}>
+      <circle cx={ex(e)} cy={ay(a)} r={3} fill={color} opacity={0.75} />
+      <text x={ex(e) + 7} y={ay(a) + 4} fontFamily={monoFamily} fontSize={12.5} fill={c.faint}>
         {text}
       </text>
     </g>
@@ -40,12 +40,12 @@ export function CalmMapFigure() {
 
         {/* orienting samples, kept short so labels stay inside their quadrants */}
         <Sample e={0.2} a={0.84} text="panic" color={QUADS.agitation.color} />
-        <Sample e={0.24} a={0.58} text="racing worry" color={QUADS.agitation.color} />
+        <Sample e={0.24} a={0.58} text="worry" color={QUADS.agitation.color} />
         <Sample e={0.74} a={0.82} text="absorbed" color={QUADS.flow.color} />
         <Sample e={0.2} a={0.22} text="numb" color={QUADS.sedation.color} />
-        <Sample e={0.3} a={0.44} text="shut down" color={QUADS.sedation.color} />
+        <Sample e={0.3} a={0.44} text="flat" color={QUADS.sedation.color} />
         <Sample e={0.58} a={0.36} text="steady" color={QUADS.equanimity.color} />
-        <Sample e={0.74} a={0.18} text="at ease" color={QUADS.equanimity.color} />
+        <Sample e={0.74} a={0.18} text="ease" color={QUADS.equanimity.color} />
       </svg>
     </Figure>
   );
