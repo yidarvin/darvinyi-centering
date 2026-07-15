@@ -164,7 +164,26 @@ export const CHAPTERS: Chapter[] = [
       signaturePractice: 'thought distancer',
     },
   },
-  { num: 11, part: PART.two, title: 'Internal Family Systems: The Calm at the Center', slug: 'the-calm-at-the-center', subtitle: 'internal family systems · the self beneath the parts', blurb: 'Internal Family Systems: a mind that is naturally multiple, and the calm Self beneath the parts.', routes: ['letting-go', 'connection', 'presence'] },
+  {
+    num: 11,
+    part: PART.two,
+    title: 'Internal Family Systems: The Calm at the Center',
+    slug: 'the-calm-at-the-center',
+    subtitle: 'internal family systems · the self beneath the parts',
+    blurb: 'Internal Family Systems: a mind that is naturally multiple, and the calm Self beneath the parts.',
+    routes: ['letting-go', 'connection', 'presence'],
+    atAGlance: {
+      thesis: 'Internal Family Systems is a clinical model that treats inner conflict as a relationship among protective parts and a steadier observing stance called Self.',
+      takeaways: [
+        'Parts are a model of common inner multiplicity, not a diagnosis and not evidence of dissociative identity disorder.',
+        'The goal is not to erase a protector. Unblending makes room to understand its protective intent and choose a next step.',
+        'IFS research is promising but early. Work that approaches trauma-bearing exiles belongs with a trained professional.',
+      ],
+      readingMinutes: 16,
+      practiceMinutes: 5,
+      signaturePractice: 'parts map',
+    },
+  },
   { num: 12, part: PART.two, title: 'Stillness and Surrender: The Contemplative Religions', slug: 'stillness-and-surrender', subtitle: 'the contemplative religions · a survey', blurb: 'Four contemplative religious paths, Christian, Sufi, Jewish, and their shared grammar of surrender.', routes: ['letting-go', 'meaning', 'presence'] },
   { num: 13, part: PART.two, title: 'Nature and Simplicity: The Transcendentalists', slug: 'nature-and-simplicity', subtitle: 'the transcendentalists · solitude and simplicity', blurb: 'The Transcendentalists on solitude, simplicity, and what a walk in the woods actually restores.', routes: ['enough', 'perspective', 'presence', 'the-body'] },
 
