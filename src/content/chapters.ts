@@ -264,7 +264,25 @@ export const CHAPTERS: Chapter[] = [
     },
   },
 
-  { num: 16, part: PART.four, title: 'Building Your Practice', slug: 'building-your-practice', subtitle: 'a few routes that fit you', blurb: 'How to turn the reading into an actual practice that fits the shape of your life.' },
+  {
+    num: 16,
+    part: PART.four,
+    title: 'Building Your Practice',
+    slug: 'building-your-practice',
+    subtitle: 'a few routes that fit you',
+    blurb: 'How to turn the reading into an actual practice that fits the shape of your life.',
+    atAGlance: {
+      thesis: 'A durable practice is a small set of fitting actions, attached to real cues and prepared for difficult days, not a maximal routine.',
+      takeaways: [
+        'Choose practices for the situations that actually undo you, rather than trying to cover every route at once.',
+        'Implementation intentions make a cue and response explicit. Starting small protects consistency while the practice becomes familiar.',
+        'A hard-day version and a scheduled review turn an inevitable missed day into information rather than a collapse.',
+      ],
+      readingMinutes: 16,
+      practiceMinutes: 8,
+      signaturePractice: 'toolkit builder',
+    },
+  },
   { num: 17, part: PART.four, title: 'Designing for Calm', slug: 'designing-for-calm', subtitle: 'calm built around you', blurb: 'Redesigning your rooms, your time, and your attention so the environment stops working against you.', routes: ['enough', 'the-body', 'presence'] },
   { num: 18, part: PART.four, title: 'Calm Is Not Numbness', slug: 'calm-is-not-numbness', subtitle: 'the spine, stated plainly', blurb: "The book's spine, stated plainly: real calm stays engaged, and its counterfeits are quiet for the wrong reasons." },
 ];
