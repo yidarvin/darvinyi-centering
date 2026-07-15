@@ -6,10 +6,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const DIST = path.join(ROOT, 'dist');
 const SERVER_ENTRY = path.join(ROOT, 'dist-ssr', 'entry-server.js');
-const SITE_ORIGIN = (process.env.SITE_ORIGIN ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ??
-  (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ??
-  '').replace(/\/$/, '');
+const SITE_ORIGIN = (process.env.SITE_ORIGIN ?? 'https://centering.darvinyi.com').replace(/\/$/, '');
 
 function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);

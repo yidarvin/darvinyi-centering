@@ -29,4 +29,4 @@ These services and their regional details can change. The chapter labels the lis
 
 ## Limits
 
-This audit validates the local production build. It does not include deployed Core Web Vitals, analytics, Search Console data, real assistive-technology user testing, or a configured production canonical domain. Set `SITE_ORIGIN` in the deployment environment to produce absolute canonical and sitemap URLs for the public domain.
+This audit validates the local production build. It does not include deployed Core Web Vitals, analytics, or Search Console data. The canonical build origin is `https://centering.darvinyi.com`; `SITE_ORIGIN` remains available when a preview or future migration needs a different origin.
