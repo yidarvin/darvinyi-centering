@@ -225,7 +225,25 @@ export const CHAPTERS: Chapter[] = [
     },
   },
 
-  { num: 14, part: PART.three, title: 'One Calm, Many Doors', slug: 'one-calm-many-doors', subtitle: 'the routes, collected', blurb: "Where the traditions' routes to calm converge, and where they genuinely disagree." },
+  {
+    num: 14,
+    part: PART.three,
+    title: 'One Calm, Many Doors',
+    slug: 'one-calm-many-doors',
+    subtitle: 'the routes, collected',
+    blurb: "Where the traditions' routes to calm converge, and where they genuinely disagree.",
+    atAGlance: {
+      thesis: 'The traditions converge most convincingly on practical routes to calm, not on a single metaphysics or a single account of self.',
+      takeaways: [
+        'The seven routes are a comparison tool, not proof that every tradition says the same thing.',
+        'Similar practices can have different aims. Shared phenomenology does not settle what an experience means.',
+        'Use convergence to find a practice that fits, while keeping the traditions’ genuine disagreements visible.',
+      ],
+      readingMinutes: 16,
+      practiceMinutes: 5,
+      signaturePractice: 'convergence explorer',
+    },
+  },
   { num: 15, part: PART.three, title: 'What Actually Works', slug: 'what-actually-works', subtitle: 'the evidence, graded honestly', blurb: 'The evidence for every route to calm in this book, graded honestly, strengths and limits both.' },
 
   { num: 16, part: PART.four, title: 'Building Your Practice', slug: 'building-your-practice', subtitle: 'a few routes that fit you', blurb: 'How to turn the reading into an actual practice that fits the shape of your life.' },
