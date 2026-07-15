@@ -283,7 +283,26 @@ export const CHAPTERS: Chapter[] = [
       signaturePractice: 'toolkit builder',
     },
   },
-  { num: 17, part: PART.four, title: 'Designing for Calm', slug: 'designing-for-calm', subtitle: 'calm built around you', blurb: 'Redesigning your rooms, your time, and your attention so the environment stops working against you.', routes: ['enough', 'the-body', 'presence'] },
+  {
+    num: 17,
+    part: PART.four,
+    title: 'Designing for Calm',
+    slug: 'designing-for-calm',
+    subtitle: 'calm built around you',
+    blurb: 'Redesigning your rooms, your time, and your attention so the environment stops working against you.',
+    routes: ['enough', 'the-body', 'presence'],
+    atAGlance: {
+      thesis: 'Calm is partly a design problem: make supportive choices easier, and make interruption, clutter, and urgency less automatic.',
+      takeaways: [
+        'Defaults and friction often shape behavior more reliably than motivation, though many generic nudges have modest and variable effects.',
+        'Notifications and task switching carry an attention cost. Batching alerts or moving a phone away can help without demanding total abstinence.',
+        'Environmental changes are experiments, not moral tests. Choose one default, observe it, and adjust.',
+      ],
+      readingMinutes: 17,
+      practiceMinutes: 8,
+      signaturePractice: 'calm-environment audit',
+    },
+  },
   { num: 18, part: PART.four, title: 'Calm Is Not Numbness', slug: 'calm-is-not-numbness', subtitle: 'the spine, stated plainly', blurb: "The book's spine, stated plainly: real calm stays engaged, and its counterfeits are quiet for the wrong reasons." },
 ];
 
