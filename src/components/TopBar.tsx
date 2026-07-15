@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getChapter } from '@/content/chapters';
 import { c, mono } from '@/styles/tokens';
 
 /**
@@ -11,7 +12,7 @@ import { c, mono } from '@/styles/tokens';
 export function TopBar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const onChapter = pathname !== '/';
+  const onChapter = Boolean(getChapter(pathname.slice(1)));
   const [progress, setProgress] = useState(0);
   const [query, setQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);

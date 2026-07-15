@@ -57,35 +57,42 @@ export function ExerciseCard({
           {children}
         </div>
       )}
-      {input === 'text' && <TextInput storageKey={storageKey} placeholder={placeholder} />}
+      {input === 'text' && <TextInput storageKey={storageKey} label={`Response for ${title}`} placeholder={placeholder} />}
       {input === 'checkbox' && <CheckInput storageKey={storageKey} />}
       {input === 'timer' && <TimerInput storageKey={storageKey} seconds={seconds} />}
     </div>
   );
 }
 
-function TextInput({ storageKey, placeholder }: { storageKey: string; placeholder: string }) {
+function TextInput({ storageKey, label, placeholder }: { storageKey: string; label: string; placeholder: string }) {
   const [value, setValue] = useLocalStorage<string>(storageKey, '');
+  const inputId = `exercise-${storageKey.replace(/[^a-z0-9]+/gi, '-')}`;
   return (
-    <textarea
-      rows={3}
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-      placeholder={placeholder}
-      style={{
-        ...mono,
-        width: '100%',
-        boxSizing: 'border-box',
-        resize: 'vertical',
-        background: c.panel2,
-        color: c.text,
-        border: `1px solid ${c.line}`,
-        borderRadius: 8,
-        padding: '11px 12px',
-        fontSize: 13,
-        lineHeight: 1.6,
-      }}
-    />
+    <>
+      <label className="visually-hidden" htmlFor={inputId}>
+        {label}
+      </label>
+      <textarea
+        id={inputId}
+        rows={3}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder={placeholder}
+        style={{
+          ...mono,
+          width: '100%',
+          boxSizing: 'border-box',
+          resize: 'vertical',
+          background: c.panel2,
+          color: c.text,
+          border: `1px solid ${c.line}`,
+          borderRadius: 8,
+          padding: '11px 12px',
+          fontSize: 13,
+          lineHeight: 1.6,
+        }}
+      />
+    </>
   );
 }
 

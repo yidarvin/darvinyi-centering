@@ -12,11 +12,11 @@ describe('ExerciseCard', () => {
       <ExerciseCard chapterSlug="calm-abiding" id="notice" title="Notice" input="text" placeholder="Write here" />,
     );
 
-    await user.type(screen.getByPlaceholderText('Write here'), 'A clear response');
+    await user.type(screen.getByRole('textbox', { name: 'Response for Notice' }), 'A clear response');
     expect(window.localStorage.getItem('centering:ex:calm-abiding:notice')).toBe('"A clear response"');
 
     unmount();
     render(<ExerciseCard chapterSlug="calm-abiding" id="notice" title="Notice" input="text" placeholder="Write here" />);
-    expect(screen.getByPlaceholderText('Write here')).toHaveValue('A clear response');
+    expect(screen.getByRole('textbox', { name: 'Response for Notice' })).toHaveValue('A clear response');
   });
 });

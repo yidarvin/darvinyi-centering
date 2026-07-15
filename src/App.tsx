@@ -17,6 +17,14 @@ const RouteIndex = lazy(() => import('@/pages/RouteIndex').then((m) => ({ defaul
 const Bibliography = lazy(() => import('@/pages/Bibliography').then((m) => ({ default: m.Bibliography })));
 const Index = lazy(() => import('@/pages/Index').then((m) => ({ default: m.Index })));
 
+function ReferencePageLoading() {
+  return (
+    <main id="main" aria-busy="true" aria-live="polite" style={{ maxWidth: 720, margin: '0 auto', padding: '56px 22px' }}>
+      <p>Loading reference page…</p>
+    </main>
+  );
+}
+
 export function App() {
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
@@ -46,7 +54,7 @@ function Application() {
           <Route
             path="/search"
             element={
-              <Suspense fallback={null}>
+              <Suspense fallback={<ReferencePageLoading />}>
                 <Search />
               </Suspense>
             }
@@ -54,7 +62,7 @@ function Application() {
           <Route
             path="/glossary"
             element={
-              <Suspense fallback={null}>
+              <Suspense fallback={<ReferencePageLoading />}>
                 <Glossary />
               </Suspense>
             }
@@ -62,7 +70,7 @@ function Application() {
           <Route
             path="/routes/:id"
             element={
-              <Suspense fallback={null}>
+              <Suspense fallback={<ReferencePageLoading />}>
                 <RouteIndex />
               </Suspense>
             }
@@ -70,7 +78,7 @@ function Application() {
           <Route
             path="/sources"
             element={
-              <Suspense fallback={null}>
+              <Suspense fallback={<ReferencePageLoading />}>
                 <Bibliography />
               </Suspense>
             }
@@ -78,7 +86,7 @@ function Application() {
           <Route
             path="/index"
             element={
-              <Suspense fallback={null}>
+              <Suspense fallback={<ReferencePageLoading />}>
                 <Index />
               </Suspense>
             }

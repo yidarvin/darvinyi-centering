@@ -202,6 +202,9 @@ h3[id] {
 }
 
 .chapter-toc-summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   font-size: 12.5px;
   font-weight: 400;
   color: var(--faint);
@@ -219,10 +222,32 @@ h3[id] {
 }
 
 .chapter-toc-list a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   font-size: 12px;
   color: var(--muted);
   text-decoration: none;
   border-bottom: 1px solid transparent;
+}
+
+/* Compact labels still need a comfortable tap target. The visual label stays
+   quiet, while the interactive box reaches the platform-recommended 44px. */
+.topbar a,
+.topbar input {
+  min-height: 44px;
+}
+
+.topbar a {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .topbar > div {
+    padding: 4px 12px !important;
+    gap: 8px !important;
+  }
 }
 
 .chapter-toc-list a:hover {
