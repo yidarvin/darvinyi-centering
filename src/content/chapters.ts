@@ -204,7 +204,26 @@ export const CHAPTERS: Chapter[] = [
       signaturePractice: 'repetition practice',
     },
   },
-  { num: 13, part: PART.two, title: 'Nature and Simplicity: The Transcendentalists', slug: 'nature-and-simplicity', subtitle: 'the transcendentalists · solitude and simplicity', blurb: 'The Transcendentalists on solitude, simplicity, and what a walk in the woods actually restores.', routes: ['enough', 'perspective', 'presence', 'the-body'] },
+  {
+    num: 13,
+    part: PART.two,
+    title: 'Nature and Simplicity: The Transcendentalists',
+    slug: 'nature-and-simplicity',
+    subtitle: 'the transcendentalists · solitude and simplicity',
+    blurb: 'The Transcendentalists on solitude, simplicity, and what a walk in the woods actually restores.',
+    routes: ['enough', 'perspective', 'presence', 'the-body'],
+    atAGlance: {
+      thesis: 'Thoreau and Emerson make a moral case for attention, simplicity, and nature; modern research supports some modest restorative effects without making the same philosophical claims.',
+      takeaways: [
+        'Simplifying is subtraction that makes room for attention, not an aesthetic performance or a demand to own almost nothing.',
+        'Nature exposure can support attention and stress recovery, but the mechanisms and effect sizes remain more limited than wellness marketing suggests.',
+        'Chosen solitude differs from loneliness. A small, realistic outdoor plan is more useful than an idealized escape to wilderness.',
+      ],
+      readingMinutes: 17,
+      practiceMinutes: 5,
+      signaturePractice: 'nature-dose planner',
+    },
+  },
 
   { num: 14, part: PART.three, title: 'One Calm, Many Doors', slug: 'one-calm-many-doors', subtitle: 'the routes, collected', blurb: "Where the traditions' routes to calm converge, and where they genuinely disagree." },
   { num: 15, part: PART.three, title: 'What Actually Works', slug: 'what-actually-works', subtitle: 'the evidence, graded honestly', blurb: 'The evidence for every route to calm in this book, graded honestly, strengths and limits both.' },
