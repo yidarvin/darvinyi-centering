@@ -184,7 +184,26 @@ export const CHAPTERS: Chapter[] = [
       signaturePractice: 'parts map',
     },
   },
-  { num: 12, part: PART.two, title: 'Stillness and Surrender: The Contemplative Religions', slug: 'stillness-and-surrender', subtitle: 'the contemplative religions · a survey', blurb: 'Four contemplative religious paths, Christian, Sufi, Jewish, and their shared grammar of surrender.', routes: ['letting-go', 'meaning', 'presence'] },
+  {
+    num: 12,
+    part: PART.two,
+    title: 'Stillness and Surrender: The Contemplative Religions',
+    slug: 'stillness-and-surrender',
+    subtitle: 'the contemplative religions · a survey',
+    blurb: 'Four contemplative religious paths, Christian, Sufi, Jewish, and their shared grammar of surrender.',
+    routes: ['letting-go', 'meaning', 'presence'],
+    atAGlance: {
+      thesis: 'These traditions seek calm through surrender and devotion, but their practices and theological meanings are not interchangeable.',
+      takeaways: [
+        'The Jesus Prayer, Centering Prayer, and dhikr are devotional practices. Their anchors address God rather than merely managing attention.',
+        'Shabbat is a boundary in time, and Mussar is character practice. Neither is simply a repetition exercise in another vocabulary.',
+        'A secular repetition practice can borrow attention and breathing structure while leaving the traditions’ devotional claims intact.',
+      ],
+      readingMinutes: 18,
+      practiceMinutes: 5,
+      signaturePractice: 'repetition practice',
+    },
+  },
   { num: 13, part: PART.two, title: 'Nature and Simplicity: The Transcendentalists', slug: 'nature-and-simplicity', subtitle: 'the transcendentalists · solitude and simplicity', blurb: 'The Transcendentalists on solitude, simplicity, and what a walk in the woods actually restores.', routes: ['enough', 'perspective', 'presence', 'the-body'] },
 
   { num: 14, part: PART.three, title: 'One Calm, Many Doors', slug: 'one-calm-many-doors', subtitle: 'the routes, collected', blurb: "Where the traditions' routes to calm converge, and where they genuinely disagree." },
