@@ -35,10 +35,8 @@ function setCanonical(href: string) {
 
 /**
  * Sets this route's title, description, canonical link, and Open Graph tags,
- * and restores the site's defaults on unmount. Runs client-side, so it helps
- * a JS-executing crawler (Google) index each page distinctly; it does not
- * help a non-JS social unfurl bot, since that would need real prerendered
- * HTML, which this site does not yet ship (see item 33's commit).
+ * and restores the site's defaults on unmount. Static builds write matching
+ * metadata into each route document in scripts/prerender.mjs.
  */
 export function useDocumentHead({ title, description, path }: HeadOptions) {
   useEffect(() => {

@@ -10,3 +10,16 @@ test('a chapter is readable at desktop and narrow widths', async ({ page }) => {
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
     .toBeTruthy();
 });
+
+test('a chapter has complete HTML and route metadata before JavaScript runs', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+
+  await page.goto('/calm-abiding');
+  await expect(page).toHaveTitle('Buddhism: Calm Abiding · Centering');
+  await expect(page.getByRole('heading', { level: 1, name: 'Buddhism: Calm Abiding' })).toBeVisible();
+  await expect(page.getByText('A pain wakes you at three in the morning.')).toBeVisible();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', '/calm-abiding');
+
+  await context.close();
+});

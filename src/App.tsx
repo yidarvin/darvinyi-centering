@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import { MDXProvider } from '@mdx-js/react';
 import { mdxComponents } from '@/components/MDXComponents';
 import { TopBar } from '@/components/TopBar';
@@ -19,6 +20,21 @@ const Index = lazy(() => import('@/pages/Index').then((m) => ({ default: m.Index
 export function App() {
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Application />
+    </BrowserRouter>
+  );
+}
+
+export function ServerApp({ url }: { url: string }) {
+  return (
+    <StaticRouter location={url}>
+      <Application />
+    </StaticRouter>
+  );
+}
+
+function Application() {
+  return (
       <MDXProvider components={mdxComponents}>
         <a href="#main" className="skip-link">
           Skip to content
@@ -71,6 +87,5 @@ export function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </MDXProvider>
-    </BrowserRouter>
   );
 }

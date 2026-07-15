@@ -5,6 +5,7 @@ import { WidgetShell } from '@/components/WidgetShell';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 
 type Phase = 'idle' | 'running' | 'done';
+const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 // a small set of plain, two-handed, screen-free acts. the reader can also name
 // their own. nothing here is special. that is the point.
@@ -75,7 +76,7 @@ export function PresenceTimer() {
   // measure the brushed path once, so the dash can draw it exactly. guarded so
   // a non-DOM environment (SSR, jsdom) falls back to the static length instead
   // of throwing.
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const path = ensoRef.current;
     if (path && typeof path.getTotalLength === 'function') {
       try {

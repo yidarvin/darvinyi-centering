@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { c, mono } from '@/styles/tokens';
 import { getChapter } from '@/content/chapters';
-import { getChapterLoader, type ChapterModule } from '@/content/loadChapter';
+import { getChapterLoader, getServerChapterModule, type ChapterModule } from '@/content/loadChapter';
 import { ChapterHeader } from '@/components/ChapterHeader';
 import { ChapterNav } from '@/components/ChapterNav';
 import { ChapterTOC } from '@/components/ChapterTOC';
@@ -18,12 +18,14 @@ export function ChapterPage() {
   const { slug = '' } = useParams();
   const { hash } = useLocation();
   const chapter = getChapter(slug);
-  const [mod, setMod] = useState<ChapterModule | null>(null);
-  const [status, setStatus] = useState<Status>('loading');
+  const serverModule = getServerChapterModule(slug);
+  const [mod, setMod] = useState<ChapterModule | null>(serverModule);
+  const [status, setStatus] = useState<Status>(serverModule ? 'ready' : 'loading');
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!chapter) return;
+    if (serverModule) return;
     const loader = getChapterLoader(slug);
     if (!loader) {
       setMod(null);
@@ -46,7 +48,7 @@ export function ChapterPage() {
     return () => {
       active = false;
     };
-  }, [slug, chapter]);
+  }, [slug, chapter, serverModule]);
 
   // a cross-reference or search result can land here with a section anchor;
   // the target only exists once the chapter's content has actually mounted,

@@ -53,7 +53,7 @@ The critique-driven implementation pass. Run in dependency order. Each item must
 | # | item | file | priority | status |
 |----|------|------|----------|--------|
 | 34 | Regression foundation | `prompts/34-regression-foundation.md` | P0 | DONE |
-| 35 | Real prerendering and crawl verification | `prompts/35-prerendering.md` | P0 | PENDING |
+| 35 | Real prerendering and crawl verification | `prompts/35-prerendering.md` | P0 | DONE |
 | 36 | Shared accessibility and mobile interaction pass | `prompts/36-shared-a11y.md` | P0 | PENDING |
 | 37 | Saved-work notebook | `prompts/37-notebook.md` | P1 | PENDING |
 | 38 | Structured citations and sources | `prompts/38-structured-sources.md` | P1 | PENDING |

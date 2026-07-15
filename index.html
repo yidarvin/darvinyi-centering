@@ -12,10 +12,9 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!--
       og:image points at /og-image.png (source: scripts/assets/og-image-source.svg,
-      see that file for how to regenerate it). Per-route
-      title/description/canonical/og:* are set client-side by
-      src/lib/useDocumentHead.ts; this block is the static fallback for the
-      landing page and for any crawler that reads only the initial HTML.
+      see that file for how to regenerate it). Per-route metadata is written
+      at build time by scripts/prerender.mjs and updated client-side after
+      navigation by src/lib/useDocumentHead.ts.
     -->
     <meta property="og:site_name" content="Centering" />
     <meta property="og:type" content="website" />
@@ -27,9 +26,10 @@
     <meta property="og:image" content="/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>Centering · the philosophies and practices of calm</title>
+    <!--prerender-head-->
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--ssr-outlet--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

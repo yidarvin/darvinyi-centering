@@ -17,3 +17,12 @@ export function getChapterLoader(slug: string): (() => Promise<ChapterModule>) |
   const loader = modules[path] as (() => Promise<ChapterModule>) | undefined;
   return loader ?? null;
 }
+
+/** The already-loaded module used only while generating static HTML in Node. */
+export function getServerChapterModule(slug: string): ChapterModule | null {
+  if (!import.meta.env.SSR) return null;
+  const registry = (globalThis as typeof globalThis & {
+    __centeringServerChapterModules?: Record<string, ChapterModule>;
+  }).__centeringServerChapterModules;
+  return registry?.[`./chapters/${slug}.mdx`] ?? null;
+}
