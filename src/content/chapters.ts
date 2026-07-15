@@ -244,7 +244,25 @@ export const CHAPTERS: Chapter[] = [
       signaturePractice: 'convergence explorer',
     },
   },
-  { num: 15, part: PART.three, title: 'What Actually Works', slug: 'what-actually-works', subtitle: 'the evidence, graded honestly', blurb: 'The evidence for every route to calm in this book, graded honestly, strengths and limits both.' },
+  {
+    num: 15,
+    part: PART.three,
+    title: 'What Actually Works',
+    slug: 'what-actually-works',
+    subtitle: 'the evidence, graded honestly',
+    blurb: 'The evidence for every route to calm in this book, graded honestly, strengths and limits both.',
+    atAGlance: {
+      thesis: 'A practice’s evidence is only as persuasive as its comparison group, its likely effect size, and the limits the study can actually answer.',
+      takeaways: [
+        'Active-control trials are more informative than waitlists because expectation, time, and attention can improve outcomes too.',
+        'Several practices have real, usually modest benefits. A low grade can also mean the outcome is difficult or inappropriate to randomize.',
+        'Predictive processing is a useful organizing frame, not a settled explanation for every route to calm.',
+      ],
+      readingMinutes: 18,
+      practiceMinutes: 5,
+      signaturePractice: 'mechanism explorer',
+    },
+  },
 
   { num: 16, part: PART.four, title: 'Building Your Practice', slug: 'building-your-practice', subtitle: 'a few routes that fit you', blurb: 'How to turn the reading into an actual practice that fits the shape of your life.' },
   { num: 17, part: PART.four, title: 'Designing for Calm', slug: 'designing-for-calm', subtitle: 'calm built around you', blurb: 'Redesigning your rooms, your time, and your attention so the environment stops working against you.', routes: ['enough', 'the-body', 'presence'] },
