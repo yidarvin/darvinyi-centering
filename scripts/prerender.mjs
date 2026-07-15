@@ -49,6 +49,7 @@ const pageMetadata = {
   '/glossary': { title: 'Glossary · Centering', description: 'A working glossary of the concepts, traditions, and clinical terms used in Centering.', type: 'website' },
   '/sources': { title: 'Sources · Centering', description: 'Sources and further reading for Centering, collected across every chapter.', type: 'website' },
   '/index': { title: 'A–Z Index · Centering', description: 'An alphabetical index to concepts, people, traditions, and practices in Centering.', type: 'website' },
+  '/notebook': { title: 'Saved work · Centering', description: 'Your Centering reflections, exercises, and practice settings, saved only in this browser.', type: 'website' },
 };
 
 const template = readFileSync(path.join(DIST, 'index.html'), 'utf8');

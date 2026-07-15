@@ -129,6 +129,12 @@ export function TopBar() {
           >
             glossary
           </Link>
+          <Link
+            to="/notebook"
+            style={{ ...mono, fontSize: 11.5, color: c.faint, textDecoration: 'none', flexShrink: 0 }}
+          >
+            saved
+          </Link>
           {onChapter && (
             <Link
               to="/"

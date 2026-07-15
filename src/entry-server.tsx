@@ -42,6 +42,7 @@ export function staticPaths(): string[] {
     '/glossary',
     '/sources',
     '/index',
+    '/notebook',
     ...CHAPTERS.map((chapter) => `/${chapter.slug}`),
     ...ROUTES.map((route) => `/routes/${route.id}`),
   ];

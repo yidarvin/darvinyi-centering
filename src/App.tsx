@@ -16,6 +16,7 @@ const Glossary = lazy(() => import('@/pages/Glossary').then((m) => ({ default: m
 const RouteIndex = lazy(() => import('@/pages/RouteIndex').then((m) => ({ default: m.RouteIndex })));
 const Bibliography = lazy(() => import('@/pages/Bibliography').then((m) => ({ default: m.Bibliography })));
 const Index = lazy(() => import('@/pages/Index').then((m) => ({ default: m.Index })));
+const Notebook = lazy(() => import('@/pages/Notebook').then((m) => ({ default: m.Notebook })));
 
 function ReferencePageLoading() {
   return (
@@ -88,6 +89,14 @@ function Application() {
             element={
               <Suspense fallback={<ReferencePageLoading />}>
                 <Index />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/notebook"
+            element={
+              <Suspense fallback={<ReferencePageLoading />}>
+                <Notebook />
               </Suspense>
             }
           />

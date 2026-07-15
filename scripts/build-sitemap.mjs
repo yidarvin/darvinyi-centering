@@ -68,7 +68,7 @@ function buildRobots() {
 
 const chapterPaths = parseChapterSlugs().map((slug) => `/${slug}`);
 const routePaths = parseRouteIds().map((id) => `/routes/${id}`);
-const paths = ['/', '/glossary', '/sources', '/index', ...chapterPaths, ...routePaths];
+const paths = ['/', '/glossary', '/sources', '/index', '/notebook', ...chapterPaths, ...routePaths];
 
 mkdirSync(PUBLIC_DIR, { recursive: true });
 writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), buildSitemap(paths), 'utf8');
