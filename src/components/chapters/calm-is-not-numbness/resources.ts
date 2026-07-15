@@ -1,6 +1,6 @@
 /**
  * The help resources for Chapter 18, verified against official sources on
- * 2026-06-30. This is the safety content of the book, so accuracy matters more
+ * 2026-07-15. This is the safety content of the book, so accuracy matters more
  * here than anywhere else. A few notes for whoever maintains this:
  *
  *  - Crisis phone numbers are region-specific and they change. These are US

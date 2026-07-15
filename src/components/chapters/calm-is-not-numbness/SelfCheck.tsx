@@ -243,7 +243,7 @@ export function SelfCheck() {
               <GroupBlock key={g.id} group={g} />
             ))}
             <p style={{ ...mono, fontSize: 10.5, color: c.faint, margin: '2px 0 0', lineHeight: 1.55 }}>
-              verified 2026-06-30. crisis numbers are region-specific and can change, so confirm your local line is
+              verified 2026-07-15. crisis numbers are region-specific and can change, so confirm your local line is
               current. this is education, not therapy or diagnosis.
             </p>
           </div>

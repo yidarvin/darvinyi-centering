@@ -303,7 +303,26 @@ export const CHAPTERS: Chapter[] = [
       signaturePractice: 'calm-environment audit',
     },
   },
-  { num: 18, part: PART.four, title: 'Calm Is Not Numbness', slug: 'calm-is-not-numbness', subtitle: 'the spine, stated plainly', blurb: "The book's spine, stated plainly: real calm stays engaged, and its counterfeits are quiet for the wrong reasons." },
+  {
+    num: 18,
+    part: PART.four,
+    title: 'Calm Is Not Numbness',
+    slug: 'calm-is-not-numbness',
+    subtitle: 'the spine, stated plainly',
+    blurb: "The book's spine, stated plainly: real calm stays engaged, and its counterfeits are quiet for the wrong reasons.",
+    atAGlance: {
+      thesis: 'Calm is a base for meeting your life, not a bunker from feeling it. When safety or persistent distress is at stake, connection and professional care outrank more practice.',
+      takeaways: [
+        'Equanimity stays in contact with feeling and action. Bypassing, avoidance, and toxic positivity can look quiet while turning away.',
+        'The self-check is a reflection tool, not a diagnosis. Yellow signposts mean it is worth talking to someone; red signposts mean reach out now.',
+        'Crisis resources are region-specific. Save local options before you need them, and verify them again when you use them.',
+      ],
+      readingMinutes: 16,
+      practiceMinutes: 8,
+      signaturePractice: 'settling-or-avoiding self-check',
+      lastReviewed: '2026-07-15',
+    },
+  },
 ];
 
 const BY_SLUG = new Map(CHAPTERS.map((ch) => [ch.slug, ch]));
