@@ -19,6 +19,7 @@ src/content/searchIndex.json
 # Generated at build time by scripts/build-sitemap.mjs
 public/sitemap.xml
 public/robots.txt
+public/bibliography.json
 
 # Vite / TypeScript caches
 .vite/

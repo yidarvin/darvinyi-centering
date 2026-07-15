@@ -5,8 +5,19 @@ import { ServerApp } from '@/App';
 import { CHAPTERS } from '@/content/chapters';
 import { ROUTES } from '@/content/routes';
 import { serverChapterModules } from '@/lib/serverChapterModules';
+import { buildBibliography } from '@/lib/bibliography';
 
 export { CHAPTERS, ROUTES };
+
+export function bibliographyData() {
+  return buildBibliography(
+    CHAPTERS.map((chapter) => ({
+      slug: chapter.slug,
+      title: chapter.title,
+      sources: serverChapterModules[`./chapters/${chapter.slug}.mdx`]?.sources ?? [],
+    })),
+  );
+}
 
 /** Render a route after every lazy reference page has resolved. */
 export function render(url: string): Promise<string> {

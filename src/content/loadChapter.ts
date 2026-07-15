@@ -1,11 +1,12 @@
 import type { ComponentType } from 'react';
+import type { Source } from '@/components/Sources';
 
 export interface ChapterModule {
   default: ComponentType;
   /** the per-chapter reflection block, rendered by the layout */
   reflection?: { path: string; prompt: string; id?: string };
   /** the per-chapter Sources list, rendered by the layout */
-  sources?: { text: string; url?: string }[];
+  sources?: Source[];
 }
 
 // lazy, code-split loaders for every chapter MDX file present in the repo

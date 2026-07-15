@@ -26,5 +26,10 @@ test('a chapter has complete HTML and route metadata before JavaScript runs', as
   await expect(page.getByRole('heading', { level: 1, name: 'Saved work' })).toBeVisible();
   await expect(page.getByRole('heading', { level: 2, name: 'Nothing saved yet' })).toBeVisible();
 
+  await page.goto('/sources');
+  await expect(page.getByRole('heading', { level: 1, name: 'Sources' })).toBeVisible();
+  await expect(page.getByText(/^\d+ sources, deduplicated and linked back/)).toBeVisible();
+  await expect(page.locator('[id^="source-"]').first()).toBeVisible();
+
   await context.close();
 });

@@ -1,4 +1,5 @@
 import { c, mono } from '@/styles/tokens';
+import { sourceIdFor } from '@/lib/bibliography';
 
 export interface Source {
   /** the reference text, for example "Epictetus, Enchiridion (public-domain translation)" */
@@ -52,13 +53,18 @@ export function Sources({ items }: SourcesProps) {
                 href={s.url}
                 target="_blank"
                 rel="noreferrer noopener"
+                aria-label={`${s.text} (opens in a new tab)`}
                 style={{ color: c.muted, textDecoration: 'none', borderBottom: `1px solid ${c.line2}` }}
               >
                 {s.text}
+                <span className="visually-hidden"> (opens in a new tab)</span>
               </a>
             ) : (
               s.text
             )}
+            <a href={`/sources#${sourceIdFor(s)}`} style={{ ...mono, color: c.tealDim, fontSize: 10.5, marginLeft: 7 }} aria-label={`Find this source in the full bibliography`}>
+              [source]
+            </a>
           </li>
         ))}
       </ol>

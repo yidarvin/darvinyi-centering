@@ -56,7 +56,7 @@ The critique-driven implementation pass. Run in dependency order. Each item must
 | 35 | Real prerendering and crawl verification | `prompts/35-prerendering.md` | P0 | DONE |
 | 36 | Shared accessibility and mobile interaction pass | `prompts/36-shared-a11y.md` | P0 | DONE |
 | 37 | Saved-work notebook | `prompts/37-notebook.md` | P1 | DONE |
-| 38 | Structured citations and sources | `prompts/38-structured-sources.md` | P1 | PENDING |
+| 38 | Structured citations and sources | `prompts/38-structured-sources.md` | P1 | DONE |
 | 39 | Reference navigation and reader pathways | `prompts/39-reference-navigation.md` | P1 | PENDING |
 | 40–58 | Chapter-specific content and interaction passes | `docs/site-critique-and-improvement-plan.md` | P1–P2 | PENDING |
 | 59 | Performance and reference-page pass | `prompts/59-performance.md` | P2 | PENDING |
