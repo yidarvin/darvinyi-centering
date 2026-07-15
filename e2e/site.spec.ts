@@ -33,6 +33,11 @@ test('a chapter has complete HTML and route metadata before JavaScript runs', as
   await expect(page.getByText('A pain wakes you at three in the morning.')).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', '/calm-abiding');
 
+  await page.goto('/how-to-use-this-book');
+  await expect(page.getByRole('heading', { level: 1, name: 'How to Use This Book' })).toBeVisible();
+  await expect(page.getByText(/Your reflections, exercise responses, and practice settings save only in this browser/)).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Saved work' })).toHaveAttribute('href', '/notebook');
+
   await page.goto('/notebook');
   await expect(page).toHaveTitle('Saved work · Centering');
   await expect(page.getByRole('heading', { level: 1, name: 'Saved work' })).toBeVisible();
