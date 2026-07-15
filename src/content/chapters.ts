@@ -91,7 +91,14 @@ export const CHAPTERS: Chapter[] = [
       lastReviewed: '2026-07-15',
     },
   },
-  { num: 3, part: PART.one, title: 'The Quiet Mind', slug: 'the-quiet-mind', subtitle: 'why the mind resists, and how to train it', blurb: 'Why attention wanders by default, and the one move that trains it back.' },
+  {
+    num: 3, part: PART.one, title: 'The Quiet Mind', slug: 'the-quiet-mind', subtitle: 'why the mind resists, and how to train it', blurb: 'Why attention wanders by default, and the one move that trains it back.',
+    atAGlance: {
+      thesis: 'A wandering mind is ordinary. The trainable move is noticing the drift and returning attention without turning the drift into a verdict.',
+      takeaways: ['Mind-wandering includes useful planning and memory, but unrecognized drift can pull attention away for long stretches.', 'The default mode network is a useful frame for self-referential thought, not a diagnosis or an enemy network.', 'Flow is engaged absorption, not relaxation. A clear goal, feedback, and a well-matched challenge make it more likely.'],
+      readingMinutes: 14, practiceMinutes: 3, signaturePractice: 'attention trainer', lastReviewed: '2026-07-15',
+    },
+  },
 
   { num: 4, part: PART.two, title: 'Stoicism: Tranquility by Judgment', slug: 'tranquility-by-judgment', subtitle: 'stoicism · disturbance comes from judgment', blurb: "Stoicism's case that disturbance comes from judgment, not events, and the dichotomy of control.", routes: ['letting-go', 'perspective'] },
   { num: 5, part: PART.two, title: 'Epicureanism: Enough, and No Fear', slug: 'enough-and-no-fear', subtitle: 'epicureanism · want less, fear less', blurb: 'Epicurus on wanting less, sorting your desires, and why easy pleasures beat expensive ones.', routes: ['enough', 'connection', 'perspective'] },
