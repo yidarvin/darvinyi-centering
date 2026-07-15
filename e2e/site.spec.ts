@@ -23,6 +23,20 @@ test('the landing page offers clear entry paths at narrow widths', async ({ page
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 });
 
+test('the force or flow widget reports keyboard slider changes', async ({ page }) => {
+  await page.goto('/the-watercourse-way');
+
+  const slider = page.getByRole('slider', { name: 'how are you meeting it?' });
+  await slider.focus();
+  await page.keyboard.press('ArrowLeft');
+  await page.keyboard.press('ArrowLeft');
+
+  await expect(slider).toHaveAttribute('aria-valuetext', /68 percent push/);
+  await expect(
+    page.getByRole('region', { name: 'Push against it, or move with it?' }).getByRole('status'),
+  ).toContainText('still pushing, a little less');
+});
+
 test('a chapter has complete HTML and route metadata before JavaScript runs', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
