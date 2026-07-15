@@ -45,3 +45,19 @@ A critique-driven pass that lifts the finished book to reference-guide quality. 
 | 31 | Glossary + Term component | `prompts/31-glossary.md` | 7 · optional | DONE |
 | 32 | Route-browse + bibliography + index | `prompts/32-route-bib-index.md` | 7 · optional | DONE |
 | 33 | SEO/prerender + print stylesheet | `prompts/33-seo-print.md` | 7 · optional | DONE |
+
+## Phase C — Reliability & Reference Quality
+
+The critique-driven implementation pass. Run in dependency order. Each item must leave `typecheck`, `lint`, `build`, and the applicable automated checks green, then be committed.
+
+| # | item | file | priority | status |
+|----|------|------|----------|--------|
+| 34 | Regression foundation | `prompts/34-regression-foundation.md` | P0 | DONE |
+| 35 | Real prerendering and crawl verification | `prompts/35-prerendering.md` | P0 | PENDING |
+| 36 | Shared accessibility and mobile interaction pass | `prompts/36-shared-a11y.md` | P0 | PENDING |
+| 37 | Saved-work notebook | `prompts/37-notebook.md` | P1 | PENDING |
+| 38 | Structured citations and sources | `prompts/38-structured-sources.md` | P1 | PENDING |
+| 39 | Reference navigation and reader pathways | `prompts/39-reference-navigation.md` | P1 | PENDING |
+| 40–58 | Chapter-specific content and interaction passes | `docs/site-critique-and-improvement-plan.md` | P1–P2 | PENDING |
+| 59 | Performance and reference-page pass | `prompts/59-performance.md` | P2 | PENDING |
+| 60 | Final editorial, accessibility, and safety audit | `prompts/60-final-audit.md` | release | PENDING |

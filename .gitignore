@@ -27,6 +27,8 @@ public/robots.txt
 # Test coverage
 coverage/
 .nyc_output/
+test-results/
+playwright-report/
 
 # Environment variables
 .env
