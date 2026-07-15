@@ -1,5 +1,8 @@
 # Performance baseline
 
+Owner: project maintainers.
+Last reviewed: 2026-07-15
+
 Measured on 2026-07-15 as the performance and reference-page pass. The goal is to keep route-local features route-local: shared application JavaScript at or below 230 kB raw, search at or below 425 kB raw, sources at or below 10 kB raw, and the convergence-graph chapter at or below 510 kB raw.
 
 ## Baseline

@@ -46,7 +46,9 @@ CLAUDE.md                   # project memory and the build workflow
 
 ## Status
 
-Early. The repository currently holds the planning docs (`docs/`) and the build queue (`prompts/`). The site itself is built chapter by chapter through the queue in `prompts/queue.md`, starting with the scaffold. The commands below apply once the scaffold step has run and `package.json` exists.
+The complete eighteen-chapter book, reference pages, saved-work notebook, searchable bibliography, and static prerendering are implemented. `prompts/queue.md` records the completed quality passes.
+
+Production builds generate a sitemap, bibliography data, and prerendered HTML for every public route. They also enforce bundle budgets and audit generated metadata, local links, section anchors, and reader-facing em dashes.
 
 ## Commands
 
@@ -56,9 +58,11 @@ pnpm dev          # local dev server
 pnpm typecheck    # tsc --noEmit
 pnpm lint         # lint
 pnpm build        # production build
+pnpm test         # unit and component tests
+pnpm test:e2e     # Chromium checks, including all public routes at phone width
 ```
 
-Run typecheck, lint, and build before finishing any unit of work.
+Run tests, typecheck, lint, build, and browser checks before finishing a substantial change.
 
 ## Building the book
 

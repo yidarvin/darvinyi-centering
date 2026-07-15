@@ -1,5 +1,39 @@
 import { expect, test } from '@playwright/test';
 
+const publicRoutes = [
+  '/',
+  '/glossary',
+  '/sources',
+  '/index',
+  '/notebook',
+  '/how-to-use-this-book',
+  '/what-calm-is',
+  '/the-settled-body',
+  '/the-quiet-mind',
+  '/tranquility-by-judgment',
+  '/enough-and-no-fear',
+  '/calm-abiding',
+  '/the-ordinary-mind',
+  '/the-watercourse-way',
+  '/stilling-the-mind',
+  '/the-engineering-of-calm',
+  '/the-calm-at-the-center',
+  '/stillness-and-surrender',
+  '/nature-and-simplicity',
+  '/one-calm-many-doors',
+  '/what-actually-works',
+  '/building-your-practice',
+  '/designing-for-calm',
+  '/calm-is-not-numbness',
+  '/routes/letting-go',
+  '/routes/presence',
+  '/routes/the-body',
+  '/routes/perspective',
+  '/routes/enough',
+  '/routes/connection',
+  '/routes/meaning',
+];
+
 test('a chapter is readable at desktop and narrow widths', async ({ page }) => {
   await page.goto('/calm-abiding');
   await expect(page.getByRole('heading', { level: 1, name: 'Buddhism: Calm Abiding' })).toBeVisible();
@@ -21,6 +55,16 @@ test('the landing page offers clear entry paths at narrow widths', async ({ page
 
   await page.setViewportSize({ width: 390, height: 844 });
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
+});
+
+test('every prerendered public route fits a phone viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+
+  for (const route of publicRoutes) {
+    await page.goto(route);
+    await expect(page.locator('#main')).toBeVisible();
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
+  }
 });
 
 test('the force or flow widget reports keyboard slider changes', async ({ page }) => {

@@ -60,4 +60,4 @@ The critique-driven implementation pass. Run in dependency order. Each item must
 | 39 | Reference navigation and reader pathways | `prompts/39-reference-navigation.md` | P1 | DONE |
 | 40–58 | Chapter-specific content and interaction passes | `docs/site-critique-and-improvement-plan.md` | P1–P2 | DONE |
 | 59 | Performance and reference-page pass | `prompts/59-performance.md` | P2 | DONE |
-| 60 | Final editorial, accessibility, and safety audit | `prompts/60-final-audit.md` | release | PENDING |
+| 60 | Final editorial, accessibility, and safety audit | `prompts/60-final-audit.md` | release | DONE |

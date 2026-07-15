@@ -6,7 +6,7 @@
   "description": "Centering — the philosophies and practices of calm. An interactive textbook.",
   "scripts": {
     "dev": "node scripts/build-search-index.mjs && vite",
-    "build": "node scripts/build-search-index.mjs && node scripts/build-sitemap.mjs && tsc --noEmit && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/build-bibliography.mjs && vite build && node scripts/check-bundle-budgets.mjs && node scripts/prerender.mjs",
+    "build": "node scripts/build-search-index.mjs && node scripts/build-sitemap.mjs && tsc --noEmit && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/build-bibliography.mjs && vite build && node scripts/check-bundle-budgets.mjs && node scripts/prerender.mjs && node scripts/audit-static-site.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -16,7 +16,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css,mdx}\"",
     "build:search-index": "node scripts/build-search-index.mjs",
     "build:sitemap": "node scripts/build-sitemap.mjs",
-    "check:bundles": "node scripts/check-bundle-budgets.mjs"
+    "check:bundles": "node scripts/check-bundle-budgets.mjs",
+    "audit:static": "node scripts/audit-static-site.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",

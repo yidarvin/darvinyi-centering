@@ -211,7 +211,7 @@ export const GLOSSARY: GlossaryEntry[] = [
     oneLineDef: "Beginner's mind: approaching something familiar as though encountering it for the first time.",
     tradition: 'Zen',
     homeSlug: 'the-ordinary-mind',
-    anchor: 'beginners-mind',
+    anchor: 'beginner-s-mind',
   },
   {
     term: 'ma',
