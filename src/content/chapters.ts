@@ -18,6 +18,16 @@ export const PART = {
 
 export type PartLabel = (typeof PART)[keyof typeof PART];
 
+export interface ChapterAtAGlanceData {
+  thesis: string;
+  takeaways: string[];
+  readingMinutes: number;
+  practiceMinutes: number;
+  signaturePractice: string;
+  /** ISO date for chapters whose claims need an explicit evidence review. */
+  lastReviewed?: string;
+}
+
 export interface Chapter {
   num: number;
   part: PartLabel;
@@ -34,12 +44,33 @@ export interface Chapter {
    * (e.g. showing all seven with its own label) rather than a plain tagging.
    */
   routes?: RouteId[];
+  /** Compact reference metadata, added chapter by chapter during the quality pass. */
+  atAGlance?: ChapterAtAGlanceData;
 }
 
 export const CHAPTERS: Chapter[] = [
   { num: 0, part: PART.start, title: 'How to Use This Book', slug: 'how-to-use-this-book', subtitle: 'how to read this · calm is trainable', blurb: 'How this book works, and why calm is trainable rather than fixed.' },
 
-  { num: 1, part: PART.one, title: "What Calm Is, and Isn't", slug: 'what-calm-is', subtitle: 'equanimity, not numbness', blurb: 'What calm actually is: equanimity, not numbness, engaged rather than checked out.' },
+  {
+    num: 1,
+    part: PART.one,
+    title: "What Calm Is, and Isn't",
+    slug: 'what-calm-is',
+    subtitle: 'equanimity, not numbness',
+    blurb: 'What calm actually is: equanimity, not numbness, engaged rather than checked out.',
+    atAGlance: {
+      thesis: 'Calm is a settled body with continued contact with your life. Numbness can look quiet while losing that contact.',
+      takeaways: [
+        'Arousal tells you how activated the body is. Engagement tells you whether you are still in contact with the moment.',
+        'Equanimity and sedation share a quiet body. Engagement separates them.',
+        'Suppressing expression can make a feeling less visible while adding strain. A calmer response lets the feeling move without leaving the moment.',
+      ],
+      readingMinutes: 12,
+      practiceMinutes: 5,
+      signaturePractice: 'calm quadrant',
+      lastReviewed: '2026-07-15',
+    },
+  },
   { num: 2, part: PART.one, title: 'The Settled Body', slug: 'the-settled-body', subtitle: 'the body has a brake', blurb: "How the body's own brake, the vagus nerve and the long exhale, lowers arousal on command." },
   { num: 3, part: PART.one, title: 'The Quiet Mind', slug: 'the-quiet-mind', subtitle: 'why the mind resists, and how to train it', blurb: 'Why attention wanders by default, and the one move that trains it back.' },
 
