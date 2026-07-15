@@ -14,6 +14,24 @@ export interface BibliographyEntry extends Source {
   sourceType: 'primary' | 'scholarship' | 'article' | 'web';
 }
 
+export interface BibliographyFilters {
+  query?: string;
+  chapter?: string;
+  sourceType?: BibliographyEntry['sourceType'];
+  year?: number;
+}
+
+export function filterBibliography(entries: BibliographyEntry[], filters: BibliographyFilters): BibliographyEntry[] {
+  const query = filters.query?.trim().toLowerCase();
+  return entries.filter((entry) => {
+    if (query && !`${entry.author} ${entry.text}`.toLowerCase().includes(query)) return false;
+    if (filters.chapter && !entry.chapters.some((chapter) => chapter.slug === filters.chapter)) return false;
+    if (filters.sourceType && entry.sourceType !== filters.sourceType) return false;
+    if (filters.year && entry.year !== filters.year) return false;
+    return true;
+  });
+}
+
 function normalizedUrl(url: string): string {
   try {
     const parsed = new URL(url);

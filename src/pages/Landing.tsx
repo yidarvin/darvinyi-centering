@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { c, mono } from '@/styles/tokens';
 import { ROUTES } from '@/content/routes';
-import { chaptersByPart, chapterNumLabel } from '@/content/chapters';
+import { chaptersByPart, chapterNumLabel, getChapter } from '@/content/chapters';
 
 export function Landing() {
+  const [lastChapterSlug, setLastChapterSlug] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem('centering:reading:last');
+      const slug = stored ? (JSON.parse(stored) as unknown) : null;
+      setLastChapterSlug(typeof slug === 'string' ? getChapter(slug)?.slug ?? null : null);
+    } catch {
+      setLastChapterSlug(null);
+    }
+  }, []);
+
+  const lastChapter = getChapter(lastChapterSlug ?? undefined);
+
   return (
     <main id="main" style={{ color: c.text }}>
       {/* hero */}
@@ -78,8 +93,31 @@ export function Landing() {
         </Link>
       </section>
 
+      <section aria-label="Choose a way into the book" style={{ maxWidth: 820, margin: '0 auto', padding: '10px 22px 18px' }}>
+        {lastChapter && (
+          <Link to={`/${lastChapter.slug}`} style={{ display: 'block', border: `1px solid ${c.tealEdge}`, borderRadius: 11, background: c.tealFog, padding: '13px 15px', marginBottom: 12, textDecoration: 'none' }}>
+            <span style={{ ...mono, fontSize: 11.5, color: c.tealDim }}>continue reading</span>
+            <span style={{ display: 'block', color: c.text, fontSize: 15, fontWeight: 600, marginTop: 3 }}>{lastChapter.title}</span>
+          </Link>
+        )}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: 10 }}>
+          <Link to="/how-to-use-this-book" style={{ border: `1px solid ${c.line}`, borderRadius: 11, background: c.panel, padding: '14px 15px', textDecoration: 'none' }}>
+            <span style={{ ...mono, color: c.tealDim, fontSize: 11.5 }}>read in order</span>
+            <span style={{ display: 'block', color: c.prose, fontSize: 14.5, lineHeight: 1.5, marginTop: 5 }}>Start with the map, then build the foundation.</span>
+          </Link>
+          <Link to="/how-to-use-this-book#where-to-start" style={{ border: `1px solid ${c.line}`, borderRadius: 11, background: c.panel, padding: '14px 15px', textDecoration: 'none' }}>
+            <span style={{ ...mono, color: c.tealDim, fontSize: 11.5 }}>choose a current need</span>
+            <span style={{ display: 'block', color: c.prose, fontSize: 14.5, lineHeight: 1.5, marginTop: 5 }}>Name what is pulling at you and get a starting point.</span>
+          </Link>
+          <a href="#routes" style={{ border: `1px solid ${c.line}`, borderRadius: 11, background: c.panel, padding: '14px 15px', textDecoration: 'none' }}>
+            <span style={{ ...mono, color: c.tealDim, fontSize: 11.5 }}>browse a route</span>
+            <span style={{ display: 'block', color: c.prose, fontSize: 14.5, lineHeight: 1.5, marginTop: 5 }}>Compare the recurring moves that cross traditions.</span>
+          </a>
+        </div>
+      </section>
+
       {/* the seven routes */}
-      <section style={{ maxWidth: 820, margin: '0 auto', padding: '34px 22px 10px' }}>
+      <section id="routes" style={{ maxWidth: 820, margin: '0 auto', padding: '34px 22px 10px' }}>
         <div
           style={{
             ...mono,

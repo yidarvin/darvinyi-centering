@@ -11,6 +11,18 @@ test('a chapter is readable at desktop and narrow widths', async ({ page }) => {
     .toBeTruthy();
 });
 
+test('the landing page offers clear entry paths at narrow widths', async ({ page }) => {
+  await page.goto('/calm-abiding');
+  await expect(page.getByRole('heading', { level: 1, name: 'Buddhism: Calm Abiding' })).toBeVisible();
+
+  await page.goto('/');
+  await expect(page.getByText('Continue reading')).toBeVisible();
+  await expect(page.getByText('Choose a current need')).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
+});
+
 test('a chapter has complete HTML and route metadata before JavaScript runs', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
@@ -28,7 +40,7 @@ test('a chapter has complete HTML and route metadata before JavaScript runs', as
 
   await page.goto('/sources');
   await expect(page.getByRole('heading', { level: 1, name: 'Sources' })).toBeVisible();
-  await expect(page.getByText(/^\d+ sources, deduplicated and linked back/)).toBeVisible();
+  await expect(page.getByText(/^\d+ of \d+ sources, deduplicated and linked back/)).toBeVisible();
   await expect(page.locator('[id^="source-"]').first()).toBeVisible();
 
   await context.close();

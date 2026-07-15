@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildBibliography } from '@/lib/bibliography';
+import { buildBibliography, filterBibliography } from '@/lib/bibliography';
 
 describe('bibliography data', () => {
   it('groups a repeated source under a stable anchor and preserves every chapter back-link', () => {
@@ -18,5 +18,18 @@ describe('bibliography data', () => {
         { slug: 'the-ordinary-mind' },
       ],
     });
+  });
+});
+
+describe('bibliography filters', () => {
+  it('combines author text, chapter, type, and year constraints', () => {
+    const entries = buildBibliography([
+      { slug: 'calm-abiding', title: 'Buddhism: Calm Abiding', sources: [{ text: 'Bhikkhu Bodhi. The Connected Discourses of the Buddha (2000).', url: 'https://example.org/bodhi' }] },
+      { slug: 'the-quiet-mind', title: 'The Quiet Mind', sources: [{ text: 'A. Researcher, Journal of Attention (2024).', url: 'https://example.org/article' }] },
+    ]);
+
+    expect(filterBibliography(entries, { query: 'researcher', chapter: 'the-quiet-mind', sourceType: 'article', year: 2024 })).toMatchObject([
+      { author: 'A', year: 2024, chapters: [{ slug: 'the-quiet-mind' }] },
+    ]);
   });
 });

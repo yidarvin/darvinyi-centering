@@ -66,6 +66,15 @@ export function ChapterPage() {
     path: `/${slug}`,
   });
 
+  useEffect(() => {
+    if (!chapter) return;
+    try {
+      window.localStorage.setItem('centering:reading:last', JSON.stringify(chapter.slug));
+    } catch {
+      // Reading history is a convenience only. Storage failures should stay invisible.
+    }
+  }, [chapter]);
+
   if (!chapter) return <NotFound />;
 
   const Content = mod?.default;
