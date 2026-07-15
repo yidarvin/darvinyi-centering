@@ -71,7 +71,26 @@ export const CHAPTERS: Chapter[] = [
       lastReviewed: '2026-07-15',
     },
   },
-  { num: 2, part: PART.one, title: 'The Settled Body', slug: 'the-settled-body', subtitle: 'the body has a brake', blurb: "How the body's own brake, the vagus nerve and the long exhale, lowers arousal on command." },
+  {
+    num: 2,
+    part: PART.one,
+    title: 'The Settled Body',
+    slug: 'the-settled-body',
+    subtitle: 'the body has a brake',
+    blurb: "How the body's own brake, the vagus nerve and the long exhale, lowers arousal on command.",
+    atAGlance: {
+      thesis: 'Slow, easy breathing can shift arousal because respiration and heart rhythm are linked. The longer exhale is a usable, gentle lever.',
+      takeaways: [
+        'The parasympathetic system acts as a fast brake on the heart, and respiration changes how that brake is expressed.',
+        'Heart-rate variability is a changing signal, not a grade for your nervous system.',
+        'Coherent breathing is the gentlest starting pattern. Stop any breathing practice that makes you dizzy, tingly, or more anxious.',
+      ],
+      readingMinutes: 13,
+      practiceMinutes: 3,
+      signaturePractice: 'breathing pacer',
+      lastReviewed: '2026-07-15',
+    },
+  },
   { num: 3, part: PART.one, title: 'The Quiet Mind', slug: 'the-quiet-mind', subtitle: 'why the mind resists, and how to train it', blurb: 'Why attention wanders by default, and the one move that trains it back.' },
 
   { num: 4, part: PART.two, title: 'Stoicism: Tranquility by Judgment', slug: 'tranquility-by-judgment', subtitle: 'stoicism · disturbance comes from judgment', blurb: "Stoicism's case that disturbance comes from judgment, not events, and the dichotomy of control.", routes: ['letting-go', 'perspective'] },

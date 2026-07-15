@@ -81,7 +81,7 @@ export function BreathingPacer() {
           setPaced((n) => n + 1);
         }
         lastSegRef.current = s.segIndex;
-        setAnnounce(`${PHASE_LABEL[s.kind]}, ${s.secondsLeft} seconds`);
+        setAnnounce(PHASE_LABEL[s.kind]);
       }
       // in reduced mode, only re-render on a phase or whole-second change
       if (!reducedRef.current || s.secondsLeft !== viewRef.current.secondsLeft || s.segIndex !== viewRef.current.segIndex) {
