@@ -47,7 +47,11 @@ export function Sources({ items }: SourcesProps) {
         }}
       >
         {items.map((s, i) => (
-          <li key={i} style={{ fontSize: 13.5, lineHeight: 1.6, color: c.muted }}>
+          <li
+            key={i}
+            id={sourceIdFor(s)}
+            style={{ fontSize: 13.5, lineHeight: 1.6, color: c.muted, scrollMarginTop: 84 }}
+          >
             {s.url ? (
               <a
                 href={s.url}
