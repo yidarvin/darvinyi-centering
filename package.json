@@ -19,7 +19,8 @@
     "check:bundles": "node scripts/check-bundle-budgets.mjs",
     "audit:static": "node scripts/audit-static-site.mjs",
     "audit:resources": "node scripts/check-resource-freshness.mjs",
-    "check": "pnpm run typecheck && pnpm run lint && pnpm run build && pnpm run test && pnpm run test:e2e"
+    "audit:deps": "pnpm audit --audit-level high || true",
+    "check": "pnpm run typecheck && pnpm run lint && pnpm run build && pnpm run test && pnpm run test:e2e && pnpm run audit:deps"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.0",

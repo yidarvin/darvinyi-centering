@@ -64,6 +64,8 @@ pnpm test:e2e     # Chromium checks, including all public routes at phone width
 
 Run tests, typecheck, lint, build, and browser checks before finishing a substantial change.
 
+`pnpm audit:deps` (also run as a non-blocking step at the end of `pnpm check`) surfaces dependency advisories without failing the gate. As of this writing it reports advisories against `vite` and `vitest`, both dev-only tooling never shipped in the production bundle. Every fix requires a major version bump (vite 5 to 6, vitest 2 to 3) that is deliberately deferred: it is a real migration, not a patch, and needs its own pass with the build, MDX pipeline, and SSR config re-verified under the new majors. Re-run `pnpm audit` periodically and do that upgrade before it becomes overdue.
+
 ## Building the book
 
 Work is organized as a queue of self-contained prompts in `prompts/queue.md`, run in order. Each item produces one scaffold or one full chapter, built to the standards in `docs/authoring-spec.md` and the per-chapter spec in `docs/scope-and-outline.md`. See `CLAUDE.md` for the full workflow.
