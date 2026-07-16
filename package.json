@@ -6,7 +6,7 @@
   "description": "Centering — the philosophies and practices of calm. An interactive textbook.",
   "scripts": {
     "dev": "node scripts/build-search-index.mjs && vite",
-    "build": "node scripts/build-search-index.mjs && node scripts/build-sitemap.mjs && tsc --noEmit && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/build-bibliography.mjs && vite build && node scripts/check-bundle-budgets.mjs && node scripts/prerender.mjs && node scripts/audit-static-site.mjs",
+    "build": "node scripts/build-search-index.mjs && node scripts/build-sitemap.mjs && tsc --noEmit && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/build-bibliography.mjs && vite build && node scripts/check-bundle-budgets.mjs && node scripts/prerender.mjs && node scripts/audit-static-site.mjs && node scripts/check-resource-freshness.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
@@ -18,6 +18,7 @@
     "build:sitemap": "node scripts/build-sitemap.mjs",
     "check:bundles": "node scripts/check-bundle-budgets.mjs",
     "audit:static": "node scripts/audit-static-site.mjs",
+    "audit:resources": "node scripts/check-resource-freshness.mjs",
     "check": "pnpm run typecheck && pnpm run lint && pnpm run build && pnpm run test && pnpm run test:e2e"
   },
   "dependencies": {

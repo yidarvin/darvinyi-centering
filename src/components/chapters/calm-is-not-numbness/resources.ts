@@ -1,12 +1,13 @@
 /**
- * The help resources for Chapter 18, verified against official sources on
- * 2026-07-15. This is the safety content of the book, so accuracy matters more
- * here than anywhere else. A few notes for whoever maintains this:
+ * The help resources for Chapter 18, verified against official sources as of
+ * RESOURCES_VERIFIED_AT below. This is the safety content of the book, so
+ * accuracy matters more here than anywhere else. A few notes for whoever
+ * maintains this:
  *
  *  - Crisis phone numbers are region-specific and they change. These are US
  *    services, with an international directory (findahelpline.com) as the pointer
  *    for everyone else. Re-verify before any deploy that ships a long time after
- *    this date.
+ *    RESOURCES_VERIFIED_AT, and bump it when you do.
  *  - "988, press 3" for LGBTQ+ youth was discontinued on 2025-07-17. The main 988
  *    line still serves everyone; the current dedicated route for LGBTQ+ youth is
  *    The Trevor Project's own line, listed below. There has been talk of a
@@ -19,6 +20,15 @@
  *  - This is information, not diagnosis or therapy. The prose and the widget say
  *    so plainly.
  */
+
+/**
+ * The single source of truth for when the resources below were last checked
+ * against their official sources. Rendered to readers in SelfCheck.tsx and the
+ * chapter sources note, and enforced at build time by
+ * scripts/check-resource-freshness.mjs (warns at 30 days, fails the production
+ * build at 90). Update this whenever you re-verify the numbers.
+ */
+export const RESOURCES_VERIFIED_AT = '2026-07-15';
 
 export type ResourceGroup = 'crisis' | 'community' | 'ongoing';
 

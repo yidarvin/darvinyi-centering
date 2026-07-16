@@ -4,7 +4,7 @@ import { c, mono } from '@/styles/tokens';
 import { WidgetShell } from '@/components/WidgetShell';
 import { useLocalStorage } from '@/lib/useLocalStorage';
 import { CHECK_QUESTIONS, FLAG_TIERS, type Lean } from './flags';
-import { GROUPS, groupOf, type Group, type Resource } from './resources';
+import { GROUPS, groupOf, RESOURCES_VERIFIED_AT, type Group, type Resource } from './resources';
 
 /**
  * widget_18.1, the self-check. Two instruments, deliberately separate.
@@ -243,8 +243,8 @@ export function SelfCheck() {
               <GroupBlock key={g.id} group={g} />
             ))}
             <p style={{ ...mono, fontSize: 10.5, color: c.faint, margin: '2px 0 0', lineHeight: 1.55 }}>
-              verified 2026-07-15. crisis numbers are region-specific and can change, so confirm your local line is
-              current. this is education, not therapy or diagnosis.
+              verified {RESOURCES_VERIFIED_AT}. crisis numbers are region-specific and can change, so confirm your
+              local line is current. this is education, not therapy or diagnosis.
             </p>
           </div>
         )}
