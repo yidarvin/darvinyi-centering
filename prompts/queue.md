@@ -26,7 +26,7 @@ Run order, top to bottom. Status is PENDING, DONE, or SKIPPED. "Next" is the fir
 
 ## Phase B — Polish & Elevation
 
-A critique-driven pass that lifts the finished book to reference-guide quality. Run 19–28 in order first (Tiers 1–6). Items 29–33 are the optional reference-layer; if taken, do 29 first. Plan and rationale: `/Users/darvin/.claude/plans/this-is-an-calmness-starry-kay.md`. One item per run; leave `typecheck`/`lint`/`build` green and commit at the end of each.
+A critique-driven pass that lifts the finished book to reference-guide quality. Run 19–28 in order first (Tiers 1–6). Items 29–33 are the optional reference-layer; if taken, do 29 first. One item per run; leave `pnpm check` green and commit at the end of each.
 
 | # | item | file | tier | status |
 |----|------|------|------|--------|

@@ -2,7 +2,7 @@
 # runqueue.sh -- headless build loop for a queue-driven refsite.
 #
 # Walks prompts/queue.md and, for every PENDING row, invokes `claude -p` to build
-# the next item (research, write, gate, commit, push), then runs `npm run check` as
+# the next item (research, write, gate, commit, push), then runs `pnpm run check` as
 # an independent second gate. It stops the moment anything is off: a nonzero claude
 # exit, a hung run past --timeout, a failing check, a working tree the run left
 # dirty, or a run that made no queue progress. That last guard is what keeps an
@@ -21,13 +21,14 @@
 #   -a, --all            run every PENDING item until the queue is drained (default)
 #   -n, --count N        run at most N items, then stop
 #   -m, --model MODEL    model passed to claude    (default: claude-opus-4-8[1m])
+#   -e, --effort LEVEL   value for claude --effort (default: high; "" omits it)
 #   -p, --prompt TEXT    per-item prompt           (default below)
 #   -q, --queue PATH     queue file to read        (default: prompts/queue.md)
-#   -s, --settings NAME  value for claude --settings (default: ultracode; "" omits it)
+#   -s, --settings NAME  value for claude --settings (default: none)
 #   -t, --timeout SEC    kill a single claude run after SEC seconds (needs `timeout`
 #                        or `gtimeout`; default: 0 = no limit)
 #       --no-push        build and commit but do not push (adjusts the default prompt)
-#       --no-check       skip the `npm run check` second gate (not recommended)
+#       --no-check       skip the `pnpm run check` second gate (not recommended)
 #       --allow-dirty    do not require a clean git working tree
 #       --dry-run        print the resolved plan and command, then run nothing
 #   -y, --yes            do not ask for confirmation before an unbounded run
@@ -41,7 +42,8 @@ set -uo pipefail
 
 # --- defaults ---------------------------------------------------------------
 MODEL='claude-opus-4-8[1m]'
-SETTINGS='ultracode'
+EFFORT='high'
+SETTINGS=''
 QUEUE='prompts/queue.md'
 PROMPT=''            # resolved after parsing so --no-push can adjust the default
 PROMPT_SET=0
@@ -77,6 +79,7 @@ while [ $# -gt 0 ]; do
     -a|--all)       MAX=''; shift ;;
     -n|--count)     [ $# -ge 2 ] || die "$1 needs a value"; MAX="$(parse_count "$1" "$2")"; shift 2 ;;
     -m|--model)     [ $# -ge 2 ] || die "$1 needs a value"; MODEL="$2"; shift 2 ;;
+    -e|--effort)    [ $# -ge 2 ] || die "$1 needs a value"; EFFORT="$2"; shift 2 ;;
     -p|--prompt)    [ $# -ge 2 ] || die "$1 needs a value"; PROMPT="$2"; PROMPT_SET=1; shift 2 ;;
     -q|--queue)     [ $# -ge 2 ] || die "$1 needs a value"; QUEUE="$2"; shift 2 ;;
     -s|--settings)  [ $# -ge 2 ] || die "$1 needs a value"; SETTINGS="$2"; shift 2 ;;
@@ -111,7 +114,7 @@ cd "$SCRIPT_DIR" || die "cannot cd to $SCRIPT_DIR"
 [ -f content/registry.json ] || printf '\033[33m%s\033[0m\n' "runqueue: warning: content/registry.json not found; is this a refsite repo?" >&2
 command -v claude >/dev/null 2>&1 || die "the 'claude' CLI is not on PATH"
 if [ "$RUN_CHECK" -eq 1 ]; then
-  command -v npm >/dev/null 2>&1 || die "'npm' is not on PATH (needed for the check gate; pass --no-check to skip)"
+  command -v pnpm >/dev/null 2>&1 || die "'pnpm' is not on PATH (needed for the check gate; pass --no-check to skip)"
 fi
 if [ "$TIMEOUT" -gt 0 ]; then
   if command -v timeout >/dev/null 2>&1; then TIMEOUT_BIN=timeout
@@ -148,6 +151,7 @@ count_processed() { echo $(( $(count_status DONE) + $(count_status SKIPPED) )); 
 
 # --- build the claude command ----------------------------------------------
 CLAUDE_ARGS=( -p "$PROMPT" --model "$MODEL" --dangerously-skip-permissions )
+[ -n "$EFFORT" ] && CLAUDE_ARGS+=( --effort "$EFFORT" )
 [ -n "$SETTINGS" ] && CLAUDE_ARGS+=( --settings "$SETTINGS" )
 
 # --- announce the plan ------------------------------------------------------
@@ -159,9 +163,10 @@ printf '\033[1m%s\033[0m\n' "runqueue plan"
 printf '  queue:    %s\n' "$QUEUE"
 printf '  items:    %s\n' "$limit_desc"
 printf '  model:    %s\n' "$MODEL"
+printf '  effort:   %s\n' "${EFFORT:-<none>}"
 printf '  settings: %s\n' "${SETTINGS:-<none>}"
 printf '  timeout:  %s\n' "$([ "$TIMEOUT" -gt 0 ] && echo "${TIMEOUT}s per item (${TIMEOUT_BIN})" || echo 'none')"
-printf '  gate:     %s\n' "$([ "$RUN_CHECK" -eq 1 ] && echo 'npm run check after each item' || echo 'skipped (--no-check)')"
+printf '  gate:     %s\n' "$([ "$RUN_CHECK" -eq 1 ] && echo 'pnpm run check after each item' || echo 'skipped (--no-check)')"
 printf '  command:  claude %s\n' "$(printf '%q ' "${CLAUDE_ARGS[@]}")"
 
 if [ "$DRY_RUN" -eq 1 ]; then
@@ -248,8 +253,8 @@ while :; do
   fi
 
   if [ "$RUN_CHECK" -eq 1 ]; then
-    if ! npm run check; then
-      printf '\n\033[31m%s\033[0m\n' "npm run check failed after item $i; stopping for review."
+    if ! pnpm run check; then
+      printf '\n\033[31m%s\033[0m\n' "pnpm run check failed after item $i; stopping for review."
       exit 1
     fi
   fi

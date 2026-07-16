@@ -89,7 +89,10 @@ test('a chapter has complete HTML and route metadata before JavaScript runs', as
   await expect(page).toHaveTitle('Buddhism: Calm Abiding · Centering');
   await expect(page.getByRole('heading', { level: 1, name: 'Buddhism: Calm Abiding' })).toBeVisible();
   await expect(page.getByText('A pain wakes you at three in the morning.')).toBeVisible();
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', '/calm-abiding');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://centering.darvinyi.com/calm-abiding',
+  );
 
   await page.goto('/how-to-use-this-book');
   await expect(page.getByRole('heading', { level: 1, name: 'How to Use This Book' })).toBeVisible();

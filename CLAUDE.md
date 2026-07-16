@@ -20,7 +20,7 @@ Project memory for Claude Code. Read this fully before doing anything.
 2. Voice: no em dashes, ever. None of the banned tells listed in the spec. Write like a person. This applies to all reader-facing prose.
 3. Reuse the shared primitives. Do not invent new patterns without a reason.
 4. Quality over speed. This is a product, not a draft.
-5. Never mark a queue item done if typecheck, lint, or build fails.
+5. Never mark a queue item done if `pnpm check` fails.
 6. Commit at the end of every run.
 
 ## Commands
@@ -29,8 +29,11 @@ Project memory for Claude Code. Read this fully before doing anything.
 - Typecheck: `pnpm typecheck` (`tsc --noEmit`)
 - Lint: `pnpm lint`
 - Build: `pnpm build`
+- Test: `pnpm test` (vitest)
+- Test (e2e): `pnpm test:e2e` (Playwright; run `pnpm exec playwright install` once per machine)
+- Check (full gate): `pnpm check` — typecheck, lint, build, test, and test:e2e in order
 
-Run typecheck, lint, and build before finishing any run.
+Run `pnpm check` before finishing any run.
 
 ## The queue workflow
 
@@ -52,12 +55,13 @@ The queue is `prompts/queue.md`. It lists units of work in run order, each with 
 4. Plan. Outline the files, components, figures, and widget before writing code. For a chapter, draft the prose structure and the worked example first.
 5. Build. Implement to the spec and the design tokens. Reuse primitives. Put chapter prose in `src/content/chapters/<slug>.mdx` and chapter-specific components in `src/components/chapters/<slug>/`.
 6. Self-review against the definition of done in `docs/authoring-spec.md`. Re-read the prose for em dashes and AI tells. Check every figure for accuracy and labels. Exercise the widget at mobile width, with the keyboard, and with reduced motion.
-7. Verify. Run typecheck, lint, and build. Fix everything. Do not proceed on a broken build.
+7. Verify. Run `pnpm check`. Fix everything. Do not proceed on a broken build.
 8. Commit. A conventional message, for example `feat(ch04): stoicism, tranquility by judgment`.
 9. Update `prompts/queue.md`: set the item to DONE.
 10. Report a short summary: what you built, the sources you used, any follow-ups. Then stop, unless you were told to run several.
 
 ### Guardrails
+- Loops (`runqueue.sh`, `/loop`) default to high reasoning effort, not the `ultracode` multi-agent profile. Do not reintroduce an `ultracode` default.
 - One item per run unless asked for more. Never auto-advance past your instruction.
 - Keep each run scoped to its item. If you notice unrelated problems, write them down, do not fix them mid-run.
 - If a step is blocked, or a decision is genuinely ambiguous, stop and ask rather than guess.
