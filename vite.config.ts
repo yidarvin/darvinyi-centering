@@ -16,6 +16,23 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        // scripts/serverChapterModules.ts eagerly imports every chapter MDX
+        // file for SSR, while content/loadChapter.ts lazily imports the same
+        // files for the client's per-chapter code split. Rollup flags every
+        // chapter for this by design, not a real problem: the client bundle
+        // still splits one chunk per chapter (see check-bundle-budgets.mjs).
+        const isChapterSplitWarning =
+          warning.message.includes('dynamically imported') &&
+          warning.message.includes('but also statically imported') &&
+          warning.message.includes('/content/chapters/');
+        if (isChapterSplitWarning) return;
+        warn(warning);
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
