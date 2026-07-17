@@ -24,7 +24,7 @@ export const sources = [
     url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8364929/',
   },
   {
-    text: 'Julieta Galante et al., "Mindfulness-based programmes for mental health promotion in adults in non-clinical settings," PLOS Medicine 18, no. 1 (2021): e1003481. In healthy adults, distress fell against passive controls (SMD -0.45) but essentially not at all against active controls (SMD -0.01). The clean demonstration that the everyday-wellness benefit rests on comparisons to doing nothing.',
+    text: 'Julieta Galante et al., "Mindfulness-based programmes for mental health promotion in adults in non-clinical settings," PLOS Medicine 18, no. 1 (2021): e1003481. In healthy adults, distress and anxiety fell against passive controls (SMD -0.45) but essentially not at all against active controls (SMD -0.01), the clean demonstration that most of the everyday-wellness benefit rests on comparisons to doing nothing. Depression was the exception: it improved against active controls too (SMD about -0.46), so the null result above is specific to distress and anxiety, not a blanket finding.',
     url: 'https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1003481',
   },
   {
@@ -87,6 +87,10 @@ export const sources = [
     text: 'Gregory N. Bratman et al., "Nature experience reduces rumination and subgenual prefrontal cortex activation," PNAS 112, no. 28 (2015): 8567-8572, with Marc G. Berman, John Jonides, and Stephen Kaplan, Psychological Science 19, no. 12 (2008): 1207-1212. A single nature walk reliably beats a city walk on mood and attention and lowers activity in a brooding-linked brain region, though on self-reported rumination the nature-versus-urban difference was only a non-significant trend, and the comparisons are single-session.',
     url: 'https://www.pnas.org/doi/10.1073/pnas.1510459112',
   },
+  {
+    text: 'Yasuhiro Kotera, Miles Richardson, and David Sheffield, "Effects of Shinrin-Yoku (Forest Bathing) and Nature Therapy on Mental Health: A Systematic Review and Meta-analysis," International Journal of Mental Health and Addiction (2020). The publication-bias case in miniature: risk of bias rated medium to high across its included studies, potential publication bias flagged in almost every analysis, and effect sizes for anxiety and depression large enough to be implausible on their own.',
+    url: 'https://doi.org/10.1007/s11469-020-00363-4',
+  },
 ];
 
 The app opens with a breath. A soft circle widens, holds, shrinks, and a line of calm sans-serif tells you the exercise is clinically proven to reduce stress. You believe it a little. You also do not, quite, because the last app said the same thing, and so did the supplement, the weighted blanket, the gratitude journal, and the man on the podcast selling a course. *Proven* is carrying a great deal of weight in that sentence. It never says proven against what.
@@ -111,7 +115,7 @@ A few more cautions sit underneath that one, and they all push the same directio
 
 **Expectancy is almost impossible to remove.** You can give the control group a real activity, but you usually cannot blind people to which activity they got. You know whether you spent eight weeks meditating. The cleanest illustration is a preregistered trial of four hundred people that pitted a physiologically "correct" slow breathing rate against a faster placebo rate<Cite url="https://pmc.ncbi.nlm.nih.gov/articles/PMC10719279/" label="Fincham et al. 2023" />. The correct rate beat nothing. It did not beat the placebo. Both groups improved the same amount, because both groups expected to.
 
-**Publication bias is real here, not hypothetical.** Small studies with exciting results get published. Small studies with null results get filed in a drawer. Pool the published ones and the average is inflated. It is detectable: a meta-analysis of forest bathing shows the telltale asymmetry and reports effects so large they strain belief, sitting on top of high risk of bias in more than half its studies. The contrast case is heart-rate-variability biofeedback, whose depression meta-analysis comes back clean, which is how you know the audit can tell the difference.
+**Publication bias is real here, not hypothetical.** Small studies with exciting results get published. Small studies with null results get filed in a drawer. Pool the published ones and the average is inflated. It is detectable: a meta-analysis of forest bathing<Cite url="https://doi.org/10.1007/s11469-020-00363-4" label="Kotera et al. 2020" /> shows the telltale asymmetry and reports effects so large they strain belief, sitting on top of a risk of bias its own authors rated medium to high across the included studies. The contrast case is heart-rate-variability biofeedback, whose depression meta-analysis comes back clean, which is how you know the audit can tell the difference.
 
 **Dose is mostly guesswork.** You have seen the figure that two hours a week in nature is the threshold for wellbeing. It comes from a single cross-sectional survey, not from titrating the dose in a trial, and the same curve flattens and even dips past a few hundred minutes. "More is better" is an assumption the data does not carry.
 
@@ -169,7 +173,7 @@ Take the single most common claim in this whole space and run it through the cha
 
 *Studies show that mindfulness reduces anxiety.*
 
-Start where you now know to start. Reduces it compared to what? Pull the trials apart by their control group and the one sentence splits into three. Against a waitlist, the effect is large and exciting, and almost worthless as evidence, because it is loaded with everything the waitlist lacked. Against a credible active control, the best meta-analysis finds an effect on anxiety of about 0.38 at eight weeks, real but small, and fading to about 0.22 within a few months<Cite url="https://pmc.ncbi.nlm.nih.gov/articles/PMC4142584/" label="Goyal et al. 2014" />. And in healthy people seeking general wellbeing rather than treatment for distress, against an active control, the effect is statistically indistinguishable from zero.
+Start where you now know to start. Reduces it compared to what? Pull the trials apart by their control group and the one sentence splits into three. Against a waitlist, the effect is large and exciting, and almost worthless as evidence, because it is loaded with everything the waitlist lacked. Against a credible active control, the best meta-analysis finds an effect on anxiety of about 0.38 at eight weeks, real but small, and fading to about 0.22 within a few months<Cite url="https://pmc.ncbi.nlm.nih.gov/articles/PMC4142584/" label="Goyal et al. 2014" />. And in healthy people seeking general wellbeing rather than treatment for distress, against an active control, the anxiety effect is statistically indistinguishable from zero. (Depression is the one outcome in that same trial pool that held up against an active control too, so this is not a blanket verdict on every outcome.)
 
 Now grade it honestly. For genuine anxiety and depression, mindfulness is a B: a real, modest, replicated effect that does not clearly beat the other good things you could do with the time. For everyday wellness in an already-well person, it is closer to a C, almost all of its apparent benefit borrowed from expectation and the simple act of taking deliberate time. Name the catch out loud: the effect is small, it leans on belief, and for a minority of people the practice stirs up more than it settles, which the cheerful version never mentions.
 
