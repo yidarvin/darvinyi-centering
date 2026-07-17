@@ -68,7 +68,40 @@ function sourceType(source: Source): BibliographyEntry['sourceType'] {
   return 'web';
 }
 
+/**
+ * True if a candidate author span crossed a real sentence or title boundary
+ * rather than stopping at an initial: a period followed by a capitalized
+ * word of three or more letters, like ". The" or ". Journal", as opposed to
+ * an initial like "P. M." True APA reference lists put the surname before
+ * its initials ("Lastname, F. M."), so this pattern never occurs in a
+ * genuine one; it only shows up when the match ran past the author list
+ * into a title. Not applied to the MLA check below, where a real author
+ * list legitimately reads "Firstname M. Lastname" (the initial before the
+ * surname), which has the identical shape and would otherwise be rejected.
+ */
+function crossesSentenceBreak(candidate: string): boolean {
+  return /\.\s+[A-Z][a-z]{2,}/.test(candidate);
+}
+
+/**
+ * Extracts the author (or organization) from a reference string, for
+ * chapters that do not supply an explicit `author` on the source. Tries, in
+ * order: the APA reference-list shape ("Lastname, F. M., & Lastname2, G.
+ * (2014)."), the MLA shape (an author list ending right before a quoted
+ * title, "Author et al., "Title..."), and finally a plain split on the
+ * first sentence-ending punctuation, which is the only sane fallback for
+ * unquoted book citations and combined multi-citation entries. None of
+ * these can perfectly parse every format a chapter's Sources list uses; a
+ * source whose citation does not fit any of them should set `author`
+ * explicitly instead of fighting the regex.
+ */
 function authorFor(text: string): string {
+  const apaStyle = text.match(/^([^"]{1,100}?)\s*\(\d{4}\)/);
+  if (apaStyle?.[1].trim() && !crossesSentenceBreak(apaStyle[1])) return apaStyle[1].trim();
+
+  const mlaStyle = text.match(/^([^"]{1,118}?),\s*"/);
+  if (mlaStyle?.[1].trim()) return mlaStyle[1].trim();
+
   const candidate = text.split(/[.:([]/, 1)[0]?.trim() ?? '';
   return candidate || 'Unattributed';
 }
@@ -93,9 +126,9 @@ export function buildBibliography(chapters: ChapterSourceData[]): BibliographyEn
       entries.set(key, {
         ...source,
         id: sourceIdFor(source),
-        author: authorFor(source.text),
-        year: yearFor(source.text),
-        sourceType: sourceType(source),
+        author: source.author ?? authorFor(source.text),
+        year: source.year ?? yearFor(source.text),
+        sourceType: source.sourceType ?? sourceType(source),
         chapters: [{ slug: chapter.slug, title: chapter.title }],
       });
     }
