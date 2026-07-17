@@ -64,7 +64,7 @@ pnpm test:e2e     # Chromium checks, including all public routes at phone width
 
 Run tests, typecheck, lint, build, and browser checks before finishing a substantial change.
 
-`pnpm audit:deps` (also run as a non-blocking step at the end of `pnpm check`) surfaces dependency advisories without failing the gate. As of this writing it reports advisories against `vite` and `vitest`, both dev-only tooling never shipped in the production bundle. Every fix requires a major version bump (vite 5 to 6, vitest 2 to 3) that is deliberately deferred: it is a real migration, not a patch, and needs its own pass with the build, MDX pipeline, and SSR config re-verified under the new majors. Re-run `pnpm audit` periodically and do that upgrade before it becomes overdue.
+`pnpm audit:deps` (also run at the end of `pnpm check`) runs `pnpm audit` and fails the gate on any high or critical advisory. The project migrated from vite 5 to vite 6 and vitest 2 to vitest 3 to clear a critical vitest advisory and three vite/esbuild advisories; `pnpm audit` currently reports no known vulnerabilities. A stray duplicate `vite@5.x` used to hide under vitest's own dependency tree even after the top-level version was bumped: pnpm needed an explicit override (`pnpm-workspace.yaml`'s `overrides` field, not `package.json`'s `pnpm.overrides`, which this pnpm version ignores) to fully deduplicate it. Re-run `pnpm audit` periodically and keep these majors current.
 
 ## Building the book
 
