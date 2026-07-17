@@ -61,3 +61,10 @@ The critique-driven implementation pass. Run in dependency order. Each item must
 | 40–58 | Chapter-specific content and interaction passes | `docs/site-critique-and-improvement-plan.md` | P1–P2 | DONE |
 | 59 | Performance and reference-page pass | `prompts/59-performance.md` | P2 | DONE |
 | 60 | Final editorial, accessibility, and safety audit | `prompts/60-final-audit.md` | release | DONE |
+| 61 | Repo-critique remediation (safety freshness, citations, perf, build hygiene) | `CRITIQUE.md` | release | DONE |
+
+Notes on the table above, so it keeps telling the truth as scope narrows or widens:
+
+- Item 38 ships build-time bibliography generation and, as of item 61, inline claim-level citation markers, but the markers exist only in the four evidence-heavy chapters (`what-actually-works`, `the-engineering-of-calm`, `the-settled-body`, `the-quiet-mind`). The other fourteen chapters still cite only at the chapter-sources level. A follow-up item should extend the markers chapter by chapter.
+- Items 40–58 are a single rolled-up row because the individual per-chapter prompt files for that pass were not kept; the work is real (see `docs/site-critique-and-improvement-plan.md` and the chapter MDX itself) but not auditable item by item the way 00–39 and 61 are.
+- Item 61 covers `CRITIQUE.md`'s 9-task remediation plan: crisis-resource freshness enforcement (MAJ-1), a confidentiality-claim correction (MAJ-2), dependency-audit visibility (MAJ-4), lazy-loading the convergence graph's Cytoscape engine (MAJ-5), the citation markers noted above (MAJ-3, partial), authored bibliography metadata (MIN-3), a build-warning fix (MIN-1), and this table update (MIN-4, MIN-5). See `CRITIQUE.md` for the full findings and evidence.
