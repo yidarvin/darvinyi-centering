@@ -64,6 +64,7 @@ export function ChapterPage() {
     title: chapter?.title ?? '',
     description: chapter?.blurb ?? '',
     path: `/${slug}`,
+    image: chapter ? `/og/${chapter.slug}.png` : undefined,
   });
 
   useEffect(() => {
