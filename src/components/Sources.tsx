@@ -6,6 +6,18 @@ export interface Source {
   text: string;
   /** an optional link to the source */
   url?: string;
+  /**
+   * An explicit author override for the bibliography, for cases the
+   * automatic parse in lib/bibliography.ts gets wrong: combined citations,
+   * unquoted book titles, or a citation whose first sentence isn't the
+   * author. Most sources do not need this; the parse handles ordinary APA
+   * and MLA-style reference text on its own.
+   */
+  author?: string;
+  /** an explicit publication-year override, for the same reason as `author` */
+  year?: number;
+  /** an explicit source-type override, for the same reason as `author` */
+  sourceType?: 'primary' | 'scholarship' | 'article' | 'web';
 }
 
 interface SourcesProps {
@@ -47,7 +59,11 @@ export function Sources({ items }: SourcesProps) {
         }}
       >
         {items.map((s, i) => (
-          <li key={i} style={{ fontSize: 13.5, lineHeight: 1.6, color: c.muted }}>
+          <li
+            key={i}
+            id={sourceIdFor(s)}
+            style={{ fontSize: 13.5, lineHeight: 1.6, color: c.muted, scrollMarginTop: 84 }}
+          >
             {s.url ? (
               <a
                 href={s.url}

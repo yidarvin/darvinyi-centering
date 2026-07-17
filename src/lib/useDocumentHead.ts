@@ -6,6 +6,8 @@ interface HeadOptions {
   description: string;
   /** the route path, e.g. "/tranquility-by-judgment" */
   path: string;
+  /** an absolute-path override for the social-preview image, e.g. "/og/tranquility-by-judgment.png". Defaults to the shared site image. */
+  image?: string;
 }
 
 const SITE_NAME = 'Centering';
@@ -38,12 +40,12 @@ function setCanonical(href: string) {
  * and restores the site's defaults on unmount. Static builds write matching
  * metadata into each route document in scripts/prerender.mjs.
  */
-export function useDocumentHead({ title, description, path }: HeadOptions) {
+export function useDocumentHead({ title, description, path, image: imagePath }: HeadOptions) {
   useEffect(() => {
     if (!title) return;
     const fullTitle = `${title} · ${SITE_NAME}`;
     const url = `${window.location.origin}${path}`;
-    const image = `${window.location.origin}/og-image.png`;
+    const image = `${window.location.origin}${imagePath ?? '/og-image.png'}`;
 
     document.title = fullTitle;
     setMeta('name', 'description', description);
@@ -63,5 +65,5 @@ export function useDocumentHead({ title, description, path }: HeadOptions) {
       setMeta('property', 'og:description', DEFAULT_DESCRIPTION);
       setCanonical(`${window.location.origin}/`);
     };
-  }, [title, description, path]);
+  }, [title, description, path, imagePath]);
 }

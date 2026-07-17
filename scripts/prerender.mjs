@@ -14,7 +14,7 @@ function escapeHtml(value) {
 
 function metadata(pathname) {
   const chapter = chapters.find((entry) => `/${entry.slug}` === pathname);
-  if (chapter) return { title: `${chapter.title} · Centering`, description: chapter.blurb, type: 'article' };
+  if (chapter) return { title: `${chapter.title} · Centering`, description: chapter.blurb, type: 'article', image: `/og/${chapter.slug}.png` };
   const route = routes.find((entry) => `/routes/${entry.id}` === pathname);
   if (route) return { title: `${route.label} · Centering`, description: route.gloss, type: 'website' };
 
@@ -35,7 +35,7 @@ function documentFor(template, pathname, appHtml) {
     .replace(/<meta property="og:type" content="[^"]*"\s*\/>/, `<meta property="og:type" content="${page.type}" />`)
     .replace(/<meta property="og:title" content="[^"]*"\s*\/>/, `<meta property="og:title" content="${escapeHtml(page.title)}" />`)
     .replace(/<meta\s+property="og:description"[\s\S]*?\/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`)
-    .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${escapeHtml(`${SITE_ORIGIN}/og-image.png`)}" />`)
+    .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${escapeHtml(`${SITE_ORIGIN}${page.image ?? '/og-image.png'}`)}" />`)
     .replace(/<meta name="twitter:card" content="[^"]*"\s*\/>/, '<meta name="twitter:card" content="summary_large_image" />')
     .replace('<!--prerender-head-->', () => headFor(pathname));
 }

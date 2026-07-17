@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import cytoscape, { type Core, type ElementDefinition } from 'cytoscape';
+import type cytoscape from 'cytoscape';
+import type { Core, ElementDefinition } from 'cytoscape';
 import { ArrowUpRight, RotateCcw } from 'lucide-react';
 import { c, mono } from '@/styles/tokens';
 import { WidgetShell } from '@/components/WidgetShell';
@@ -221,74 +222,88 @@ export function ConvergenceExplorer() {
     selRef.current = sel;
   }, [sel]);
 
-  // mount cytoscape once
+  // mount cytoscape once. the engine itself is dynamically imported so a reader
+  // who never opens this chapter never pays for it: see check-bundle-budgets.mjs.
   useEffect(() => {
     if (!containerRef.current) return;
-    const cy = cytoscape({
-      container: containerRef.current,
-      elements,
-      style: stylesheet(reduced),
-      layout: { name: 'preset' },
-      userZoomingEnabled: false,
-      userPanningEnabled: false,
-      boxSelectionEnabled: false,
-      autounselectify: true,
-      autoungrabify: true,
-      minZoom: 0.2,
-      maxZoom: 2,
-    });
-    cyRef.current = cy;
-    cy.fit(undefined, 36);
+    let cancelled = false;
+    let cy: Core | null = null;
+    let ro: ResizeObserver | null = null;
+    let refit: (() => void) | null = null;
+    let watchdog: number | null = null;
 
-    cy.on('tap', 'node', (evt) => {
-      const n = evt.target;
-      const type = n.data('type') as string;
-      const raw = n.id();
-      if (type === 'calm') setSel((s) => (s?.kind === 'calm' ? null : { kind: 'calm' }));
-      else if (type === 'route') {
-        const id = raw.slice(2) as RouteId;
-        setSel((s) => (s?.kind === 'route' && s.id === id ? null : { kind: 'route', id }));
-      } else if (type === 'tradition') {
-        const id = raw.slice(2) as TraditionId;
-        setSel((s) => (s?.kind === 'tradition' && s.id === id ? null : { kind: 'tradition', id }));
-      }
-    });
-    cy.on('tap', (evt) => {
-      if (evt.target === cy) setSel(null);
-    });
+    import('cytoscape').then(({ default: cytoscapeLib }) => {
+      if (cancelled || !containerRef.current) return;
+      const instance = cytoscapeLib({
+        container: containerRef.current,
+        elements,
+        style: stylesheet(reduced),
+        layout: { name: 'preset' },
+        userZoomingEnabled: false,
+        userPanningEnabled: false,
+        boxSelectionEnabled: false,
+        autounselectify: true,
+        autoungrabify: true,
+        minZoom: 0.2,
+        maxZoom: 2,
+      });
+      cy = instance;
+      cyRef.current = instance;
+      instance.fit(undefined, 36);
+      // the selection may have changed while the engine was still loading
+      applyHighlight(instance, selRef.current);
 
-    // keep the graph fitted to its container across viewport and column changes.
-    // a ResizeObserver and a window listener cover live resizes. the watchdog
-    // self-heals the lazy-loaded mount, where the container can report zero width
-    // for a beat: it refits until the canvas matches the container, then stops, so
-    // the graph never gets stranded at a stale or zero size.
-    const refit = () => {
-      const el = containerRef.current;
-      if (!el || el.clientWidth < 2 || el.clientHeight < 2) return;
-      cy.resize();
-      cy.fit(undefined, 36);
-    };
-    const ro = new ResizeObserver(refit);
-    ro.observe(containerRef.current);
-    window.addEventListener('resize', refit);
+      instance.on('tap', 'node', (evt) => {
+        const n = evt.target;
+        const type = n.data('type') as string;
+        const raw = n.id();
+        if (type === 'calm') setSel((s) => (s?.kind === 'calm' ? null : { kind: 'calm' }));
+        else if (type === 'route') {
+          const id = raw.slice(2) as RouteId;
+          setSel((s) => (s?.kind === 'route' && s.id === id ? null : { kind: 'route', id }));
+        } else if (type === 'tradition') {
+          const id = raw.slice(2) as TraditionId;
+          setSel((s) => (s?.kind === 'tradition' && s.id === id ? null : { kind: 'tradition', id }));
+        }
+      });
+      instance.on('tap', (evt) => {
+        if (evt.target === instance) setSel(null);
+      });
 
-    let ticks = 0;
-    const watchdog = window.setInterval(() => {
-      const el = containerRef.current;
-      const cv = el?.querySelector('canvas');
-      if (el && el.clientWidth >= 2 && cv) {
-        const drawn = parseFloat(getComputedStyle(cv).width) || 0;
-        if (Math.abs(drawn - el.clientWidth) > 2) refit();
-        else window.clearInterval(watchdog);
-      }
-      if (++ticks > 24) window.clearInterval(watchdog);
-    }, 250);
+      // keep the graph fitted to its container across viewport and column changes.
+      // a ResizeObserver and a window listener cover live resizes. the watchdog
+      // self-heals the lazy-loaded mount, where the container can report zero width
+      // for a beat: it refits until the canvas matches the container, then stops, so
+      // the graph never gets stranded at a stale or zero size.
+      refit = () => {
+        const el = containerRef.current;
+        if (!el || el.clientWidth < 2 || el.clientHeight < 2) return;
+        instance.resize();
+        instance.fit(undefined, 36);
+      };
+      ro = new ResizeObserver(refit);
+      ro.observe(containerRef.current);
+      window.addEventListener('resize', refit);
+
+      let ticks = 0;
+      watchdog = window.setInterval(() => {
+        const el = containerRef.current;
+        const cv = el?.querySelector('canvas');
+        if (el && el.clientWidth >= 2 && cv) {
+          const drawn = parseFloat(getComputedStyle(cv).width) || 0;
+          if (Math.abs(drawn - el.clientWidth) > 2) refit?.();
+          else if (watchdog !== null) window.clearInterval(watchdog);
+        }
+        if (++ticks > 24 && watchdog !== null) window.clearInterval(watchdog);
+      }, 250);
+    });
 
     return () => {
-      window.clearInterval(watchdog);
-      window.removeEventListener('resize', refit);
-      ro.disconnect();
-      cy.destroy();
+      cancelled = true;
+      if (watchdog !== null) window.clearInterval(watchdog);
+      if (refit) window.removeEventListener('resize', refit);
+      ro?.disconnect();
+      cy?.destroy();
       cyRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

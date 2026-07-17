@@ -21,6 +21,9 @@ public/sitemap.xml
 public/robots.txt
 public/bibliography.json
 
+# Generated at build time by scripts/build-og-images.mjs
+public/og/
+
 # Vite / TypeScript caches
 .vite/
 *.tsbuildinfo

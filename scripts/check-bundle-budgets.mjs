@@ -6,11 +6,16 @@ const assetsDir = join(process.cwd(), 'dist', 'assets');
 // Raw bytes are stable enough to catch a real regression while keeping this
 // dependency-free. These route chunks are intentionally lazy: the landing page
 // does not pay for search's index or the convergence graph's rendering engine.
+//
+// These limits are regression ratchets, not size goals: they are set a little
+// above the current measured size so a real regression fails the build, not a
+// target to grow toward. Lower a limit whenever a change shrinks its chunk.
 const budgets = [
   { label: 'shared application', pattern: /^index-[\w-]+\.js$/, limit: 230_000 },
   { label: 'search', pattern: /^Search-[\w-]+\.js$/, limit: 425_000 },
   { label: 'sources', pattern: /^Bibliography-[\w-]+\.js$/, limit: 10_000 },
-  { label: 'convergence graph chapter', pattern: /^one-calm-many-doors-[\w-]+\.js$/, limit: 510_000 },
+  { label: 'convergence graph chapter', pattern: /^one-calm-many-doors-[\w-]+\.js$/, limit: 60_000 },
+  { label: 'cytoscape engine', pattern: /^cytoscape\.esm-[\w-]+\.js$/, limit: 460_000 },
 ];
 
 const assets = await readdir(assetsDir);

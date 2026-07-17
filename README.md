@@ -64,6 +64,8 @@ pnpm test:e2e     # Chromium checks, including all public routes at phone width
 
 Run tests, typecheck, lint, build, and browser checks before finishing a substantial change.
 
+`pnpm audit:deps` (also run at the end of `pnpm check`) runs `pnpm audit` and fails the gate on any high or critical advisory. The project migrated from vite 5 to vite 6 and vitest 2 to vitest 3 to clear a critical vitest advisory and three vite/esbuild advisories; `pnpm audit` currently reports no known vulnerabilities. A stray duplicate `vite@5.x` used to hide under vitest's own dependency tree even after the top-level version was bumped: pnpm needed an explicit override (`pnpm-workspace.yaml`'s `overrides` field, not `package.json`'s `pnpm.overrides`, which this pnpm version ignores) to fully deduplicate it. Re-run `pnpm audit` periodically and keep these majors current.
+
 ## Building the book
 
 Work is organized as a queue of self-contained prompts in `prompts/queue.md`, run in order. Each item produces one scaffold or one full chapter, built to the standards in `docs/authoring-spec.md` and the per-chapter spec in `docs/scope-and-outline.md`. See `CLAUDE.md` for the full workflow.

@@ -1,12 +1,13 @@
 /**
- * The help resources for Chapter 18, verified against official sources on
- * 2026-07-15. This is the safety content of the book, so accuracy matters more
- * here than anywhere else. A few notes for whoever maintains this:
+ * The help resources for Chapter 18, verified against official sources as of
+ * RESOURCES_VERIFIED_AT below. This is the safety content of the book, so
+ * accuracy matters more here than anywhere else. A few notes for whoever
+ * maintains this:
  *
  *  - Crisis phone numbers are region-specific and they change. These are US
  *    services, with an international directory (findahelpline.com) as the pointer
  *    for everyone else. Re-verify before any deploy that ships a long time after
- *    this date.
+ *    RESOURCES_VERIFIED_AT, and bump it when you do.
  *  - "988, press 3" for LGBTQ+ youth was discontinued on 2025-07-17. The main 988
  *    line still serves everyone; the current dedicated route for LGBTQ+ youth is
  *    The Trevor Project's own line, listed below. There has been talk of a
@@ -19,6 +20,15 @@
  *  - This is information, not diagnosis or therapy. The prose and the widget say
  *    so plainly.
  */
+
+/**
+ * The single source of truth for when the resources below were last checked
+ * against their official sources. Rendered to readers in SelfCheck.tsx and the
+ * chapter sources note, and enforced at build time by
+ * scripts/check-resource-freshness.mjs (warns at 30 days, fails the production
+ * build at 90). Update this whenever you re-verify the numbers.
+ */
+export const RESOURCES_VERIFIED_AT = '2026-07-15';
 
 export type ResourceGroup = 'crisis' | 'community' | 'ongoing';
 
@@ -58,7 +68,7 @@ export const GROUPS: Group[] = [
         name: '988 Suicide and Crisis Lifeline',
         who: 'Anyone in the US in crisis, or worried about someone who is.',
         contact: 'Call or text 988. Chat at 988lifeline.org. En español: press 2, or text AYUDA to 988.',
-        note: '24/7, free, confidential. In a life-threatening emergency, call 911.',
+        note: '24/7, free, confidential, with one exception: it may contact emergency services without your consent if it believes your life is in immediate danger. In a life-threatening emergency, call 911.',
         url: 'https://988lifeline.org',
         urlLabel: '988lifeline.org',
       },
@@ -67,7 +77,7 @@ export const GROUPS: Group[] = [
         name: 'Crisis Text Line',
         who: 'Anyone in the US who would rather text than talk.',
         contact: 'Text HOME to 741741. En español: text HOLA to 741741.',
-        note: '24/7, free, confidential.',
+        note: '24/7, free, confidential, with the same immediate-danger exception as 988.',
         url: 'https://www.crisistextline.org',
         urlLabel: 'crisistextline.org',
       },
@@ -93,7 +103,7 @@ export const GROUPS: Group[] = [
         name: 'The Trevor Project',
         who: 'LGBTQ+ young people (under 25).',
         contact: 'Call 1-866-488-7386. Text START to 678678. Chat at thetrevorproject.org.',
-        note: '24/7, free, confidential.',
+        note: '24/7, free, confidential, with the same immediate-danger exception as 988.',
         url: 'https://www.thetrevorproject.org/get-help/',
         urlLabel: 'thetrevorproject.org',
       },
